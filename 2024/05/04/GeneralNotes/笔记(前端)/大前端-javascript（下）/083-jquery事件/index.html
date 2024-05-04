@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="on绑定事件 123$(&quot;ul li&quot;).on(&quot;click&quot;,function()&#123;  console.log(&quot;li click&quot;)  &#125;)  1234&#x2F;&#x2F;on的事件委托  $(&quot;ul&quot;).on(&quot;click&quot;,&quot;button&quot;,function()&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/083-jquery%E4%BA%8B%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="on绑定事件 123$(&quot;ul li&quot;).on(&quot;click&quot;,function()&#123;  console.log(&quot;li click&quot;)  &#125;)  1234&#x2F;&#x2F;on的事件委托  $(&quot;ul&quot;).on(&quot;click&quot;,&quot;button&quot;,function()&amp;#1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.607Z">
+<meta property="article:modified_time" content="2023-11-27T13:45:18.324Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/083-jquery事件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/083-jquery%E4%BA%8B%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.607Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>on绑定事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;li click&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//on的事件委托  </span></span><br><span class="line">$(<span class="string">&quot;ul&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,<span class="string">&quot;button&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;button click&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这里说一句，使用jquery就不要用原生js了，别整的不三不四的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// on穿参数，必须是对象  </span></span><br><span class="line"><span class="comment">//委托和传参数同时有就随意了  </span></span><br><span class="line">$(<span class="string">&quot;ul&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,&#123;  </span><br><span class="line"><span class="attr">name</span>:<span class="string">&#x27;liangxiang&#x27;</span><span class="comment">//必须是对象才能传参  </span></span><br><span class="line">&#125;,<span class="keyword">function</span>(<span class="params">evt</span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(evt)<span class="comment">//传参过来的对象里面的data就是我们传来的参数  </span></span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">$(<span class="string">&quot;ul&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,<span class="string">&quot;button&quot;</span>,&#123;  </span><br><span class="line"><span class="attr">name</span>:<span class="string">&#x27;liangxiang&#x27;</span><span class="comment">//这时传参的值就很随意  </span></span><br><span class="line">&#125;,<span class="keyword">function</span>(<span class="params">evt</span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(evt)<span class="comment">//传参过来的对象里面的data就是我们传来的参数  </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>one绑定事件（和on的区别就是这是一个一次性的事件，只能点击一次）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">one</span>(<span class="string">&quot;click&quot;</span>,<span class="string">&quot;button&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;one&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>常用方法函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;click&quot;</span>)  </span><br><span class="line">&#125;).<span class="title function_">mouseover</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;mouseover&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>也可以实现传参但是无法实现事件委托</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">click</span>(&#123;<span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>&#125;,<span class="keyword">function</span>(<span class="params">e</span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;click&quot;</span>,e.<span class="property">data</span>)  </span><br><span class="line">&#125;).<span class="title function_">mouseover</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;mouseover&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>解绑事件off:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">off</span>(<span class="string">&quot;click&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">off</span>(<span class="string">&quot;mouseover&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>解绑所有事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">off</span>()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,A).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,B)  </span><br><span class="line">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">off</span>(<span class="string">&quot;click&quot;</span>,A)  </span><br><span class="line"><span class="comment">//只解绑其中一个事件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>111111<span class="tag">&lt;<span class="name">button</span>&gt;</span>del<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>222222<span class="tag">&lt;<span class="name">button</span>&gt;</span>del<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>333333<span class="tag">&lt;<span class="name">button</span>&gt;</span>del<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../jQuery/jQuery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).on(&quot;click&quot;,function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;li click&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul&quot;).on(&quot;click&quot;,function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;ul click&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//on的事件委托  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul&quot;).on(&quot;click&quot;,&quot;button&quot;,function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// this.parentNode.remove()  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// on穿参数，必须是对象  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//委托和传参数同时有就随意了  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul&quot;).on(&quot;click&quot;,&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// name:&#x27;liangxiang&#x27;//必须是对象才能传参  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;,function(evt)&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(evt)//传参过来的对象里面的data就是我们传来的参数  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul&quot;).on(&quot;click&quot;,&quot;button&quot;,&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// name:&#x27;liangxiang&#x27;//这时传参的值就很随意  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;,function(evt)&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(evt)//传参过来的对象里面的data就是我们传来的参数  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).one(&quot;click&quot;,&quot;button&quot;,function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;one&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).click(&#123;name:&quot;lx&quot;&#125;,function(e)&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;click&quot;,e.data)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;).mouseover(function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;mouseover&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).off(&quot;click&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).off(&quot;mouseover&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// $(&quot;ul li&quot;).off()  </span></span></span><br><span class="line"><span class="language-javascript">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,A).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>,B)  </span></span><br><span class="line"><span class="language-javascript">$(<span class="string">&quot;ul li&quot;</span>).<span class="title function_">off</span>(<span class="string">&quot;click&quot;</span>,A)  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//只解绑其中一个事件  </span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">A</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;A&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">B</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;B&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/083-jquery%E4%BA%8B%E4%BB%B6/" data-id="clvs5xbw700sbxco9f5a7hrc1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/085-jquery%E6%A1%88%E4%BE%8B-%E9%BC%A0%E6%A0%87%E8%B7%9F%E9%9A%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/081-jquery%E6%93%8D%E4%BD%9C%E5%81%8F%E7%A7%BB%E9%87%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

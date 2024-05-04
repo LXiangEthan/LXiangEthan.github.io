@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/54/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/064-CSS-溢出属性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/064-CSS-%E6%BA%A2%E5%87%BA%E5%B1%9E%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.530Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/064-CSS-%E6%BA%A2%E5%87%BA%E5%B1%9E%E6%80%A7/Pasted%20image%2020230930170424.png"><br><img src="/assets/064-CSS-%E6%BA%A2%E5%87%BA%E5%B1%9E%E6%80%A7/Pasted%20image%2020230930170434.png"><br>loream+tab自动生成文本</p>
+<p>visable—显示溢出<br>hidden—隐藏溢出<br>scroll—–出现滚动条（无论是否溢出都会出现滚动条，文本没有溢出只是不能滚动）<br>auto——溢出才出现滚动条<br>inherit—-继承父元素的overflow</p>
+<hr>
+<p>overflow:auto&#x2F;scroll;设置后会把x轴和y轴都会出现滚动条<br>overflow-x:auto;<br>overflow-x:hidden;<br>overflow-x和overflow-y必须同时使用才能生效对x和y单独设置滚动</p>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:yellow;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow: visible; 显示溢出 */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow:hidden; 溢出隐藏,文本裁切 */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow: scroll;  */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow: auto; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow: inherit; 继承父元素的效果 */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* overflow: auto; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow-x</span>:auto;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow-y</span>:hidden;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt </span><br><span class="line">        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero error, quidem rerum deleniti pariatur soluta veniam nulla vel sequi magnam inventore quod dignissimos. Repellat, dignissimos? Dolores recusandae error cumque ducimus.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/064-CSS-%E6%BA%A2%E5%87%BA%E5%B1%9E%E6%80%A7/" data-id="clvs5xbv400kuxco9hn0x8h3j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/063-CSS-盒子模型案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/063-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.530Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        *&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">img</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#box</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">241px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">335px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* background: yellow; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>:<span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">11px</span> <span class="number">11px</span> <span class="number">18px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.title</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">235px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">19px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* background:red; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding-left</span>:<span class="number">4px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-left</span>:<span class="number">2px</span> solid <span class="number">#254282</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>:<span class="number">#254282</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">line-height</span>: <span class="number">19px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-bottom</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.bigpic</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">241px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">170px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-bottom</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.bigpic</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">241px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">26px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: <span class="number">#f6f7f8</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">line-height</span>: <span class="number">26px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.smallpic</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">241px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.smallpic</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">112px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: <span class="number">#f6f7f8</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">line-height</span>: <span class="number">18px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">float</span><span class="selector-pseudo">:left</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">float</span><span class="selector-pseudo">:right</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><br><span class="line">            女人图片</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;bigpic&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/big.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>大姐利用异业联盟经营美容院<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;smallpic&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/small1.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>无效穿搭,无效化妆,容貌焦虑<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/small2.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">                    小个子不要怕, 高人一等的穿搭给你</span><br><span class="line">                <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>width和height设置的宽高在普通盒子中只有内容的宽高，加上外边距内边距边框都会撑开宽高<br>行内块元素无论是否清除内外边距都会出现一定距离</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/063-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E6%A1%88%E4%BE%8B/" data-id="clvs5xbv400kvxco965f160ht" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/061-CSS-盒子模型-外边距特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/061-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%89%B9%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.529Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1、兄弟关系，两个盒子垂直外边距与水平外边距问题<br>2、父子关系，给予子盒子外边距，但作用于父盒子身上怎么解决</p>
+<p>1）给兄弟关系的两个盒子都设置外边距，垂直方向上会取两个盒子的外边距中的最大值，不会相加，水平方向上，则不会取最大值，两个外边距就会相加</p>
+<p>2）如果子盒子和父盒子之间没有边距。子盒子设置外边距那么子盒子的外边距就会转移到父盒子上<br>解决方法：<br>1、给父盒子加上内边距，（效果不好）<br>2、给父盒子设置边框，这样父盒子和子盒子之间就会有边框的距离，就能解决问题<br>3、让子盒子加上浮动或者给父盒子加浮动就能解决问题<br>4、父盒子设置BFC，overflow:hidden;不会受到外界打扰<br><font  color=yellow>设置颜色可以使用transparent实现透明属性</font></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:yellow;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>:hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* float:left; */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* padding-top:100px; */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* border:1px solid transparent; */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>:<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* float: left; */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          1. 子margin-top===&gt;父的padding-top, 注意高度计算.</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          2. 给父盒子设置边框</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          3. 加浮动</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          4. overflow:hidden. BFC,</span></span></span><br><span class="line"><span class="comment"><span class="language-css">        */</span></span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/061-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%89%B9%E6%80%A7/" data-id="clvs5xbv300ksxco9ff0w7zm0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/062-PS基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/062-PS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.529Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <pre><code>            ps====图片处理软件(美工来做图, 前端来测量 吸取颜色 切图)
+            拿到设计稿之后：使用ps打开
+                1、图片上面右键-=====打开方式ps
+                2、ps里 文件=&gt;打开
+            图片放大和缩小
+                ctrl++
+                ctrl+-
+                alt+滚动
+            图片的移动
+                按住空格,鼠标变为小手,拖动图片
+
+            如何调整出来标尺
+                ctrl+r
+                作用：拖动参考线方便测量
+                视图里面找到标尺，把对勾勾选上	
+            测量图片大小
+                使用矩形选框工具（左侧竖着第二个）
+                如何查看数据大小（窗口-----信息面板====wh）
+                如何修改测量单位：
+                    在标尺上面右键取修改单位====像素
+                ctrl+d===取消选区
+
+                选完后,想调整大小, 可以右键-&gt;变换选区
+
+            吸取颜色
+                使用吸管工具  I
+                吸取颜色完成后，点击左下角的背景色，会右弹窗，在弹窗里面右#十六进制的颜色值可以让你复制
+
+            截图
+                1、使用快捷键截图===每次只能截取一个
+                    使用选框工具框选尼亚截取的区域
+                        ctrl+c=======ctrl+n=======回车=======ctrl+v=======ctrl+s
+                        回车======回车
+                2、切片工具 (裁剪工具进行切换)
+                    使用切片工具框选你要留住的区域，点击文件，存储为web所用格式，弹窗里面点击存储，
+                    弹窗======格式:仅限图像，切片:所有用户切片
+</code></pre>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/062-PS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="clvs5xbv400ktxco9av1r6mgx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/059-CSS-盒子模型-边框" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/059-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E8%BE%B9%E6%A1%86/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.528Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>border:1px solid gray;<br>三个值分别是：边框粗细    边框样式     边框颜色</p>
+<p>边框支持：solid(实线)   double(双实线)     dashed(虚线)    dotted(点状线)</p>
+<hr>
+<p>背景色也能蔓延到边框上</p>
+<hr>
+<p>上右下左可以单独设置边框<br>border-top:–;<br>border-right:–;<br>border-bottom:–;<br>border-left:–;</p>
+<hr>
+<p>也可以把border拆开设置<br>border-width:–;<br>border-style:–;<br>border-color:–;<br>这几个属性也可以分别对四个方向拆开设置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box3</span>&#123;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">background</span>:green;</span><br><span class="line">       <span class="attribute">border-width</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>;</span><br><span class="line">       <span class="attribute">border-color</span>: yellow blue black red;</span><br><span class="line">       <span class="attribute">border-style</span>: solid double dashed dotted;</span><br><span class="line">       <span class="comment">/* border </span></span><br><span class="line"><span class="comment">       </span></span><br><span class="line"><span class="comment">           border-width</span></span><br><span class="line"><span class="comment">           border-style</span></span><br><span class="line"><span class="comment">           border-color</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>设置一个值：四个方向都一样，设置两个值：上下、左右，设置三个值：上，左右，下，设置四个值：按照顺时针方向，上，右，下，左</p>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* border:1px solid gray */</span></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:yellow;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>:<span class="number">10px</span> dotted red;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/*样式: solid double dashed  dotted*/</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 背景色 也能蔓延到边框 */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:blue;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-top</span>: <span class="number">5px</span> solid red;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-left</span>: <span class="number">10px</span> dashed yellow;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box3</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:green;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-width</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-color</span>: yellow blue black red;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-style</span>: solid double dashed dotted;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* border </span></span></span><br><span class="line"><span class="comment"><span class="language-css">            </span></span></span><br><span class="line"><span class="comment"><span class="language-css">                border-width</span></span></span><br><span class="line"><span class="comment"><span class="language-css">                border-style</span></span></span><br><span class="line"><span class="comment"><span class="language-css">                border-color</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/059-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E8%BE%B9%E6%A1%86/" data-id="clvs5xbv200kqxco9ak3z061e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/060-CSS-盒子模型-外边距" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/060-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%A4%96%E8%BE%B9%E8%B7%9D/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.528Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/060-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%A4%96%E8%BE%B9%E8%B7%9D/Pasted%20image%2020230927170047.png"><br>margin:–px;<br>margin:–px  –px;<br>·  ·  ·  ·  ·  ·<br>设置一个值：四个方向都一样，设置两个值：上下、左右，设置三个值：上，左右，下，设置四个值：按照顺时针方向，上，右，下，左</p>
+<hr>
+<p>单独设置一个方向<br>margin-top:–;<br>margin-right:–;<br>margin-bottom:–;<br>margin-left:–;</p>
+<hr>
+<p>背景色没有蔓延</p>
+<hr>
+<p>margin可以设置成负值，那么两个盒子会相互靠近</p>
+<hr>
+<p>快速让盒子在屏幕中居中<br>margin:0 auto;可以横向居中<br>上下的auto是没有意义的</p>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        *&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>:<span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:red;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>:<span class="number">1px</span> solid yellow;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* margin:50px; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* margin:50px 100px; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* margin:50px 100px 200px; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* margin:10px 20px 30px 40px; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-left</span>:<span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>:-<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-left</span>:<span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:green;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>:<span class="number">1px</span> solid blue;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box3</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:black;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>:<span class="number">10px</span> auto;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">         <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          1.margin-方向 4个方向</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          2. 背景色蔓延?没有</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          3. * &#123;margin:0&#125;</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          4. 外边距负值? 支持.</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          5. 屏幕居中? margin:0 auto; 横向居中</span></span></span><br><span class="line"><span class="comment"><span class="language-css">        */</span></span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">        大家好</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/060-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%A4%96%E8%BE%B9%E8%B7%9D/" data-id="clvs5xbv300krxco9b8d8fkht" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/057-CSS-盒子模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/057-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.527Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/057-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/Pasted%20image%2020230927163221.png"><br><img src="/assets/057-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/Pasted%20image%2020230927163250.png"><br><img src="/assets/057-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/%E6%97%A0%E6%A0%87%E9%A2%98.png"></p>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>:<span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:yellow;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: justify;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* padding: 30px;  */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* padding:20px 30px; */</span></span></span><br><span class="line"><span class="language-css">            <span class="comment">/* padding:10px 20px 30px; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* 内边距</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            </span></span></span><br><span class="line"><span class="comment"><span class="language-css">              1个值, 4个方向一样</span></span></span><br><span class="line"><span class="comment"><span class="language-css">              2个值, 上下, 左右</span></span></span><br><span class="line"><span class="comment"><span class="language-css">              3个值, 上 左右 下</span></span></span><br><span class="line"><span class="comment"><span class="language-css">              4个值, 上 右 下 左</span></span></span><br><span class="line"><span class="comment"><span class="language-css">             */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus culpa totam explicabo! Ad sapiente assumenda reprehenderit earum delectus placeat doloribus ullam fugit minus modi at voluptates et, magni eius dolorem!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>内边距padding设置一个值：四个方向都一样，设置两个值：上下、左右，设置三个值：上，左右，下，设置四个值：按照顺时针方向，上，右，下，左</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/057-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" data-id="clvs5xbuh00koxco9cgrd1ans" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/058-CSS-盒子模型-内边距特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/058-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%86%85%E8%BE%B9%E8%B7%9D%E7%89%B9%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.527Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1、背景色会蔓延到内边距<br>2、可以设置单一方向<br>padding-top:–;——上内边距<br>padding-right:–;—–右内边距<br>padding-bottom:–;——下内边距<br>padding-left:–;——左内边距</p>
+<hr>
+<p>如果把padding设置成负数是不支持的，是无效的</p>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          1. 背景色蔓延到内边距</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          2. 可以设置单一方向吗?</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            padding-方向:top bottom left right</span></span></span><br><span class="line"><span class="comment"><span class="language-css">        */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        *&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* padding: 30px 0 0 0 ; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding-right</span>:<span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:yellow;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">ul</span>  &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding-left</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ipsa voluptate inventore adipisci consequatur vitae consectetur facilis nesciunt labore eius in, iure dicta eligendi ut deleniti sequi omnis necessitatibus veniam.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>1111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>2222<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>3333<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/058-CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E5%86%85%E8%BE%B9%E8%B7%9D%E7%89%B9%E6%80%A7/" data-id="clvs5xbus00kpxco915voajbc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/055-CSS-浮动属性下（清除浮动）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/055-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8B%EF%BC%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.525Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/055-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8B%EF%BC%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%EF%BC%89/Pasted%20image%2020230927161059.png"><br>上面盒子浮动时下面盒子会自动往上填充，这是浮动的弊端，浮动的时候高度就没有了那么如何解决这个问题，这种问题叫#高度塌陷#<br><img src="/assets/055-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8B%EF%BC%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%EF%BC%89/Pasted%20image%2020230927162224.png"><br>可以解决这种高度塌陷的问题</p>
+<ol>
+<li>写固定高度</li>
+<li>清浮动 clear:none &#x2F;left,right,both</li>
+<li>当前浮动元素后面补一个盒子, 不设置宽高, clear:both</li>
+<li>overflow:hidden,引发BFC块级作用域，让浮动元素计算高度</li>
+</ol>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>,<span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: yellow;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: blue;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* clear: both; */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* height: 200px; */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">            <span class="comment">/* bfc ,让浮动元素计算高度 */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          1. 写固定高度</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          2. 清浮动 clear:none /left,right,both</span></span></span><br><span class="line"><span class="comment"><span class="language-css">          3. 当前浮动元素后面补一个盒子, 不设置宽高, clear:both</span></span></span><br><span class="line"><span class="comment"><span class="language-css"></span></span></span><br><span class="line"><span class="comment"><span class="language-css">          4. overflow:hidden,让浮动元素计算高度</span></span></span><br><span class="line"><span class="comment"><span class="language-css">        */</span></span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/055-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8B%EF%BC%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%EF%BC%89/" data-id="clvs5xbuh00klxco96dgv47aw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-HTML+CSS/054-CSS-浮动属性上" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.525Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927135538.png"><br><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927152805.png"><br>float:left;左浮动<br>float:right;右浮动<br>float:none;不浮动<br><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927152913.png"><br><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927153053.png"><br><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927153106.png"><br>浮动是半脱离文档流，如果多个盒子设置浮动，就会并排排列<br>左浮动谁先浮动谁靠左<br>右浮动谁先浮动谁靠右</p>
+<hr>
+<p>浮动属性有见缝插针的原则，并不一定完全并排排列<br><img src="/assets/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/Pasted%20image%2020230927161031.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-HTML+CSS/054-CSS-%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E4%B8%8A/" data-id="clvs5xbuh00kmxco9hq3mariq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/53/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><a class="page-number" href="/page/56/">56</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/55/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

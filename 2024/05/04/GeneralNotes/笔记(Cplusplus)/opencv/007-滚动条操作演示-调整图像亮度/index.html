@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="createTrackbar滚动条createTrackbar(“TrackBar名称”, “窗口名称”，初始值地址，最大值); 1234567891011121314151617int lightness &#x3D; 50;Mat m, src, dst;static void onTrack(int,void*) &#123;	m &#x3D; Scalar(lightness, lightness, ligh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/007-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%93%8D%E4%BD%9C%E6%BC%94%E7%A4%BA-%E8%B0%83%E6%95%B4%E5%9B%BE%E5%83%8F%E4%BA%AE%E5%BA%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="createTrackbar滚动条createTrackbar(“TrackBar名称”, “窗口名称”，初始值地址，最大值); 1234567891011121314151617int lightness &#x3D; 50;Mat m, src, dst;static void onTrack(int,void*) &#123;	m &#x3D; Scalar(lightness, lightness, ligh">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:37.195Z">
+<meta property="article:modified_time" content="2023-11-14T10:49:56.888Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(Cplusplus)/opencv/007-滚动条操作演示-调整图像亮度" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/007-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%93%8D%E4%BD%9C%E6%BC%94%E7%A4%BA-%E8%B0%83%E6%95%B4%E5%9B%BE%E5%83%8F%E4%BA%AE%E5%BA%A6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.195Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>createTrackbar滚动条<br>createTrackbar(“TrackBar名称”, “窗口名称”，初始值地址，最大值);</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> lightness = <span class="number">50</span>;</span><br><span class="line">Mat m, src, dst;</span><br><span class="line"><span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">onTrack</span><span class="params">(<span class="type">int</span>,<span class="type">void</span>*)</span> </span>&#123;</span><br><span class="line">	m = <span class="built_in">Scalar</span>(lightness, lightness, lightness);</span><br><span class="line">	<span class="built_in">add</span>(src, m, dst);</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;亮度调整&quot;</span>,dst);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">quickdemo::TrackBarDemo</span><span class="params">(Mat&amp; image)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">namedWindow</span>(<span class="string">&quot;亮度调整&quot;</span>, WINDOW_FREERATIO);</span><br><span class="line">	m = Mat::<span class="built_in">zeros</span>(image.<span class="built_in">size</span>(), image.<span class="built_in">type</span>());</span><br><span class="line">	dst = Mat::<span class="built_in">zeros</span>(image.<span class="built_in">size</span>(), image.<span class="built_in">type</span>());</span><br><span class="line">	src = image;</span><br><span class="line">	<span class="type">int</span> max_value = <span class="number">100</span>;</span><br><span class="line">	<span class="built_in">createTrackbar</span>(<span class="string">&quot;Value_Bar&quot;</span>, <span class="string">&quot;亮度调整&quot;</span>,&amp;lightness,max_value,onTrack);</span><br><span class="line">	<span class="built_in">onTrack</span>(<span class="number">50</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1. `int lightness = 50;`: 定义一个整数变量`lightness`并初始化为50。这个变量用来控制图像的亮度。</span><br><span class="line">2. `Mat m, src, dst;`: 定义三个OpenCV的Mat（矩阵）对象。它们将用于存储图像数据。</span><br><span class="line">3. `static void onTrack(int,void*) &#123;`: 定义一个静态函数`onTrack`，它会在滑动条（即TrackBar）发生改变时被调用。这个函数接受两个参数：一个int型的变量和void指针。</span><br><span class="line">4. `m = Scalar(lightness, lightness, lightness);`: 用`lightness`变量的值创建一个Scalar对象，表示图像的亮度。</span><br><span class="line">5. `add(src, m, dst);`: 使用`add`函数将源图像`src`和亮度调整矩阵`m`相加，结果存储在`dst`中。这实际上就是调整图像的亮度。</span><br><span class="line">6. `imshow(&quot;亮度调整&quot;,dst);`: 显示调整亮度后的图像`dst`。</span><br><span class="line">7. `void quickdemo::TrackBarDemo(Mat&amp; image) &#123;`: 定义一个名为`TrackBarDemo`的函数，它接受一个Mat对象的引用作为参数。这个函数是用来展示滑动条（TrackBar）如何控制图像亮度的。</span><br><span class="line">8. `namedWindow(&quot;亮度调整&quot;, WINDOW_FREERATIO);`: 创建一个名为“亮度调整”的窗口，并设置其比例自由（WINDOW_FREERATIO）。</span><br><span class="line">9. `m = Mat::zeros(image.size(), image.type());`: 创建一个与输入图像`image`大小和类型相同的零矩阵`m`。</span><br><span class="line">10. `dst = Mat::zeros(image.size(), image.type());`: 创建一个与输入图像`image`大小和类型相同的零矩阵`dst`。</span><br><span class="line">11. `src = image;`: 将输入图像赋值给`src`。</span><br><span class="line">12. `int max_value = 100;`: 定义一个最大亮度值为100。</span><br><span class="line">13. `createTrackbar(&quot;Value_Bar&quot;, &quot;亮度调整&quot;,&amp;lightness,max_value,onTrack);`: 创建一个名为&quot;Value_Bar&quot;的滑动条，当其值改变时，会调用函数`onTrack`。&quot;亮度调整&quot;是滑动条的提示文本；`&amp;lightness`是滑动条将改变的变量的地址；`max_value`是滑动条的最大值；`onTrack`是滑动条改变时调用的回调函数。</span><br><span class="line">14. `onTrack(50,0);`: 在创建滑动条后，立即调用`onTrack`函数以显示原始图像（因为初始的亮度值为50）。</span><br><span class="line">15. 在函数`onTrack(50,0);`中，两个参数的意义如下：</span><br><span class="line"></span><br><span class="line">第一个参数 `50` 是传递给 `onTrack` 函数的整数值。在这个上下文中，这个值可能代表了滑动条的当前位置，也就是当前的亮度级别。</span><br><span class="line"></span><br><span class="line">第二个参数 `0` 是一个void指针，它允许函数接受任意类型的数据，但在这个例子中，它可能没有实际的作用，或者可能被忽略。在一些情况下，void指针可能用于在编译时提供类型安全，或者用于在运行时传递动态数据。</span><br><span class="line"></span><br><span class="line">请注意，这只是一种可能的解释。确切的参数含义可能需要查看函数的定义或函数所在的上下文以确定。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/007-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%93%8D%E4%BD%9C%E6%BC%94%E7%A4%BA-%E8%B0%83%E6%95%B4%E5%9B%BE%E5%83%8F%E4%BA%AE%E5%BA%A6/" data-id="clvs5xbss0097xco92rdbdw98" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/008-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%93%8D%E4%BD%9C%E6%BC%94%E7%A4%BA-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%BA%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/005-%E5%9B%BE%E5%83%8F%E5%83%8F%E7%B4%A0%E7%9A%84%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

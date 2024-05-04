@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）_将本地仓库与远程仓库关联-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;github-git-csdn-18f43b5149eOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_29493173&#x2F;article&#x2F;details&#x2F;1130">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-05-04/Github%E2%80%94%E2%80%94git%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E4%B8%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%88%E6%9C%80%E8%AF%A6%E7%BB%86%E6%B8%85%E6%99%B0%E7%89%88%E6%9C%AC%EF%BC%81%E9%99%84%E7%AE%80%E5%8C%96%E6%AD%A5%E9%AA%A4%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%EF%BC%89_%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）_将本地仓库与远程仓库关联-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;github-git-csdn-18f43b5149eOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_29493173&#x2F;article&#x2F;details&#x2F;1130">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,soBT3rPmlDSSuXAVwvUWHZbX48Sqo_dtTHtxoxBRIv80/https://img-blog.csdnimg.cn/20210124175749176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sI4E_WgZ_uYCfSyLBZwnO4F8InWPUUW6f7iJYzPKmLAE/https://img-blog.csdnimg.cn/20210124190401650.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sYYNQzcmYXpF5iqRIA2EHbMIXr8xUPkl3nSDacJf_qtw/https://img-blog.csdnimg.cn/20210124190754242.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,stH2jsYfzp3LdXUWh9aIaKxrkif4aawiE87AKfM_XFjA/https://img-blog.csdnimg.cn/20210124190824177.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sqkbOTeiJXw3fbYaePrFLg5qeBWU6aVy28gIwH-tEKJ8/https://img-blog.csdnimg.cn/20210124190533899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sdvo9Ax91EOnJFTYn6SQY_NG95LKHBUXV4SeD0f-H9fQ/https://img-blog.csdnimg.cn/20210124191109752.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sUwsPPLojAn-QL5nPbaDhYYuQE6E-9OrWJkEnkSmRV_A/https://img-blog.csdnimg.cn/20210124191208964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,s5_VCVrXV25B418mlI4mX23hV_4sV2Qil4UZJB6c7YG4/https://img-blog.csdnimg.cn/20210124191639181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sU3hgu0VGrdcm-tvtw5DVVRG1Wjb9173MWVHkQDy7WWw/https://img-blog.csdnimg.cn/20210124192239298.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sXMs_BeiCS7NkBnPoao5oA1lWPKDeaoRYAX8B4VqX-m0/https://img-blog.csdnimg.cn/20210124181635361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,s7rM-1cQh-15m3aPYVIWUDDG4BEUJkk4Q8Q-dzHNJu7Y/https://img-blog.csdnimg.cn/20210124181749927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sHE02ZkD5SJ3R9-aebyuZOHbxozE8QmlFFuj5rihHj8k/https://img-blog.csdnimg.cn/20210124182500720.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sdZ38tVHfytbJ0KaX90bOY_Q6-hlaqhXrPWaLgsmH-JQ/https://img-blog.csdnimg.cn/2021012418261251.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,scl2GwEXpxYLzpaTDV7zPsJ-bEbPWVRqSIUd8ySpeSqI/https://img-blog.csdnimg.cn/20210124183511538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sNip8XN1IMRIn4dLozTLzKjTUx4Kxde57fKNCmyFeFws/https://img-blog.csdnimg.cn/20210124183526364.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sqsHlYq1S0vPOkMm7owW7cgstR8iq_xm5L5m59PBor1o/https://img-blog.csdnimg.cn/20210124183622765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sGmBqr9kof0PiuZ8adaim0eGJryTizv9syrDkpCOI3PU/https://img-blog.csdnimg.cn/20210124184143206.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,s8OHy580dbvhMHqSsfkqI7EoKJJfgtVTrX-YnVtVwXy8/https://img-blog.csdnimg.cn/20210124185840106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sjRW689TPlhQp7G5JyM-ANHwxmD-YozpkZfXlnM2KN_8/https://img-blog.csdnimg.cn/20210124192955557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,slSQKMus0tYB5HTRRp9juiZKr_hutveoXCSDDWDA89Kc/https://img-blog.csdnimg.cn/20210124193523512.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sDdTH5Cfx9cqGZNmXFG42Q8XkSkYDyBMyTQDhcTsyGSs/https://img-blog.csdnimg.cn/20210124193649138.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sIqlBL8C9Q1NnvqxDVVMrAoJfYbZsEqmmqSPszOjz-kE/https://img-blog.csdnimg.cn/20210124193943510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,slXP4yvf1sJpVmHONsdI8NFdEShHAKTFqdc4aoOAcfRg/https://img-blog.csdnimg.cn/20210124194041612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2024-05-04T13:48:36.080Z">
+<meta property="article:modified_time" content="2024-05-04T13:48:05.481Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-05-04/Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）_将本地仓库与远程仓库关联-CSDN博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-05-04/Github%E2%80%94%E2%80%94git%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E4%B8%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%88%E6%9C%80%E8%AF%A6%E7%BB%86%E6%B8%85%E6%99%B0%E7%89%88%E6%9C%AC%EF%BC%81%E9%99%84%E7%AE%80%E5%8C%96%E6%AD%A5%E9%AA%A4%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%EF%BC%89_%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94-CSDN%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.080Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）-将本地仓库与远程仓库关联-CSDN博客"><a href="#Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）-将本地仓库与远程仓库关联-CSDN博客" class="headerlink" title="Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）_将本地仓库与远程仓库关联-CSDN博客"></a>Github——git本地仓库建立与远程连接（最详细清晰版本！附简化步骤与常见错误）_将本地仓库与远程仓库关联-CSDN博客</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/github-git-csdn-18f43b5149e">https://omnivore.app/me/github-git-csdn-18f43b5149e</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29493173/article/details/113094143">https://blog.csdn.net/qq_29493173/article/details/113094143</a></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"></p>
+<p> 版权声明：本文为博主原创文章，遵循<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+<p>前提概要：<br><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020">github</a>进不去？图片显示不出来？<br> 有没有更简单的github上传方式？！<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq%5F29493173/article/details/113092656">戳这里</a>←←←←</p>
+<h4 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h4><ul>
+<li><a href="#git_6">一、git简介</a></li>
+<li><a href="#git_9">二、git下载</a></li>
+<li><a href="#git_15">三、git安装</a></li>
+<li><ul>
+<li><a href="#31config_33">3.1config设置（增删改查）</a></li>
+</ul>
+</li>
+<li><a href="#githubgitGit_52">四.github与git连接——本地Git仓库</a></li>
+<li><ul>
+<li><a href="#41__53">4.1 建本地的版本库</a>  </li>
+<li><a href="#42__62">4.2 源代码放入本地仓库</a>  </li>
+<li><a href="#43_79">4.3提交仓库</a></li>
+</ul>
+</li>
+<li><a href="#githubgit_87">五、github与git的连接——远程连接</a></li>
+<li><ul>
+<li><a href="#51_SSH_Key_90">5.1 创建SSH Key</a>  </li>
+<li><a href="#52_githubSSH_Key_109">5.2 github填写SSH Key</a>  </li>
+<li><a href="#53_115">5.3验证</a>  </li>
+<li><a href="#55_github_125">5.5 github建仓库</a>  </li>
+<li><a href="#56__128">5.6 关联远程仓库</a>  </li>
+<li><a href="#57_136">5.7本地内容上传推送</a></li>
+</ul>
+</li>
+<li><a href="#_157">六、总结步骤与常见错误</a></li>
+<li><ul>
+<li><a href="#61__158">6.1 步骤</a>  </li>
+<li><ul>
+<li><a href="#62__166">6.2 常见错误（不断更新中）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="一、git简介"><a href="#一、git简介" class="headerlink" title="一、git简介"></a>一、git简介</h2><p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。</p>
+<h2 id="二、git下载"><a href="#二、git下载" class="headerlink" title="二、git下载"></a>二、git下载</h2><p><strong>2.1下载地址</strong><br> Git客户端官网下载链接：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><br> 选择适合自己本机的版本下载。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,soBT3rPmlDSSuXAVwvUWHZbX48Sqo_dtTHtxoxBRIv80/https://img-blog.csdnimg.cn/20210124175749176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三、git安装"><a href="#三、git安装" class="headerlink" title="三、git安装"></a>三、git安装</h2><p><strong>3.1安装</strong></p>
+<h3 id="3-1config设置（增删改查）"><a href="#3-1config设置（增删改查）" class="headerlink" title="3.1config设置（增删改查）"></a>3.1config设置（增删改查）</h3><p><strong>设置username 和 email</strong></p>
+<p><code>$ git config --global user.name  &quot;name&quot;//自定义用户名 $ git config --global user.email &quot;youxiang@qq.com&quot;//用户邮箱 </code></p>
+<ul>
+<li>1</li>
+<li>2</li>
+</ul>
+<p><strong>修改</strong></p>
+<p><code>git config --global configname configvalue</code></p>
+<p><strong>查询</strong></p>
+<p><code>git config --global configname</code></p>
+<p><strong>查询全部</strong></p>
+<p><code>git config --list</code></p>
+<h3 id="4-1-建本地的版本库"><a href="#4-1-建本地的版本库" class="headerlink" title="4.1 建本地的版本库"></a>4.1 建本地的版本库</h3><p>等同于新建一个空文件夹<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sI4E_WgZ_uYCfSyLBZwnO4F8InWPUUW6f7iJYzPKmLAE/https://img-blog.csdnimg.cn/20210124190401650.png" alt="在这里插入图片描述"><br> 进入，右键-Git Bash-输入“git init”初始化成一个Git可管理的仓库<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sYYNQzcmYXpF5iqRIA2EHbMIXr8xUPkl3nSDacJf_qtw/https://img-blog.csdnimg.cn/20210124190754242.png" alt="在这里插入图片描述"><br> 这时文件夹里多了个.git文件夹，它是Git用来跟踪和管理版本库的。<br> 如果你看不到，需要设置一下让隐藏文件可见。 <img src="https://proxy-prod.omnivore-image-cache.app/0x0,stH2jsYfzp3LdXUWh9aIaKxrkif4aawiE87AKfM_XFjA/https://img-blog.csdnimg.cn/20210124190824177.png" alt="在这里插入图片描述"></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sqkbOTeiJXw3fbYaePrFLg5qeBWU6aVy28gIwH-tEKJ8/https://img-blog.csdnimg.cn/20210124190533899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="4-2-源代码放入本地仓库"><a href="#4-2-源代码放入本地仓库" class="headerlink" title="4.2 源代码放入本地仓库"></a>4.2 源代码放入本地仓库</h3><p>把项目&#x2F;源代码粘贴到这个本地Git仓库里面<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sdvo9Ax91EOnJFTYn6SQY_NG95LKHBUXV4SeD0f-H9fQ/https://img-blog.csdnimg.cn/20210124191109752.png" alt="在这里插入图片描述"><br><strong>git status：查看当前的状态</strong></p>
+<ul>
+<li>红字表示未add到Git仓库上的文件</li>
+<li>绿字表示已add到Git仓库上的文件</li>
+</ul>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sUwsPPLojAn-QL5nPbaDhYYuQE6E-9OrWJkEnkSmRV_A/https://img-blog.csdnimg.cn/20210124191208964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>然后通过<strong>git add</strong>把项目&#x2F;源代码添加到仓库<br> （“git add .” ：把该目录下的所有文件添加到仓库，注意点“.”）</p>
+<p>可以看到，查询状态后文件已经变为绿色，说明add成功<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,s5_VCVrXV25B418mlI4mX23hV_4sV2Qil4UZJB6c7YG4/https://img-blog.csdnimg.cn/20210124191639181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="4-3提交仓库"><a href="#4-3提交仓库" class="headerlink" title="4.3提交仓库"></a>4.3提交仓库</h3><p>用<strong>git commit</strong>把项目提交到仓库。<br> -m 后面引号里面是本次提交的注释内容，可以不写，但最好写上，不然会报错</p>
+<p><code>git commit -m &quot;first commit&quot; </code></p>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sU3hgu0VGrdcm-tvtw5DVVRG1Wjb9173MWVHkQDy7WWw/https://img-blog.csdnimg.cn/20210124192239298.png" alt="在这里插入图片描述"></p>
+<h2 id="五、github与git的连接——远程连接"><a href="#五、github与git的连接——远程连接" class="headerlink" title="五、github与git的连接——远程连接"></a>五、github与git的连接——远程连接</h2><p>本地Git仓库和GitHub仓库之间的传输是<strong>通过SSH加密传输的</strong>，所以需要配置ssh key。</p>
+<h3 id="5-1-创建SSH-Key"><a href="#5-1-创建SSH-Key" class="headerlink" title="5.1 创建SSH Key"></a>5.1 创建SSH Key</h3><p>在用户主目录下，查询是否存在“.ssh”文件。<br> 本机用户主目录为图中所示路径：<img src="https://proxy-prod.omnivore-image-cache.app/0x0,sXMs_BeiCS7NkBnPoao5oA1lWPKDeaoRYAX8B4VqX-m0/https://img-blog.csdnimg.cn/20210124181635361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果也有，可直接到下一步。</li>
+<li>如果没有，在开始附录里找到Git Bash，输入命令，创建SSH Key.<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,s7rM-1cQh-15m3aPYVIWUDDG4BEUJkk4Q8Q-dzHNJu7Y/https://img-blog.csdnimg.cn/20210124181749927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<p><code>$ ssh-keygen -t rsa -C &quot;youxiang@qq.com&quot; </code></p>
+<ul>
+<li>1</li>
+</ul>
+<p>引号内是github注册使用的邮箱!!</p>
+<p>红色三行出现时，直接回车即可。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sHE02ZkD5SJ3R9-aebyuZOHbxozE8QmlFFuj5rihHj8k/https://img-blog.csdnimg.cn/20210124182500720.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 再查看.ssh时，已经有“id_rsa”，“id_rsa.pub”文件。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sdZ38tVHfytbJ0KaX90bOY_Q6-hlaqhXrPWaLgsmH-JQ/https://img-blog.csdnimg.cn/2021012418261251.png" alt="在这里插入图片描述"><br> SSH Key的秘钥对：<strong>id_rsa是私钥，不能泄露；id_rsa.pub是公钥，可以公开。</strong></p>
+<h3 id="5-2-github填写SSH-Key"><a href="#5-2-github填写SSH-Key" class="headerlink" title="5.2 github填写SSH Key"></a>5.2 github填写SSH Key</h3><p>打开“Account settings”–“SSH Keys”页面<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,scl2GwEXpxYLzpaTDV7zPsJ-bEbPWVRqSIUd8ySpeSqI/https://img-blog.csdnimg.cn/20210124183511538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 点击“Add SSH Key”<img src="https://proxy-prod.omnivore-image-cache.app/0x0,sNip8XN1IMRIn4dLozTLzKjTUx4Kxde57fKNCmyFeFws/https://img-blog.csdnimg.cn/20210124183526364.png" alt="在这里插入图片描述"><br> title随意，key填写id_rsa.pub的全部内容<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sqsHlYq1S0vPOkMm7owW7cgstR8iq_xm5L5m59PBor1o/https://img-blog.csdnimg.cn/20210124183622765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="5-3验证"><a href="#5-3验证" class="headerlink" title="5.3验证"></a>5.3验证</h3><p>①验证是否成功，在git bash里输入下面的命令</p>
+<p><code>$ ssh -T git@github.com </code></p>
+<ul>
+<li>1</li>
+</ul>
+<p>②初次设置需要输入yes，出现第二个红框内容表示成功。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sGmBqr9kof0PiuZ8adaim0eGJryTizv9syrDkpCOI3PU/https://img-blog.csdnimg.cn/20210124184143206.png" alt="在这里插入图片描述"></p>
+<h3 id="5-5-github建仓库"><a href="#5-5-github建仓库" class="headerlink" title="5.5 github建仓库"></a>5.5 github建仓库</h3><p>建立一个名称为“Elegent”仓库，这里不要勾选initialize，否则后面可能报错。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,s8OHy580dbvhMHqSsfkqI7EoKJJfgtVTrX-YnVtVwXy8/https://img-blog.csdnimg.cn/20210124185840106.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="5-6-关联远程仓库"><a href="#5-6-关联远程仓库" class="headerlink" title="5.6 关联远程仓库"></a>5.6 关联远程仓库</h3><p>根据创建好的Git仓库页面的提示（找自己仓库的提示代码），可以在本地Elegent仓库的命令行输入：</p>
+<p><code>git remote add origin https://github.com/xu-xiaoya/Elegent.git </code></p>
+<ul>
+<li>1</li>
+</ul>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sjRW689TPlhQp7G5JyM-ANHwxmD-YozpkZfXlnM2KN_8/https://img-blog.csdnimg.cn/20210124192955557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,slSQKMus0tYB5HTRRp9juiZKr_hutveoXCSDDWDA89Kc/https://img-blog.csdnimg.cn/20210124193523512.png" alt="在这里插入图片描述"></p>
+<h3 id="5-7本地内容上传推送"><a href="#5-7本地内容上传推送" class="headerlink" title="5.7本地内容上传推送"></a>5.7本地内容上传推送</h3><p>关联好之后我们就可以把本地库的所有内容推送到远程仓库（也就是Github）上了，通过在Bash输入：</p>
+<ul>
+<li>由于新建的远程仓库是空的，所以要加上-u这个参数<br><code>git push -u origin master</code></li>
+<li>之后仓库不是空的，就不用加上-u<br><code>git push origin master</code></li>
+</ul>
+<p>上传项目的过程可能需要等一段时间……<img src="https://proxy-prod.omnivore-image-cache.app/0x0,sDdTH5Cfx9cqGZNmXFG42Q8XkSkYDyBMyTQDhcTsyGSs/https://img-blog.csdnimg.cn/20210124193649138.png" alt="在这里插入图片描述"></p>
+<p>……<br> ……………………<br> perfect！中途弹了个窗让我授权登录github，问题不大~<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sIqlBL8C9Q1NnvqxDVVMrAoJfYbZsEqmmqSPszOjz-kE/https://img-blog.csdnimg.cn/20210124193943510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 这个时候进入github仓库，就可以看到新加的文件<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,slXP4yvf1sJpVmHONsdI8NFdEShHAKTFqdc4aoOAcfRg/https://img-blog.csdnimg.cn/20210124194041612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDkzMTcz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="六、总结步骤与常见错误"><a href="#六、总结步骤与常见错误" class="headerlink" title="六、总结步骤与常见错误"></a>六、总结步骤与常见错误</h2><h3 id="6-1-步骤"><a href="#6-1-步骤" class="headerlink" title="6.1 步骤"></a>6.1 步骤</h3><ol>
+<li><strong>初始化</strong>：本地建库（即文件夹），<strong>git init</strong></li>
+<li><strong>添加到仓库</strong>：代码文件放入本地库，<strong>git add .</strong></li>
+<li><strong>提交</strong>： <strong>git commit -m “注释内容”</strong>，提交到仓库</li>
+<li><strong>新建远程仓库并关联</strong>：在Github上设置好SSH密钥后，新建一个远程仓库， <strong>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/xu-xiaoya/Elegent.git">https://github.com/xu-xiaoya/Elegent.git</a></strong>关联</li>
+<li><strong>推送</strong>：<strong>git push (-u) origin master</strong>，把本地仓库的代码推送到远程仓库Github上</li>
+</ol>
+<h4 id="6-2-常见错误（不断更新中）"><a href="#6-2-常见错误（不断更新中）" class="headerlink" title="6.2 常见错误（不断更新中）"></a>6.2 常见错误（不断更新中）</h4><p>①问题一：新建远程仓库的时候勾选Initialize this repository with a README，推送时可能会报failed to push some refs to <a target="_blank" rel="noopener" href="https://github.com/xu-xiaoya/Elegent.git%E7%9A%84%E9%94%99%E3%80%82">https://github.com/xu-xiaoya/Elegent.git的错。</a></p>
+<p><strong>解决方案</strong>：这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时可以同步内容。</p>
+<p><code>$ git pull --rebase origin master </code></p>
+<ul>
+<li>1</li>
+</ul>
+<p>之后再进行git push origin master就能成功了。</p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-05-04/Github%E2%80%94%E2%80%94git%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E4%B8%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%88%E6%9C%80%E8%AF%A6%E7%BB%86%E6%B8%85%E6%99%B0%E7%89%88%E6%9C%AC%EF%BC%81%E9%99%84%E7%AE%80%E5%8C%96%E6%AD%A5%E9%AA%A4%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%EF%BC%89_%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94-CSDN%E5%8D%9A%E5%AE%A2/" data-id="clvs5xbr9001cxco93898bxym" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/SpecialLearn/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/001-/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-30/vscode%E6%90%AD%E5%BB%BA%E6%B1%87%E7%BC%96%E7%8E%AF%E5%A2%83_vscode%20%E6%B1%87%E7%BC%96-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

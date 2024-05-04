@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1npm install ejs 把需要服务端渲染模板的html写在一个ejs文件中，这个文件到一个views文件夹下面 1234567891011121314151617const express &#x3D; require(&quot;express&quot;)  const app &#x3D; express()  const ejs &#x3D; require(&quot;ejs&quot;)    app.s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1npm install ejs 把需要服务端渲染模板的html写在一个ejs文件中，这个文件到一个views文件夹下面 1234567891011121314151617const express &#x3D; require(&quot;express&quot;)  const app &#x3D; express()  const ejs &#x3D; require(&quot;ejs&quot;)    app.s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/image-20240310194103519.png">
+<meta property="article:published_time" content="2024-05-04T13:48:40.833Z">
+<meta property="article:modified_time" content="2024-03-10T12:09:05.826Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/image-20240310194103519.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/035-express-服务端渲染和客户端渲染-2-ejs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.833Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ejs</span><br></pre></td></tr></table></figure>
+<p>把需要服务端渲染模板的html写在一个ejs文件中，这个文件到一个views文件夹下面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()  </span><br><span class="line"><span class="keyword">const</span> ejs = <span class="built_in">require</span>(<span class="string">&quot;ejs&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&quot;views&quot;</span>,<span class="string">&quot;./views&quot;</span>)  </span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&quot;view engine&quot;</span>,<span class="string">&quot;ejs&quot;</span>)  </span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    <span class="comment">//渲染模板返回给前端  </span></span><br><span class="line">    res.<span class="title function_">render</span>(<span class="string">&quot;index&quot;</span>)<span class="comment">//找views文件夹下的index文件返回给前端,这种方法可以直接渲染一个页面，不需要我们之前用到的读写文件方式返回页面  </span></span><br><span class="line">    <span class="comment">//但是res.render只能渲染页面，要是想要返回接口，需要使用res.json来返回  </span></span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/api&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">json</span>(&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;)  </span><br><span class="line">const app = express()  </span><br><span class="line">const ejs = require(&quot;ejs&quot;)  </span><br><span class="line">  </span><br><span class="line">app.set(&quot;views&quot;,&quot;./views&quot;)  </span><br><span class="line">app.set(&quot;view engine&quot;,&quot;ejs&quot;)  </span><br><span class="line">app.get(&quot;/&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    //渲染模板返回给前端  </span><br><span class="line">    res.render(&quot;index&quot;,&#123;title:1111&#125;)//找views文件夹下的index文件返回给前端,这种方法可以直接渲染一个页面，不需要我们之前用到的读写文件方式返回页面  </span><br><span class="line">    //但是res.render只能渲染页面，要是想要返回接口，需要使用res.json来返回  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/api&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.json(&#123;a:1,b:2&#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello ejs<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>推荐-&lt;%=title%&gt;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=title%&gt;</span><br></pre></td></tr></table></figure>
+<p>title是我们res.render函数中的第二个对象参数的key值，这样就实现了服务端渲染直接实现了嵌入</p>
+<p>在vscode中可以使用插件EJS language support，可以用来vscode中EJS高亮提示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;)  </span><br><span class="line">const app = express()  </span><br><span class="line">const ejs = require(&quot;ejs&quot;)  </span><br><span class="line">app.use(express.urlencoded(&#123;extended:false&#125;))  </span><br><span class="line">app.use(express.json())  </span><br><span class="line">app.set(&quot;views&quot;,&quot;./views&quot;)  </span><br><span class="line">app.set(&quot;view engine&quot;,&quot;ejs&quot;)  </span><br><span class="line">app.get(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    //渲染模板返回给前端  </span><br><span class="line">    res.render(&quot;login&quot;,&#123;title:1111&#125;)//找views文件夹下的index文件返回给前端,这种方法可以直接渲染一个页面，不需要我们之前用到的读写文件方式返回页面  </span><br><span class="line">  </span><br><span class="line">    //但是res.render只能渲染页面，要是想要返回接口，需要使用res.json来返回  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/index&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.render(&quot;index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.post(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    console.log(req.body)  </span><br><span class="line">    //重定向  </span><br><span class="line">    res.redirect(&quot;/index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/api&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.json(&#123;a:1,b:2&#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在ejs这个服务端渲染模板</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;=isShow?`密码账号错误`:``&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>这个render的第三个参数还能使用布尔值，并且可以使用js的三目运算</p>
+<p>服务端渲染模板还有很多语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%for(let i = 0;i &lt; list.length;i++)&#123;%&gt;</span><br><span class="line">	&lt;li&gt;&lt;%=list[i]%&gt;&lt;/li&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br><span class="line">//for循环</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-&lt;br&gt;最新消息&lt;/br&gt;%&gt;</span><br><span class="line">//与=的区别就是=不会解析标签，-会解析标签</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%#%&gt;</span><br><span class="line">//就是注释,传统注释缺点，就是文件中如果注释过多，那么文件体积就会增加，渲染页面时也会在前端显示出来，那么下载下来就会有麻烦，浪费时间，但是在ejs中的主食不会在用户的前端显示出来，不会拉去下来</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- include()%&gt;</span><br><span class="line">//如果一个页面中有很多公共的部分，可以把公共的部分提取出来,导入到当前页面，所有标签都能导入，第一个参数式导入的标签，第二个参数还能传给公共标签，公共标签里面也能再写服务端渲染标签</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//indesx.ejs</span><br><span class="line">&lt;!doctype html&gt;  </span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;  </span><br><span class="line">&lt;head&gt;  </span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;  </span><br><span class="line">    &lt;meta name=&quot;viewport&quot;  </span><br><span class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;  </span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;  </span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;  </span><br><span class="line">&lt;/head&gt;  </span><br><span class="line">&lt;body&gt;  </span><br><span class="line">&lt;h1&gt;欢迎来到lx的博客&lt;/h1&gt;  </span><br><span class="line">&lt;h1&gt;&lt;%-include(&quot;./in.ejs&quot;，&#123;isShow:true&#125;)%&gt;&lt;/h1&gt;  </span><br><span class="line">&lt;/body&gt;  </span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//in.ejs</span><br><span class="line">&lt;h1&gt;&lt;%=isShow?&quot;校园招聘&quot;:&quot;&quot;%&gt;&lt;/h1&gt;</span><br><span class="line">&lt;header&gt;我是头部&lt;/header&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/image-20240310194103519.png"><br>实际生产中很少会见到纯服务端渲染，也很少全部都用前后端分离，一般都是两掺的写法</p>
+<p>后端渲染模板：<em><strong>SSR（Server Side Render）</strong></em></p>
+<p>这就是服务端渲染的全部内容–ejs</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">学海无涯</span><br><span class="line">唯<span class="variable constant_">JS</span>作伴</span><br><span class="line">^_^</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/" data-id="clvs5xbu700ilxco911wv5qf1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/036-express-%E7%94%9F%E6%88%90%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/034-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

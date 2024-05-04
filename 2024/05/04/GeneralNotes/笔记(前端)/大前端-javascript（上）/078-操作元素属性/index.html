@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="元素自带属性box.innerHTML &#x3D; “2222”username.type &#x3D; “password”修改元素内容这种方式就是直接元素 . 属性就可以修改属性，属性是html标签上写上的属性checked属性勾选上就是true，如果要取消勾选就可以直接赋值false 自定义属性（无意义，但是可以用于某种标志作用）设置方式：setAttribute设置getAttribut">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/078-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="元素自带属性box.innerHTML &#x3D; “2222”username.type &#x3D; “password”修改元素内容这种方式就是直接元素 . 属性就可以修改属性，属性是html标签上写上的属性checked属性勾选上就是true，如果要取消勾选就可以直接赋值false 自定义属性（无意义，但是可以用于某种标志作用）设置方式：setAttribute设置getAttribut">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.321Z">
+<meta property="article:modified_time" content="2023-10-14T06:51:34.837Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/078-操作元素属性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/078-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.321Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="元素自带属性"><a href="#元素自带属性" class="headerlink" title="元素自带属性"></a>元素自带属性</h2><p>box.innerHTML &#x3D; “2222”<br>username.type &#x3D; “password”<br>修改元素内容<br>这种方式就是直接元素 . 属性就可以修改属性，属性是html标签上写上的属性<br>checked属性勾选上就是true，如果要取消勾选就可以直接赋值false</p>
+<h2 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h2><p>（无意义，但是可以用于某种标志作用）<br>设置方式：<br>setAttribute设置<br>getAttribute获取<br>removeAttribute删除</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.<span class="title function_">setAttribute</span>(<span class="string">&quot;liangxiang&quot;</span>,<span class="string">&quot;11111&quot;</span>)</span><br><span class="line"><span class="comment">//给自定义属性liangxiang设置值11111</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="title function_">getAttribute</span>(<span class="string">&quot;liangxiang&quot;</span>))</span><br><span class="line"><span class="comment">//给自定义属性liangxiang设置值11111</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.<span class="title function_">setAttribute</span>(<span class="string">&quot;liangxiang&quot;</span>)</span><br><span class="line"><span class="comment">//给自定义属性liangxiang设置值11111</span></span><br></pre></td></tr></table></figure>
+<p>自定义属性使用场景，对于不知道我们获取的元素是一堆元素中的第几个，就可以给每个元素添加一个自定义属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oitems.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            oitems[i].<span class="property">dataset</span>.<span class="property">index</span> = i</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了防止把自定义属性和原属性弄混淆，在H5中有一种新的约定<br>自定义属性名字前面要加data-<br>box.dataset就是在box中所有自定义属性的对象<br>然而这种设置自定义方法是下面的方式，而不是以前的方式：<br>设置&#x2F;修改：元素.dataset.自定义属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box.<span class="property">dataset</span>.<span class="property">liangxiang</span> = <span class="string">&quot;1111&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>删除：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> box.<span class="property">dataset</span>.<span class="property">liangxiang</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/078-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7/" data-id="clvs5xbvw00pxxco92ytj4lyk" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/077-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/076-%E5%88%9D%E8%AF%86DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java 中 Boolean 和 boolean的区别_boolean boolean-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;java-boolean-boolean-boolean-boolean-csdn-18f23bf3137OriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;mkii_hong&#x2F;article&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-28/Java%20%E4%B8%AD%20Boolean%20%E5%92%8C%20boolean%E7%9A%84%E5%8C%BA%E5%88%AB_boolean%20boolean-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java 中 Boolean 和 boolean的区别_boolean boolean-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;java-boolean-boolean-boolean-boolean-csdn-18f23bf3137OriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;mkii_hong&#x2F;article&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,stkoI4hBpvwq-aW9qLiXdy20LQW-9aZWWlUndNyQ32Rk/https://img-blog.csdnimg.cn/20200513232440432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21raWlfaG9uZw==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,suSbDzeIwAikpSntMNf3T1pniMb2_-o1zWsugq3Nb_a8/https://img-blog.csdnimg.cn/20200513232607325.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21raWlfaG9uZw==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2024-05-04T13:48:36.073Z">
+<meta property="article:modified_time" content="2024-04-28T09:08:12.336Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-28/Java 中 Boolean 和 boolean的区别_boolean boolean-CSDN博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-28/Java%20%E4%B8%AD%20Boolean%20%E5%92%8C%20boolean%E7%9A%84%E5%8C%BA%E5%88%AB_boolean%20boolean-CSDN%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.073Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java-中-Boolean-和-boolean的区别-boolean-boolean-CSDN博客"><a href="#Java-中-Boolean-和-boolean的区别-boolean-boolean-CSDN博客" class="headerlink" title="Java 中 Boolean 和 boolean的区别_boolean boolean-CSDN博客"></a>Java 中 Boolean 和 boolean的区别_boolean boolean-CSDN博客</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/java-boolean-boolean-boolean-boolean-csdn-18f23bf3137">https://omnivore.app/me/java-boolean-boolean-boolean-boolean-csdn-18f23bf3137</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://blog.csdn.net/mkii_hong/article/details/106109387">https://blog.csdn.net/mkii_hong/article/details/106109387</a></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"></p>
+<p> 版权声明：本文为博主原创文章，遵循<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+<p>​上次一个同学问，<code>Boolean</code> 类型的值不是只有 <code>true</code> 和 <code>false</code> 两种吗？为什么他定义的属性出现了 <code>null</code> 值？</p>
+<p>我们应该先明确一点，<code>boolean</code> 是 <code>Java</code> 的基本数据类型，<code>Boolean</code> 是 <code>Java</code> 的一个类。<code>boolean</code> 类型会在“赋零值”阶段给属性赋 <code>false</code>。而 <code>Boolean</code> 是一个类，会在“赋零值”阶段给对象赋 <code>null</code>。</p>
+<p>如果是静态属性，会在<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E7%B1%BB%E5%8A%A0%E8%BD%BD&spm=1001.2101.3001.7020">类加载</a>时被赋值。如果是普通类属性，会在实例化对象时赋值。这两点可以了解一下“类加载机制”和“对象创建过程”。</p>
+<h6 id="类加载机制："><a href="#类加载机制：" class="headerlink" title="类加载机制："></a>类加载机制：</h6><ul>
+<li>加载：根据类的全名获取类的二进制字节流，将类加载进内存并在堆中生成一个代表这个类的 <code>Class</code> 对象，作为方法区数据的访问入口</li>
+<li>验证：验证 <code>class</code> 文件中的字节流是否符合 <code>JVM</code> 规范</li>
+<li>准备：在方法区中为类的静态属性分配内存，并初始化默认值（<code>boolean</code> 的默认值是 <code>false</code>，<code>Boolean</code> 的默认值是 <code>null</code>）</li>
+<li>解析：将常量池中的符号引用转化为直接引用，可以理解为对象引用转成指针</li>
+<li>初始化：真正开始执行类中的代码，静态属性赋值和静态块</li>
+</ul>
+<h6 id="对象实例化过程："><a href="#对象实例化过程：" class="headerlink" title="对象实例化过程："></a>对象实例化过程：</h6><ul>
+<li>检查类是否已经被加载（双亲委派）</li>
+<li>给对象分配内存空间（指针碰撞）</li>
+<li>零值初始化（<code>false / null</code>）</li>
+<li>设置对象头（对象分代年龄等信息）</li>
+<li>执行 <code>&lt;init&gt;</code> 方法（属性初始化，语句块和构造方法）</li>
+</ul>
+<p>所以说，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Boolean&spm=1001.2101.3001.7020">Boolean</a>只是被加载了，还没有被实例化，在被实例化之前并没有分配内存，所以是 <code>null</code></p>
+<h6 id="接下来我们可以看看-Boolean-的属性和构造方法，了解一下它如何包装-boolean"><a href="#接下来我们可以看看-Boolean-的属性和构造方法，了解一下它如何包装-boolean" class="headerlink" title="接下来我们可以看看 Boolean 的属性和构造方法，了解一下它如何包装 boolean"></a>接下来我们可以看看 <code>Boolean</code> 的属性和构造方法，了解一下它如何包装 <code>boolean</code></h6><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// final boolean类型的属性，通过构造方法注入值</span></span><br><span class="line"><span class="keyword">private</span> final boolean <span class="keyword">value</span>;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// 构造方法 Boolean a = true 实际上就是调用这个方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Boolean</span>(<span class="params">boolean <span class="keyword">value</span></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.<span class="keyword">value</span> = <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// 构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Boolean</span>(<span class="params">String s</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>(parseBoolean(s));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对于其他的属性和方法，可以自行查看都比较简单</p>
+<p>关于 Boolean 使用过程中有一个风险点，阿里巴巴开发手册也写得非常好<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,stkoI4hBpvwq-aW9qLiXdy20LQW-9aZWWlUndNyQ32Rk/https://img-blog.csdnimg.cn/20200513232440432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21raWlfaG9uZw==,size_16,color_FFFFFF,t_70#pic_center" alt="ali"></p>
+<p>简单来说就是，boolean 定义的属性一定要有值，如果 <code>Boolean</code> 对象值为 <code>null</code>，解包过程中就会出现NPE。</p>
+<p>想象一种场景：你女票问你：你爱我吗？但你没听清。如果你是 <code>Boolean</code> 就会回答，我没听清（<code>null</code>），如果你是 <code>boolean</code> 就会回答，不爱了 (false)</p>
+<p>之后就会有个狗头被打爆。<br><img src="https://proxy-prod.omnivore-image-cache.app/0x0,suSbDzeIwAikpSntMNf3T1pniMb2_-o1zWsugq3Nb_a8/https://img-blog.csdnimg.cn/20200513232607325.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21raWlfaG9uZw==,size_16,color_FFFFFF,t_70#pic_center" alt="interesting"></p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-28/Java%20%E4%B8%AD%20Boolean%20%E5%92%8C%20boolean%E7%9A%84%E5%8C%BA%E5%88%AB_boolean%20boolean-CSDN%E5%8D%9A%E5%AE%A2/" data-id="clvs5xbr90019xco946td1z34" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-28/JavaScript%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E3%80%81%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E3%80%81%E5%8F%82%E6%95%B0%E7%9A%84%E6%94%B6%E9%9B%86%E4%B8%8E%E5%B1%95%E5%BC%80_js%E4%B8%AD%20%E5%87%BD%E6%95%B0%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%20%E6%98%AF%E6%97%B6%E9%97%B4%E5%8F%82%E6%95%B0%E5%90%97-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-27/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%20%E2%80%93%20%E6%95%99%E7%A8%8B%20-%20%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

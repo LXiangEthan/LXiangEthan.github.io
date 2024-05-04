@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="12++&#x2F;&#x2F;递增运算符重载 内置数据类型对递增运算符： 123456789int a &#x3D; 10;cout&lt;&lt;++a&lt;&lt;endl;cout&lt;&lt;a&lt;&lt;endl;&#x2F;&#x2F;结果是11   11int b &#x3D; 10;cout&lt;&lt;b++&lt;&lt;endl;cout&lt;&lt;b&lt;&lt;endl;&#x2F;&#x2F;结果是10   11 自定义类型递增">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12++&#x2F;&#x2F;递增运算符重载 内置数据类型对递增运算符： 123456789int a &#x3D; 10;cout&lt;&lt;++a&lt;&lt;endl;cout&lt;&lt;a&lt;&lt;endl;&#x2F;&#x2F;结果是11   11int b &#x3D; 10;cout&lt;&lt;b++&lt;&lt;endl;cout&lt;&lt;b&lt;&lt;endl;&#x2F;&#x2F;结果是10   11 自定义类型递增">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/Pasted%20image%2020231022124911.png">
+<meta property="article:published_time" content="2024-05-04T13:48:36.288Z">
+<meta property="article:modified_time" content="2023-11-20T11:21:21.258Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/Pasted%20image%2020231022124911.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/104-递增运算符重载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.288Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/Pasted%20image%2020231022124911.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">++</span><br><span class="line"><span class="comment">//递增运算符重载</span></span><br></pre></td></tr></table></figure>
+<p>内置数据类型对递增运算符：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">cout&lt;&lt;++a&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line"><span class="comment">//结果是11   11</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> b = <span class="number">10</span>;</span><br><span class="line">cout&lt;&lt;b++&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;b&lt;&lt;endl;</span><br><span class="line"><span class="comment">//结果是10   11</span></span><br></pre></td></tr></table></figure>
+<p>自定义类型递增运算符重载：用成员函数表示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Building</span>&#123;  </span><br><span class="line"><span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;out,Building b);  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="built_in">Building</span>(<span class="type">int</span> myA,<span class="type">int</span> myB)&#123;  </span><br><span class="line"><span class="keyword">this</span>-&gt;myA = myA;  </span><br><span class="line"><span class="keyword">this</span>-&gt;myB = myB;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//前置递增  </span></span><br><span class="line">Building&amp; <span class="keyword">operator</span>++()&#123;  </span><br><span class="line">++<span class="keyword">this</span>-&gt;myA;  </span><br><span class="line">++<span class="keyword">this</span>-&gt;myB;  </span><br><span class="line"><span class="comment">//递增之后需要把自身返回，要返回引用，不能返回值，返回值的话就不是对原来的对象进行操作了，返回的心新的对象，原来的自定义数据类型没发生任何变化  </span></span><br><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//后置递增,int代表占位参数，可以用于区分前置和后置的重载函数，也不能写别的，只能写int  </span></span><br><span class="line">Building <span class="keyword">operator</span>++(<span class="type">int</span>)&#123;  </span><br><span class="line"><span class="comment">//先记录下来递增前的数据  </span></span><br><span class="line">Building temp = *<span class="keyword">this</span>;  </span><br><span class="line"><span class="comment">//原数值递增  </span></span><br><span class="line"><span class="keyword">this</span>-&gt;myA++;  </span><br><span class="line"><span class="keyword">this</span>-&gt;myB++;  </span><br><span class="line"><span class="comment">//返回递增之前的数值  </span></span><br><span class="line"><span class="keyword">return</span> temp;  </span><br><span class="line"><span class="comment">//不能返回引用，局部变量在函数结束后就被释放，后续再通过引用调用就是非法操作  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> myA;  </span><br><span class="line"><span class="type">int</span> myB;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="comment">//重载&lt;&lt;运算符  </span></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;out,Building b)&#123;  </span><br><span class="line">out&lt;&lt;b.myA&lt;&lt;endl;  </span><br><span class="line">out&lt;&lt;b.myB&lt;&lt;endl;  </span><br><span class="line"><span class="keyword">return</span> out;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="function">Building <span class="title">b</span><span class="params">(<span class="number">10</span>,<span class="number">20</span>)</span></span>;  </span><br><span class="line">cout&lt;&lt;b++;  </span><br><span class="line">cout&lt;&lt;++b;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/104-%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" data-id="clvs5xbrt0040xco9f7az2l8m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/107-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/103-%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

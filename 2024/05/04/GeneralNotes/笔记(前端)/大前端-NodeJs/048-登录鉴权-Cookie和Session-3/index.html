@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="销毁session就可以实现强制下线，这时候及时用户有cookie也无法实现在线状态cookie我们是无法保证的，也不能夺人cookie于千里之外，但是我们可以销毁房子session 删除session 12345logout:(req,res)&#x3D;&gt;&#123;      req.session.destroy(()&#x3D;&gt;&#123;          res.json(&#123;de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/048-%E7%99%BB%E5%BD%95%E9%89%B4%E6%9D%83-Cookie%E5%92%8CSession-3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="销毁session就可以实现强制下线，这时候及时用户有cookie也无法实现在线状态cookie我们是无法保证的，也不能夺人cookie于千里之外，但是我们可以销毁房子session 删除session 12345logout:(req,res)&#x3D;&gt;&#123;      req.session.destroy(()&#x3D;&gt;&#123;          res.json(&#123;de">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.840Z">
+<meta property="article:modified_time" content="2024-03-24T07:59:25.017Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/048-登录鉴权-Cookie和Session-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/048-%E7%99%BB%E5%BD%95%E9%89%B4%E6%9D%83-Cookie%E5%92%8CSession-3/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.840Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>销毁session就可以实现强制下线，这时候及时用户有cookie也无法实现在线状态<br>cookie我们是无法保证的，也不能夺人cookie于千里之外，但是我们可以销毁房子session</p>
+<p>删除session</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logout</span>:<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    req.<span class="property">session</span>.<span class="title function_">destroy</span>(<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">        res.<span class="title function_">json</span>(&#123;<span class="attr">destroy</span>:<span class="number">1</span>&#125;)  </span><br><span class="line">    &#125;)<span class="comment">//删除当前用户的session  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这边有个问题，就是在注册session的时候我们设置的resave方法就是刷新过期时间，但是这个即使使用true也没有生效<br>原因是这个true只是代表重新设置session之后重新设置过期时间，但是我们并没有重新设置session</p>
+<p>于是我们就可以在每次访问接口都重新设置一下session，这样就可以实现刷新了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;  </span><br><span class="line">  <span class="keyword">if</span>(req.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&quot;check&quot;</span>))&#123;  </span><br><span class="line">    <span class="title function_">next</span>()  </span><br><span class="line">    <span class="keyword">return</span>  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">if</span>(req.<span class="property">session</span>.<span class="property">user</span>)&#123;  </span><br><span class="line">    req.<span class="property">session</span>.<span class="property">date</span> = <span class="title class_">Date</span>.<span class="title function_">now</span>()  </span><br><span class="line">    <span class="comment">//这里就是刷新session过期时间的地方</span></span><br><span class="line">    <span class="title function_">next</span>()  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">else</span>&#123;  </span><br><span class="line">    <span class="comment">//是接口就返回错误码  </span></span><br><span class="line">    req.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&quot;api&quot;</span>)?  </span><br><span class="line">      res.<span class="title function_">status</span>(<span class="number">404</span>).<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;<span class="attr">error</span>:<span class="string">&quot;404&quot;</span>&#125;))  </span><br><span class="line">    <span class="comment">//不是接口就重定向  </span></span><br><span class="line">      :res.<span class="title function_">redirect</span>(<span class="string">&quot;http://localhost:3000/login&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样就实现了过期时间延期</p>
+<p>另外还有最后一个关键问题，就是服务器保存刷新后内存释放session丢失的问题，这样导致用户只能重新登录</p>
+<p>存储session到数据库，并且让其定时删除</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="built_in">connect-mongo</span></span><br></pre></td></tr></table></figure>
+
+<p>app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> createError = <span class="built_in">require</span>(<span class="string">&#x27;http-errors&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">&#x27;cookie-parser&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">&quot;express-session&quot;</span>)  </span><br><span class="line"><span class="keyword">var</span> <span class="title class_">MongoStore</span> = <span class="built_in">require</span>(<span class="string">&quot;connect-mongo&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> indexRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/index&#x27;</span>);  </span><br><span class="line"><span class="keyword">var</span> usersRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routes/users&#x27;</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> app = <span class="title function_">express</span>();  </span><br><span class="line"><span class="keyword">var</span> loginRouter = <span class="built_in">require</span>(<span class="string">&quot;./routes/login&quot;</span>)  </span><br><span class="line"><span class="comment">// view engine setup  </span></span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;views&#x27;</span>, path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;views&#x27;</span>));  </span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;ejs&#x27;</span>);  </span><br><span class="line">  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">logger</span>(<span class="string">&#x27;dev&#x27;</span>));  </span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));  </span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cookieParser</span>());  </span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;public&#x27;</span>)));  </span><br><span class="line"><span class="comment">//注册session中间件  </span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">session</span>(&#123;  </span><br><span class="line">  <span class="attr">name</span>:<span class="string">&quot;ethan&#x27;s system&quot;</span>,  </span><br><span class="line">  <span class="attr">secret</span>:<span class="string">&quot;dewdwedfewfer&quot;</span>,<span class="comment">//配置加密密钥，可以随便写  </span></span><br><span class="line">  <span class="attr">cookie</span>:&#123;  </span><br><span class="line">    <span class="attr">maxAge</span>:<span class="number">1000</span>*<span class="number">60</span>*<span class="number">60</span>,<span class="comment">//设置过期时间  </span></span><br><span class="line">    <span class="attr">secure</span>:<span class="literal">false</span><span class="comment">//如果是true那么只有https协议才能获取到  </span></span><br><span class="line">  &#125;,  </span><br><span class="line">  <span class="attr">resave</span>:<span class="literal">true</span>,<span class="comment">//每次访问接口之后过期时间又会重新开始计算  </span></span><br><span class="line">  <span class="attr">saveUninitialized</span>:<span class="literal">true</span>,<span class="comment">//一开始访问网站就设置cookie，但是这个cookie是无效的，只有操作了session才会变成有效的  </span></span><br><span class="line">  <span class="attr">rolling</span>:<span class="literal">true</span>,<span class="comment">//放在数据库中，true表示超时前刷新，false表示无论刷新多少次都只有第一次的计时  </span></span><br><span class="line">  <span class="attr">store</span>:<span class="title class_">MongoStore</span>.<span class="title function_">create</span>(&#123;  </span><br><span class="line">    <span class="attr">mongoUrl</span>:<span class="string">&quot;mongodb://127.0.0.1:27017/session_node&quot;</span>,<span class="comment">//新创建了一个数据库存储session  </span></span><br><span class="line">    <span class="attr">ttl</span>:<span class="number">1000</span>*<span class="number">60</span>*<span class="number">60</span><span class="comment">//过期时间和cookie保持一致  </span></span><br><span class="line">  &#125;),  </span><br><span class="line">&#125;))  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/login&quot;</span>,loginRouter)  </span><br><span class="line">  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;  </span><br><span class="line">  <span class="keyword">if</span>(req.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&quot;check&quot;</span>))&#123;  </span><br><span class="line">    <span class="title function_">next</span>()  </span><br><span class="line">    <span class="keyword">return</span>  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">if</span>(req.<span class="property">session</span>.<span class="property">user</span>)&#123;  </span><br><span class="line">    req.<span class="property">session</span>.<span class="property">date</span> = <span class="title class_">Date</span>()  </span><br><span class="line">    <span class="title function_">next</span>()  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">else</span>&#123;  </span><br><span class="line">    <span class="comment">//是接口就返回错误码  </span></span><br><span class="line">    req.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&quot;api&quot;</span>)?  </span><br><span class="line">      res.<span class="title function_">status</span>(<span class="number">404</span>).<span class="title function_">send</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;<span class="attr">error</span>:<span class="string">&quot;404&quot;</span>&#125;))  </span><br><span class="line">    <span class="comment">//不是接口就重定向  </span></span><br><span class="line">      :res.<span class="title function_">redirect</span>(<span class="string">&quot;http://localhost:3000/login&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/&#x27;</span>, indexRouter)  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/users&#x27;</span>, usersRouter)  </span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/api&quot;</span>, usersRouter)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// catch 404 and forward to error handler  </span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">function</span>(<span class="params">req, res, next</span>) &#123;  </span><br><span class="line">  <span class="title function_">next</span>(<span class="title function_">createError</span>(<span class="number">404</span>));  </span><br><span class="line">&#125;);  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// error handler  </span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">function</span>(<span class="params">err, req, res, next</span>) &#123;  </span><br><span class="line">  <span class="comment">// set locals, only providing error in development  </span></span><br><span class="line">  res.<span class="property">locals</span>.<span class="property">message</span> = err.<span class="property">message</span>;  </span><br><span class="line">  res.<span class="property">locals</span>.<span class="property">error</span> = req.<span class="property">app</span>.<span class="title function_">get</span>(<span class="string">&#x27;env&#x27;</span>) === <span class="string">&#x27;development&#x27;</span> ? err : &#123;&#125;;  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// render the error page  </span></span><br><span class="line">  res.<span class="title function_">status</span>(err.<span class="property">status</span> || <span class="number">500</span>);  </span><br><span class="line">  res.<span class="title function_">render</span>(<span class="string">&#x27;error&#x27;</span>);  </span><br><span class="line">&#125;);  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = app;</span><br></pre></td></tr></table></figure>
+<p>服务器重启后session没有丢失<br>数据库中也找到了存储的session<br>成功了！</p>
+<p>cookie-session有一个致命的缺点：<br>一旦用户数据多了之后，session变多了，维护数据库很困难<br>不同数据库中session与session之间的共享问题出现问题</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/048-%E7%99%BB%E5%BD%95%E9%89%B4%E6%9D%83-Cookie%E5%92%8CSession-3/" data-id="clvs5xbu900ixxco9f60l0n4n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/050-%E7%99%BB%E5%BD%95%E9%89%B4%E6%9D%83-JWT-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/047-%E7%99%BB%E5%BD%95%E9%89%B4%E6%9D%83-Cookie%E5%92%8CSession-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

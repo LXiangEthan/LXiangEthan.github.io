@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Python基础：Python中的序列相加详解_python中不同的列相加-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-python-python-csdn-18ef10b14aaOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;u010292470&#x2F;article&#x2F;details&#x2F;121040828   版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-18/Python%E5%9F%BA%E7%A1%80%EF%BC%9APython%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E7%9B%B8%E5%8A%A0%E8%AF%A6%E8%A7%A3_python%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%97%E7%9B%B8%E5%8A%A0-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python基础：Python中的序列相加详解_python中不同的列相加-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-python-python-csdn-18ef10b14aaOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;u010292470&#x2F;article&#x2F;details&#x2F;121040828   版">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sHq4QFFhXhaqiJv_4UEn-jTZqUALGAwkKNNawnwMiQ5o/https://img-blog.csdnimg.cn/img_convert/d9c68cb44bfbe13ef160a6dde32962b6.png">
+<meta property="article:published_time" content="2024-05-04T13:48:36.048Z">
+<meta property="article:modified_time" content="2024-04-19T02:15:19.027Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-18/Python基础：Python中的序列相加详解_python中不同的列相加-CSDN博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-18/Python%E5%9F%BA%E7%A1%80%EF%BC%9APython%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E7%9B%B8%E5%8A%A0%E8%AF%A6%E8%A7%A3_python%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%97%E7%9B%B8%E5%8A%A0-CSDN%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.048Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Python基础：Python中的序列相加详解-python中不同的列相加-CSDN博客"><a href="#Python基础：Python中的序列相加详解-python中不同的列相加-CSDN博客" class="headerlink" title="Python基础：Python中的序列相加详解_python中不同的列相加-CSDN博客"></a>Python基础：Python中的序列相加详解_python中不同的列相加-CSDN博客</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/python-python-python-csdn-18ef10b14aa">https://omnivore.app/me/python-python-python-csdn-18ef10b14aa</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://blog.csdn.net/u010292470/article/details/121040828">https://blog.csdn.net/u010292470/article/details/121040828</a></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"></p>
+<p> 版权声明：本文为博主原创文章，遵循<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+<p>欢迎你来到<a target="_blank" rel="noopener" href="https://www.olzz.com/tag/zhanzhang/" title="站长">站长</a>在线的站长学堂学习<a target="_blank" rel="noopener" href="https://www.olzz.com/tag/python/" title="Python">Python</a>知识，本文<a target="_blank" rel="noopener" href="https://www.olzz.com/tag/fenxiang/" title="分享">分享</a>的是《<a target="_blank" rel="noopener" href="https://www.olzz.com/python.html" title="Python">Python</a>中的<a target="_blank" rel="noopener" href="https://www.olzz.com/tag/xuliexiangjia/" title="序列相加">序列相加</a>详解》。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sHq4QFFhXhaqiJv_4UEn-jTZqUALGAwkKNNawnwMiQ5o/https://img-blog.csdnimg.cn/img_convert/d9c68cb44bfbe13ef160a6dde32962b6.png"></p>
+<p>在Python中，序列相加支持两种或者两种以上的相同类型的序列相加。即两个或者两个以上的序列进行连接。但是不会去除重复的元素。操作方法：序列相加是使用“+”号<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BF%90%E7%AE%97%E7%AC%A6&spm=1001.2101.3001.7020">运算符</a>实现的。如：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a1 = <span class="string">&quot;我在站长在线，&quot;</span></span><br><span class="line"></span><br><span class="line">a2 = <span class="string">&quot;学习Python，&quot;</span></span><br><span class="line"></span><br><span class="line">a3 = <span class="string">&quot;我相信Python是最好学的编程语言。&quot;</span></span><br><span class="line"></span><br><span class="line">print(a1 + a2 +a3)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">我在站长在线，学习<span class="title class_">Python</span>，我相信<span class="title class_">Python</span>是最好学的编程语言。</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在Python中进行序列相加时，相同类型的序列是指，同为列表，元组，字符串等，序列中的元素可以不相同，如：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">b = [<span class="string">&quot;人生苦短&quot;</span>,<span class="string">&quot;我学Python&quot;</span>]</span><br><span class="line"></span><br><span class="line">print(a + b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[1, 2, 3, 4, 5, 6, 7, &#x27;人生苦短&#x27;, &#x27;我学Python&#x27;]</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>但是，不能是列表和元组相加，也不能是列表和字符串相加，下面<a target="_blank" rel="noopener" href="https://www.olzz.com/tag/daima/" title="代码">代码</a>就是错误的：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">b = <span class="string">&quot;1的倍数&quot;</span></span><br><span class="line"></span><br><span class="line">print(a +b )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>输出的结果是语法错误：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line"></span><br><span class="line">File <span class="string">&quot;D:\Python\Python310\Doc\000.py&quot;</span>, <span class="built_in">line</span> <span class="number">3</span>, in <span class="symbol">&lt;module&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">print</span>(<span class="keyword">a</span> +<span class="keyword">b</span> )</span><br><span class="line"></span><br><span class="line">TypeError: can <span class="keyword">only</span> concatenate <span class="keyword">list</span> (not <span class="string">&quot;str&quot;</span>) <span class="keyword">to</span> <span class="keyword">list</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-18/Python%E5%9F%BA%E7%A1%80%EF%BC%9APython%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E7%9B%B8%E5%8A%A0%E8%AF%A6%E8%A7%A3_python%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%97%E7%9B%B8%E5%8A%A0-CSDN%E5%8D%9A%E5%AE%A2/" data-id="clvs5xbqw000pxco9fw5aasqu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-20/%E3%80%90Node.js%E3%80%91%E7%9B%91%E5%90%AC%E5%BC%82%E6%AD%A5%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9D%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95_nodejs%E7%AD%89%E5%BE%85%E5%BC%82%E6%AD%A5%E7%BB%93%E6%9D%9F-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-18/%E7%BC%96%E8%BE%91%E5%99%A8%20-%20%E8%A7%A3%E5%86%B3%20Obsidian%20%E5%9C%A8%E7%B2%98%E8%B4%B4%E4%BB%A3%E7%A0%81%E6%97%B6%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%A9%BA%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

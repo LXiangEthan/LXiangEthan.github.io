@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="000-解决obsidian下图片附件路径问题脚本001-导学002-初识python003-什么是编程语言004-Python环境安装005-第一个Python程序006-第一个python程序的小练习007-Python解释器008-python开发环境009-Pycharm的基本使用010-字面量011-注释012-变量013-数据类型014-数据类型转换015-标识符016-运算符017-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/$.ROOT/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Python%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="000-解决obsidian下图片附件路径问题脚本001-导学002-初识python003-什么是编程语言004-Python环境安装005-第一个Python程序006-第一个python程序的小练习007-Python解释器008-python开发环境009-Pycharm的基本使用010-字面量011-注释012-变量013-数据类型014-数据类型转换015-标识符016-运算符017-">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:35.877Z">
+<meta property="article:modified_time" content="2024-04-23T01:54:15.348Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/$.ROOT/Python数据分析与机器学习/Python基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Python%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:35.877Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/000-%E8%A7%A3%E5%86%B3obsidian%E4%B8%8B%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E8%84%9A%E6%9C%AC.md">000-解决obsidian下图片附件路径问题脚本</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/001-%E5%AF%BC%E5%AD%A6.md">001-导学</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/002-%E5%88%9D%E8%AF%86python.md">002-初识python</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/003-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80.md">003-什么是编程语言</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/004-Python%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85.md">004-Python环境安装</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/005-%E7%AC%AC%E4%B8%80%E4%B8%AAPython%E7%A8%8B%E5%BA%8F.md">005-第一个Python程序</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/006-%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B0%8F%E7%BB%83%E4%B9%A0.md">006-第一个python程序的小练习</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/007-Python%E8%A7%A3%E9%87%8A%E5%99%A8.md">007-Python解释器</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/008-python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.md">008-python开发环境</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/009-Pycharm%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.md">009-Pycharm的基本使用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/010-%E5%AD%97%E9%9D%A2%E9%87%8F.md">010-字面量</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/011-%E6%B3%A8%E9%87%8A.md">011-注释</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/012-%E5%8F%98%E9%87%8F.md">012-变量</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md">013-数据类型</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/014-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.md">014-数据类型转换</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/015-%E6%A0%87%E8%AF%86%E7%AC%A6.md">015-标识符</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/016-%E8%BF%90%E7%AE%97%E7%AC%A6.md">016-运算符</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/017-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F.md">017-字符串的三种定义方式</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/018-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8B%BC%E6%8E%A5.md">018-字符串的拼接</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/019-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96.md">019-字符串格式化</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/020-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E6%95%B0%E5%AD%97%E7%B2%BE%E5%BA%A6%E6%8E%A7%E5%88%B6.md">020-字符串格式化的数字精度控制</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/021-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%B9%E5%BC%8F2.md">021-字符串格式化方式2</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/022-%E5%AF%B9%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96.md">022-对表达式字符串格式化</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/023-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5.md">023-数据输入</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/024-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6.md">024-布尔类型和比较运算符</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/025-if%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F.md">025-if的基本格式</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/026-if%E3%80%81else%E7%BB%84%E5%90%88%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5.md">026-if、else组合判断语句</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/027-if%E3%80%81elif%E3%80%81else%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8.md">027-if、elif、else判断语句组合使用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/028-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8.md">028-判断语句嵌套使用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/029-while%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8.md">029-while循环的基础应用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/030-while%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8.md">030-while循环的嵌套使用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/031-for%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.md">031-for循环的基础语法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/032-range%E8%AF%AD%E5%8F%A5.md">032-range语句</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/033-for%E5%BE%AA%E7%8E%AF%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F.md">033-for循环临时变量</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/034-for%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%B5%8C%E5%A5%97%E5%BA%94%E7%94%A8.md">034-for循环的嵌套应用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/035-continue%E5%92%8Cbreak.md">035-continue和break</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/036-%E5%88%9D%E8%AF%86%E5%87%BD%E6%95%B0.md">036-初识函数</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/037-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89.md">037-函数定义</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/038-%E5%87%BD%E6%95%B0%E7%9A%84%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0.md">038-函数的传入参数</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/039-%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC.md">039-函数的返回值</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/040-%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84None%E7%B1%BB%E5%9E%8B.md">040-函数返回值的None类型</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/041-%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3.md">041-函数的说明文档</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/042-%E5%87%BD%E6%95%B0%E7%9A%84%E5%B5%8C%E5%A5%97%E8%B0%83%E7%94%A8.md">042-函数的嵌套调用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/043-%E5%8F%98%E9%87%8F%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F.md">043-变量在函数中的作用域</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/044-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%E5%85%A5%E9%97%A8.md">044-数据容器入门</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/045-%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95.md">045-列表的定义语法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/046-%E5%88%97%E8%A1%A8%E4%B8%8B%E8%A1%A8%E7%B4%A2%E5%BC%95.md">046-列表下表索引</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/047-%E5%88%97%E8%A1%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.md">047-列表的常用操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/048-%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86.md">048-列表循环遍历</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/049-%E5%85%83%E7%BB%84%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E5%AE%9A%E4%B9%89.md">049-元组的操作和定义</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/050-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BF%AE%E6%94%B9.md">050-字符串的定义和修改</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87.md">051-数据容器（序列）的切片</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C.md">052-集合的定义与操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/053-%E5%AD%97%E5%85%B8%E7%9A%84%E5%AE%9A%E4%B9%89.md">053-字典的定义</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/054-%E5%AD%97%E5%85%B8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.md">054-字典的常用操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/055-%E7%B1%BB%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%E7%9A%84%E6%80%BB%E7%BB%93.md">055-类数据容器的总结</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/056-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%E7%9A%84%E9%80%9A%E7%94%A8%E6%93%8D%E4%BD%9C.md">056-数据容器的通用操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/057-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%A7%E5%B0%8F%E6%AF%94%E8%BE%83.md">057-字符串大小比较</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/058-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E8%BF%94%E5%9B%9E%E5%80%BC.md">058-函数的多返回值</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/059-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F.md">059-函数的多种参数使用方式</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/060-%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92.md">060-函数作为参数传递</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/061-lambda%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0.md">061-lambda匿名函数</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/062-%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E6%A6%82%E5%BF%B5.md">062-文件编码概念</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/063-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C.md">063-文件读取操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/064-%E6%96%87%E4%BB%B6%E5%86%99%E5%87%BA%E6%93%8D%E4%BD%9C.md">064-文件写出操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/065-%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5.md">065-文件的追加写入</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/066-%E4%BA%86%E8%A7%A3%E5%BC%82%E5%B8%B8.md">066-了解异常</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/067-%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7.md">067-异常的捕获</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/068-%E5%BC%82%E5%B8%B8%E7%9A%84%E4%BC%A0%E9%80%92%E6%80%A7.md">068-异常的传递性</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/069-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%AF%BC%E5%85%A5.md">069-模块的概念和导入</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/070-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5.md">070-自定义模块导入</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/071-%E8%87%AA%E5%AE%9A%E4%B9%89python%E5%8C%85.md">071-自定义python包</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/072-%E5%AE%89%E8%A3%85%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85.md">072-安装第三方包</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/073-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B.md">073-综合案例</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/074-%E6%A1%88%E4%BE%8B%E4%BB%8B%E7%BB%8D.md">074-案例介绍</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/075-JSON%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2.md">075-JSON数据格式的转换</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/076-pyecharts%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B.md">076-pyecharts模块简介</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/077-pyecharts%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C.md">077-pyecharts入门操作</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/078-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87+%E6%8A%98%E7%BA%BF%E5%9B%BE%E5%88%9B%E5%BB%BA.md">078-数据准备+折线图创建</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/079-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A1%88%E4%BE%8B-%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96.md">079-数据可视化案例-地图可视化</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/080-%E5%85%A8%E5%9B%BD%E7%96%AB%E6%83%85%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA.md">080-全国疫情地图构建</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/081-%E6%B2%B3%E5%8D%97%E7%9C%81%E7%96%AB%E6%83%85%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA.md">081-河南省疫情地图构建</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/082-%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%9E%84%E5%BB%BA.md">082-基础柱状图构建</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/083-%E5%9F%BA%E7%A1%80%E6%97%B6%E9%97%B4%E7%BA%BF%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6.md">083-基础时间线柱状图绘制</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/084-%E5%8A%A8%E6%80%81%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6.md">084-动态柱状图绘制</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/085-%E5%88%9D%E8%AF%86%E5%AF%B9%E8%B1%A1.md">085-初识对象</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/086-%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8.md">086-类的定义和使用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.md">087-类和对象</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/088-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95.md">088-构造方法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/089-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.md">089-魔术方法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/090-%E5%B0%81%E8%A3%85.md">090-封装</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.md">091-继承的基本语法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8.md">092-复写父类成员和调用</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/093-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3.md">093-类型注解</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/094-%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3.md">094-函数和方法类型注解</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/095-Union%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3.md">095-Union联合类型注解</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/096-%E5%A4%9A%E6%80%81.md">096-多态</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/097-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B.md">097-数据分析案例</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/098-Python%E6%93%8D%E4%BD%9Cmysql.md">098-Python操作mysql</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/099-PySpark%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98.md">099-PySpark案例实战</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/100-%E5%9F%BA%E7%A1%80%E5%87%86%E5%A4%87.md">100-基础准备</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/101-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5.md">101-数据输入</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/102-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97-map%E6%96%B9%E6%B3%95.md">102-数据计算-map方法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/103-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97-flatMap%E6%96%B9%E6%B3%95.md">103-数据计算-flatMap方法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/104-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97reduceByKey.md">104-数据计算reduceByKey</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/105-%E7%BB%83%E4%B9%A0%E6%A1%88%E4%BE%8B.md">105-练习案例</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/106-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97-filter%E6%96%B9%E6%B3%95.md">106-数据计算-filter方法</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/107-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97-distinct.md">107-数据计算-distinct</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/108-%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97-sortBy.md">108-数据计算-sortBy</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/109-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%87%BA-%E8%BE%93%E5%87%BA%E4%B8%BAPython%E5%AF%B9%E8%B1%A1.md">109-数据输出-输出为Python对象</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/110-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%87%BA%E5%88%B0%E6%96%87%E4%BB%B6%E4%B8%AD.md">110-数据输出到文件中</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/111-%E6%8F%90%E4%BA%A4%E5%88%B0%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E4%B8%AD%E8%BF%90%E8%A1%8C.md">111-提交到大数据集群中运行</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/112-%E9%97%AD%E5%8C%85.md">112-闭包</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/113-%E8%A3%85%E9%A5%B0%E5%99%A8.md">113-装饰器</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/114-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md">114-设计模式</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/115-%E5%A4%9A%E7%BA%BF%E7%A8%8B.md">115-多线程</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/116-Socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md">116-Socket网络编程</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/117-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">117-正则表达式</a><br><a href="../../%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/118-%E9%80%92%E5%BD%92.md">118-递归</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/$.ROOT/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Python%E5%9F%BA%E7%A1%80/" data-id="clvs5xbqo0005xco9h0m6devw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%A4%A7%E5%89%8D%E7%AB%AF-H5+C3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/Linux%E8%BF%90%E7%BB%B4/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

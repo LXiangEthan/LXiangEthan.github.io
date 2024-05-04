@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="07  stream流模块创建流对象： 1const rs &#x3D; fs.createReadStream(&quot;.&#x2F;001.txt&quot;,&quot;utf-8&quot;) 打印流对象 12345678910rs.on(&quot;data&quot;,(chunk)&#x3D;&gt;&#123;      console.log(&quot;chunk:&quot;+chunk+&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="07  stream流模块创建流对象： 1const rs &#x3D; fs.createReadStream(&quot;.&#x2F;001.txt&quot;,&quot;utf-8&quot;) 打印流对象 12345678910rs.on(&quot;data&quot;,(chunk)&#x3D;&gt;&#123;      console.log(&quot;chunk:&quot;+chunk+&quot;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/image-20231210153956283.png">
+<meta property="og:image" content="http://example.com/assets/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/image-20231210212233588.png">
+<meta property="article:published_time" content="2024-05-04T13:48:40.826Z">
+<meta property="article:modified_time" content="2023-12-10T13:23:33.596Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/image-20231210153956283.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/023-内置模块-stream流模块" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.826Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h6 id="07-stream流模块"><a href="#07-stream流模块" class="headerlink" title="07  stream流模块"></a>07  stream流模块</h6><p>创建流对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./001.txt&quot;</span>,<span class="string">&quot;utf-8&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>打印流对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>,<span class="function">(<span class="params">chunk</span>)=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;chunk:&quot;</span>+chunk+<span class="string">&quot;/n&quot;</span>)  </span><br><span class="line">&#125;)  </span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="comment">//流输出结束  </span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;end&quot;</span>)  </span><br><span class="line">&#125;)  </span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;error&quot;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(err)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个流对象如果是大文件，才会触发多次，像这种小文件出发一次就结束了</p>
+<p><code>stream</code>是Node.js提供的又一个仅在服务区端可用的模块，目的是支持“流”这种数据结构。</p>
+<p>什么是流？流是一种抽象的数据结构。想象水流，当在水管中流动时，就可以从某个地方（例如自来水厂）源源不断地到达另一个地方（比如你家的洗手池）。我们也可以把数据看成是数据流，比如你敲键盘的时候，就可以把每个字符依次连起来，看成字符流。这个流是从键盘输入到应用程序，实际上它还对应着一个名字：标准输入流（stdin）。</p>
+<p><img src="/assets/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/image-20231210153956283.png"></p>
+<p>如果应用程序把字符一个一个输出到显示器上，这也可以看成是一个流，这个流也有名字：标准输出流（stdout）。流的特点是数据是有序的，而且必须依次读取，或者依次写入，不能像Array那样随机定位。</p>
+<p>有些流用来读取数据，比如从文件读取数据时，可以打开一个文件流，然后从文件流中不断地读取数据。有些流用来写入数据，比如向文件写入数据时，只需要把数据不断地往文件流中写进去就可以了。</p>
+<p>在Node.js中，流也是一个对象，我们只需要响应流的事件就可以了：<code>data</code>事件表示流的数据已经可以读取了，<code>end</code>事件表示这个流已经到末尾了，没有数据可以读取了，<code>error</code>事件表示出错了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开一个流:</span></span><br><span class="line"><span class="keyword">var</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;sample.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line"></span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span> (<span class="params">chunk</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;DATA:&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(chunk);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;END&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ERROR: &#x27;</span> + err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>要注意，<code>data</code>事件可能会有多次，每次传递的<code>chunk</code>是流的一部分数据。</p>
+<p>要以流的形式写入文件，只需要不断调用<code>write()</code>方法，最后以<code>end()</code>结束：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>)  </span><br><span class="line"><span class="comment">//创建可写流  </span></span><br><span class="line"><span class="keyword">const</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&quot;./001.txt&quot;</span>,<span class="string">&quot;utf-8&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&quot;hellohhhhhhhhhhhhhhhh&quot;</span>)  </span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&quot;hellohhhhhhhhhhhhhhhh&quot;</span>)  </span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&quot;hellohhhhhhhhhhhhhhhh&quot;</span>)  </span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&quot;hellohhhhhhhhhhhhhhhh&quot;</span>)</span><br><span class="line">ws.<span class="title function_">end</span>();</span><br></pre></td></tr></table></figure>
+<p>&#x3D;&#x3D;并且要记住写完之后要关闭可写流&#x3D;&#x3D;<br><em><strong>但是以这种方式写入文件会自动覆盖文件里面的原内容</strong></em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ws1 = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;output1.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">ws1.<span class="title function_">write</span>(<span class="string">&#x27;使用Stream写入文本数据...\n&#x27;</span>);</span><br><span class="line">ws1.<span class="title function_">write</span>(<span class="string">&#x27;END.&#x27;</span>);</span><br><span class="line">ws1.<span class="title function_">end</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>pipe</code> 就像可以把两个水管串成一个更长的水管一样，两个流也可以串起来。一个<code>Readable</code>流和一个<code>Writable</code>流串起来后，所有的数据自动从<code>Readable</code>流进入<code>Writable</code>流，这种操作叫<code>pipe</code>。</p>
+<p>在Node.js中，<code>Readable</code>流有一个<code>pipe()</code>方法，就是用来干这件事的。</p>
+<p>让我们用<code>pipe()</code>把一个文件流和另一个文件流串起来，这样源文件的所有数据就自动写入到目标文件里了，所以，这实际上是一个复制文件的程序：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readstream = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;./1.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> writestream = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./2.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">readstream.<span class="title function_">pipe</span>(writestream)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>)  </span><br><span class="line"><span class="comment">//创捷可读流  </span></span><br><span class="line"><span class="keyword">const</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./001.txt&quot;</span>,<span class="string">&quot;utf-8&quot;</span>)  </span><br><span class="line"><span class="comment">//创建可写流  </span></span><br><span class="line"><span class="keyword">const</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&quot;./001.txt&quot;</span>,<span class="string">&quot;utf-8&quot;</span>)  </span><br><span class="line"><span class="comment">//使用管道连接可读流和可写流  </span></span><br><span class="line">rs.<span class="title function_">pipe</span>(ws)  </span><br><span class="line"><span class="comment">//把可读流读到的内容写到可写流中</span></span><br></pre></td></tr></table></figure>
+<p>这个管道还可以自己关闭管道，这是一种高性能的复制文件方式<br>借助这个方法我们就可以实现写html文件到服务器返回中<br>但是要记住不要end()，此时的pipe是一个io流，是异步执行的，pipe里面给我们封装好了结束方法，不需要我们自己来结束<br>如果不信就看下面这个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> zlib = <span class="built_in">require</span>(<span class="string">&quot;zlib&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> gzip = <span class="keyword">new</span> zlib.<span class="title function_">createGzip</span>()  </span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> rs = <span class="keyword">new</span> fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./text.html&quot;</span>,<span class="string">&#x27;utf-8&#x27;</span>)  </span><br><span class="line"><span class="keyword">let</span> server = http.<span class="title function_">createServer</span>()  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">writeHead</span>(<span class="number">200</span>,&#123;  </span><br><span class="line">        <span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;text/html;charset=utf8&quot;</span>,  </span><br><span class="line">        <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>:<span class="string">&quot;*&quot;</span>,  </span><br><span class="line">    &#125;)  </span><br><span class="line">    rs.<span class="title function_">pipe</span>(res)  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">&quot;good&quot;</span>)  </span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/image-20231210212233588.png"><br>good在hello前面，hello是文件中的内容，足够说明这是一个异步的流<br>并且程序也正常end了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/023-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-stream%E6%B5%81%E6%A8%A1%E5%9D%97/" data-id="clvs5xbu500i8xco95iiw69tg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/024-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-zlib%E6%A8%A1%E5%9D%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/022-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-fs%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%9D%97-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

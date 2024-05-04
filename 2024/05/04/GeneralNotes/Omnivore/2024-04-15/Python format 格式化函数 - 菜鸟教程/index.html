@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Python format 格式化函数 | 菜鸟教程#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-format-18ee1b44320OriginURL: https:&#x2F;&#x2F;www.runoob.com&#x2F;python&#x2F;att-string-format.html  Python 字符串  Python2.6 开始，新增了一种格式化字符串的函">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-15/Python%20format%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0%20-%20%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python format 格式化函数 | 菜鸟教程#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-format-18ee1b44320OriginURL: https:&#x2F;&#x2F;www.runoob.com&#x2F;python&#x2F;att-string-format.html  Python 字符串  Python2.6 开始，新增了一种格式化字符串的函">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,snJ28LoIhC2SgkVHS6f6FfyI2zx3zhhUrtn0nRrgfP6w/https://www.runoob.com/images/up.gif">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,snJ28LoIhC2SgkVHS6f6FfyI2zx3zhhUrtn0nRrgfP6w/https://www.runoob.com/images/up.gif">
+<meta property="article:published_time" content="2024-05-04T13:48:36.037Z">
+<meta property="article:modified_time" content="2024-04-15T12:21:14.925Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,snJ28LoIhC2SgkVHS6f6FfyI2zx3zhhUrtn0nRrgfP6w/https://www.runoob.com/images/up.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-15/Python format 格式化函数 - 菜鸟教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-15/Python%20format%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0%20-%20%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.037Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Python-format-格式化函数-菜鸟教程"><a href="#Python-format-格式化函数-菜鸟教程" class="headerlink" title="Python format 格式化函数 | 菜鸟教程"></a>Python format 格式化函数 | 菜鸟教程</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/python-format-18ee1b44320">https://omnivore.app/me/python-format-18ee1b44320</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://www.runoob.com/python/att-string-format.html">https://www.runoob.com/python/att-string-format.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-strings.html"><img src="https://proxy-prod.omnivore-image-cache.app/0x0,snJ28LoIhC2SgkVHS6f6FfyI2zx3zhhUrtn0nRrgfP6w/https://www.runoob.com/images/up.gif" alt="Python 字符串"> Python 字符串</a></p>
+<hr>
+<p>Python2.6 开始，新增了一种格式化字符串的函数 str.format()，它增强了字符串格式化的功能。</p>
+<p>基本语法是通过 {} 和 : 来代替以前的 % 。</p>
+<p>format 函数可以接受不限个参数，位置可以不按顺序。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>&gt;&gt;&gt;”{} {}”.format(“hello”, “world”) ‘hello world’&gt;&gt;&gt; “{0} {1}”.format(“hello”, “world”) ‘hello world’&gt;&gt;&gt; “{1} {0} {1}”.format(“hello”, “world”) ‘world hello world’</p>
+<p>也可以设置参数：</p>
+<h2 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h2><p>print(“网站名：{name}, 地址 {url}”.format(name=“菜鸟教程”, url=“<a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a>“)) site = {“name”: “菜鸟教程”, “url”: “<a target="_blank" rel="noopener" href="http://www.runoob.com"}print/">www.runoob.com&quot;}print</a>(“网站名：{name}, 地址 {url}”.format(**site)) my_list = [‘菜鸟教程’, ‘<a target="_blank" rel="noopener" href="http://www.runoob.com'/]">www.runoob.com&#39;\]</a> print(“网站名：{0[0]}, 地址 {0[1]}”.format(my_list)) </p>
+<p>输出结果为：</p>
+<p>网站名：菜鸟教程, 地址 <a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a><br>网站名：菜鸟教程, 地址 <a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a><br>网站名：菜鸟教程, 地址 <a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a></p>
+<p>也可以向 str.format() 传入对象：</p>
+<h2 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h2><p>class AssignValue(object):def __init__(self, value):self.value = value my_value = AssignValue(6) print(‘value 为: {0.value}’.format(my_value)) </p>
+<p>输出结果为：</p>
+<p>value 为: 6</p>
+<h3 id="数字格式化"><a href="#数字格式化" class="headerlink" title="数字格式化"></a>数字格式化</h3><p>下表展示了 str.format() 格式化数字的多种方法：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print(“{:.2f}”.format(3.1415926))<br>3.14</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>格式</th>
+<th>输出</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3.1415926</td>
+<td>{:.2f}</td>
+<td>3.14</td>
+<td>保留小数点后两位</td>
+</tr>
+<tr>
+<td>3.1415926</td>
+<td>{:+.2f}</td>
+<td>+3.14</td>
+<td>带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>{:-.2f}</td>
+<td>-1.00</td>
+<td>带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>2.71828</td>
+<td>{:.0f}</td>
+<td>3</td>
+<td>不带小数</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:0&gt;2d}</td>
+<td>05</td>
+<td>数字补零 (填充左边, 宽度为2)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:x&lt;4d}</td>
+<td>5xxx</td>
+<td>数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>{:x&lt;4d}</td>
+<td>10xx</td>
+<td>数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>{:,}</td>
+<td>1,000,000</td>
+<td>以逗号分隔的数字格式</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>{:.2%}</td>
+<td>25.00%</td>
+<td>百分比格式</td>
+</tr>
+<tr>
+<td>1000000000</td>
+<td>{:.2e}</td>
+<td>1.00e+09</td>
+<td>指数记法</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:&gt;10d}</td>
+<td>13</td>
+<td>右对齐 (默认, 宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:&lt;10d}</td>
+<td>13</td>
+<td>左对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:^10d}</td>
+<td>13</td>
+<td>中间对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>‘{:b}’.format(11) ‘{:d}’.format(11) ‘{:o}’.format(11) ‘{:x}’.format(11) ‘{:#x}’.format(11) ‘{:#X}’.format(11)</td>
+<td>1011 11 13 b 0xb 0XB</td>
+<td>进制</td>
+</tr>
+</tbody></table>
+<p>^, &lt;, &gt; 分别是居中、左对齐、右对齐，后面带宽度， : 号后面带填充的字符，只能是一个字符，不指定则默认是用空格填充。</p>
+<ul>
+<li>表示在正数前显示 +，负数前显示 -；  （空格）表示在正数前加空格</li>
+</ul>
+<p>b、d、o、x 分别是二进制、十进制、八进制、十六进制。</p>
+<p>此外我们可以使用大括号 {} 来转义大括号，如下实例：</p>
+<h2 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h2><p>print (“{} 对应的位置是 0“.format(“runoob”))</p>
+<p>输出结果为：</p>
+<p>runoob 对应的位置是 {0}</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-strings.html"><img src="https://proxy-prod.omnivore-image-cache.app/0x0,snJ28LoIhC2SgkVHS6f6FfyI2zx3zhhUrtn0nRrgfP6w/https://www.runoob.com/images/up.gif" alt="Python 字符串"> Python 字符串</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-15/Python%20format%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0%20-%20%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/" data-id="clvs5xbqw000nxco9hfzt4rqv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-15/%E5%85%A5%E9%97%A8%20Python%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%95%99%E7%A8%8B%E6%8C%87%E5%8D%97%EF%BC%88%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF+%E8%B5%84%E6%96%99%E5%88%86%E4%BA%AB%EF%BC%89_%E7%89%9B%E5%AE%A2%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-15/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%EF%BC%88%E7%AE%80%E5%8D%95%E9%80%9F%E6%88%90%E4%B8%8D%E6%8E%89%E5%A4%B4%E5%8F%91%EF%BC%89_python%20%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%20%E5%85%A5%E9%97%A8-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

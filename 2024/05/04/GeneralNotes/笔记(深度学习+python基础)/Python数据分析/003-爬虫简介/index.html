@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="概述 爬虫是批量化自动化获取即有数据 批量化 自动化 既有数据   通常来说都是获取即有数据 都是获取既有数据   也有特殊的 批量注册一些账号 批量的去领取优惠券 批量下载商品 自动做任务（签到）    实际应用 在企业中 应用最多的 做竞品调研数据采集   办公自动化 自动从公司的后台的地方获取数据进行处理     当个人服务 爬取网络免费资源 抢票    分类 四大类 聚焦爬虫 完成某一特定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/003-%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述 爬虫是批量化自动化获取即有数据 批量化 自动化 既有数据   通常来说都是获取即有数据 都是获取既有数据   也有特殊的 批量注册一些账号 批量的去领取优惠券 批量下载商品 自动做任务（签到）    实际应用 在企业中 应用最多的 做竞品调研数据采集   办公自动化 自动从公司的后台的地方获取数据进行处理     当个人服务 爬取网络免费资源 抢票    分类 四大类 聚焦爬虫 完成某一特定">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:42.114Z">
+<meta property="article:modified_time" content="2024-04-23T13:40:10.567Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(深度学习+python基础)/Python数据分析/003-爬虫简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/003-%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:42.114Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>爬虫是批量化自动化获取即有数据<ul>
+<li>批量化</li>
+<li>自动化</li>
+<li>既有数据</li>
+</ul>
+</li>
+<li>通常来说都是获取即有数据<ul>
+<li>都是获取既有数据</li>
+</ul>
+</li>
+<li>也有特殊的<ul>
+<li>批量注册一些账号</li>
+<li>批量的去领取优惠券</li>
+<li>批量下载商品</li>
+<li>自动做任务（签到）</li>
+</ul>
+</li>
+</ul>
+<h1 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h1><ul>
+<li>在企业中<ul>
+<li>应用最多的<ul>
+<li>做竞品调研数据采集</li>
+</ul>
+</li>
+<li>办公自动化<ul>
+<li>自动从公司的后台的地方获取数据进行处理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当个人服务<ul>
+<li>爬取网络免费资源</li>
+<li>抢票</li>
+</ul>
+</li>
+</ul>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><ul>
+<li>四大类</li>
+<li>聚焦爬虫<ul>
+<li>完成某一特定数据的采集</li>
+<li>百分之九十的爬虫</li>
+</ul>
+</li>
+<li>通用爬虫<ul>
+<li>什么内容都爬取，都存储下来</li>
+<li>搜索引擎</li>
+</ul>
+</li>
+<li>增量爬虫<ul>
+<li>既可以实现聚焦爬虫</li>
+<li>也可以是通用爬虫</li>
+<li>当内容发生变化的时候，它可以增量的获取内容</li>
+</ul>
+</li>
+<li>暗网爬虫<ul>
+<li>深网爬虫</li>
+<li>很少见</li>
+<li>暗网&#x2F;深网，本身就是见不得光的地方</li>
+<li>暗网爬虫既可以是聚焦爬虫，也可以是通用爬虫，当然也可以是增量爬虫</li>
+</ul>
+</li>
+</ul>
+<h1 id="爬虫合法吗？"><a href="#爬虫合法吗？" class="headerlink" title="爬虫合法吗？"></a>爬虫合法吗？</h1><p>机器人协议</p>
+<ul>
+<li>robots.txt<ul>
+<li><a target="_blank" rel="noopener" href="https://www.baidu.com/robots.txt">https://www.baidu.com/robots.txt</a> 百度的机器人协议</li>
+<li><a target="_blank" rel="noopener" href="https://www.taobao.com/robots.txt">https://www.taobao.com/robots.txt</a> 淘宝机器人协议，淘宝和百度好像有点仇</li>
+<li>通常协议中会标明哪些不让爬，但是像京东这样顶级的购物网站都没有写机器人协议</li>
+</ul>
+</li>
+</ul>
+<p>君子协议</p>
+<ul>
+<li>为标注是否可以爬去</li>
+<li>历史上有哪些爬虫工程师吃上了官家饭<ul>
+<li>有一家公司被连窝端了<ul>
+<li>工程师写了一个爬虫，采集另外一家公司的网站数据，丝毫没有管网站的死活</li>
+</ul>
+</li>
+<li>有一个研究生写了一个爬虫给女朋友抢HPV疫苗，给别人抢，收费</li>
+</ul>
+</li>
+</ul>
+<h3 id="爬虫的注意事项"><a href="#爬虫的注意事项" class="headerlink" title="爬虫的注意事项"></a>爬虫的注意事项</h3><ul>
+<li>给服务器留活路<ul>
+<li>爬虫开启后，使用其他设备去访问爬虫网站</li>
+</ul>
+</li>
+<li>脱离敏感数据</li>
+<li>不要公开收费</li>
+<li>不要爬国家这种公共资源的网站</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/003-%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B/" data-id="clvs5xbwb00t4xco96arf591n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/005-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-Selenium%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/004-%E7%88%AC%E8%99%AB%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

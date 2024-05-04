@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="通道数，图像数据类型等都存放在头部像素值存放在在数据部分 Mat直接赋值并不能实现图像的赋值,只是赋值了头部，指向的还是同一个图像，必须使用拷贝方法才行 克隆&#x2F;拷贝方法：Mat mat1 &#x3D; src.clone();复制方法：src.copyTo(mat2);赋值方法：Mat mat3 &#x3D; src;（没啥用） Mat m3 &#x3D; Mat::zeros(Size">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通道数，图像数据类型等都存放在头部像素值存放在在数据部分 Mat直接赋值并不能实现图像的赋值,只是赋值了头部，指向的还是同一个图像，必须使用拷贝方法才行 克隆&#x2F;拷贝方法：Mat mat1 &#x3D; src.clone();复制方法：src.copyTo(mat2);赋值方法：Mat mat3 &#x3D; src;（没啥用） Mat m3 &#x3D; Mat::zeros(Size">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/Pasted%20image%2020231113190422.png">
+<meta property="og:image" content="http://example.com/assets/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/Pasted%20image%2020231113193735.png">
+<meta property="article:published_time" content="2024-05-04T13:48:37.192Z">
+<meta property="article:modified_time" content="2023-11-20T11:25:25.411Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/Pasted%20image%2020231113190422.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(Cplusplus)/opencv/004-图像对象的创建与赋值" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.192Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/Pasted%20image%2020231113190422.png"><br>通道数，图像数据类型等都存放在头部<br>像素值存放在在数据部分</p>
+<p>Mat直接赋值并不能实现图像的赋值,只是赋值了头部，指向的还是同一个图像，必须使用拷贝方法才行</p>
+<p>克隆&#x2F;拷贝方法：Mat mat1 &#x3D; src.clone();<br>复制方法：src.copyTo(mat2);<br>赋值方法：Mat mat3 &#x3D; src;（没啥用）</p>
+<p>Mat m3 &#x3D; Mat::zeros(Size(8, 8), CV_8UC1);<br>8UC1表示8位unsigned char （无符号字符型）单通道<br>Size(8,8)是8*8的像素总数</p>
+<p>如果把8UC1最后一个1改成3就会变成一个8*24的矩阵<br>Mat矩阵宽度：image.cols<br>Mat矩阵高度：image.rows<br>Mat矩阵通道数：image.channels()<br><img src="/assets/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/Pasted%20image%2020231113193735.png"><br>Mat m3 &#x3D; Mat::zeros(Size(8, 8), CV_8UC1);<br>这里还可以修改zeros成ones，但是这个需要非常小心使用，当这个是单通道的时候，全部是1，一旦把它用成三通道，就只会在每个像素点的第一个通道变成1</p>
+<p>给通道赋值<br>m3 &#x3D; 127;<br>这时会发现只有第一个通道被赋值，剩下的通道仍然是0</p>
+<p>这时我们有一个函数Scalar(127,127,127)，可以同时给多个通道赋值</p>
+<p>几乎所有的操作符都被重载定义支持了我们的Mat容器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;quickOpencv.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">quickdemo::colorspacedemo</span><span class="params">(Mat&amp; image)</span> </span>&#123;</span><br><span class="line">	Mat gray, hsv;</span><br><span class="line">	<span class="built_in">cvtColor</span>(image, hsv, COLOR_BGR2HSV);</span><br><span class="line">	<span class="built_in">cvtColor</span>(image, gray, COLOR_BGR2GRAY);</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;HSV&quot;</span>, hsv);</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;GRAY&quot;</span>, gray);</span><br><span class="line">	<span class="built_in">imwrite</span>(<span class="string">&quot;C:\\Users\\刃沐\\Pictures\\opencv\\hsv.png&quot;</span>, hsv);</span><br><span class="line">	<span class="built_in">imwrite</span>(<span class="string">&quot;C:\\Users\\刃沐\\Pictures\\opencv\\gray.png&quot;</span>, gray);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">quickdemo::matCreatedemo</span><span class="params">(Mat&amp; image)</span> </span>&#123;</span><br><span class="line">	Mat m1, m2;</span><br><span class="line">	m1 = image.<span class="built_in">clone</span>();</span><br><span class="line">	image.<span class="built_in">copyTo</span>(m2);</span><br><span class="line"></span><br><span class="line">	Mat m3 = Mat::<span class="built_in">zeros</span>(<span class="built_in">Size</span>(<span class="number">128</span>,<span class="number">128</span>), CV_8UC3);</span><br><span class="line">	m3 = <span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>);</span><br><span class="line">	cout &lt;&lt; m3 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;宽度为：&quot;</span> &lt;&lt; m3.cols &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;高度为：&quot;</span> &lt;&lt; m3.rows &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;通道数为：&quot;</span> &lt;&lt; m3.<span class="built_in">channels</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	Mat  m4 = m3.<span class="built_in">clone</span>();</span><br><span class="line">	m4 = <span class="built_in">Scalar</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;我的窗口&quot;</span>,m3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/" data-id="clvs5xbsr0092xco983ht1a7s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/003-%E5%9B%BE%E5%83%8F%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/002-%E5%9B%BE%E5%83%8F%E8%AF%BB%E5%8F%96%E4%B8%8E%E6%98%BE%E7%A4%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

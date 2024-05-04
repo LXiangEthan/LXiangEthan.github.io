@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="001-MyBatis简介002-MyBatis快速入门003-解决sql语句警告提示004-Mapper代理开发005-MyBatis核心配置文件006-MyBatis案例-环境准备007-查询-查询所有结果&amp;结果映射008-查询-查看详情009-查询-条件查询010-查询-动态条件查询011-添加&amp;修改功能012-删除功能013-参数传递014-注解开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/$.ROOT/JAVA%E5%90%8E%E7%AB%AF/MyBatis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="001-MyBatis简介002-MyBatis快速入门003-解决sql语句警告提示004-Mapper代理开发005-MyBatis核心配置文件006-MyBatis案例-环境准备007-查询-查询所有结果&amp;结果映射008-查询-查看详情009-查询-条件查询010-查询-动态条件查询011-添加&amp;修改功能012-删除功能013-参数传递014-注解开发">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:35.870Z">
+<meta property="article:modified_time" content="2024-04-20T03:16:10.762Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/$.ROOT/JAVA后端/MyBatis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/JAVA%E5%90%8E%E7%AB%AF/MyBatis/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:35.870Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/001-MyBatis%E7%AE%80%E4%BB%8B.md">001-MyBatis简介</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/002-MyBatis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md">002-MyBatis快速入门</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/003-%E8%A7%A3%E5%86%B3sql%E8%AF%AD%E5%8F%A5%E8%AD%A6%E5%91%8A%E6%8F%90%E7%A4%BA.md">003-解决sql语句警告提示</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/004-Mapper%E4%BB%A3%E7%90%86%E5%BC%80%E5%8F%91.md">004-Mapper代理开发</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/005-MyBatis%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.md">005-MyBatis核心配置文件</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/006-MyBatis%E6%A1%88%E4%BE%8B-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87.md">006-MyBatis案例-环境准备</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/007-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E7%BB%93%E6%9E%9C&%E7%BB%93%E6%9E%9C%E6%98%A0%E5%B0%84.md">007-查询-查询所有结果&amp;结果映射</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85.md">008-查询-查看详情</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/009-%E6%9F%A5%E8%AF%A2-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2.md">009-查询-条件查询</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/010-%E6%9F%A5%E8%AF%A2-%E5%8A%A8%E6%80%81%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2.md">010-查询-动态条件查询</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/011-%E6%B7%BB%E5%8A%A0&%E4%BF%AE%E6%94%B9%E5%8A%9F%E8%83%BD.md">011-添加&amp;修改功能</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/012-%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD.md">012-删除功能</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92.md">013-参数传递</a><br><a href="../../%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/014-%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91.md">014-注解开发</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/$.ROOT/JAVA%E5%90%8E%E7%AB%AF/MyBatis/" data-id="clvs5xbqo0006xco971vuhz07" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/Linux%E8%BF%90%E7%BB%B4/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/$.ROOT/JAVA%E5%90%8E%E7%AB%AF/JAVASE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

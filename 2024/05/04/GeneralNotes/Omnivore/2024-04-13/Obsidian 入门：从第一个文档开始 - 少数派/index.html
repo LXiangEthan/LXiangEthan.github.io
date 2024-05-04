@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Obsidian 入门：从第一个文档开始 - 少数派#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;obsidian-18ed73d825eOriginURL: https:&#x2F;&#x2F;sspai.com&#x2F;post&#x2F;67476 这是一篇Obsidian基础使用教程。对，我知道官方写的有手册。 这篇不讲什么快捷键，也不讲命令面板。写一个普通人也能看得懂的，照着操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-13/Obsidian%20%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%87%E6%A1%A3%E5%BC%80%E5%A7%8B%20-%20%E5%B0%91%E6%95%B0%E6%B4%BE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Obsidian 入门：从第一个文档开始 - 少数派#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;obsidian-18ed73d825eOriginURL: https:&#x2F;&#x2F;sspai.com&#x2F;post&#x2F;67476 这是一篇Obsidian基础使用教程。对，我知道官方写的有手册。 这篇不讲什么快捷键，也不讲命令面板。写一个普通人也能看得懂的，照着操作">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sq-Yn0_DPB27lIr5OxSIS0xWqXsqaYTX602aqeWZM-h8/https://cdn.sspai.com/2021/06/29/article/c5ac330f0b75b137e9b6236ec64c29c4?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sz3eew588emqe4j_hJM31eoLJKN-TpcV-3q8Wduvrdxc/https://cdn.sspai.com/2021/06/29/article/0164c2c82d700588b63584eacf7e2dde?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,siJTaJ8SR3MZ_BhSakUc9ApVnFoLkdbx5YWXM_lU8k2s/https://cdn.sspai.com/2021/06/29/article/979e8bf36d6daefdf695cdbe0a752ddb?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sFhtEsj1ny_lyNGC0Y8SKy2O5kf8rf9LN96fNP9YJKuk/https://cdn.sspai.com/2021/06/29/article/c64f062f8e5279703c133d9be4a9f9bb?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sadbBUJA5_9wdY4kvzP7UmcUDTq_rpLEy-1I5sgKZ-lg/https://cdn.sspai.com/2021/06/29/article/433e1fde5bad068b09d7f4fcaae5ceb4?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sPDncCIcdobYA8Bp5UOVLbm_0W8HrESBBKwDuRpiv2SI/https://cdn.sspai.com/2021/06/29/article/2b870a4493c6599a871ae171f485c259?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sAgLrZd8bn5WFx6fTDf0zHWUZ35FGaSM76ERvhsdpph4/https://cdn.sspai.com/2021/06/29/article/39651808f4251532422bc44db9d4d786?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sgrjGz4sD7l3OtORYGARrrI9h_h0inJUENJzs_lpQf0c/https://cdn.sspai.com/2021/06/29/article/32bf76211761add64e11fd2ce1999c9f?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,soA_udqRsteCcQ3dDe4MtERddHzYObSP_0XoBHrBfpMs/https://cdn.sspai.com/2021/06/29/article/63422700ff68bd9f5507a7e3705ab1d7?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sO_N1-4mJsXNe7z57K6hta16E5Crg52kVbqMRQ8GcnX4/https://cdn.sspai.com/2021/06/29/article/106d8134defcf95cccf9ef7184bb7695?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sKqQK3RPhQrlTWfl0qx_7dZJTj-3D9ctyspMtL7ap_Co/https://cdn.sspai.com/2021/06/29/article/5c2d556861ca519d000233bb22e847e5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,stNnccrAGpPbrc9keq1SjbYAOxUnkDhfVkb9P63mseLI/https://cdn.sspai.com/2021/06/29/article/d112c5559be3245fc58ef30aef130bdd?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,suG3L2QVXvZUbFMJ66KPZdlpU_aemTKJ91yUYpV48TiE/https://cdn.sspai.com/2021/06/29/article/bedad38bcc52579737650c7ce2a67c45?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,s_VLAiK4vF2zSwbjiTBGE8WKnQlxosHufjNw3gc0aanA/https://cdn.sspai.com/2021/06/29/article/d0d7a8b08e76dd5032056a5bd88429c5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sUtIY0MCzNZmnyC2ZQc_ZKZ3_sGbEracXYnGFUf7kbyk/https://cdn.sspai.com/2021/06/29/article/8ad6c2a09677d0ca7f5bd418561bff7e?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sfAvzsQpD3spyaZL5YKmhVA2bGCdZmX_0jNgofamtVnM/https://cdn.sspai.com/2021/06/29/article/f5c340d8496c4be71cef5230e8c13a61?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sima3y1MF4USkcSRTgz0OqdUWtXz2oTdw04kwbJgivpg/https://cdn.sspai.com/2021/06/29/article/4f52b30be483edfafc3ecb9e9f751dc8?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sC6Vpz_I8yJxi7nMI2t8NnXS_TlIl77x2xkkmN4_V2qo/https://cdn.sspai.com/2021/06/29/article/e3e1187f4053047c2192912a5c47abb5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sLp4xKpn7A779WQhot-co0UBulXRHpTRNDkgUjYd1N8A/https://cdn.sspai.com/2021/06/29/article/91b6da1099664cc4ee152b0fa80ce156?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sI0TLmEKwIcEdaNT_uf86NJ-BLCvvo5QNV2F29ksasrs/https://cdn.sspai.com/2021/06/29/article/d647ea150bb6d934b377d8a4f0b600b1?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sedRdERFdTZescb0CmvOboVMEYPPYQ2ZaC9jJa9lWGl0/https://cdn.sspai.com/2021/06/29/article/50a0e150d039b34f791dce12a91c420d?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sEYnyKJLoPK6yMvY3W6sI1NYgNlRhOJfhPp5vQVyPGvc/https://cdn.sspai.com/2021/06/29/article/d101b05c536a9530b496f574f23c8db9?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sIbVPWsWMcSzU2hAN6FrSa-J-V5Q2grw9Ojjx_3IeLLk/https://cdn.sspai.com/2021/06/29/article/4e597be1cc78d85da66ce264e48b5cb2?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sPCl1EKv31m6tY-3s4w-hEJqNJYeglES7mPK5rLK-rdM/https://cdn.sspai.com/2021/06/29/article/1f287df2d6a9ce61a7add68801b131f6?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sKfuwDgVLakO-dIgSY6fKbgXGKXeDO6mhi4FGVmL3hvI/https://cdn.sspai.com/2021/06/29/article/974179b66ff14afcc64550542cb1e693?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="article:published_time" content="2024-05-04T13:48:36.032Z">
+<meta property="article:modified_time" content="2024-04-13T11:44:55.837Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sq-Yn0_DPB27lIr5OxSIS0xWqXsqaYTX602aqeWZM-h8/https://cdn.sspai.com/2021/06/29/article/c5ac330f0b75b137e9b6236ec64c29c4?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-13/Obsidian 入门：从第一个文档开始 - 少数派" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-13/Obsidian%20%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%87%E6%A1%A3%E5%BC%80%E5%A7%8B%20-%20%E5%B0%91%E6%95%B0%E6%B4%BE/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.032Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Obsidian-入门：从第一个文档开始-少数派"><a href="#Obsidian-入门：从第一个文档开始-少数派" class="headerlink" title="Obsidian 入门：从第一个文档开始 - 少数派"></a>Obsidian 入门：从第一个文档开始 - 少数派</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/obsidian-18ed73d825e">https://omnivore.app/me/obsidian-18ed73d825e</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://sspai.com/post/67476">https://sspai.com/post/67476</a></p>
+<p>这是一篇Obsidian基础使用教程。对，我知道官方写的有手册。</p>
+<p>这篇不讲什么快捷键，也不讲命令面板。写一个普通人也能看得懂的，照着操作就可以完成一篇笔记的使用指引。</p>
+<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a><strong>导读</strong></h2><h3 id="大纲："><a href="#大纲：" class="headerlink" title="大纲："></a><strong>大纲：</strong></h3><ul>
+<li>打开库，创建第一个文件</li>
+<li>markdown的编辑与预览</li>
+<li>打开分栏</li>
+<li>引用（内部链接）</li>
+<li>标签</li>
+<li>检索</li>
+<li>关系图谱</li>
+</ul>
+<h3 id="写作目标"><a href="#写作目标" class="headerlink" title="写作目标"></a><strong>写作目标</strong></h3><p>小学生也能看得懂得Obsidian使用教程。</p>
+<hr>
+<p>下面开始。</p>
+<p>👉准备工作：到官网下载并安装Obsidian.</p>
+<h2 id="第一个文件"><a href="#第一个文件" class="headerlink" title="第一个文件"></a>第一个文件</h2><p>👉1. 在电脑上选择任意一个地方，甚至桌面也可以，新建一个文件夹，给文件夹起一个名字，比如“日常记录”。</p>
+<p>👉2. 打开obsidian，这时会看到下面的界面：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sq-Yn0_DPB27lIr5OxSIS0xWqXsqaYTX602aqeWZM-h8/https://cdn.sspai.com/2021/06/29/article/c5ac330f0b75b137e9b6236ec64c29c4?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>👉3. 点击“打开库文件夹”后面的按钮【打开】，在弹出的文件选择器中找到刚刚创建的文件夹，选中，单击下方的【打开文件夹】。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sz3eew588emqe4j_hJM31eoLJKN-TpcV-3q8Wduvrdxc/https://cdn.sspai.com/2021/06/29/article/0164c2c82d700588b63584eacf7e2dde?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>👉4. 这时候，你就打开了日常记录库。接下来，你会看到以下界面：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,siJTaJ8SR3MZ_BhSakUc9ApVnFoLkdbx5YWXM_lU8k2s/https://cdn.sspai.com/2021/06/29/article/979e8bf36d6daefdf695cdbe0a752ddb?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>👉5. 有3种方式可以新建一个文件：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sFhtEsj1ny_lyNGC0Y8SKy2O5kf8rf9LN96fNP9YJKuk/https://cdn.sspai.com/2021/06/29/article/c64f062f8e5279703c133d9be4a9f9bb?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>①、点击左侧导航栏上的新建文件图标； </p>
+<p>②、点击界面中间的“创建新文件”；</p>
+<p>③、快捷键(Ctrl+N)</p>
+<p>👉6. 新建一个文件，你会得到一个未命名文件。接下来，将鼠标移动到文件中间，就可以开始书写啦。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sadbBUJA5_9wdY4kvzP7UmcUDTq_rpLEy-1I5sgKZ-lg/https://cdn.sspai.com/2021/06/29/article/433e1fde5bad068b09d7f4fcaae5ceb4?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="markdown的编辑与预览"><a href="#markdown的编辑与预览" class="headerlink" title="markdown的编辑与预览"></a>markdown的编辑与预览</h2><p>👉1. 点击右上角的“预览”图标，切换到markdown预览模式。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sPDncCIcdobYA8Bp5UOVLbm_0W8HrESBBKwDuRpiv2SI/https://cdn.sspai.com/2021/06/29/article/2b870a4493c6599a871ae171f485c259?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>👉2. 效果如下图。在预览模式下，待办列表可以点击打勾。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sAgLrZd8bn5WFx6fTDf0zHWUZ35FGaSM76ERvhsdpph4/https://cdn.sspai.com/2021/06/29/article/39651808f4251532422bc44db9d4d786?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>👉3. 发现预览图标变成了✏图标，再次点击就会回到编辑模式。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sgrjGz4sD7l3OtORYGARrrI9h_h0inJUENJzs_lpQf0c/https://cdn.sspai.com/2021/06/29/article/32bf76211761add64e11fd2ce1999c9f?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="分栏"><a href="#分栏" class="headerlink" title="分栏"></a>分栏</h2><h3 id="1-拆分窗口"><a href="#1-拆分窗口" class="headerlink" title="1. 拆分窗口"></a>1. 拆分窗口</h3><p>👉点击右上角的三个点图标，点击“左右拆分”或者上下拆分，你会得到一个一分为二的窗口。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,soA_udqRsteCcQ3dDe4MtERddHzYObSP_0XoBHrBfpMs/https://cdn.sspai.com/2021/06/29/article/63422700ff68bd9f5507a7e3705ab1d7?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>这两个窗口你可以分别操作。</p>
+<p>比如说，左边用编辑模式来写作，右边用预览模式实时的看效果。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sO_N1-4mJsXNe7z57K6hta16E5Crg52kVbqMRQ8GcnX4/https://cdn.sspai.com/2021/06/29/article/106d8134defcf95cccf9ef7184bb7695?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>当你有多个文件时，还可以用分栏打开不同的文件，像这样：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sKqQK3RPhQrlTWfl0qx_7dZJTj-3D9ctyspMtL7ap_Co/https://cdn.sspai.com/2021/06/29/article/5c2d556861ca519d000233bb22e847e5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>这个功能方便你参考以前的文章来写作。比如我在之前的文档中写的文章提案和头脑风暴，现在就在左栏打开着作为参考。</p>
+<p>这个拆分窗口可以多次操作，你可以自由组合自己的窗口。当你选中某个窗口，再点击左侧的文件列表里的文件时，这个文件会在你选中的窗口中展示。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,stNnccrAGpPbrc9keq1SjbYAOxUnkDhfVkb9P63mseLI/https://cdn.sspai.com/2021/06/29/article/d112c5559be3245fc58ef30aef130bdd?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h3 id="2-调整分栏窗口比例"><a href="#2-调整分栏窗口比例" class="headerlink" title="2.调整分栏窗口比例"></a>2.调整分栏窗口比例</h3><p>👉拖动中间的分割线，可以来回拖动调整分栏窗口的比例。</p>
+<h2 id="引用（内部链接）"><a href="#引用（内部链接）" class="headerlink" title="引用（内部链接）"></a>引用（内部链接）</h2><h3 id="1-链接到文件"><a href="#1-链接到文件" class="headerlink" title="1.链接到文件"></a>1.链接到文件</h3><p>当我想要再“演示文件三”引用“演示文件”的时候，使用`[[`，会弹出一个文件列表，在里面选择想要链接的文件即可。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,suG3L2QVXvZUbFMJ66KPZdlpU_aemTKJ91yUYpV48TiE/https://cdn.sspai.com/2021/06/29/article/bedad38bcc52579737650c7ce2a67c45?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h3 id="2-链接到某个标题下面"><a href="#2-链接到某个标题下面" class="headerlink" title="2.链接到某个标题下面"></a>2.链接到某个标题下面</h3><p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,s_VLAiK4vF2zSwbjiTBGE8WKnQlxosHufjNw3gc0aanA/https://cdn.sspai.com/2021/06/29/article/d0d7a8b08e76dd5032056a5bd88429c5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h3 id="3-改变链接的显示文字"><a href="#3-改变链接的显示文字" class="headerlink" title="3.改变链接的显示文字"></a>3.改变链接的显示文字</h3><p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sUtIY0MCzNZmnyC2ZQc_ZKZ3_sGbEracXYnGFUf7kbyk/https://cdn.sspai.com/2021/06/29/article/8ad6c2a09677d0ca7f5bd418561bff7e?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="1-给文件加标签"><a href="#1-给文件加标签" class="headerlink" title="1.给文件加标签"></a>1.给文件加标签</h3><p>来了，所有云笔记都有的元素——标签。</p>
+<p>这个东西展开讲简直是一门科学。</p>
+<p>但我们不讲，哈哈哈哈……</p>
+<p>标签的作用，在我看来是方便给笔记做二次分类。举个例子，你有一个读书笔记文件夹，里面放着多个读书笔记文件，这时候可以按照你自己给书分类的方式，给笔记打标签，比如“时间管理”、“心理学”、“科普”、“小说”。</p>
+<p>语法是在标签名前面加井号<code>#</code>。</p>
+<p>标签还可以嵌套，相当于子标签。</p>
+<h3 id="2-打开标签面板"><a href="#2-打开标签面板" class="headerlink" title="2.打开标签面板"></a>2.打开标签面板</h3><p>打开设置，找到选项中的【核心插件】，打开标签面板的开关。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sfAvzsQpD3spyaZL5YKmhVA2bGCdZmX_0jNgofamtVnM/https://cdn.sspai.com/2021/06/29/article/f5c340d8496c4be71cef5230e8c13a61?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>这时可以在右侧边栏看到标签面板中显示的标签啦。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sima3y1MF4USkcSRTgz0OqdUWtXz2oTdw04kwbJgivpg/https://cdn.sspai.com/2021/06/29/article/4f52b30be483edfafc3ecb9e9f751dc8?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>点击某个标签，会看到左侧边栏自动打开了搜索面板，能看到有这个标签的文件列表。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sC6Vpz_I8yJxi7nMI2t8NnXS_TlIl77x2xkkmN4_V2qo/https://cdn.sspai.com/2021/06/29/article/e3e1187f4053047c2192912a5c47abb5?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="检索"><a href="#检索" class="headerlink" title="检索"></a>检索</h2><p>当我们想要搜索某个内容，但是不记得放在哪个文件了，就需要搜索功能。</p>
+<p>点击左侧边栏上方的放大镜图标，就可以打开搜索面板，我们输入一个关键词，回车。就能看到下方的搜索结果列表已经出现了所有包含这个关键词的文件和内容。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sLp4xKpn7A779WQhot-co0UBulXRHpTRNDkgUjYd1N8A/https://cdn.sspai.com/2021/06/29/article/91b6da1099664cc4ee152b0fa80ce156?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="关系图谱"><a href="#关系图谱" class="headerlink" title="关系图谱"></a>关系图谱</h2><p>因为刚才我们在“演示文件三”中链接了“演示文件”，所以现在可以来看看关系图谱。</p>
+<p>关系图谱很炫酷，当然那是在你文件多了以后，现在我们还是先打开看看这个“简陋的”关系图谱吧。</p>
+<h3 id="1-打开整个库的关系图谱"><a href="#1-打开整个库的关系图谱" class="headerlink" title="1.打开整个库的关系图谱"></a>1.打开整个库的关系图谱</h3><p>在左侧边栏最左边的操作栏，点击下图中图标。</p>
+<p>P.S. 所有的图标鼠标悬浮都能看到中文释义。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sI0TLmEKwIcEdaNT_uf86NJ-BLCvvo5QNV2F29ksasrs/https://cdn.sspai.com/2021/06/29/article/d647ea150bb6d934b377d8a4f0b600b1?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h3 id="2-打开当前文件的关系图谱"><a href="#2-打开当前文件的关系图谱" class="headerlink" title="2.打开当前文件的关系图谱"></a>2.打开当前文件的关系图谱</h3><p>在当前文件的窗口右上角，点击三个点（选项按钮），在弹出的选项中，点击【打开局部关系图】。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sedRdERFdTZescb0CmvOboVMEYPPYQ2ZaC9jJa9lWGl0/https://cdn.sspai.com/2021/06/29/article/50a0e150d039b34f791dce12a91c420d?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>能看到当前文件和其他文件的关系连接图：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sEYnyKJLoPK6yMvY3W6sI1NYgNlRhOJfhPp5vQVyPGvc/https://cdn.sspai.com/2021/06/29/article/d101b05c536a9530b496f574f23c8db9?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="查看大纲"><a href="#查看大纲" class="headerlink" title="查看大纲"></a><strong>查看大纲</strong></h2><h3 id="打开大纲模式"><a href="#打开大纲模式" class="headerlink" title="打开大纲模式"></a>打开大纲模式</h3><p>同样打开“设置&gt;核心插件”，在插件列表找到“大纲”，打开右侧的开关。然后关闭设置弹窗。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sIbVPWsWMcSzU2hAN6FrSa-J-V5Q2grw9Ojjx_3IeLLk/https://cdn.sspai.com/2021/06/29/article/4e597be1cc78d85da66ce264e48b5cb2?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>这时，你会看到右侧边栏多出一栏，点击，就能看到当前文件的大纲啦~</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sPCl1EKv31m6tY-3s4w-hEJqNJYeglES7mPK5rLK-rdM/https://cdn.sspai.com/2021/06/29/article/1f287df2d6a9ce61a7add68801b131f6?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这个文档类似于编程里面的hello world，如果你对Obsidian感兴趣，又不知道从何开始，这这篇文章可以给你点参考。</p>
+<p>Obsidian官方也有中文文档，写的很专业。点击左下角的帮助图标，你会得到一整个Obsidian中文帮助文档。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sKfuwDgVLakO-dIgSY6fKbgXGKXeDO6mhi4FGVmL3hvI/https://cdn.sspai.com/2021/06/29/article/974179b66ff14afcc64550542cb1e693?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>
+<p>如果你觉得官方文档太专业了，也可以来看看我这篇不专业的。</p>
+<p>其实我觉得这个文档写的多此一举，但我也有过刚用obsidian有些设置找不到，很懵的情况。</p>
+<p>这篇操作教程，除了Obsidian这个软件名，我尽量不用任何英文，并且大量配图，希望能给刚接触Obsidian的用户提供一个参考。</p>
+<p><em><strong>- End -</strong></em></p>
+<p>谢谢大家看到这里</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-13/Obsidian%20%E5%85%A5%E9%97%A8%EF%BC%9A%E4%BB%8E%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%87%E6%A1%A3%E5%BC%80%E5%A7%8B%20-%20%E5%B0%91%E6%95%B0%E6%B4%BE/" data-id="clvs5xbqr000exco9bvingnj1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-13/%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93Omnivore%E5%8F%AF%E4%BB%A5%E5%85%A8%E6%96%87%E5%90%8C%E6%AD%A5%E5%88%B0Obsidian%E5%90%97%EF%BC%9F%20-%20%E7%9F%A5%E4%B9%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/MyTask/Excalidraw/Drawing%202024-05-03%2019.13.35.excalidraw/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

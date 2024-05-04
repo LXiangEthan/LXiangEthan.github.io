@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="【Node.js】监听异步循环结束的两种方法_nodejs等待异步结束-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;node-js-nodejs-csdn-18efa6049cfOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_46360532&#x2F;article&#x2F;details&#x2F;126687319   版权声明：本文为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-20/%E3%80%90Node.js%E3%80%91%E7%9B%91%E5%90%AC%E5%BC%82%E6%AD%A5%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9D%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95_nodejs%E7%AD%89%E5%BE%85%E5%BC%82%E6%AD%A5%E7%BB%93%E6%9D%9F-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="【Node.js】监听异步循环结束的两种方法_nodejs等待异步结束-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;node-js-nodejs-csdn-18efa6049cfOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_46360532&#x2F;article&#x2F;details&#x2F;126687319   版权声明：本文为">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sBwy99f6T5KwIiGHeYSAmWiEI79unoqm_7Et76x8Gcr8/https://img-blog.csdnimg.cn/bec7259eff64438aa80218dd66d128e4.png">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sV5pudBQneGMtGIhT4SVd50bWFmEyhg9ME7zKU_UjRmI/https://img-blog.csdnimg.cn/9fba434a2a3a4e468c93c93efb071fef.png">
+<meta property="article:published_time" content="2024-05-04T13:48:36.052Z">
+<meta property="article:modified_time" content="2024-04-21T01:14:24.771Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-20/【Node.js】监听异步循环结束的两种方法_nodejs等待异步结束-CSDN博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-20/%E3%80%90Node.js%E3%80%91%E7%9B%91%E5%90%AC%E5%BC%82%E6%AD%A5%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9D%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95_nodejs%E7%AD%89%E5%BE%85%E5%BC%82%E6%AD%A5%E7%BB%93%E6%9D%9F-CSDN%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.052Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="【Node-js】监听异步循环结束的两种方法-nodejs等待异步结束-CSDN博客"><a href="#【Node-js】监听异步循环结束的两种方法-nodejs等待异步结束-CSDN博客" class="headerlink" title="【Node.js】监听异步循环结束的两种方法_nodejs等待异步结束-CSDN博客"></a>【Node.js】监听异步循环结束的两种方法_nodejs等待异步结束-CSDN博客</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/node-js-nodejs-csdn-18efa6049cf">https://omnivore.app/me/node-js-nodejs-csdn-18efa6049cf</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46360532/article/details/126687319">https://blog.csdn.net/m0_46360532/article/details/126687319</a></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"></p>
+<p> 版权声明：本文为博主原创文章，遵循<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+<h4 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h4><ul>
+<li><ul>
+<li><a href="#_4">目标</a>  </li>
+<li><a href="#async_8">方法一（推荐）：async</a>  </li>
+<li><a href="#Promise__28">方法二：Promise 对象</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p><strong>等待多个异步任务都完成后，再统一进行善后任务</strong></p>
+<h3 id="方法一（推荐）：async"><a href="#方法一（推荐）：async" class="headerlink" title="方法一（推荐）：async"></a>方法一（推荐）：async</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> actionArr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">echo</span>(<span class="params">index</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="string">&#x27;echo-&#x27;</span> + index));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环调用</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    actionArr.<span class="title function_">push</span>(<span class="title function_">echo</span>(i));  <span class="comment">// 将每次循环调用的方法添加到方法数组中</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>(actionArr).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;All done==========!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sBwy99f6T5KwIiGHeYSAmWiEI79unoqm_7Et76x8Gcr8/https://img-blog.csdnimg.cn/bec7259eff64438aa80218dd66d128e4.png" alt="在这里插入图片描述"></p>
+<h3 id="方法二：Promise-对象"><a href="#方法二：Promise-对象" class="headerlink" title="方法二：Promise 对象"></a>方法二：<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Promise&spm=1001.2101.3001.7020">Promise</a> 对象</h3><p>注：定义一个 Promise 后，最后要 resolve()，不然一直上 pending 状态</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> actionArr = [];</span><br><span class="line"></span><br><span class="line">echo = <span class="function">(<span class="params">index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="string">&#x27;echo-&#x27;</span> + index));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环调用</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title function_">action</span> = (<span class="params"></span>) =&gt; &#123; <span class="comment">// 将每一次循环方法定义为一个方法变量</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123; <span class="comment">// 每个方法返回一个Promise对象，第一个参数为resolve方法</span></span><br><span class="line">            <span class="title function_">echo</span>(i)</span><br><span class="line">            <span class="title function_">resolve</span>()</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    actionArr.<span class="title function_">push</span>(<span class="title function_">action</span>());  <span class="comment">// 将每次循环调用的方法添加到方法数组中</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>(actionArr).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;All done==========!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sV5pudBQneGMtGIhT4SVd50bWFmEyhg9ME7zKU_UjRmI/https://img-blog.csdnimg.cn/9fba434a2a3a4e468c93c93efb071fef.png" alt="在这里插入图片描述"></p>
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-20/%E3%80%90Node.js%E3%80%91%E7%9B%91%E5%90%AC%E5%BC%82%E6%AD%A5%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9D%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95_nodejs%E7%AD%89%E5%BE%85%E5%BC%82%E6%AD%A5%E7%BB%93%E6%9D%9F-CSDN%E5%8D%9A%E5%AE%A2/" data-id="clvs5xbr80014xco9awf96y0e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-22/%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E8%B6%85%E7%BA%A7%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%EF%BC%89_%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C%E5%8C%BA%E5%88%AB%E7%A7%92%E6%87%82-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-18/Python%E5%9F%BA%E7%A1%80%EF%BC%9APython%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E7%9B%B8%E5%8A%A0%E8%AF%A6%E8%A7%A3_python%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%97%E7%9B%B8%E5%8A%A0-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

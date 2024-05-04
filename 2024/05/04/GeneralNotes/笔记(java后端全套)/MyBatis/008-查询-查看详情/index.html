@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在mybatis中我们使用#{}来表示占位符对于这个占位符，mybatis会自动把我们定义的接口实现的传入的参数也传入这个占位符里面 这个地方我自己发现了个问题，那就是mybatis是如何实现我们自己定义的接口，无论什么返回值，比如我们使用set或者map返回值，mybatis都会装入数据，但是我们返回多个数据只用一个Bean类存放就会报错，这边我猜测的是mybatis官方可能使用了多条判断，利用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在mybatis中我们使用#{}来表示占位符对于这个占位符，mybatis会自动把我们定义的接口实现的传入的参数也传入这个占位符里面 这个地方我自己发现了个问题，那就是mybatis是如何实现我们自己定义的接口，无论什么返回值，比如我们使用set或者map返回值，mybatis都会装入数据，但是我们返回多个数据只用一个Bean类存放就会报错，这边我猜测的是mybatis官方可能使用了多条判断，利用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/image-20240403195923157.png">
+<meta property="article:published_time" content="2024-05-04T13:48:39.129Z">
+<meta property="article:modified_time" content="2024-04-03T12:43:57.394Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/image-20240403195923157.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(java后端全套)/MyBatis/008-查询-查看详情" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.129Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/image-20240403195923157.png"><br>在mybatis中我们使用#{}来表示占位符<br>对于这个占位符，mybatis会自动把我们定义的接口实现的传入的参数也传入这个占位符里面</p>
+<p>这个地方我自己发现了个问题，那就是mybatis是如何实现我们自己定义的接口，无论什么返回值，比如我们使用set或者map返回值，mybatis都会装入数据，但是我们返回多个数据只用一个Bean类存放就会报错，这边我猜测的是mybatis官方可能使用了多条判断，利用反射获取到了我们的方法的返回值如果是List等容器数据类型，那么就会把返回的数据放入容器中，但是如果返回的只是一个Bean类，那么就会直接返回一个结果，对于这个问题，<a href="obsidian://open?vault=%E7%AC%94%E8%AE%B0%E8%B5%84%E6%96%99&file=%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)%2FMyBatis%2Fassets%2F008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85%2F%E5%85%B3%E4%BA%8Emybatis%E8%BF%94%E5%9B%9E%E5%80%BC%E6%96%B9%E5%BC%8F">文心一言的解释</a>可以看看</p>
+<p>MyBatis里面参数占位符:<br>#{}会把sql语句里面替换为❓，可以防止sql注入<br>${}就不会自动替换，无法防止sql注入，但是这个也是有点用的就和js里面的模板字符串是一样的，可以实现动态查询<br>对于这个参数占位符也可以设置参数类型</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectById&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;user&quot;</span>&gt;</span>  </span><br><span class="line">    select * from user where id = #&#123;id&#125;  </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是对于这个值parameterype也可以不写的</p>
+<p>这边还有一个问题，那就是我们需要在sql中写&lt;，但是xml本身数据格式不允许我们书写&lt;，这时候我就想起了之前学习xml时候解决这个问题的方法，请看看<a href="obsidian://open?vault=%E7%AC%94%E8%AE%B0%E8%B5%84%E6%96%99&file=%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)%2FJAVASE%2F155-%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6-XML%E6%A6%82%E8%BF%B0%E3%80%81%E8%A7%A3%E6%9E%90">xml</a>这一章,里面介绍了用转义符号&amp;lt代替&lt;或者使用<![CDATA[写入的内容]]>来解决问题 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/" data-id="clvs5xbu100h5xco98byeh0ny" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/009-%E6%9F%A5%E8%AF%A2-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/006-MyBatis%E6%A1%88%E4%BE%8B-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

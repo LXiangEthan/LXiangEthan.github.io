@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="123456789101112131415161718192021&#x2F;&#x2F;浅拷贝  let myobj1 &#x3D; &#123;      name:&quot;lx&quot;,      location:&#123;          city:&quot;济南&quot;,          province:&quot;山东&quot;      &#125;  &#125;  console.l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/097-%E6%B7%B1%E6%B5%85%E5%A4%8D%E5%88%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="123456789101112131415161718192021&#x2F;&#x2F;浅拷贝  let myobj1 &#x3D; &#123;      name:&quot;lx&quot;,      location:&#123;          city:&quot;济南&quot;,          province:&quot;山东&quot;      &#125;  &#125;  console.l">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.617Z">
+<meta property="article:modified_time" content="2023-12-01T08:31:47.636Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/097-深浅复制" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/097-%E6%B7%B1%E6%B5%85%E5%A4%8D%E5%88%B6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.617Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//浅拷贝  </span></span><br><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>,  </span><br><span class="line">    <span class="attr">location</span>:&#123;  </span><br><span class="line">        <span class="attr">city</span>:<span class="string">&quot;济南&quot;</span>,  </span><br><span class="line">        <span class="attr">province</span>:<span class="string">&quot;山东&quot;</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj1)  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> myobj1)&#123;  </span><br><span class="line">    myobj2[i] = myobj1[i]  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj2)  </span><br><span class="line"><span class="keyword">let</span> myobj3 = &#123;&#125;  </span><br><span class="line">myobj3.<span class="property">name</span> = myobj1.<span class="property">name</span>  </span><br><span class="line">myobj3.<span class="property">location</span> = myobj1.<span class="property">location</span>  </span><br><span class="line">myobj3.<span class="property">location</span>.<span class="property">city</span> = <span class="string">&quot;沈阳&quot;</span>  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj3)  </span><br><span class="line"><span class="keyword">let</span> myobj4 = &#123;...myobj1&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj4)</span><br></pre></td></tr></table></figure>
+<p>浅拷贝如果在对象中没有引用数据类型那么就可以使用，如果出现了应用数据类型则会导致浅拷贝问题，并没有创建一个新对象，只是应用了原对象的地址</p>
+<p>直接对对象.toString( )可以得到[object,Object]<br>于是我们就可以使用递归来实现递归</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>,  </span><br><span class="line">    <span class="attr">location</span>:&#123;  </span><br><span class="line">        <span class="attr">city</span>:<span class="string">&quot;济南&quot;</span>,  </span><br><span class="line">        <span class="attr">province</span>:<span class="string">&quot;山东&quot;</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj1)  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line"><span class="comment">//深拷贝  </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj2.<span class="title function_">toString</span>())  </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">o1,o2</span>)&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o2)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(o2[i].<span class="title function_">toString</span>() === <span class="string">&quot;[object Object]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = &#123;&#125;  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;        <span class="keyword">else</span>&#123;  </span><br><span class="line">            o1[i] = o2[i]  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="title function_">deepCopy</span>(myobj2,myobj1)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>但是这时我们发现如果我们myobj1里面的不单是对象还有数组，于是这个方法对数组不起作用，原因是数组.toString( )打印出来是[1,2,3]这样的形式，但是我们之前发现typepf 数组&#x2F;对象的结果都是object，于是就可以利用这个，在js中的宗旨就是万物皆对象，可以利用这样一个方式实现数组拷贝，但是这样下来的数组并不是完全意义上的数组，知识key是索引的对象</p>
+<p>在js中面向对象是借助原型链实现的，在这个原型链是不断继承的虽然数组没有toString()方法，但是它继承的Object对象原型是有这个方法，自然而然的就继承了下来</p>
+<p>Object.prototype.toString()的结果是“[object Object]”，但是数字和数组的这个继承的方法则是直接转化成相应的字符串，原因是他们重写了这个原型方法</p>
+<p>空数组也可以使用for in 循环</p>
+<p>同时我们发现数组是有length成员，但是对象是没有的，于是我们就想到了这个方法给数组来个判断<br>但是这个方法好像不行，字符串也有length成员，使用这个会出现<span style="color: red;">Uncaught RangeError: Maximum call stack size exceeded</span>的报错</p>
+<p>于是我们又有一个方法，我们直接把Object原型上的toString方法修改this来实现对array的操作，发现对于数组这个方法得到的结果是”[object,Array]“<br>&#x3D;&#x3D;这样就成功实现了（太麻烦了）：&#x3D;&#x3D;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>,  </span><br><span class="line">    <span class="attr">location</span>:&#123;  </span><br><span class="line">        <span class="attr">city</span>:<span class="string">&quot;济南&quot;</span>,  </span><br><span class="line">        <span class="attr">province</span>:<span class="string">&quot;山东&quot;</span>  </span><br><span class="line">    &#125;,  </span><br><span class="line">    <span class="attr">hobbit</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj1)  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line"><span class="comment">//深拷贝  </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj2.<span class="title function_">toString</span>())  </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">o1,o2</span>)&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o2)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(o2[i].<span class="title function_">toString</span>() === <span class="string">&quot;[object Object]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = &#123;&#125;  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Array]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = []  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>&#123;  </span><br><span class="line">            o1[i] = o2[i]  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="title function_">deepCopy</span>(myobj2,myobj1)</span><br></pre></td></tr></table></figure>
+
+<p>于是还有一个比较简单的方案（JSON.stringify()&#x2F;JSON.parse()）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>,  </span><br><span class="line">    <span class="attr">location</span>:&#123;  </span><br><span class="line">        <span class="attr">city</span>:<span class="string">&quot;济南&quot;</span>,  </span><br><span class="line">        <span class="attr">province</span>:<span class="string">&quot;山东&quot;</span>  </span><br><span class="line">    &#125;,  </span><br><span class="line">    <span class="attr">hobbit</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj1)  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line"><span class="comment">//深拷贝  </span></span><br><span class="line">myobj2 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(myobj1))</span><br></pre></td></tr></table></figure>
+<p>先把对象转化成JSON字符串，再转化成JSON对象，就实现了深拷贝，但是这个方案中不能有undefined，就是这个里面如果出现了undefined，那么这个undefined属性拷贝过来就不存在了，直接会丢失这个字段</p>
+<p>这是我们发现如果有undefined字段，我们的toString()成员方法就无法使用了，于是我们就修改这个判断条件?.<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44943717/article/details/109890133">https://blog.csdn.net/qq_44943717/article/details/109890133</a><br>上面面就是对这个?.的介绍，总结就是防止出现undefined和null导致报错，这个东西我记得前面有一个章节写过，但是忘记了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;lx&quot;</span>,  </span><br><span class="line">    <span class="attr">location</span>:&#123;  </span><br><span class="line">        <span class="attr">city</span>:<span class="string">&quot;济南&quot;</span>,  </span><br><span class="line">        <span class="attr">province</span>:<span class="string">&quot;山东&quot;</span>  </span><br><span class="line">    &#125;,  </span><br><span class="line">    <span class="attr">hobbit</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],  </span><br><span class="line">    <span class="attr">id</span>:<span class="literal">undefined</span>  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj1)  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line"><span class="comment">//深拷贝  </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj2.<span class="title function_">toString</span>())  </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">o1,o2</span>)&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o2)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(o2[i]?.<span class="title function_">toString</span>() === <span class="string">&quot;[object Object]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = &#123;&#125;  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Array]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = []  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>&#123;  </span><br><span class="line">            o1[i] = o2[i]  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="title function_">deepCopy</span>(myobj2,myobj1)</span><br></pre></td></tr></table></figure>
+
+<p>还有一个万全之策，就是不用对象下面新定义的toString(),直接使用Object下原型的方法<code>Object.prototype.toString.call(o2[i])</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">o1,o2</span>)&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o2)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Object]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = &#123;&#125;  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Array]&quot;</span>)&#123;  </span><br><span class="line">            o1[i] = []  </span><br><span class="line">            <span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>&#123;  </span><br><span class="line">            o1[i] = o2[i]  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面让我们看看jquery的好的深复制的方法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/097-%E6%B7%B1%E6%B5%85%E5%A4%8D%E5%88%B6/" data-id="clvs5xbw900soxco9c9fa9v34" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/100-jquery%E6%89%A9%E5%B1%95%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/098-jquery%E7%9A%84%E6%B7%B1%E6%B5%85%E5%A4%8D%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

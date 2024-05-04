@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="因为Callable是一个泛型接口，所以我需要在这里解释一下，关于泛型类或者接口，泛型只能被泛型继承或实现，如果指定了数据类型，就可以被普通类继承（实现） 123456789101112131415161718192021222324252627282930313233343536package Callable;    import java.util.concurrent.Callable;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="因为Callable是一个泛型接口，所以我需要在这里解释一下，关于泛型类或者接口，泛型只能被泛型继承或实现，如果指定了数据类型，就可以被普通类继承（实现） 123456789101112131415161718192021222324252627282930313233343536package Callable;    import java.util.concurrent.Callable;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324195148101.png">
+<meta property="og:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201206024.png">
+<meta property="og:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201243266.png">
+<meta property="og:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201314902.png">
+<meta property="og:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240325131320376.png">
+<meta property="article:published_time" content="2024-05-04T13:48:37.520Z">
+<meta property="article:modified_time" content="2024-03-25T05:13:22.256Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324195148101.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/160-多线程-线程的第三种创建方式-实现Callable接口" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.520Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324195148101.png"><br>因为Callable是一个泛型接口，所以我需要在这里解释一下，关于泛型类或者接口，泛型只能被泛型继承或实现，如果指定了数据类型，就可以被普通类继承（实现）<br><img src="/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201206024.png"><br><img src="/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201243266.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Callable;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;  </span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">test</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> n;  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">test</span><span class="params">(<span class="type">int</span> n)</span>&#123;  </span><br><span class="line">        <span class="built_in">this</span>.n = n;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception&#123;  </span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; n;i++)&#123;  </span><br><span class="line">            sum+=i;  </span><br><span class="line">            System.out.println(sum);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;求阶乘为：&quot;</span>+sum;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException &#123;  </span><br><span class="line">        Callable&lt;String&gt; c = <span class="keyword">new</span> <span class="title class_">test</span>(<span class="number">1000</span>);  </span><br><span class="line">        <span class="comment">//实现Runnable接口的任务对象，可以在线程执行完毕使用get方法来获取线程执行完毕的结果  </span></span><br><span class="line">        FutureTask&lt;String&gt; f = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(c);  </span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(f);  </span><br><span class="line">        t.start();  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">1000</span>;i++)&#123;  </span><br><span class="line">            System.out.println(<span class="string">&quot;:::&quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//如果上面线程没有执行完毕，那么就会暂停执行下面的结果等待线程执行完毕  </span></span><br><span class="line">        <span class="type">String</span> <span class="variable">res</span> <span class="operator">=</span> f.get();<span class="comment">//获取线程执行结果  </span></span><br><span class="line">        System.out.println(res);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><img src="/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240324201314902.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> mulThead;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Thread_demo1</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">            System.out.println(<span class="built_in">this</span>.getName()+<span class="string">&quot;   &quot;</span>+i);  </span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">3</span>)&#123;  </span><br><span class="line">                <span class="keyword">try</span> &#123;  </span><br><span class="line">                    <span class="comment">//让线程休眠一段时间，暂停五秒  </span></span><br><span class="line">                    <span class="comment">//项目经理让我加上这段代码，如果用户交钱了，我就注释掉  </span></span><br><span class="line">                    Thread.sleep(<span class="number">5000</span>);  </span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Thread_demo2</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Thread_demo2</span><span class="params">(String name)</span>&#123;  </span><br><span class="line">        <span class="built_in">super</span>(name);<span class="comment">//为当前线程设置名字  </span></span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">            System.out.println(<span class="built_in">this</span>.getName()+<span class="string">&quot;   &quot;</span>+i);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;  </span><br><span class="line">        <span class="type">Thread_demo1</span> <span class="variable">td1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread_demo1</span>();  </span><br><span class="line">        <span class="type">Thread_demo2</span> <span class="variable">td2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread_demo2</span>(<span class="string">&quot;Thread_demo2&quot;</span>);<span class="comment">//创建线程的时候就取名字  </span></span><br><span class="line">        <span class="type">Main</span> <span class="variable">m</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>();  </span><br><span class="line">        td1.setName(<span class="string">&quot;Thread_demo1&quot;</span>);<span class="comment">//设置线程的名字  </span></span><br><span class="line"><span class="comment">//        td2.setName(&quot;Thread_demo2&quot;);  </span></span><br><span class="line">        td1.start();  </span><br><span class="line">        td1.join();<span class="comment">//设置当前线程先执行完  </span></span><br><span class="line">        td2.start();  </span><br><span class="line">        td2.join();  </span><br><span class="line">        System.out.println(td1.getName());  </span><br><span class="line">        System.out.println(td2.getName());  </span><br><span class="line">        System.out.println(Thread.currentThread().getName());<span class="comment">//获取当前线程执行的线程对象,主线程就是main  </span></span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边我要说一下，使用sleep方法的话需要处理它可能会出现的中断异常，但是因为我们重写的run方法在Thread类中并不能抛出异常，所以就需要我们自己在run方法内部处理异常了<br>重写方法也要也要遵循抛出异常的一致性<br><img src="/assets/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/image-20240325131320376.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/160-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/" data-id="clvs5xbto00f6xco9c4q61mxd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/163-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/161-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

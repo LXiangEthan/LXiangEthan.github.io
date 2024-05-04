@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="读取图像&#x3D;&#x3D;imread&#x3D;&#x3D;显示图像&#x3D;&#x3D;imshow&#x3D;&#x3D;C++里面的图片是单独放一个容器叫Mat容器，存储的就是图片里面每个像素块的像素值Mat就是矩阵Matrix，图像本质上就是矩阵不同的图像有不同的显示方式，所以有imshow方法实现对图像的显示waitKet(0)；表示程序阻塞，这个可以保证图片在打开后保持显示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/002-%E5%9B%BE%E5%83%8F%E8%AF%BB%E5%8F%96%E4%B8%8E%E6%98%BE%E7%A4%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="读取图像&#x3D;&#x3D;imread&#x3D;&#x3D;显示图像&#x3D;&#x3D;imshow&#x3D;&#x3D;C++里面的图片是单独放一个容器叫Mat容器，存储的就是图片里面每个像素块的像素值Mat就是矩阵Matrix，图像本质上就是矩阵不同的图像有不同的显示方式，所以有imshow方法实现对图像的显示waitKet(0)；表示程序阻塞，这个可以保证图片在打开后保持显示。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:37.191Z">
+<meta property="article:modified_time" content="2023-11-13T11:53:04.236Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(Cplusplus)/opencv/002-图像读取与显示" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/002-%E5%9B%BE%E5%83%8F%E8%AF%BB%E5%8F%96%E4%B8%8E%E6%98%BE%E7%A4%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.191Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>读取图像&#x3D;&#x3D;imread&#x3D;&#x3D;<br>显示图像&#x3D;&#x3D;imshow&#x3D;&#x3D;<br>C++里面的图片是单独放一个容器叫Mat容器，存储的就是图片里面每个像素块的像素值<br>Mat就是矩阵Matrix，图像本质上就是矩阵<br>不同的图像有不同的显示方式，所以有imshow方法实现对图像的显示<br>waitKet(0)；表示程序阻塞，这个可以保证图片在打开后保持显示。<br>如果是waitKey(1)就是一毫秒后关闭。</p>
+<p>这里我把改成了waitKey(1)出现了问题，下面是解决方案<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jack_Sparrow33/article/details/127376324">https://blog.csdn.net/Jack_Sparrow33/article/details/127376324</a></p>
+<p>还有一个问题，就是当我们使用较大的图片的时候，会出现只显示一半或者只显示一部分的问题，这时我们就需要使用一个函数：&#x3D;&#x3D;namedWindow(“窗口名”,WINDOW_FREERATIO)&#x3D;&#x3D;这是创建一个窗口，&#x3D;&#x3D;WINDOW_FREERATIO&#x3D;&#x3D;表示按照图片大小自由的适配大小，这时我们需要把imshow的第一个参数改成我们自己创建的窗口名，这里如果我们没有创建窗口或者窗口名是&#x3D;&#x3D;input&#x3D;&#x3D;就会调用默认大小的窗口，这个大小也是不能调整大小的</p>
+<p>如果我们想要读取一个灰度图像的时候，我们需要在imread方法里面的第二个参数使用&#x3D;&#x3D;IMREAD_GRAYSCALE&#x3D;&#x3D;</p>
+<p>如果出现有透明通道的图片读取就需要给imread的第二个参数使用&#x3D;&#x3D;IMREAD_UNCHANGED&#x3D;&#x3D;，这种方式加载的图像就不会改变图像的通道数</p>
+<p>如果是一个任意颜色的图就使用 IMREAD_ANYCOLOR,比如HSV色彩图</p>
+<p>如果我们imread的图像是三通道的图，每个通道是8bit位，那么三通道就是24位，位图深度就是指的这个24位，但是在opencv里面使用api检测位图深度就不会明确的告诉我们是24位，会用一个枚举类型来表示，这个枚举类型可能是1，这个1就代表了24的位图深度</p>
+<p>显示图像的位图深度方法是&#x3D;&#x3D;src.depth()&#x3D;&#x3D;,src是我们的Mat容器对象</p>
+<p>如果我们没有加载到图像那么就会显示是空白的图像</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line">	Mat src = <span class="built_in">imread</span>(<span class="string">&quot;C:\\Users\\刃沐\\Pictures\\Camera Roll\\chun.jpg1&quot;</span>,IMREAD_ANYCOLOR);</span><br><span class="line">	<span class="built_in">namedWindow</span>(<span class="string">&quot;我的窗口&quot;</span>, WINDOW_FREERATIO);</span><br><span class="line">	<span class="keyword">if</span> (src.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;没有读到图像&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;该图像的位图深度&quot;</span> &lt;&lt; src.<span class="built_in">depth</span>() &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;我的窗口&quot;</span>,src);</span><br><span class="line">	<span class="built_in">waitKey</span>(<span class="number">10000</span>);</span><br><span class="line">	<span class="built_in">destroyAllWindows</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/002-%E5%9B%BE%E5%83%8F%E8%AF%BB%E5%8F%96%E4%B8%8E%E6%98%BE%E7%A4%BA/" data-id="clvs5xbsr0090xco98fbl6l7x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/004-%E5%9B%BE%E5%83%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B5%8B%E5%80%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/opencv/001-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

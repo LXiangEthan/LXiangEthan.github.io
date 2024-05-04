@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1$.extend(&#123;name:&#x27;liangxiang&#x27;&#125;) 如果extend只传一个参数那么就是把这个对象挂载到$对象下面,传两个参数的话就是把第二个参数和第一个参数对象合并 12345678910111213141516171819202122232425$.extend(&#123;      deepCopy(o1,o2)&#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/100-jquery%E6%89%A9%E5%B1%95%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1$.extend(&#123;name:&#x27;liangxiang&#x27;&#125;) 如果extend只传一个参数那么就是把这个对象挂载到$对象下面,传两个参数的话就是把第二个参数和第一个参数对象合并 12345678910111213141516171819202122232425$.extend(&#123;      deepCopy(o1,o2)&#123;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.618Z">
+<meta property="article:modified_time" content="2023-12-05T05:14:50.910Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/100-jquery扩展机制" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/100-jquery%E6%89%A9%E5%B1%95%E6%9C%BA%E5%88%B6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.618Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">extend</span>(&#123;<span class="attr">name</span>:<span class="string">&#x27;liangxiang&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果extend只传一个参数那么就是把这个对象挂载到$对象下面,传两个参数的话就是把第二个参数和第一个参数对象合并</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">extend</span>(&#123;  </span><br><span class="line">    <span class="title function_">deepCopy</span>(<span class="params">o1,o2</span>)&#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> o2)&#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Object]&quot;</span>)&#123;  </span><br><span class="line">                o1[i] = &#123;&#125;  </span><br><span class="line">                <span class="variable language_">this</span>.<span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">            &#125;        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(o2[i]) === <span class="string">&quot;[object Array]&quot;</span>)&#123;  </span><br><span class="line">                o1[i] = []  </span><br><span class="line">                <span class="variable language_">this</span>.<span class="title function_">deepCopy</span>(o1[i],o2[i])  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">else</span>&#123;  </span><br><span class="line">                o1[i] = o2[i]  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;)  </span><br><span class="line"><span class="keyword">let</span> myobj1 = &#123;  </span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;liangxiang&#x27;</span>,  </span><br><span class="line">    <span class="attr">age</span>:<span class="number">19</span>,  </span><br><span class="line">    <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">&quot;hello&quot;</span>&#125;,  </span><br><span class="line">    <span class="attr">end</span>:<span class="literal">undefined</span>  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">let</span> myobj2 = &#123;&#125;  </span><br><span class="line">$.<span class="title function_">deepCopy</span>(myobj2,myobj1)  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myobj2)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>原型挂载：<br>jquery里面$.fn就是$.prototype</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.fn.<span class="title function_">extend</span>(&#123;  </span><br><span class="line">    <span class="title function_">liangxiang</span>(<span class="params"></span>)&#123;  </span><br><span class="line">            &#125;  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我这里把原型，原型链，以及$()的大概讲一下，原型对象是一个独立于实例对象的对象，但是每一个实例对象创建时候，都会自动创建一个原型对象，每个对象都有_proto_，每一个函数都有prototype,这个指向的是函数上的原型对象，这个代表着自己继承的父对象，这个原型对象是通过原型链获取，也就是在原型对象._proto_组成的一条链，原型对象会自动继承原型父对象的所有属性，也就是原型对象._proto_，但是这个_proto_是隐式的也就是说，我们访问本对象的的原型对象需要使用Object.prototype,但是我们如果访问本对象的原型对象的父对象就不需要加上_proto_，甚至连prototype都忽略了，就直接实例对象+原型父对象下的成员名，在js中函数是可以直接调用prototype的，而在jquery中，$是他们定义的一个方法，这个方法会返回一个new ce.fn.init {}的对象,这个对象就是捕获jquery获取节点的操作，但是$对象是从何而来呢</p>
+<hr>
+<p>经过一夜的搜索，找到了这个问题的原因，在js中，有一个成员函数叫静态成员函数，具体解释在下面这个博客中有提到：<br><a target="_blank" rel="noopener" href="https://mbd.baidu.com/ug_share/mbox/4a83aa9e65/share?product=smartapp&tk=99464b6d21a91a494341ef9fa4c12041&share_url=https://yebd1h.smartapps.cn/pages/blog/index?blogId=88338426&_swebfr=1&_swebFromHost=baiduboxapp&domain=mbd.baidu.com">https://mbd.baidu.com/ug_share/mbox/4a83aa9e65/share?product=smartapp&amp;tk=99464b6d21a91a494341ef9fa4c12041&amp;share_url=https%3A%2F%2Fyebd1h.smartapps.cn%2Fpages%2Fblog%2Findex%3FblogId%3D88338426%26_swebfr%3D1%26_swebFromHost%3Dbaiduboxapp&amp;domain=mbd.baidu.com</a><br>大概就是通过一个小方法返回值实现了$()是jQuery对象的原型对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jQuery = <span class="keyword">function</span>(<span class="params"> selector, context </span>) &#123; </span><br><span class="line"><span class="comment">// The jQuery object is actually just the init constructor &#x27;enhanced&#x27; </span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> jQuery.<span class="property">fn</span>.<span class="title function_">init</span>( selector, context, rootjQuery ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是$也是一个函数名，因为在js中可以给未实例化函数添加静态变量，这样函数名.静态成员，就可以直接访问，这就是$.ajax()的原理<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/songlf521/article/details/60144182">https://blog.csdn.net/songlf521/article/details/60144182</a><br>静态成员和实例成员的区别在上述博客中有很好的解释</p>
+<p>总结：$知识一个函数名称，为什么一个函数名称可以调用ajax()方法，原因是ajax()只是$下一个静态方法，就类似于java的类名.方法名一样，借助$可以直接访问这个方法，而$()就是在$()函数中返回一个jquery函数下的原型的构造函数的构造，就是返回jQuery函数下的原型对象，所以$()就是一个对象。jquery真的很奇妙！！！</p>
+<hr>
+<p>在jquery中他的链式调用是借助返回原型的方式实现的，调用函数后，会返回一个对象就是我们获取到的原型上init()上的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.fn.<span class="title function_">extend</span>(&#123;  </span><br><span class="line">    <span class="title function_">allCheckBox</span>(<span class="params">res</span>)&#123;  </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> $(<span class="variable language_">this</span>)) &#123;  </span><br><span class="line">                $(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&quot;checked&quot;</span>,res)  </span><br><span class="line">            &#125;            <span class="keyword">return</span> <span class="variable language_">this</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;)  </span><br><span class="line">$(<span class="string">&quot;input[type=checkbox]&quot;</span>).<span class="title function_">allCheckBox</span>(<span class="literal">true</span>).<span class="title function_">css</span>(&#123;  </span><br><span class="line">    <span class="attr">width</span>:<span class="number">100</span>,  </span><br><span class="line">    <span class="attr">height</span>:<span class="number">100</span>  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/100-jquery%E6%89%A9%E5%B1%95%E6%9C%BA%E5%88%B6/" data-id="clvs5xbwa00stxco9f7s25jbr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/099-jquery%E7%9A%84%E5%A4%9A%E5%BA%93%E5%B9%B6%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/097-%E6%B7%B1%E6%B5%85%E5%A4%8D%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

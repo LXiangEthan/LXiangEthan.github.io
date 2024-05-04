@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1、js中也有类似java中的try catch关键字2、async用于指明函数中是否异步3、method指明请求的方式4、url就是请求的地址5、默认是get请求6、headers代表上传数据的类型是form格式还是json格式的7、data用于表示上传的数据我们在自己的后端中把json文件的接口只写成单个字符串，而不是写成json文件的格式，那么就会报错，因为使用json.parse直接强行的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/054-ajax%E5%B0%81%E8%A3%85-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、js中也有类似java中的try catch关键字2、async用于指明函数中是否异步3、method指明请求的方式4、url就是请求的地址5、默认是get请求6、headers代表上传数据的类型是form格式还是json格式的7、data用于表示上传的数据我们在自己的后端中把json文件的接口只写成单个字符串，而不是写成json文件的格式，那么就会报错，因为使用json.parse直接强行的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.589Z">
+<meta property="article:modified_time" content="2023-10-20T03:56:17.796Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/054-ajax封装-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/054-ajax%E5%B0%81%E8%A3%85-1/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.589Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1、js中也有类似java中的try catch关键字<br>2、async用于指明函数中是否异步<br>3、method指明请求的方式<br>4、url就是请求的地址<br>5、默认是get请求<br>6、headers代表上传数据的类型是form格式还是json格式的<br>7、data用于表示上传的数据<br>我们在自己的后端中把json文件的接口只写成单个字符串，而不是写成json文件的格式，那么就会报错，因为使用json.parse直接强行的解析普通字符串，那么就会直接报错，（json-server直接是不允许使用普通字符串当作接口），就会阻碍后续代码执行，就是证明，后端传过来的东西如果不是符合我们要求的格式，我们就会用到try&#x2F;catch就可以用于捕获错误,没有错误执行try，有错误执行catch</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> result = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(xhr.<span class="property">responseText</span>)</span><br><span class="line">      <span class="title function_">success</span>(result)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      <span class="title function_">error</span>(<span class="string">&#x27;解析失败 ! 因为后端返回的结果不是 json 格式字符串&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>别人封装好了的ajax方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">queryStringify</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) </span><br><span class="line">  str += <span class="string">`<span class="subst">$&#123;k&#125;</span>=<span class="subst">$&#123;obj[k]&#125;</span>&amp;`</span></span><br><span class="line">  <span class="comment">//username=kerwin&amp;password=789&amp;</span></span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">slice</span>(<span class="number">0</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 封装 ajax</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ajax</span>(<span class="params">options</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> defaultoptions = &#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">    <span class="attr">async</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">headers</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123; &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//默认对象防止我们不传参数导致错误</span></span><br><span class="line">  <span class="keyword">let</span> &#123; url, method, <span class="keyword">async</span>, data, headers, success, error &#125; = &#123;</span><br><span class="line">    ...defaultoptions,</span><br><span class="line">    ...options</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// console.log(url, method, async, data, headers, success, error)</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">&#x27;object&#x27;</span> &amp;&amp; headers[<span class="string">&quot;content-type&quot;</span>]?.<span class="title function_">indexOf</span>(<span class="string">&quot;json&quot;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">    data = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    data = <span class="title function_">queryStringify</span>(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// // 如果是 get 请求, 并且有参数, 那么直接组装一下 url 信息</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/^get$/i</span>.<span class="title function_">test</span>(method) &amp;&amp; data) url += <span class="string">&#x27;?&#x27;</span> + data</span><br><span class="line">  <span class="comment">// // 4. 发送请求</span></span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line">  xhr.<span class="title function_">open</span>(method, url, <span class="keyword">async</span>)</span><br><span class="line">  xhr.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/^2\d&#123;2&#125;$/</span>.<span class="title function_">test</span>(xhr.<span class="property">status</span>)) &#123;</span><br><span class="line">      <span class="comment">// console.log(error)</span></span><br><span class="line">      <span class="title function_">error</span>(<span class="string">`错误状态码:<span class="subst">$&#123;xhr.status&#125;</span>`</span>) <span class="comment">//回调</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 执行解析</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> result = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(xhr.<span class="property">responseText</span>)</span><br><span class="line">      <span class="title function_">success</span>(result)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      <span class="title function_">error</span>(<span class="string">&#x27;解析失败 ! 因为后端返回的结果不是 json 格式字符串&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// console.log(22222) </span></span><br><span class="line">  <span class="comment">// // 设置请求头内的信息</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> headers) xhr.<span class="title function_">setRequestHeader</span>(k, headers[k])</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/^get$/i</span>.<span class="title function_">test</span>(method)) &#123;</span><br><span class="line">    xhr.<span class="title function_">send</span>()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr.<span class="title function_">send</span>(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// xhr.send(data)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>关于上述中的?.就是下面的解释</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?.如果前面为假，就把点和后面的不执行</span><br></pre></td></tr></table></figure>
+<hr>
+<p>然后我们调用就直接用这个格式调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">ajax</span>(&#123;            </span><br><span class="line">            <span class="attr">url</span>:<span class="string">&quot;http://localhost:3000/users&quot;</span>,</span><br><span class="line">            <span class="attr">method</span>:<span class="string">&quot;POST&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>:&#123;                </span><br><span class="line">	            <span class="attr">username</span>:<span class="string">&quot;kerwin3333&quot;</span>,</span><br><span class="line">                <span class="attr">password</span>:<span class="string">&quot;789&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">headers</span>:&#123;</span><br><span class="line">                <span class="string">&quot;content-type&quot;</span>:<span class="string">&quot;application/json&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;sucess&quot;</span>,res)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">error</span>:<span class="keyword">function</span>(<span class="params">err</span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;error&quot;</span>,err)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>&#x3D;&#x3D;我这个地方重启了vscode和服务器之后，把文件路径换成了中文。居然解决了之前的post请求无法发送的问题&#x3D;&#x3D;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/054-ajax%E5%B0%81%E8%A3%85-1/" data-id="clvs5xbw400rjxco9117yf72j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/055-ajax%E5%B0%81%E8%A3%85-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/053-%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

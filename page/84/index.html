@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/040-跳转关键字-break-continue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/040-%E8%B7%B3%E8%BD%AC%E5%85%B3%E9%94%AE%E5%AD%97-break-continue/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.442Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/040-%E8%B7%B3%E8%BD%AC%E5%85%B3%E9%94%AE%E5%AD%97-break-continue/image-20231121081711419.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;I love You&quot;</span> + i);  </span><br><span class="line"><span class="keyword">if</span>(i == <span class="number">5</span>) <span class="keyword">break</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line"><span class="keyword">if</span>(i == <span class="number">5</span>) <span class="keyword">continue</span>;  </span><br><span class="line">System.out.println(<span class="string">&quot;我爱你&quot;</span> + i);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/040-%E8%B7%B3%E8%BD%AC%E5%85%B3%E9%94%AE%E5%AD%97-break-continue/" data-id="clvs5xbt700c0xco90q30dcj7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/039-死循环-循环嵌套" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/039-%E6%AD%BB%E5%BE%AA%E7%8E%AF-%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.441Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/039-%E6%AD%BB%E5%BE%AA%E7%8E%AF-%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97/image-20231121080601266.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="comment">// for(int i = 0; ; i++)&#123;  </span></span><br><span class="line"><span class="comment">// System.out.println(&quot;Hello World&quot;);  </span></span><br><span class="line"><span class="comment">// &#125;  </span></span><br><span class="line"><span class="comment">// while(true)&#123;  </span></span><br><span class="line"><span class="comment">// System.out.println(&quot;死循环&quot;);  </span></span><br><span class="line"><span class="comment">// &#125;  </span></span><br><span class="line"><span class="keyword">do</span>&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;死循环2&quot;</span>);  </span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="literal">true</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/039-%E6%AD%BB%E5%BE%AA%E7%8E%AF-%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97/image-20231121081131889.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">3</span>;i++)&#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; <span class="number">5</span>;j++)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;I love You&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/039-%E6%AD%BB%E5%BE%AA%E7%8E%AF-%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97/" data-id="clvs5xbt700bzxco988c58ymi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/037-循环结构-while循环" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.440Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/image-20231120205821379.png"><br><img src="/assets/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/image-20231120205945152.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">while</span>(i &lt; <span class="number">100</span>)&#123;  </span><br><span class="line">System.out.println(i);  </span><br><span class="line">i++;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/image-20231120210156348.png"><br>珠穆朗玛峰案例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">double</span> <span class="variable">hd</span> <span class="operator">=</span> <span class="number">0.1</span>;  </span><br><span class="line"><span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">while</span>(hd &lt; <span class="number">8848860</span>)&#123;  </span><br><span class="line">hd*=<span class="number">2</span>;  </span><br><span class="line">count++;  </span><br><span class="line">&#125;  </span><br><span class="line">System.out.println(<span class="string">&quot;折叠了&quot;</span>+count+<span class="string">&quot;次&quot;</span>);  </span><br><span class="line">System.out.println(<span class="string">&quot;纸张当前的厚度为：&quot;</span>+hd);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/image-20231120210703615.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/037-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-while%E5%BE%AA%E7%8E%AF/" data-id="clvs5xbt600bwxco99bly0ocv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/038-循环结构-do-while循环" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/038-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-do-while%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.440Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/038-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-do-while%E5%BE%AA%E7%8E%AF/image-20231120211115638.png"><br><img src="/assets/038-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-do-while%E5%BE%AA%E7%8E%AF/image-20231120211205833.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">do</span>&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;Hello World&quot;</span>);  </span><br><span class="line">i++;  </span><br><span class="line">&#125;<span class="keyword">while</span>(i &lt; <span class="number">3</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">do</span>&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;Hello 你好&quot;</span>);  </span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="literal">false</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/038-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-do-while%E5%BE%AA%E7%8E%AF/" data-id="clvs5xbt700byxco9dk8s34gd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/036-循环结构-for循环" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.439Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120203942851.png"><br><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120203949771.png"><br><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120204033204.png"><br><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120204110971.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">System.out.println(i + <span class="string">&quot; &quot;</span>+<span class="string">&quot;Hello World&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120204228555.png"><br><img src="/assets/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/image-20231120204304502.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">for</span> ( <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> <span class="number">0</span>;m &lt;= <span class="number">100</span>;m++)&#123;  </span><br><span class="line">i+=m;  </span><br><span class="line"><span class="keyword">if</span>(i % <span class="number">2</span> == <span class="number">0</span>)&#123;  </span><br><span class="line">num+=m;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">System.out.println(i);  </span><br><span class="line">System.out.println(num);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/036-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-for%E5%BE%AA%E7%8E%AF/" data-id="clvs5xbt600bvxco9hwykh5iz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/033-API录入-Scanner" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/033-API%E5%BD%95%E5%85%A5-Scanner/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.438Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/033-API%E5%BD%95%E5%85%A5-Scanner/Pasted%20image%2020231120181158.png"><br><img src="/assets/033-API%E5%BD%95%E5%85%A5-Scanner/Pasted%20image%2020231120181249.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> a;  </span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);  </span><br><span class="line">a = scanner.nextInt();  </span><br><span class="line">System.out.println(a);  </span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> scanner.next();  </span><br><span class="line">System.out.println(s);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/033-API%E5%BD%95%E5%85%A5-Scanner/" data-id="clvs5xbt600bsxco9agg95cdc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/034-流程控制-课程介绍" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/034-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.438Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/034-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D/image-20231120195227400.png"><br><img src="/assets/034-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D/image-20231120195252481.png"><br><img src="/assets/034-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D/image-20231120195409864.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/034-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D/" data-id="clvs5xbt600btxco9524z12fe" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/035-分支结构-if-switch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.438Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120195617098.png"><br><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120200903966.png"><br><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120200842657.png"><br>if:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;请输入您的体温&quot;</span>);  </span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);  </span><br><span class="line"><span class="type">int</span> <span class="variable">tem</span> <span class="operator">=</span> scanner.nextInt();  </span><br><span class="line"><span class="keyword">if</span>( tem &gt; <span class="number">36.9</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;警告，你的体温过高&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;你的体温很健康&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">System.out.println(<span class="string">&quot;请输入您的分数&quot;</span>);  </span><br><span class="line"><span class="type">int</span> <span class="variable">grade</span> <span class="operator">=</span> scanner.nextInt();  </span><br><span class="line"><span class="keyword">if</span>(grade &gt; <span class="number">90</span> &amp;&amp; grade &lt;= <span class="number">100</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;你很优秀&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(grade &gt; <span class="number">80</span> &amp;&amp; grade &lt;= <span class="number">90</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;你的成绩良好&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(grade &gt; <span class="number">60</span> &amp;&amp; grade &lt;= <span class="number">80</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;你的成绩及格&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;成绩输入异常&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120201017757.png"><br><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120201556572.png"><br><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120201656847.png"><br>switch:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.SQLOutput;  </span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);  </span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> scanner.nextInt();  </span><br><span class="line"><span class="keyword">switch</span>(num)&#123;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;周一相亲&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;周二啤酒小烧烤&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;周三开黑&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;周四休息&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;上班&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">default</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;啥也不干&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>switch使用时的注意事项：<br>    1、JDK7开始就支持String类型<br>    2、switch不支持double,float,long<br>    3、case后面给出的值不允许重复，而且只能是字面量，不能是变量<br>    4、switch分支不要忘记写break，没有break会往后一直执行直到遇见break<br><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120202635242.png"></p>
+<p><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120202835113.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.SQLOutput;  </span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);  </span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> scanner.nextInt();  </span><br><span class="line"><span class="keyword">switch</span>(num)&#123;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:  </span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:  </span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;周三相亲&quot;</span>);  </span><br><span class="line"><span class="keyword">break</span>;  </span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:  </span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>:  </span><br><span class="line"><span class="keyword">default</span>:  </span><br><span class="line">System.out.println(<span class="string">&quot;啥也不干&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/image-20231120202923219.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/035-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-if-switch/" data-id="clvs5xbt600buxco9fp0ae3cv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/031-逻辑运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/031-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.436Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/031-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/Pasted%20image%2020231120130339.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> <span class="number">10</span>;  </span><br><span class="line"><span class="type">int</span> <span class="variable">memory</span> <span class="operator">=</span> <span class="number">256</span>;  </span><br><span class="line"><span class="keyword">if</span>(size &gt;= <span class="number">6.9</span> &amp; memory &gt;= <span class="number">128</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;满足条件&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">memory = <span class="number">1024</span>;  </span><br><span class="line"><span class="keyword">if</span>(size &gt;= <span class="number">10</span> | memory &gt; <span class="number">1000</span>)&#123;  </span><br><span class="line">System.out.println(<span class="string">&quot;也满足条件&quot;</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// System.out.println(size &gt;= 30 &amp;&amp; memory++&gt;128);  </span></span><br><span class="line">System.out.println(size &gt;= <span class="number">30</span> &amp; memory++&gt;<span class="number">128</span>);  </span><br><span class="line">System.out.println(memory);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/031-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/Pasted%20image%2020231120130824.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/031-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="clvs5xbt500boxco95ewz7gbm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/032-三元运算符、运算符优先级" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/032-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.436Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/032-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/Pasted%20image%2020231120131551.png"><br><img src="/assets/032-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/Pasted%20image%2020231120131635.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;  </span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> a &gt;= <span class="number">5</span> ? <span class="string">&quot;大于&quot;</span> : <span class="string">&quot;小于&quot;</span>;  </span><br><span class="line">System.out.println(s);  </span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">153</span>;  </span><br><span class="line">System.out.println(a &gt; b ? <span class="string">&quot;a大于b&quot;</span> : <span class="string">&quot;a小于b&quot;</span>);  </span><br><span class="line"><span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">134</span>;  </span><br><span class="line">System.out.println(a &gt; b ?( a &gt; c ? <span class="string">&quot;a最大&quot;</span> : <span class="string">&quot;c最大&quot;</span> ) : ( b &gt; c ? <span class="string">&quot;b最大&quot;</span> : <span class="string">&quot;c最大&quot;</span>));  </span><br><span class="line"><span class="comment">//b最大  </span></span><br><span class="line">System.out.println(<span class="number">10</span> &gt; <span class="number">3</span> || <span class="number">10</span> &gt; <span class="number">3</span> &amp;&amp; <span class="number">10</span> &lt; <span class="number">3</span>);  </span><br><span class="line"><span class="comment">//true  </span></span><br><span class="line">&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/feifuzeng/article/details/108862001">https://blog.csdn.net/feifuzeng/article/details/108862001</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/032-%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" data-id="clvs5xbt600brxco90sjb6rt1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/83/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><a class="page-number" href="/page/86/">86</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/85/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="这一节我们就来看看ParamNameResolver类的源码来看看mybatis是如何封装这些不同的参数的 mybatis会判断方法的参数是否为多个，如果是多个，mybatis会把参数存放到一个map集合然而mybatis会把这个map集合里面的value设置为传入的参数，key值如果我们不使用@Param注解，那么我们就默认使用arg0,arg1,param1,parm0作为键名，而到了sql语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这一节我们就来看看ParamNameResolver类的源码来看看mybatis是如何封装这些不同的参数的 mybatis会判断方法的参数是否为多个，如果是多个，mybatis会把参数存放到一个map集合然而mybatis会把这个map集合里面的value设置为传入的参数，key值如果我们不使用@Param注解，那么我们就默认使用arg0,arg1,param1,parm0作为键名，而到了sql语">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404160308949.png">
+<meta property="og:image" content="http://example.com/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404170845777.png">
+<meta property="og:image" content="http://example.com/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404170853297.png">
+<meta property="article:published_time" content="2024-05-04T13:48:39.132Z">
+<meta property="article:modified_time" content="2024-04-04T09:22:58.770Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404160308949.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(java后端全套)/MyBatis/013-参数传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.132Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404160308949.png"><br>这一节我们就来看看ParamNameResolver类的源码来看看mybatis是如何封装这些不同的参数的</p>
+<p>mybatis会判断方法的参数是否为多个，如果是多个，mybatis会把参数存放到一个map集合<br>然而mybatis会把这个map集合里面的value设置为传入的参数，key值如果我们不使用@Param注解，那么我们就默认使用arg0,arg1,param1,parm0作为键名，而到了sql语句中的占位符的时候，mybatis就会利用占位符中的数据作为map集合中的key值来取出map集合中的值，再代替sql语句中的占位符</p>
+<p>arg0和param1指代的同一个键，arg1和param2也是</p>
+<p>对于这个问题，我们可以测试一下</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Parameter &#x27;name&#x27; not found. Available parameters are [arg2, arg1, arg0, param3, param1, param2]</span><br></pre></td></tr></table></figure>
+<p>上面的报错就是我们不使用@Param注解，直接传值抛出的异常</p>
+<p>于是我们就可在我们的映射文件中修改占位符中参数的名字<br>接口文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;User&gt; <span class="title function_">selectCondition</span><span class="params">(String name,String gender,<span class="type">int</span> age)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>映射文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectCondition&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;user&quot;</span>&gt;</span>  </span><br><span class="line">        select * from user  </span><br><span class="line">--                  where 1 = 1  </span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">where</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg0 != null and arg0 != &#x27;&#x27;&quot;</span>&gt;</span>and name like #&#123;arg0&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg1 != null and arg1 != &#x27;&#x27;&quot;</span>&gt;</span>and gender like #&#123;arg1&#125;<span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg2 != null&quot;</span>&gt;</span>and age like #&#123;arg2&#125;<span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">where</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_SelectCondition</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;  </span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;user.dir&quot;</span>));  </span><br><span class="line">  </span><br><span class="line">        <span class="type">String</span> <span class="variable">resource</span> <span class="operator">=</span> <span class="string">&quot;mybatis-config.xml&quot;</span>;  </span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> Resources.getResourceAsStream(resource);  </span><br><span class="line">        <span class="type">SqlSessionFactory</span> <span class="variable">sqlSessionFactory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SqlSessionFactoryBuilder</span>().build(inputStream);  </span><br><span class="line">  </span><br><span class="line">        <span class="type">SqlSession</span> <span class="variable">sqlSession</span> <span class="operator">=</span> sqlSessionFactory.openSession();  </span><br><span class="line">  </span><br><span class="line">        <span class="type">userMapper</span> <span class="variable">um</span> <span class="operator">=</span> sqlSession.getMapper(userMapper.class);  </span><br><span class="line">        List&lt;User&gt; user1 = um.selectCondition(<span class="string">&quot;%梁响%&quot;</span>,<span class="string">&quot;%男%&quot;</span>,<span class="number">20</span>);  </span><br><span class="line">        System.out.println(user1);    </span><br><span class="line">        sqlSession.close();  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用param1、param2、param3也是可以的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectCondition&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;user&quot;</span>&gt;</span>  </span><br><span class="line">        select * from user  </span><br><span class="line">--                  where 1 = 1  </span><br><span class="line">  </span><br><span class="line">        <span class="tag">&lt;<span class="name">where</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg0 != null and arg0 != &#x27;&#x27;&quot;</span>&gt;</span>and name like #&#123;param1&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg1 != null and arg1 != &#x27;&#x27;&quot;</span>&gt;</span>and gender like #&#123;param2&#125;<span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span> = <span class="string">&quot;arg2 != null&quot;</span>&gt;</span>and age like #&#123;param3&#125;<span class="tag">&lt;/<span class="name">if</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">where</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>那么mybatis底层如何来做的呢<br>其实就是ParamNameResolver类里面的一个getNameParams方法来实现的<br>来看看这个底层源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Object <span class="title function_">getNamedParams</span><span class="params">(Object[] args)</span> &#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">paramCount</span> <span class="operator">=</span> <span class="built_in">this</span>.names.size(); <span class="comment">//获取参数个数 </span></span><br><span class="line">    <span class="keyword">if</span> (args != <span class="literal">null</span> &amp;&amp; paramCount != <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.hasParamAnnotation &amp;&amp; paramCount == <span class="number">1</span>) &#123;  </span><br><span class="line">            <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> args[(Integer)<span class="built_in">this</span>.names.firstKey()];  </span><br><span class="line">            <span class="keyword">return</span> wrapToMapIfCollection(value, <span class="built_in">this</span>.useActualParamName ? (String)<span class="built_in">this</span>.names.get(<span class="built_in">this</span>.names.firstKey()) : <span class="literal">null</span>); <span class="comment">//如果参数只有一个就只执行这段代码 </span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">            Map&lt;String, Object&gt; param = <span class="keyword">new</span> <span class="title class_">MapperMethod</span>.ParamMap(); <span class="comment">//创建map集合 </span></span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">for</span>(<span class="type">Iterator</span> <span class="variable">var5</span> <span class="operator">=</span> <span class="built_in">this</span>.names.entrySet().iterator(); var5.hasNext(); ++i) &#123;  <span class="comment">//遍历names集合，names集合就是我们的键值对集合1--&gt;arg0...</span></span><br><span class="line">                Map.Entry&lt;Integer, String&gt; entry = (Map.Entry)var5.next();  </span><br><span class="line">                param.put((String)entry.getValue(), args[(Integer)entry.getKey()]);  <span class="comment">//把key值和value值放入，key存放我们name集合中的的arg0...</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">genericParamName</span> <span class="operator">=</span> <span class="string">&quot;param&quot;</span> + (i + <span class="number">1</span>);  </span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">this</span>.names.containsValue(genericParamName)) &#123;  </span><br><span class="line">                    param.put(genericParamName, args[(Integer)entry.getKey()]);  <span class="comment">//这个就存放的是para1--&gt;value，也就是一个value两个key，这就是我们为什么既可以使用arg0也可以使用param1的原因了</span></span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">return</span> param;<span class="comment">//返回map集合  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;  <span class="comment">//args里面就存放的是我们的参数，如果参数为null或者没有参数那么就直接返回null了</span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然我们可以不写@Param注解，可以直接使用param1&#x2F;arg0来使用，但是这个方法可读性并不好，我们还是建议使用@Param注解，这个注解是用来替换map集合中默认的键名</p>
+<p>讲完多个参数，来讲讲多个参数<br>POJO类型，直接使用属性名和参数占位符名称匹配，如果相同，那么就可以直接赋值<br>Map集合，就相当于省略了mybatis把参数封装成Map集合的步骤</p>
+<p>对于Collection&#x2F;List&#x2F;Array我们再来看看源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Object <span class="title function_">getNamedParams</span><span class="params">(Object[] args)</span> &#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">paramCount</span> <span class="operator">=</span> <span class="built_in">this</span>.names.size();  </span><br><span class="line">    <span class="keyword">if</span> (args != <span class="literal">null</span> &amp;&amp; paramCount != <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.hasParamAnnotation &amp;&amp; paramCount == <span class="number">1</span>) &#123;  </span><br><span class="line">            <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> args[(Integer)<span class="built_in">this</span>.names.firstKey()];  </span><br><span class="line">            <span class="keyword">return</span> wrapToMapIfCollection(value, <span class="built_in">this</span>.useActualParamName ? (String)<span class="built_in">this</span>.names.get(<span class="built_in">this</span>.names.firstKey()) : <span class="literal">null</span>);  </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">            Map&lt;String, Object&gt; param = <span class="keyword">new</span> <span class="title class_">MapperMethod</span>.ParamMap();  </span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">for</span>(<span class="type">Iterator</span> <span class="variable">var5</span> <span class="operator">=</span> <span class="built_in">this</span>.names.entrySet().iterator(); var5.hasNext(); ++i) &#123;  </span><br><span class="line">                Map.Entry&lt;Integer, String&gt; entry = (Map.Entry)var5.next();  </span><br><span class="line">                param.put((String)entry.getValue(), args[(Integer)entry.getKey()]);  </span><br><span class="line">                <span class="type">String</span> <span class="variable">genericParamName</span> <span class="operator">=</span> <span class="string">&quot;param&quot;</span> + (i + <span class="number">1</span>);  </span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">this</span>.names.containsValue(genericParamName)) &#123;  </span><br><span class="line">                    param.put(genericParamName, args[(Integer)entry.getKey()]);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">return</span> param;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">wrapToMapIfCollection</span><span class="params">(Object object, String actualParamName)</span> &#123;  </span><br><span class="line">    MapperMethod.ParamMap map;  </span><br><span class="line">    <span class="keyword">if</span> (object <span class="keyword">instanceof</span> Collection) &#123;  </span><br><span class="line">        map = <span class="keyword">new</span> <span class="title class_">MapperMethod</span>.ParamMap();  </span><br><span class="line">        map.put(<span class="string">&quot;collection&quot;</span>, object);<span class="comment">//如果是Collection数据类型就存放到一个Map集合中  </span></span><br><span class="line">        <span class="keyword">if</span> (object <span class="keyword">instanceof</span> List) &#123;  </span><br><span class="line">            map.put(<span class="string">&quot;list&quot;</span>, object); <span class="comment">//如果是List集合那么就会再存放一个键值对，键名为list的 </span></span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        Optional.ofNullable(actualParamName).ifPresent((name) -&gt; &#123;  </span><br><span class="line">            map.put(name, object);  <span class="comment">//这里的name就是arg0，又设置一个键值对，键名为arg0</span></span><br><span class="line">        &#125;);  </span><br><span class="line">        <span class="keyword">return</span> map;  </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (object != <span class="literal">null</span> &amp;&amp; object.getClass().isArray()) &#123;  </span><br><span class="line">        map = <span class="keyword">new</span> <span class="title class_">MapperMethod</span>.ParamMap();  </span><br><span class="line">        map.put(<span class="string">&quot;array&quot;</span>, object); <span class="comment">//不是collection如果是数组，就放一个键值对，键名叫array </span></span><br><span class="line">        Optional.ofNullable(actualParamName).ifPresent((name) -&gt; &#123;  </span><br><span class="line">            map.put(name, object);<span class="comment">//如果是数组就再放一个键值对，键名是arg0  </span></span><br><span class="line">        &#125;);  </span><br><span class="line">        <span class="keyword">return</span> map;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> object;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404170845777.png"><br><img src="/assets/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/image-20240404170853297.png"><br>这个问题可以参考一下这个博客<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41796956/article/details/100933222">https://blog.csdn.net/weixin_41796956/article/details/100933222</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42764468/article/details/124819195">https://blog.csdn.net/qq_42764468/article/details/124819195</a><br>对于占位符中的数据，我们可以直接获取到值，甚至可以直接使用对象.成员变量</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/013-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-id="clvs5xbu100h8xco9geay82ve" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/assets/008-%E6%9F%A5%E8%AF%A2-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E6%83%85/%E5%85%B3%E4%BA%8Emybatis%E8%BF%94%E5%9B%9E%E5%80%BC%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MyBatis/014-%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/41/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/034-函数的参数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/034-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.291Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/034-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/Pasted%20image%2020231010154600.png"><br>    形参的改变无法影响实参<br>    形参是新创建的内存空间，只是把实参赋值给了形参<br>    形参只能在函数内部使用<br>    有形参不传参，形参默认是undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="comment">//定义了两个形参</span></span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> yinliao = a===<span class="number">1</span>?<span class="string">&#x27;可乐&#x27;</span>:<span class="string">&#x27;雪碧&#x27;</span></span><br><span class="line">            <span class="keyword">var</span> xiaoshi = b===<span class="number">1</span>?<span class="string">&#x27;薯条&#x27;</span>:<span class="string">&#x27;鸡米花&#x27;</span></span><br><span class="line">            <span class="keyword">var</span> zhushi = <span class="string">&quot;鸡腿堡&quot;</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是套餐A&quot;</span>,yinliao,xiaoshi,zhushi)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">100</span> ,b=<span class="number">200</span></span><br><span class="line">        <span class="title function_">test</span>(<span class="number">1</span>,<span class="number">2</span>)        </span><br><span class="line">        <span class="title function_">test</span>(<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        <span class="title function_">test</span>()</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(a,b)</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">          1. 实参 vs 形参</span></span><br><span class="line"><span class="comment">          2. 可以不传参，可以不传参</span></span><br><span class="line"><span class="comment">          3. 形参只能再函数内部去使用</span></span><br><span class="line"><span class="comment">          4. </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/034-%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/" data-id="clvs5xbvs00owxco955y1h9eh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/033-函数实现九九乘法表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/033-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.290Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">1</span>; m &lt;= <span class="number">9</span>; m++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">1</span>; n &lt;= m; n++) &#123;</span><br><span class="line">                    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;span&gt;&quot;</span> + m + <span class="string">&quot;*&quot;</span> + n + <span class="string">&quot;=&quot;</span> + m * n + <span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title function_">test</span>()</span><br><span class="line">        <span class="comment">// test()</span></span><br><span class="line">        <span class="comment">// test()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">test1</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">1</span>; m &lt;= <span class="number">6</span>; m++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">1</span>; n &lt;= m; n++) &#123;</span><br><span class="line">                    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;span&gt;&quot;</span> + m + <span class="string">&quot;*&quot;</span> + n + <span class="string">&quot;=&quot;</span> + m * n + <span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title function_">test1</span>()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/033-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/" data-id="clvs5xbvr00ouxco9grzm915m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/032-初始函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/032-%E5%88%9D%E5%A7%8B%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.289Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/032-%E5%88%9D%E5%A7%8B%E5%87%BD%E6%95%B0/Pasted%20image%2020231010152641.png"><br><img src="/assets/032-%E5%88%9D%E5%A7%8B%E5%87%BD%E6%95%B0/Pasted%20image%2020231010153740.png"><br><img src="/assets/032-%E5%88%9D%E5%A7%8B%E5%87%BD%E6%95%B0/Pasted%20image%2020231010153829.png"><br>函数定义两种方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">text1</span>(<span class="params"></span>)&#123;</span><br><span class="line">函数体</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//赋值式</span></span><br><span class="line"><span class="keyword">var</span> text2 = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>声明式的函数定义会自动把函数定义提前到代码最前面，会预解析，所以声明式函数定义可以写在调用前面或者后面，可以先调用后定义；
+赋值式只会把var text2预解析到最前面，所以赋值时不能放在调用的后面，必须先定义后调用；
+函数是复杂数据类型
+函数体内定义的变量在外面是访问不到的
+</code></pre>
+<p>函数调用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">text1</span>()</span><br><span class="line"><span class="title function_">text2</span>()</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="comment">/*Function </span></span><br><span class="line"><span class="comment">            函数 是一个复杂数据类型</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">         </span><br><span class="line">        <span class="comment">// 1.定义函数</span></span><br><span class="line">          <span class="comment">// （1）声明式</span></span><br><span class="line">          <span class="keyword">function</span> <span class="title function_">test1</span>(<span class="params"></span>) &#123;</span><br><span class="line">              <span class="keyword">var</span> test1_a = <span class="string">&quot;可乐&quot;</span></span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是test1套餐&quot;</span>,test1_a)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">function</span> <span class="title function_">test2</span>(<span class="params"></span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是test2套餐&quot;</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        <span class="comment">//   （2）赋值式</span></span><br><span class="line">    </span><br><span class="line">          <span class="keyword">var</span> test3 = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我是test3套餐&quot;</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        <span class="comment">// 2.调用函数</span></span><br><span class="line">        <span class="comment">//   test1()</span></span><br><span class="line">        <span class="comment">//   test1()</span></span><br><span class="line">        <span class="comment">//   test1()</span></span><br><span class="line">        <span class="comment">//   test2()</span></span><br><span class="line">        <span class="comment">//   test3()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 区别：（1）声明式 先调用再定义</span></span><br><span class="line">           <span class="comment">// （2）先定义再调用</span></span><br><span class="line"></span><br><span class="line">           <span class="title function_">test1</span>()</span><br><span class="line"></span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(test1_a)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/032-%E5%88%9D%E5%A7%8B%E5%87%BD%E6%95%B0/" data-id="clvs5xbvr00otxco93fqxfmx1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/031-九九乘法表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/031-%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.288Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/031-%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/Pasted%20image%2020231010152118.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">1</span>; m &lt;= <span class="number">9</span>; m++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">1</span>; n &lt;= m; n++) &#123;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;span&gt;&quot;</span>+m+<span class="string">&quot;*&quot;</span>+n+<span class="string">&quot;=&quot;</span>+m*n+<span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">1</span>; m &lt;= <span class="number">9</span>; m++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">1</span>; n &lt;= m; n++) &#123;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;span&gt;&quot;</span>+m+<span class="string">&quot;*&quot;</span>+n+<span class="string">&quot;=&quot;</span>+m*n+<span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">1</span>; m &lt;= <span class="number">9</span>; m++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">1</span>; n &lt;= m; n++) &#123;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;span&gt;&quot;</span>+m+<span class="string">&quot;*&quot;</span>+n+<span class="string">&quot;=&quot;</span>+m*n+<span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/031-%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/" data-id="clvs5xbvr00orxco99jlpgk0d" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/030-案例1-求质数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/030-%E6%A1%88%E4%BE%8B1-%E6%B1%82%E8%B4%A8%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.287Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 求质数</span></span><br><span class="line"><span class="comment">    + 质数: 除了 1 和 自己本身 以外, 没有其他约数</span></span><br><span class="line"><span class="comment">      =&gt; 3  5  7  11  13  17 ... --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- + 判断一个数字是质数的思路:  7</span></span><br><span class="line"><span class="comment">      =&gt; 7 % 2 不为 0</span></span><br><span class="line"><span class="comment">      =&gt; 7 % 3 不为 0</span></span><br><span class="line"><span class="comment">      =&gt; 7 % 4 不为 0</span></span><br><span class="line"><span class="comment">      =&gt; 7 % 5 不为 0</span></span><br><span class="line"><span class="comment">      =&gt; 7 % 6 不为 0 --&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   var n =71</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   var isZhiShu = true</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   for(var i=2;i&lt;=n/2;i++)&#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//       if(n%i===0)&#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//         isZhiShu = false</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//         break</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//       &#125;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//       console.log(i)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   if(isZhiShu) &#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//       console.log(&quot;是&quot;)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   &#125;else&#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//       console.log(&quot;不是&quot;)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   &#125;</span></span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">var</span> n =<span class="number">111</span></span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">2</span>;i&lt;=n/<span class="number">2</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="keyword">if</span>(n%i===<span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">break</span></span></span><br><span class="line"><span class="language-javascript">              &#125;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">if</span>(i&lt;=n/<span class="number">2</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;不是&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">          &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;是&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   for(var i=0;i&lt;=5;i++)&#123;</span></span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   &#125;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//   console.log(i)</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/030-%E6%A1%88%E4%BE%8B1-%E6%B1%82%E8%B4%A8%E6%95%B0/" data-id="clvs5xbvr00oqxco9dbepff2c" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/029-循环控制语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/029-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.287Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/029-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/Pasted%20image%2020231009162017.png"><br><img src="/assets/029-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/Pasted%20image%2020231009162407.png"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在循环中使用break就会直接打断循环</span><br><span class="line">在循环中使用continue就会不执行本次循环的下面的代码，直接进入下一次循环</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i===<span class="number">3</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">        &#125;   </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i===<span class="number">3</span>) <span class="keyword">continue</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/029-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" data-id="clvs5xbvr00osxco906k89k2f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/028-for案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/028-for%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.286Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++) &#123;</span><br><span class="line">            sum+=i</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(sum)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1000-2000闰年</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//inputYear%400===0 || inputYear%4===0 &amp;&amp; inputYear%100!==0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for(var n=1000; n&lt;=2000; n++)&#123;</span></span><br><span class="line">        <span class="comment">//     if(n%400===0 || n%4===0 &amp;&amp; n%100!==0) &#123;</span></span><br><span class="line">        <span class="comment">//         document.write(n+&quot; &quot;)</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">         <span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">var</span> n=<span class="number">1000</span>; n&lt;=<span class="number">2000</span>; n+=<span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n%<span class="number">400</span>===<span class="number">0</span> || n%<span class="number">100</span>!==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">write</span>(n+<span class="string">&quot; &quot;</span>)</span><br><span class="line">                <span class="comment">// document.write(&quot;&lt;br&gt;&quot;)</span></span><br><span class="line">                count++</span><br><span class="line">                <span class="keyword">if</span> (count%<span class="number">4</span>===<span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&quot;&lt;br/&gt;&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/028-for%E6%A1%88%E4%BE%8B/" data-id="clvs5xbvr00opxco93zkkcdnq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/025-循环分支语句-dowhile" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/025-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5-dowhile/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.284Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/025-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5-dowhile/Pasted%20image%2020231009155347.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	循环成立执行代码</span><br><span class="line">&#125;<span class="keyword">while</span>(循环条件)</span><br></pre></td></tr></table></figure>
+<p>dowhile和while之间的区别是dowhile一定会先执行一遍循环，无论条件是否满足</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// while(false)&#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//     console.log(&quot;hello &quot;)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">do</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125; <span class="keyword">while</span> (<span class="literal">false</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> n = <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">do</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;li&quot;</span>,n)</span></span><br><span class="line"><span class="language-javascript">            n++</span></span><br><span class="line"><span class="language-javascript">        &#125; <span class="keyword">while</span> (n&lt;<span class="number">10</span>)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/025-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5-dowhile/" data-id="clvs5xbvq00onxco9cfra7rqg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/026-dowhile案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/026-dowhile%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.284Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> n = <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            sum+=n</span><br><span class="line">            n++</span><br><span class="line">        &#125; <span class="keyword">while</span> (n&lt;=<span class="number">100</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(sum)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// alert(&quot;111&quot;) //bom</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// prompt(&quot;请输入你的名字&quot;)</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">          <span class="keyword">var</span> res = <span class="title function_">prompt</span>(<span class="string">&quot;请输入你的名字&quot;</span>)</span><br><span class="line">        <span class="comment">//   console.log(res)</span></span><br><span class="line">          <span class="keyword">if</span> (res) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">write</span>(res)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">while</span> (!res)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>prompt是BOM里面的输入框,返回输入值，点击取消了返回空</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="title function_">prompt</span>(<span class="string">&quot;请输入你的名字&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/026-dowhile%E6%A1%88%E4%BE%8B/" data-id="clvs5xbvr00ooxco98f7p4tnh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/023-循环分支语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/023-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.283Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kerwin老师此节有言</span><br><span class="line">上一节中结束了条件选择的知识，就像我们的人生一样，可以选择不同的路，那么是不是有下辈子，能够重新来过···</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/023-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5/Pasted%20image%2020231009152835.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(循环条件)&#123;</span><br><span class="line">	条件成立时执行的代码，条件不成立就结束循环</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x3D;&#x3D;不能写死循环&#x3D;&#x3D;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> n = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (n&lt;<span class="number">10</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;li&quot;</span>,n)</span><br><span class="line"></span><br><span class="line">            <span class="comment">//自身改变，步长</span></span><br><span class="line">            n+=<span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//死循环</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/023-%E5%BE%AA%E7%8E%AF%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5/" data-id="clvs5xbvq00okxco9au6jd9uu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/40/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/42/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/109/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/088-构造函数的分类及调用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/088-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E8%B0%83%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.279Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="两种分类方式"><a href="#两种分类方式" class="headerlink" title="两种分类方式"></a>两种分类方式</h2><pre><code>按参数分为：有参构造和无参构造
+按类型分为：普通构造和拷贝构造
+</code></pre>
+<h2 id="三种调用方式"><a href="#三种调用方式" class="headerlink" title="三种调用方式"></a>三种调用方式</h2><pre><code>括号法
+显示法
+隐式转换法
+</code></pre>
+<p>无参构造函数也称作默认构造函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">student</span>(<span class="type">int</span> q)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的有参构造函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">cout&lt;&lt;q&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">student</span>()&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的无参构造函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正常写的都叫普通构造函数<br>拷贝构造函数（把传入的构造函数的所有属性拷贝进来）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">student</span>(<span class="type">int</span> a)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的普通构造函数&quot;</span>&lt;&lt;endl;</span><br><span class="line"><span class="type">int</span> b = a; </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">student</span>(<span class="type">const</span> student &amp;p)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的拷贝构造函数&quot;</span>&lt;&lt;endl;</span><br><span class="line"><span class="type">int</span> age = p.b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用<br>    1、阔号法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student s;</span><br><span class="line"><span class="comment">//默认构造函数调用</span></span><br><span class="line"><span class="function">student <span class="title">s1</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="comment">//有参构造函数调用</span></span><br><span class="line"><span class="function">student <span class="title">s2</span><span class="params">(s)</span></span>;</span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br></pre></td></tr></table></figure>
+<hr>
+<pre><code>2、显示法
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student s;</span><br><span class="line"><span class="comment">//默认构造函数调用</span></span><br><span class="line">student s1 = <span class="built_in">student</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">//有参构造函数调用</span></span><br><span class="line">student s2 = <span class="built_in">student</span>(s);</span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br></pre></td></tr></table></figure>
+<p>student(10);这样创建的对象叫匿名对象：特点：当前行执行结束后，系统会立即回收匿名对象，会直接执行构造函数和析构函数</p>
+<hr>
+<pre><code>3、隐式转换法
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">student s = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//相当于写了 student s = student(10),有参构造</span></span><br><span class="line">student s1 = s;</span><br><span class="line"><span class="comment">//拷贝构造</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>注意事项1、调用默认构造函数不要加小括号，否则就不会创建对象,这种代码编译器会认为这是一个函数的声明，返回值为student对象</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">student <span class="title">s</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>2、不要利用拷贝构造函数初始化匿名对象,编译器会认为student(s); &#x3D;&#x3D;&#x3D; student s;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student s;</span><br><span class="line"><span class="built_in">student</span>(s);</span><br><span class="line"><span class="comment">//这里报错  student s重定义</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/088-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E8%B0%83%E7%94%A8/" data-id="clvs5xbrr003nxco962u30kun" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/089-拷贝构造函数调用时机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/089-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%97%B6%E6%9C%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.279Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/089-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%97%B6%E6%9C%BA/Pasted%20image%2020231010165054.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> num;  </span><br><span class="line"><span class="type">int</span> name;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="comment">//1、构造函数实现初始化的操作  </span></span><br><span class="line"><span class="built_in">student</span>()&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的无参构造函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">student</span>(<span class="type">int</span> p)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的有参构造函数&quot;</span>&lt;&lt;p&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">student</span>(<span class="type">const</span> student &amp;p)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的拷贝构造函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//2、析构函数实现清理的操作  </span></span><br><span class="line">~<span class="built_in">student</span>()&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的析构函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="comment">//-----------------------------------------------------------  </span></span><br><span class="line"><span class="comment">//用一个已经创建好的对象来初始化一个新的对象  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">text01</span><span class="params">()</span></span>&#123;  </span><br><span class="line">student s1;  </span><br><span class="line"><span class="function">student <span class="title">s2</span><span class="params">(s1)</span></span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//-----------------------------------------------------------  </span></span><br><span class="line"><span class="comment">//值传递的方式给函数参数传值  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doMake1</span><span class="params">(student p)</span></span>&#123;&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">text02</span><span class="params">()</span></span>&#123;  </span><br><span class="line">student p1;  </span><br><span class="line"><span class="built_in">doMake1</span>(p1);  </span><br><span class="line"><span class="comment">//实参在传值给形参的时候，会调用一个拷贝构造函数，把p1拷贝到形参中  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//-----------------------------------------------------------  </span></span><br><span class="line"><span class="comment">//值方式返回局部对象  </span></span><br><span class="line"><span class="function">student <span class="title">doMake2</span><span class="params">()</span></span>&#123;  </span><br><span class="line">student w;  </span><br><span class="line"><span class="comment">//返回的时候是以值返回创建一个新的对象，然后返回w  </span></span><br><span class="line">cout&lt;&lt;(<span class="type">int</span>*)&amp;w&lt;&lt;endl;  </span><br><span class="line"><span class="keyword">return</span> w;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">text03</span><span class="params">()</span></span>&#123;  </span><br><span class="line">student w1 = <span class="built_in">doMake2</span>();  </span><br><span class="line">cout&lt;&lt;(<span class="type">int</span>*)&amp;w1&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//-----------------------------------------------------------  </span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="comment">// text01();  </span></span><br><span class="line"><span class="comment">// text02();  </span></span><br><span class="line"><span class="built_in">text03</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/089-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%97%B6%E6%9C%BA/Pasted%20image%2020231010212702.png"><br>这里要注意一下返回值方式创建拷贝构造函数默认执行，这里没有执行是因为RVO对此进行了优化</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/089-%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%97%B6%E6%9C%BA/" data-id="clvs5xbrr003rxco9dl068687" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/087-构造函数和析构函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/087-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.278Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/087-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/Pasted%20image%2020231009185622.png"><br>构造函数–初始化<br>析构函数–清理<br>如果我们不写，那么编译器会自动调用一个空的函数</p>
+<h2 id="构造函数语法"><a href="#构造函数语法" class="headerlink" title="构造函数语法"></a>构造函数语法</h2><pre><code>1、构造函数，没有返回值也不写void
+2、函数名称和类名相同
+3、构造函数可以有参数，因此可以发生重载
+4、程序在调用对象的时候会自动调用构造，无需手动调用，而且只会调用一次
+</code></pre>
+<h2 id="析构函数语法"><a href="#析构函数语法" class="headerlink" title="析构函数语法"></a>析构函数语法</h2><pre><code>1、析构函数，没有返回值也不写void
+2、函数名称和类名相同，在名称前加上符号~
+3、析构函数不可以有参数，因此不可以发生重载
+4、程序在对象销毁前会自动调用析构，无需手动调用，而且只会调用一次
+</code></pre>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> num;  </span><br><span class="line"><span class="type">int</span> name;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="comment">//1、构造函数实现初始化的操作  </span></span><br><span class="line"><span class="built_in">student</span>()&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的构造函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">//2、析构函数实现清理的操作  </span></span><br><span class="line">~<span class="built_in">student</span>()&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;这是一个学生类里面的析构函数&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">text</span><span class="params">()</span></span>&#123;  </span><br><span class="line">student s;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">text</span>();  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象在栈区函数结束就会调用析构函数，对象在堆区被释放或者程序结束就会调用析构，对象在全局区程序结束就会调用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/087-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" data-id="clvs5xbrr003qxco9hxskaw82" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/085-设计立方体类案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/085-%E8%AE%BE%E8%AE%A1%E7%AB%8B%E6%96%B9%E4%BD%93%E7%B1%BB%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.277Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/085-%E8%AE%BE%E8%AE%A1%E7%AB%8B%E6%96%B9%E4%BD%93%E7%B1%BB%E6%A1%88%E4%BE%8B/Pasted%20image%2020231008205145.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cube</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">float</span> c_l;  </span><br><span class="line"><span class="type">float</span> c_w;  </span><br><span class="line"><span class="type">float</span> c_h;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setL</span><span class="params">(<span class="type">float</span> length)</span></span>&#123;  </span><br><span class="line">c_l = length;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setW</span><span class="params">(<span class="type">float</span> width)</span></span>&#123;  </span><br><span class="line">c_w = width;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setH</span><span class="params">(<span class="type">float</span> height)</span></span>&#123;  </span><br><span class="line">c_h = height;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">getL</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_l;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">getW</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_w;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">getH</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_h;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Area</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> (c_l*c_w*<span class="number">2</span>+c_w*c_h*<span class="number">2</span>+c_h*c_l*<span class="number">2</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Volume</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_l*c_w*c_h;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">compare</span><span class="params">(Cube&amp; c1)</span></span>&#123;  </span><br><span class="line"><span class="keyword">if</span>(c1.<span class="built_in">getL</span>()==c_l&amp;&amp;c1.<span class="built_in">getH</span>()==c_h&amp;&amp;c1.<span class="built_in">getW</span>()==c_w)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;两个立方体相等&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">compare</span><span class="params">(Cube&amp; c1,Cube&amp; c2)</span></span>&#123;  </span><br><span class="line"><span class="keyword">if</span>(c1.<span class="built_in">getL</span>()==c2.<span class="built_in">getL</span>()&amp;&amp;c1.<span class="built_in">getH</span>()==c2.<span class="built_in">getH</span>()&amp;&amp;c1.<span class="built_in">getW</span>()==c2.<span class="built_in">getW</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;两个立方体相等&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cube</span> c1;<span class="comment">//实例化  </span></span><br><span class="line">c1.<span class="built_in">setL</span>(<span class="number">10</span>);  </span><br><span class="line">c1.<span class="built_in">setW</span>(<span class="number">10</span>);  </span><br><span class="line">c1.<span class="built_in">setH</span>(<span class="number">10</span>);  </span><br><span class="line">cout&lt;&lt;c1.<span class="built_in">Area</span>()&lt;&lt;c1.<span class="built_in">Volume</span>()&lt;&lt;endl;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cube</span> c2;<span class="comment">//实例化  </span></span><br><span class="line">c2.<span class="built_in">setL</span>(<span class="number">10</span>);  </span><br><span class="line">c2.<span class="built_in">setW</span>(<span class="number">10</span>);  </span><br><span class="line">c2.<span class="built_in">setH</span>(<span class="number">10</span>);  </span><br><span class="line">c2.<span class="built_in">compare</span>(c1);  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;面积是：&quot;</span>&lt;&lt;c2.<span class="built_in">Area</span>()&lt;&lt;<span class="string">&quot;体积是：&quot;</span>&lt;&lt;c2.<span class="built_in">Volume</span>()&lt;&lt;endl;  </span><br><span class="line"><span class="built_in">compare</span>(c1,c2);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/085-%E8%AE%BE%E8%AE%A1%E7%AB%8B%E6%96%B9%E4%BD%93%E7%B1%BB%E6%A1%88%E4%BE%8B/" data-id="clvs5xbrr003mxco990e70avx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/086-设计案例-点和圆的关系" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/086-%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B-%E7%82%B9%E5%92%8C%E5%9C%86%E7%9A%84%E5%85%B3%E7%B3%BB/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.277Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">point</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> x;  </span><br><span class="line"><span class="type">int</span> y;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setX</span><span class="params">(<span class="type">int</span> c_x)</span></span>&#123;  </span><br><span class="line">x = c_x;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setY</span><span class="params">(<span class="type">int</span> c_y)</span></span>&#123;  </span><br><span class="line">y = c_y;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getX</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> x;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getY</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> y;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> Radius;  </span><br><span class="line">point c_1;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR_X</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;  </span><br><span class="line">c_1.<span class="built_in">setX</span>(x);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR_Y</span><span class="params">(<span class="type">int</span> y)</span></span>&#123;  </span><br><span class="line">c_1.<span class="built_in">setX</span>(y);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR</span><span class="params">(<span class="type">int</span> c_r)</span></span>&#123;  </span><br><span class="line">Radius = c_r;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> Radius;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR_X</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_1.<span class="built_in">getX</span>();  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR_Y</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_1.<span class="built_in">getY</span>();  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">compare</span><span class="params">(Circle c,point p)</span></span>&#123;  </span><br><span class="line"><span class="type">int</span> w = (c.<span class="built_in">getR_X</span>() - p.<span class="built_in">getX</span>()) * (c.<span class="built_in">getR_X</span>() - p.<span class="built_in">getX</span>());  </span><br><span class="line"><span class="type">int</span> h = (c.<span class="built_in">getR_Y</span>() - p.<span class="built_in">getY</span>()) * (c.<span class="built_in">getR_Y</span>() - p.<span class="built_in">getY</span>());  </span><br><span class="line"><span class="keyword">if</span>(w+h == c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆上&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span>(w+h &gt; c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆外&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span>(w+h &lt; c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆内&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line">Circle c;  </span><br><span class="line">c.<span class="built_in">setR_X</span>(<span class="number">0</span>);  </span><br><span class="line">c.<span class="built_in">setR_X</span>(<span class="number">0</span>);  </span><br><span class="line">c.<span class="built_in">setR</span>(<span class="number">5</span>);  </span><br><span class="line">point p;  </span><br><span class="line">p.<span class="built_in">setX</span>(<span class="number">3</span>);  </span><br><span class="line">p.<span class="built_in">setY</span>(<span class="number">4</span>);  </span><br><span class="line"><span class="built_in">compare</span>(c,p);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以在一个类中调用另一个类<br>但是把这么多类写在一个文件中不好，可以把它的类拆分成多个文件<br>1、#progma  once写在头文件中防止头文件重复包含<br>2、在头文件中，把应该写的类剪切到头文件中，删除函数体，只留下函数的声明<br>3、在源文件中，只留下函数体，其他的全部删掉，并且把每个函数都声明到所属类的作用域（point是类名）下,以便把函数体里面的变量和函数声明为一个成员</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">point::setX</span><span class="params">(<span class="type">int</span> c_x)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>main.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;point.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Circle.h&quot;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">compare</span><span class="params">(Circle c,point p)</span></span>&#123;  </span><br><span class="line"><span class="type">int</span> w = (c.<span class="built_in">getR_X</span>() - p.<span class="built_in">getX</span>()) * (c.<span class="built_in">getR_X</span>() - p.<span class="built_in">getX</span>());  </span><br><span class="line"><span class="type">int</span> h = (c.<span class="built_in">getR_Y</span>() - p.<span class="built_in">getY</span>()) * (c.<span class="built_in">getR_Y</span>() - p.<span class="built_in">getY</span>());  </span><br><span class="line"><span class="keyword">if</span>(w+h == c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆上&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span>(w+h &gt; c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆外&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">if</span>(w+h &lt; c.<span class="built_in">getR</span>()*c.<span class="built_in">getR</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;点在圆内&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line">Circle c;  </span><br><span class="line">c.<span class="built_in">setR_X</span>(<span class="number">0</span>);  </span><br><span class="line">c.<span class="built_in">setR_X</span>(<span class="number">0</span>);  </span><br><span class="line">c.<span class="built_in">setR</span>(<span class="number">5</span>);  </span><br><span class="line">point p;  </span><br><span class="line">p.<span class="built_in">setX</span>(<span class="number">3</span>);  </span><br><span class="line">p.<span class="built_in">setY</span>(<span class="number">4</span>);  </span><br><span class="line"><span class="built_in">compare</span>(c,p);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>point.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">point</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> x;  </span><br><span class="line"><span class="type">int</span> y;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setX</span><span class="params">(<span class="type">int</span> c_x)</span></span>;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setY</span><span class="params">(<span class="type">int</span> c_y)</span></span>;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getX</span><span class="params">()</span></span>;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getY</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>point.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;point.h&quot;</span>  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">point::setX</span><span class="params">(<span class="type">int</span> c_x)</span></span>&#123;  </span><br><span class="line">x = c_x;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">point::setY</span><span class="params">(<span class="type">int</span> c_y)</span></span>&#123;  </span><br><span class="line">y = c_y;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">point::getX</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> x;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">point::getY</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> y;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Circle.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Circle.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;point.h&quot;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="type">int</span> Radius;  </span><br><span class="line">point c_1;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR_X</span><span class="params">(<span class="type">int</span> x)</span></span>;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR_Y</span><span class="params">(<span class="type">int</span> y)</span></span>;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setR</span><span class="params">(<span class="type">int</span> c_r)</span></span>;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR</span><span class="params">()</span></span>;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR_X</span><span class="params">()</span></span>;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getR_Y</span><span class="params">()</span></span>;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Circle.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Circle.h&quot;</span>  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Circle::setR_X</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;  </span><br><span class="line">c_1.<span class="built_in">setX</span>(x);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Circle::setR_Y</span><span class="params">(<span class="type">int</span> y)</span></span>&#123;  </span><br><span class="line">c_1.<span class="built_in">setX</span>(y);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Circle::setR</span><span class="params">(<span class="type">int</span> c_r)</span></span>&#123;  </span><br><span class="line">Radius = c_r;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Circle::getR</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> Radius;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Circle::getR_X</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_1.<span class="built_in">getX</span>();  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Circle::getR_Y</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> c_1.<span class="built_in">getY</span>();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/086-%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B-%E7%82%B9%E5%92%8C%E5%9C%86%E7%9A%84%E5%85%B3%E7%B3%BB/" data-id="clvs5xbrr003pxco957ja4svf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/083-C++中struct和class的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/083-C++%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.276Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/083-C++%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/Pasted%20image%2020231008182348.png"><br>struct和class都是创建类，但是两种方式的默认创建的类访问权限不同<br>struct默认公有<br>class默认私有</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/083-C++%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clvs5xbrq003lxco98u4q7woi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/084-成员属性设置为私有" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/084-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%A7%81%E6%9C%89/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.276Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/084-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%A7%81%E6%9C%89/Pasted%20image%2020231008182741.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>&#123;  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line"><span class="comment">//可读可写  </span></span><br><span class="line">string s_name;  </span><br><span class="line"><span class="comment">//只读  </span></span><br><span class="line">string s_num = <span class="string">&quot;11011&quot;</span>;  </span><br><span class="line"><span class="comment">//只写  </span></span><br><span class="line">string s_id;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setName</span><span class="params">(string r_name)</span></span>&#123;  </span><br><span class="line">s_name = r_name;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function">string <span class="title">getName</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> s_name;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setId</span><span class="params">(string r_id)</span></span>&#123;  </span><br><span class="line">s_id = r_id;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function">string <span class="title">getNum</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> s_num;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span> s1;<span class="comment">//实例化  </span></span><br><span class="line">s1.<span class="built_in">setName</span>(<span class="string">&quot;liangxiang&quot;</span>);  </span><br><span class="line">s1.<span class="built_in">setId</span>(<span class="string">&quot;11111&quot;</span>);  </span><br><span class="line">cout&lt;&lt;s1.<span class="built_in">getName</span>();  </span><br><span class="line">cout&lt;&lt;s1.<span class="built_in">getNum</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/084-%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE%E4%B8%BA%E7%A7%81%E6%9C%89/" data-id="clvs5xbrr003oxco91i812vf0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/081-封装-案例-学生类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/081-%E5%B0%81%E8%A3%85-%E6%A1%88%E4%BE%8B-%E5%AD%A6%E7%94%9F%E7%B1%BB/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.275Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>类中的属性和行为都称做成员<br>属性    成员属性     成员变量<br>行为    成员函数     成员方法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:<span class="comment">//公共权限  </span></span><br><span class="line">string s_name;  </span><br><span class="line">string s_num;<span class="comment">//属性  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">input</span><span class="params">(string r_name,string r_num)</span></span>&#123;  </span><br><span class="line">s_name = r_name;  </span><br><span class="line">s_num = r_num;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">out</span><span class="params">()</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;学生姓名是:&quot;</span>&lt;&lt;s_name&lt;&lt;endl&lt;&lt;<span class="string">&quot;学生学号是:&quot;</span>&lt;&lt;s_num&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span> s1;<span class="comment">//实例化  </span></span><br><span class="line">s1.<span class="built_in">input</span>(<span class="string">&quot;梁响&quot;</span>,<span class="string">&quot;80&quot;</span>);  </span><br><span class="line">s1.<span class="built_in">out</span>();  </span><br><span class="line">student s2;<span class="comment">//实例化  </span></span><br><span class="line">s2.<span class="built_in">input</span>(<span class="string">&quot;梁响&quot;</span>,<span class="string">&quot;80&quot;</span>);  </span><br><span class="line">s2.<span class="built_in">out</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/081-%E5%B0%81%E8%A3%85-%E6%A1%88%E4%BE%8B-%E5%AD%A6%E7%94%9F%E7%B1%BB/" data-id="clvs5xbrq003jxco975mpamuq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/082-封装-访问权限" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/082-%E5%B0%81%E8%A3%85-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.275Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/082-%E5%B0%81%E8%A3%85-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/Pasted%20image%2020231008181655.png"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public权限--------------成员：类内可以访问，类外不可以访问</span><br><span class="line">protected保护权限--------成员：类内可以访问，类外不能访问，在继承中儿子可以访问父亲中的保护内容</span><br><span class="line">private私有权限----------成员：类内可以访问，类外不能访问，在继承中，儿子不能访问父亲的私有内容</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/082-%E5%B0%81%E8%A3%85-%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" data-id="clvs5xbrq003kxco9c0n41bkr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/080-封装-属性和行为作为整体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/080-%E5%B0%81%E8%A3%85-%E5%B1%9E%E6%80%A7%E5%92%8C%E8%A1%8C%E4%B8%BA%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%BD%93/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.274Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/080-%E5%B0%81%E8%A3%85-%E5%B1%9E%E6%80%A7%E5%92%8C%E8%A1%8C%E4%B8%BA%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%BD%93/Pasted%20image%2020231007194543.png"><br><img src="/assets/080-%E5%B0%81%E8%A3%85-%E5%B1%9E%E6%80%A7%E5%92%8C%E8%A1%8C%E4%B8%BA%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%BD%93/Pasted%20image%2020231007194807.png"><br>万物皆对象<br>class   类名   {<br>访问权限<br>属性<br>行为<br>}</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="number">3.14</span>;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">liangxiang</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="type">int</span> m_r;  </span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">circle</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> PI * m_r*m_r;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="type">int</span> num_1;  </span><br><span class="line">liangxiang C1;  </span><br><span class="line">C1.m_r = <span class="number">10</span>;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;圆的周长为&quot;</span>&lt;&lt;C1.<span class="built_in">circle</span>()&lt;&lt;endl;  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>liangxiang C1;<br>实例化–通过一个类创建一个对象</p>
+<p><a href="../../Omnivore/2024-04-27/java%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6.md">面向对象的三大基本特征和五大基本原则 - 个人文章 - SegmentFault 思否</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/080-%E5%B0%81%E8%A3%85-%E5%B1%9E%E6%80%A7%E5%92%8C%E8%A1%8C%E4%B8%BA%E4%BD%9C%E4%B8%BA%E6%95%B4%E4%BD%93/" data-id="clvs5xbrq003ixco99a2m9avl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/108/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/107/">107</a><a class="page-number" href="/page/108/">108</a><span class="page-number current">109</span><a class="page-number" href="/page/110/">110</a><a class="page-number" href="/page/111/">111</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/110/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

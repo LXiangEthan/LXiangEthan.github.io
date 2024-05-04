@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/35/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/016-案例-鼠标拖拽" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/016-%E6%A1%88%E4%BE%8B-%E9%BC%A0%E6%A0%87%E6%8B%96%E6%8B%BD/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.563Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css">  </span></span><br><span class="line"><span class="language-css">*&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">margin</span>:<span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">padding</span>:<span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">width</span>:<span class="number">1000px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>:<span class="number">500px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">overflow</span>:hidden;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"><span class="selector-id">#box</span>&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">width</span>:<span class="number">100px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>:<span class="number">100px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">background</span>:skyblue;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">position</span>:absolute;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span> <span class="attr">style</span>=<span class="string">&quot;top:0;left:0;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">onmousedown</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="property">onmousemove</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> top = event.<span class="property">pageY</span> - box.<span class="property">offsetHeight</span>/<span class="number">2</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> left = event.<span class="property">pageX</span> - box.<span class="property">offsetWidth</span>/<span class="number">2</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(top &lt;= <span class="number">0</span>)top = <span class="number">0</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(left &lt;= <span class="number">0</span>)left = <span class="number">0</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(left &gt;= <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span> - box.<span class="property">offsetWidth</span>) left = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span> - box.<span class="property">offsetWidth</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(top &gt;= <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span> - box.<span class="property">offsetHeight</span>) top = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span> - box.<span class="property">offsetHeight</span>  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">style</span>.<span class="property">top</span> = top + <span class="string">&quot;px&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">style</span>.<span class="property">left</span> = left + <span class="string">&quot;px&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">onmouseup</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="property">onmousemove</span> = <span class="literal">null</span>&#125;  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这一节要注意：<br>1、盒子可以被拖动<br>2、盒子必须在边界内</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/016-%E6%A1%88%E4%BE%8B-%E9%BC%A0%E6%A0%87%E6%8B%96%E6%8B%BD/" data-id="clvs5xbvz00qkxco99yr66xhl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/013-事件对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/013-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.562Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/013-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/Pasted%20image%2020230908205750.png"><br><img src="/assets/013-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/Pasted%20image%2020230909094926.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css">  </span></span><br><span class="line"><span class="language-css"><span class="selector-id">#box</span>&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">width</span>:<span class="number">20px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>:<span class="number">20px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">background</span>:orange;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">username.<span class="property">onkeyup</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">keyCode</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(event.<span class="property">keyCode</span> === <span class="number">65</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;输出节点&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(event)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//兼容性 IE6/7/8不支持  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 使用window.event  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// box.onclick = function(evt)&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(window.event||evt)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在函数中传入的形参是在我们对浏览器操作后浏览器自己输入的参数</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/013-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" data-id="clvs5xbvz00qixco95v5d5dxb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/012-事件类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/012-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.561Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><h2 id="click-点击"><a href="#click-点击" class="headerlink" title="click       点击"></a>click       点击<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;谢谢惠顾&quot;</span>)  </span><br><span class="line"> <span class="variable language_">this</span>.<span class="property">onclick</span> = <span class="literal">null</span>  </span><br><span class="line"> &#125;  </span><br></pre></td></tr></table></figure></h2><h2 id="dblclick-双击"><a href="#dblclick-双击" class="headerlink" title="dblclick  双击"></a>dblclick  双击<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">ondblclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2><h2 id="contextmenu-右键单击"><a href="#contextmenu-右键单击" class="headerlink" title="contextmenu 右键单击"></a>contextmenu 右键单击<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">oncontextmenu</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2><p>mousedown 鼠标按下<br>mousemove 鼠标移动<br>mouseup      鼠标抬起</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onmousedown</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;鼠标按下了&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//-----------------------------</span></span><br><span class="line">btn1.<span class="property">onmousemove</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;鼠标移动了&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//-----------------------------</span></span><br><span class="line">btn2.<span class="property">mouseup</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;鼠标抬起了&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mousedown和click的区别是：<br>click如果按下去可以反悔，把鼠标移开在抬起鼠标，这样就不执行<br>但是mousedown不能反悔，鼠标按下去的一瞬间，就执行了<br>&#x2F;&#x2F;————————-<br>mousemove<br>鼠标在btn1上划过去就会执行函数<br>&#x2F;&#x2F;————————-<br>mousedown<br>鼠标在btn2上面抬起后就会执行函数</p>
+<hr>
+
+<p>mouseover    mouseout     鼠标移入移出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onmouseover</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;移入&quot;</span>)  </span><br><span class="line">&#125;  </span><br><span class="line">btn.<span class="property">onmouseout</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;移出&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mouseenter  mouseleave   鼠标移入移出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.<span class="property">onmouseenter</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;移入&quot;</span>)  </span><br><span class="line">&#125;  </span><br><span class="line">btn.<span class="property">onmouseleave</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;移出&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mouseenter  mouseleave和mouseover    mouseout  的区别是mouseover    mouseout  会在盒子的孩子盒子也加上移入移出事件，而mouseenter  mouseleave  不会加在孩子身上</p>
+<hr>
+<p>keydown键盘按下事件<br>keyup    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username.<span class="property">onkeydown</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;按下键盘&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">username.<span class="property">onkeydown</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;键盘按下&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/012-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B/Pasted%20image%2020230908195113.png"><br><img src="/assets/012-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B/Pasted%20image%2020230908195052.png"></p>
+<hr>
+<p>表单事件<br>focus      获取焦点事件<br>blur    失去焦点事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">username.<span class="property">onfocus</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;获取焦点&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">username.<span class="property">onblur</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;失去焦点&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>change    获取焦点        失去焦点对比里面内容不一样才会触发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username.<span class="property">onchange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;获取焦点失去焦点里面内容不一样触发&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>input 内容不一样就会触发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username.<span class="property">oninput</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;里面内容不一样触发&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>submit       表单提交触发<br>reset          表单重置触发<br>如果想让这两个属性触发就必须要使用form标签<br>input的提交按键就会自动跳转页面，需要阻止默认跳转行为，在函数中使用return false</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myform&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// username.onfocus = function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;获取焦点&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// username.onblur = function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;失去焦点&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// username.onchange = function()&#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;获取焦点失去焦点里面内容不一样触发&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;  </span></span></span><br><span class="line"><span class="language-javascript">myform.<span class="property">onsubmit</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;提交成功&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> <span class="literal">false</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">myform.<span class="property">onreset</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;重置成功&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>触摸事件（只针对移动端）<br>touchstart    开始摸<br>touchmove  移动过程中<br>touchend     移动结束</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box.<span class="property">ontouchstart</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;你好&quot;</span>)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>左滑右滑画圈都是有这几个事件模拟出来的<br>box.ontouchcanael事件（在触摸网页中被电话打断会触发）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/012-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B/" data-id="clvs5xbvy00qhxco962vdgrdz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/009-懒加载案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/009-%E6%87%92%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.560Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  </span></span><br><span class="line"><span class="comment">* @作者: kerwin  </span></span><br><span class="line"><span class="comment">* @公众号: 大前端私房菜  </span></span><br><span class="line"><span class="comment">--&gt;</span>  </span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css">  </span></span><br><span class="line"><span class="language-css">* &#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">margin</span>: <span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">padding</span>: <span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">html</span>,  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">body</span> &#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>: <span class="number">100%</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">overflow</span>: hidden;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>: <span class="number">150px</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">img</span> &#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">float</span>: left;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">width</span>: <span class="number">80px</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;list&quot;</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> arr1 = [&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;哆啦A梦：大雄的宇宙小战争2021&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/c151962e41cb282f09b7855261841da7.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;坏蛋联盟&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/594ded98490b61549be7ecb5a9355b79.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;暗恋·橘生淮南&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/d8419057142d94750cfcbaa69f5fd16b.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;海底小纵队：洞穴大冒险&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/e6ee44927d2e3370dcf251c2627ef6d4.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;我要我们在一起&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/ea32c21b19817f0a9d7d799c1262ac8d.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">]  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> arr2 = [&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;神秘海域&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/a17030216bc281dfc04c0964bd911497.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;边缘行者&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/afdef208d7b72a950b164c007e8a0837.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;五个扑水的少年&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/635c53b2cbd14987870df6b3434e2a28.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;神奇动物:邓布利多之谜&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/46015aa8e08a661e7c559b6e7407ce08.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;,  </span></span><br><span class="line"><span class="language-javascript">&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">name</span>: <span class="string">&quot;开心超人之英雄的心&quot;</span>,  </span></span><br><span class="line"><span class="language-javascript"><span class="attr">url</span>: <span class="string">&quot;https://pic.maizuo.com/usr/movie/36e714044b7e5d555a81a74f816bde99.jpg?x-oss-process=image/quality,Q_70&quot;</span>  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">]  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="title function_">renderHTML</span>(arr1)  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">renderHTML</span>(<span class="params">arr</span>) &#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// list.innerHTML += arr.map(function (item) &#123;  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// return `&lt;li&gt;  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &lt;/li&gt;`  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;).join(&quot;&quot;)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.<span class="property">length</span>;i++)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> oli = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;li&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">oli.<span class="property">innerHTML</span> = <span class="string">`&lt;img src=&quot;<span class="subst">$&#123;arr[i].url&#125;</span>&quot; alt=&quot;&quot;&gt;  </span></span></span><br><span class="line"><span class="string"><span class="language-javascript">&lt;h3&gt;<span class="subst">$&#123;arr[i].name&#125;</span>&lt;/h3&gt;`</span>  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">list.<span class="title function_">appendChild</span>(oli)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">isLoading = <span class="literal">false</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">window</span>.<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;1111&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> listHeight = list.<span class="property">offsetHeight</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> listTop = list.<span class="property">offsetTop</span>  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(listHeight+listTop)  </span></span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> scrollTop = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollTop</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollTop</span>  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> windowHeight = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log()  </span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(isLoading) <span class="keyword">return</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>((listHeight+listTop)-<span class="title class_">Math</span>.<span class="title function_">round</span>(windowHeight+scrollTop)&lt;<span class="number">50</span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;到底了&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">isLoading = <span class="literal">true</span>  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//渲染下一页数据  </span></span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="title function_">renderHTML</span>(arr2)  </span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">isLoading = <span class="literal">false</span> <span class="comment">//下一次到底事件继续触发  </span></span></span><br><span class="line"><span class="language-javascript">&#125;,<span class="number">1000</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>看使用页面高度减去窗口高度是否等于偏移高度<br>如果等于就可以加载下一个数组<br><img src="/assets/009-%E6%87%92%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B/Pasted%20image%2020230906203151.png"></p>
+<p>list.innerHTML +&#x3D; <code>节点</code><br>会导致重新赋值页面会闪一下</p>
+<p>案例来源<br><a target="_blank" rel="noopener" href="https://www.maizuo.com/#/">https://www.maizuo.com/#/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/009-%E6%87%92%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B/" data-id="clvs5xbvy00qfxco9bvt12iu5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/010-初识事件（老相好）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/010-%E5%88%9D%E8%AF%86%E4%BA%8B%E4%BB%B6%EF%BC%88%E8%80%81%E7%9B%B8%E5%A5%BD%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.560Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/010-%E5%88%9D%E8%AF%86%E4%BA%8B%E4%BB%B6%EF%BC%88%E8%80%81%E7%9B%B8%E5%A5%BD%EF%BC%89/Pasted%20image%2020230906205426.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span>  </span><br><span class="line">111111  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;111&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// dom0绑定方式  </span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>box.onclick &#x3D; function(){<br>console.log(“111”)<br>}<br>&#x2F;&#x2F; dom0绑定方式<br>dom0有个小缺点（鸡蛋里面挑骨头）：<br><img src="/assets/010-%E5%88%9D%E8%AF%86%E4%BA%8B%E4%BB%B6%EF%BC%88%E8%80%81%E7%9B%B8%E5%A5%BD%EF%BC%89/Pasted%20image%2020230906210129.png"><br>给一个节点同时绑定两个事件后面的事件会把前面的事件覆盖掉（后面覆盖前面）</p>
+<p>box2.addEventListener(“click”,function(){<br>console.log(“hahaha”)<br>})<br>&#x2F;&#x2F;dom2绑定方式，可以绑定多个事件，并且执行<br>addEventListener绑定事件监听处理器<br>dom2有兼容性问题，在ie6&#x2F;7&#x2F;8上面无法使用<br>但是可以使用box2.attachEvent(“onclick”,function(){<br>console.log(“hahaha”)<br>})</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/010-%E5%88%9D%E8%AF%86%E4%BA%8B%E4%BB%B6%EF%BC%88%E8%80%81%E7%9B%B8%E5%A5%BD%EF%BC%89/" data-id="clvs5xbvy00qgxco9ejmybzsr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/008-获取可视窗口的尺寸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/008-%E8%8E%B7%E5%8F%96%E5%8F%AF%E8%A7%86%E7%AA%97%E5%8F%A3%E7%9A%84%E5%B0%BA%E5%AF%B8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.559Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>使用window.innerHeight和window.innerWidth会让滚动条也包含在了窗口的宽高中</p>
+<p>document.documentElement.clientWidth    宽度<br>document.documentElement.clientHeight   高度<br>这里的宽高都是不是滚动条</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/008-%E8%8E%B7%E5%8F%96%E5%8F%AF%E8%A7%86%E7%AA%97%E5%8F%A3%E7%9A%84%E5%B0%BA%E5%AF%B8/" data-id="clvs5xbvy00qexco90uz35k7x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/007-获取元素偏移量" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.558Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>child.offsetLeft              左偏移量<br>child.offsetTop              右偏移量<br>参考点是定位父级，指定的是第一个有定位的父节点<br>如果父级元素都没有定位，则参考点会参考body<br><img src="/assets/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/Pasted%20image%2020230906181221.png"><br><img src="/assets/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/Pasted%20image%2020230906181237.png"></p>
+<p>list.clientLeft 左边框的宽度<br>list.clientTop 上边框的宽度<br><img src="/assets/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/Pasted%20image%2020230906182023.png"><br><img src="/assets/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/Pasted%20image%2020230906182049.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/007-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%81%8F%E7%A7%BB%E9%87%8F/" data-id="clvs5xbvy00qbxco9576wcu67" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/006-获取元素尺寸" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/006-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%B0%BA%E5%AF%B8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.557Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/006-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%B0%BA%E5%AF%B8/Pasted%20image%2020230905191949.png"><br>getComputedStyle(box).width和box.width只能获取元素在css中定义的宽度，实际宽度无法获取&#x2F;<em>（除了怪异盒模型）</em>&#x2F;</p>
+<p>box.offsetWidth     获取整个盒子宽度<br>box.offsetHeight    获取整个盒子高度<br>offset * (border+padding+content)</p>
+<p>box.clientWidth<br>box.clientHeight<br>client* (padding+content)</p>
+<p>\*<br>1、单位是数字类型的<br>2、box-sizing没有影响,计算方法不变<br>3、使用display:none;就拿不到值<br>*\</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/006-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%B0%BA%E5%AF%B8/" data-id="clvs5xbvy00qdxco9b9e4cdmi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/004-动态删除案例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/004-%E5%8A%A8%E6%80%81%E5%88%A0%E9%99%A4%E6%A1%88%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.555Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  </span></span><br><span class="line"><span class="comment">* @作者: Ethan</span></span><br><span class="line"><span class="comment">--&gt;</span>  </span><br><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css">  </span></span><br><span class="line"><span class="language-css">*&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">margin</span>:<span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">padding</span>:<span class="number">0</span>;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span>&#123;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">width</span>:<span class="number">200px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">height</span>:<span class="number">40px</span>;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">background</span>:skyblue;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">border</span>:<span class="number">2px</span> solid orange;  </span></span><br><span class="line"><span class="language-css"><span class="attribute">margin</span>:<span class="number">0</span> auto;  </span></span><br><span class="line"><span class="language-css">&#125;  </span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;div class=&quot;box&quot;&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- &lt;button&gt;删除&lt;/button&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;/div&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;div class=&quot;box&quot;&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- &lt;button&gt;删除&lt;/button&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;/div&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;div class=&quot;box&quot;&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- &lt;button&gt;删除&lt;/button&gt;--&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!--&lt;/div&gt;--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// var nod = document.getElementsByClassName(&quot;box&quot;)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> header = <span class="variable language_">document</span>.<span class="property">body</span>  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> arr = [<span class="string">&quot;删除&quot;</span>,<span class="string">&quot;删除&quot;</span>,<span class="string">&quot;删除&quot;</span>]  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">for</span>(<span class="keyword">var</span> n = <span class="number">0</span>;n &lt; arr.<span class="property">length</span>;n++)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> <span class="title class_">NOe</span> = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript">header.<span class="title function_">appendChild</span>(<span class="title class_">NOe</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> <span class="title class_">NOb</span> = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;button&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="title class_">NOb</span>.<span class="property">innerHTML</span> = arr[n]  </span></span><br><span class="line"><span class="language-javascript"><span class="title class_">NOe</span>.<span class="title function_">appendChild</span>(<span class="title class_">NOb</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; btn.<span class="property">length</span>;i++)&#123;  </span></span><br><span class="line"><span class="language-javascript">btn[i].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;  </span></span><br><span class="line"><span class="language-javascript">header.<span class="title function_">removeChild</span>(<span class="variable language_">this</span>.<span class="property">parentNode</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(this.parentNode)  </span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// console.log(&quot;hello&quot;)  </span></span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/004-%E5%8A%A8%E6%80%81%E5%88%A0%E9%99%A4%E6%A1%88%E4%BE%8B/" data-id="clvs5xbvx00q9xco9g6pcg4a6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/005-节点属性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.555Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905185645.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>  </span><br><span class="line">11111  </span><br><span class="line"><span class="comment">&lt;!-- liangxiang--&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2222<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> nod = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.box&quot;</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(nod.<span class="property">childNodes</span>)  </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; nod.<span class="property">childNodes</span>.<span class="property">length</span>;i++)&#123;  </span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">console</span>.<span class="title function_">log</span>(nod.<span class="property">childNodes</span>[i].<span class="property">nodeType</span>)  </span></span><br><span class="line"><span class="language-javascript">&#125;  </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// nodeType值，文本-3，注释-8，元素-1  </span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-05%20190852.png"><br>可以通过不同的nodeType或者其他属性来来筛选节点<br><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905191255.png"><br><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905191318.png"><br><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905191350.png"><br><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905191401.png"></p>
+<p>属性节点<br><img src="/assets/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/Pasted%20image%2020230905191604.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/005-%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" data-id="clvs5xbvy00qcxco91pguhpwo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/34/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/36/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

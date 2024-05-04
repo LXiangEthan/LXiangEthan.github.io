@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="用户认证状态判断 http协议是一种无状态的协议，我们的服务端，必须要在上传的参数中加上传参的人是谁 localStorage是一种解决方案存储登录状态，但是这样肯定不能存用户名密码，不安全，于是就有了token，localStorage存放了一个token，不但能实现本地存储，也可以实现前后端登陆验证，token相当于一把钥匙，存放的是一个登陆认证状态 cookie  本地存储，记住用户名也可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/068-cookie/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用户认证状态判断 http协议是一种无状态的协议，我们的服务端，必须要在上传的参数中加上传参的人是谁 localStorage是一种解决方案存储登录状态，但是这样肯定不能存用户名密码，不安全，于是就有了token，localStorage存放了一个token，不但能实现本地存储，也可以实现前后端登陆验证，token相当于一把钥匙，存放的是一个登陆认证状态 cookie  本地存储，记住用户名也可以">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/068-cookie/Pasted%20image%2020231103104749.png">
+<meta property="og:image" content="http://example.com/assets/068-cookie/Pasted%20image%2020231103115306.png">
+<meta property="article:published_time" content="2024-05-04T13:48:40.598Z">
+<meta property="article:modified_time" content="2023-11-20T11:21:11.793Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/068-cookie/Pasted%20image%2020231103104749.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/068-cookie" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/068-cookie/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.598Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>用户认证状态判断</p>
+<p>http协议是一种无状态的协议，我们的服务端，必须要在上传的参数中加上传参的人是谁</p>
+<p>localStorage是一种解决方案存储登录状态，但是这样肯定不能存用户名密码，不安全，于是就有了token，localStorage存放了一个token，不但能实现本地存储，也可以实现前后端登陆验证，token相当于一把钥匙，存放的是一个登陆认证状态</p>
+<p>cookie  本地存储，记住用户名也可以使用到cookie，后端有能力直接去读取cookie里面的内容，cookie存储的是seesionID,这也是一把钥匙，而不是存储用户名密码</p>
+<p>2013年315晚会对cookie的一些不安全性做了论述，揭露当时有些公司利用cookie获取用户隐私信息，当时主持人有这样一句话，cookie的翻译就是小甜饼，一不小心你就成为了别人眼中的小甜饼，然而这些原因是归结到我们当时前端程序员对cookie安全性的考虑不够，被不法分子利用，变卖隐私信息。</p>
+<p>cookie在前端的操作（本地存储技术）<br>1、存cookie</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//document.cookie = &quot;key=value&quot;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;savebtn&quot;</span>&gt;</span>存储<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        savebtn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;username=kerwin&quot;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>cookie存放在application中的storage的Cookie里面<br>这里注意存放cookie后需要刷新才能看到<br>cookie只能一条一条的存储数据,不能多个key和value一起设置<br>如果设置的key名相同就会导致覆盖<br><img src="/assets/068-cookie/Pasted%20image%2020231103104749.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;key=value;path=myPath;···&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里面存储的数据有：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">key    </span><br><span class="line"></span><br><span class="line">value </span><br><span class="line"></span><br><span class="line">Domain(域名，每个网站只能访问自己域名下面的cookie)   </span><br><span class="line"></span><br><span class="line">Path(路径，当前域名下的当前路径才能访问该cookie,如果我们在设置cookie的时候上传的路径在我们的服务器里面压根不存在，那么我们打开的服务器根本看不到该条cookie，并且内层的可以访问外层的，但是外层的访问不到内层的)</span><br><span class="line"></span><br><span class="line">Expires/Max-Age(存放时间:</span><br><span class="line">[session（浏览器打开到关闭）浏览器关掉cookie就丢失了，有多个tab页都必须要关闭才能清除cookie，为什么会有的cookie关闭不丢失，是因为我们在浏览器打开时候从我们的服务器里面重新设置了cookie],</span><br><span class="line">[expires，expires=设置的过期时间，注意这里设置的是UTC时间，在我们中国就得加8个小时，或者我们直接在设置的时间对象上使用date.toUTCString])</span><br><span class="line"></span><br><span class="line">Size:传入的key+value大小</span><br><span class="line"></span><br><span class="line">HttpOnly:防止有人利用cookie获取到我们存放到session里面的钥匙被利用，有可能我们的cookie会在被攻击后被其它的恶意后端窃取，所以我们设置了HttpOnly只有在前后端交互的时候被我们同域名的后端获取</span><br></pre></td></tr></table></figure>
+
+<p>直接通过document.cookie可以直接获取到多条数据，但是返回的是一个拼接在一起的字符串，需要我们自己截取出来分成多个</p>
+<p>cookie删除的方法就是把过期时间设置的比当前时间少，就可以实现删除，没有直接删除的方法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;savebtn&quot;</span>&gt;</span>存<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;getbtn&quot;</span>&gt;</span>获取<span class="tag">&lt;/<span class="name">button</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;delbtn&quot;</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// http协议无状态</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// localStorage :用户名密码？  token 钥匙 ==&gt; Nodejs token认证。。</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// cookie 本地存储  sessionID 钥匙 ===&gt; Nodejs cookie+session</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">//cookie 本地存储</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// 存cookie</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       savebtn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">           <span class="comment">//路径设置</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//    document.cookie = &quot;username=xiaoming;path=/155-cookie/aaa&quot;</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;age=18&quot;</span></span></span><br><span class="line"><span class="language-javascript">       </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//过期时间设置</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span></span><br><span class="line"><span class="language-javascript">            date.<span class="title function_">setMinutes</span>(date.<span class="title function_">getMinutes</span>()+<span class="number">10</span>)</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">`username=kerwin;expires=<span class="subst">$&#123;date.toUTCString()&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        getbtn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getCookie</span>(<span class="string">&quot;age&quot;</span>))</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">getCookie</span>(<span class="params">key</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> str = <span class="variable language_">document</span>.<span class="property">cookie</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&quot;; &quot;</span>)</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// console.log(arr)</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> obj = &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.<span class="property">length</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> subArr = arr[i].<span class="title function_">split</span>(<span class="string">&quot;=&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// console.log(subArr)</span></span></span><br><span class="line"><span class="language-javascript">                obj[subArr[<span class="number">0</span>]] = subArr[<span class="number">1</span>]</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// console.log(obj)</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> obj[key]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        delbtn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span></span><br><span class="line"><span class="language-javascript">            date.<span class="title function_">setMinutes</span>(date.<span class="title function_">getMinutes</span>()-<span class="number">1</span>)</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">`username=111;expires=<span class="subst">$&#123;date.toUTCString()&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">`age=111;expires=<span class="subst">$&#123;date.toUTCString()&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/068-cookie/Pasted%20image%2020231103115306.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/068-cookie/" data-id="clvs5xbw500rvxco963t635yt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/071-jsonp%E6%A1%88%E4%BE%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/069-jsonp-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

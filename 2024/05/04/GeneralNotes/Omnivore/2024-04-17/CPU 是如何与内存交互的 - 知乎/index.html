@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CPU 是如何与内存交互的 - 知乎#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;cpu-18eebd8fa07OriginURL: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;568990751 作者：bearluo，腾讯 IEG 运营开发工程师 这篇文章主要整理了一下计算机中的内存结构，以及 CPU 是如何读写内存中的数据的，如何维护">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-17/CPU%20%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%8E%E5%86%85%E5%AD%98%E4%BA%A4%E4%BA%92%E7%9A%84%20-%20%E7%9F%A5%E4%B9%8E/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CPU 是如何与内存交互的 - 知乎#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;cpu-18eebd8fa07OriginURL: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;568990751 作者：bearluo，腾讯 IEG 运营开发工程师 这篇文章主要整理了一下计算机中的内存结构，以及 CPU 是如何读写内存中的数据的，如何维护">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x601,s47b1nNGsuB_KCntQ-k8GAQ80HMhDfFQaICoT36QMCFU/https://pic2.zhimg.com/v2-ed5a82d4ef188228cec6739a1356e335_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x524,skR9vAco4R7hb2WijfZN4QO4W4HJOZWCIbsMSIV42ZkE/https://pic1.zhimg.com/v2-0ef956a1dfeac2a99f2bbe61d7e76f38_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x425,sPIlez0sExaCeij0OVPEC36o60CTb2Nj0KQavJgs_0c8/https://pic3.zhimg.com/v2-e6edd1fae9a73d8c0842b25caefe2b76_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x532,svKMnNzDzI0CUD3g0eaJ3lGSQAPgZi52r-7JTFoXCt0E/https://pic2.zhimg.com/v2-cedfcb0bb9c5f6fa2fed6df1d3e4c2ad_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x603,sEkM0Y0_YUKSovVhueBirz5nXPimHxb4HbGEHZe1x-bA/https://pic2.zhimg.com/v2-24769cd57fd8b722d77a6af0371596b9_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x617,sp7OR4tNmQPLWjf-a5vQHEP9SphSFegK_N_15aOfnku0/https://pic3.zhimg.com/v2-4464a1d6575347e21418131fe26812c2_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x411,sV6gx7rWnQgQrG1QWuDR7I7xFVh6fEhlFHOp0yjmwepw/https://pic3.zhimg.com/v2-68c326b9affb812a5413244be9cd8b5a_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x560,sc9snVJjzyxB6TEvEN0fVKW6PSN0_dlxLuWMwQlXXtCU/https://pic2.zhimg.com/v2-767225273fb7f20681fefa0604288f01_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x579,sHokRi6QsIiFaRWWtln3E1t1z2ysk-wd3BcOG3tNDT34/https://pic2.zhimg.com/v2-dfd9e60ae39291eebede2f7797c6b6b9_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x457,sG3BKnnd8UuUQNgiSHiHkQALlEDnFtU5DbLd5tewDUR0/https://pic4.zhimg.com/v2-9bb79845006de99782346d5cadcd3467_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x440,sFVvjuQDf779hRWhYZWEsDMZNt9P3hGpfeSKXs1pYE_k/https://pic3.zhimg.com/v2-96da5d6a5b50ef3618beec71d776fb3a_b.jpg">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/1080x542,sBNigrmFCT2qwMa5-5mayFkzSTmca1CQC7jZ6ZaR8dyk/https://pic4.zhimg.com/v2-f171b7cd2889dd1cd949ea3417cc8b73_b.jpg">
+<meta property="article:published_time" content="2024-05-04T13:48:36.040Z">
+<meta property="article:modified_time" content="2024-04-17T11:45:59.604Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/1080x601,s47b1nNGsuB_KCntQ-k8GAQ80HMhDfFQaICoT36QMCFU/https://pic2.zhimg.com/v2-ed5a82d4ef188228cec6739a1356e335_b.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-17/CPU 是如何与内存交互的 - 知乎" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-17/CPU%20%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%8E%E5%86%85%E5%AD%98%E4%BA%A4%E4%BA%92%E7%9A%84%20-%20%E7%9F%A5%E4%B9%8E/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.040Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="CPU-是如何与内存交互的-知乎"><a href="#CPU-是如何与内存交互的-知乎" class="headerlink" title="CPU 是如何与内存交互的 - 知乎"></a>CPU 是如何与内存交互的 - 知乎</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/cpu-18eebd8fa07">https://omnivore.app/me/cpu-18eebd8fa07</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/568990751">https://zhuanlan.zhihu.com/p/568990751</a></p>
+<p>作者：bearluo，腾讯 IEG 运营开发工程师</p>
+<p>这篇文章主要整理了一下计算机中的内存结构，以及 CPU 是如何读写内存中的数据的，如何维护 CPU 缓存中的数据一致性。什么是虚拟内存，以及它存在的必要性。如有不对请多多指教。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>目前在计算机中，主要有两大存储器 SRAM 和 DRAM。主存储器是由 DRAM 实现的，也就是我们常说的内存，在 CPU 里通常会有 L1、L2、L3 这样三层高速缓存是用 SRAM 实现的。</p>
+<p>SRAM 被称为“静态”存储器，是因为只要处在通电状态，里面的数据就可以保持存在。而一旦断电，里面的数据就会丢失了。</p>
+<p>目前 SRAM 主要集成在 CPU 里面，每个 CPU 核心都有一块属于自己的 L1 高速缓存，通常分成指令缓存和数据缓存，分开存放 CPU 使用的指令和数据。L2 的 Cache 同样是每个 CPU 核心都有的，不过它往往不在 CPU 核心的内部。所以，L2 cache 的访问速度会比 L1 稍微慢一些。而 L3 cache ，则通常是多个 CPU 核心共用的。</p>
+<p>在 DRAM 中存储单元使用电容保存电荷的方式来存储数据，电容会不断漏电，所以需要定时刷新充电，才能保持数据不丢失，这也是被称为“动态”存储器的原因。由于存储 DRAM 一个 bit 只需要一个晶体管，所以存储的数据也大很多。</p>
+<p>我们来看一些他们的速度：</p>
+<ul>
+<li>• L1 的存取速度：<strong>4 个 CPU 时钟周期</strong></li>
+<li>• L2 的存取速度： <strong>11 个 CPU 时钟周期</strong></li>
+<li>• L3 的存取速度：<strong>39 个 CPU 时钟周期</strong></li>
+<li>• DRAM 内存的存取速度<strong>：107 个 CPU 时钟周期</strong></li>
+</ul>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x601,s47b1nNGsuB_KCntQ-k8GAQ80HMhDfFQaICoT36QMCFU/https://pic2.zhimg.com/v2-ed5a82d4ef188228cec6739a1356e335_b.jpg"></p>
+<h3 id="CPU-cache"><a href="#CPU-cache" class="headerlink" title="CPU cache"></a><strong>CPU cache</strong></h3><h3 id="cache-结构"><a href="#cache-结构" class="headerlink" title="cache 结构"></a><strong>cache 结构</strong></h3><p>上面我们说了，对于 CPU 来说，SRAM 被称为 CPU 的 cache，CPU 每次获取数据都会先访问 cache，如果获取不到数据则把数据加载到 cache 中进行访问。因为 cache 的大小是远远小于主存的，所以还需要在 cache 和主存之间维护一个映射关系，这样才能正确找到数据。</p>
+<p>一种简单的方式是<strong>直接映射</strong>，有点像我们把数据找出来，直接放入到 map 中进行存储一样，映射通过地址和 cache 的数量进行取模后获取到 cache 中主存的地址去获取数据。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x524,skR9vAco4R7hb2WijfZN4QO4W4HJOZWCIbsMSIV42ZkE/https://pic1.zhimg.com/v2-0ef956a1dfeac2a99f2bbe61d7e76f38_b.jpg"></p>
+<p>上图中画了一个地址去找 cache 的情况。对于 cache 来说可以划分为：</p>
+<p>索引：用来取模找到对应的 cache 行；</p>
+<p>有效位：cache 初始值一开始是空的，这个字段标记 cache 行是否有数据；</p>
+<p>标记：用来和地址进行比较是否是对应的数据；</p>
+<p>数据：表示存储的实际的数据，可以通过地址的偏移来获取到对应的数据；</p>
+<p>比如对于这个 cache 有 1024 个字，即 4KB。假设有一个 32 位的地址要去 cache 中查找数据，那么会取地址 10 位进行取模找到对应的 cache 行，然后取出 20 位与 cahce 标记位进行比较，如果相等，并且有效位开启，那么对应请求地址在 cache 中命中。否则，发生缺失。</p>
+<p>由于 CPU 在读取数据的时候，并不是要读取一整个 Block，而是读取一个他需要的数据片段， cache 中命中之后会根据低两位的偏移去数据里面索引到对应的字。</p>
+<p>除了上面说的<strong>直接映射</strong>以外还有<strong>组相联</strong>和<strong>全相联</strong>。</p>
+<p><strong>组相联</strong>就是使用组索引代替了原来的索引，下图中表示每组有 2 行数据，通过组索引找到对应的数据行之后通过有效位和标记对组中每一行进行检索，如果能匹配上就说明命中。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x425,sPIlez0sExaCeij0OVPEC36o60CTb2Nj0KQavJgs_0c8/https://pic3.zhimg.com/v2-e6edd1fae9a73d8c0842b25caefe2b76_b.jpg"></p>
+<h3 id="cache-读写操作"><a href="#cache-读写操作" class="headerlink" title="cache 读写操作"></a><strong>cache 读写操作</strong></h3><p>先来看看读操作，cache 在初始状态的时候是空的，这个时候去读数据会产生 <strong>cache 缺失（cache miss）</strong>。cache 控制器会检测到缺失的发生，然后从主存中（或低一级 cache）中取回所需数据。如果命中，那么就会直接使用。</p>
+<p>当 cache 缺失时，对于乱序执行处理器而言依然能执行一些其他指令，但是对于顺序执行处理器，当 cache 缺失时会被阻塞，临时寄存器和程序员可见的寄存器中的内容基本被冻结。</p>
+<p>再来看看写操作，因为 cache 是由多级组成，所以写策略一般而言有两种：<strong>写直达（write-through）</strong>和<strong>写回（write-back）</strong>。通过这两种策略使在 cache 中写入的数据和主存中的数据保持一致。</p>
+<p><strong>写直达</strong>就是在将数据写入 cache 之后同时将这个数据立马写入到主存中，但是由于主存和 cache 本身性能差异，那么每次在写入主存的时候都将花费大量的时间。解决办法就是加一层写缓冲（write buffer），这样 CPU 在将数据写入 cache 和缓冲之后可以继续执行，等到缓冲写入到主存中再释放。</p>
+<p>但是如果写入速度大于缓冲释放速度，那么还是会阻塞 CPU 执行。那么可以考虑一下<strong>写回</strong>策略，这种机制会在每次写入的时候仅将新值写入 cache 中，只有当修改过的块被替换时才需要写到较低层存储结构中。</p>
+<h3 id="一致性与-MESI-协议"><a href="#一致性与-MESI-协议" class="headerlink" title="一致性与 MESI 协议"></a><strong>一致性与 MESI 协议</strong></h3><p>由于现在都是多核 CPU，并且 cache 分了多级，并且数据存在共享的情况，所以需要一种机制保证在不同的核中看到的 cache 数据必须时一致的。最常用来处理多核 CPU 之间的缓存一致性协议就是 <strong>MESI 协议</strong>。</p>
+<p><strong>MESI 协议</strong>，是一种叫作写失效（Write Invalidate）的协议。在写失效协议里，只有一个 CPU 核心负责写入数据，其他的核心，只是同步读取到这个写入。在这个 CPU 核心写入 cache 之后，它会去广播一个“失效”请求告诉所有其他的 CPU 核心。</p>
+<p>MESI 协议对应的四个不同的标记，分别是：</p>
+<ul>
+<li>• M：代表已修改（Modified）</li>
+<li>• E：代表独占（Exclusive）</li>
+<li>• S：代表共享（Shared）</li>
+<li>• I：代表已失效（Invalidated）</li>
+</ul>
+<p>“已修改”和“已失效”比较容易理解，我们来看看 独占”和“共享” 两个状态。</p>
+<p>在独占状态下，对应的 cache Line 只加载到了当前 CPU 核所拥有的 cache 里。其他的 CPU 核，并没有加载对应的数据到自己的 cache 里。这个时候，如果要向独占的 cache Block 写入数据，我们可以自由地写入数据，而不需要告知其他 CPU 核。</p>
+<p>那么对应的，共享状态就是在多核中同时加载了同一份数据。所以在共享状态下想要修改数据要先向所有的其他 CPU 核心广播一个请求，要求先把其他 CPU 核心里面的 cache ，都变成无效的状态，然后再更新当前 cache 里面的数据。</p>
+<h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a><strong>虚拟内存</strong></h3><h3 id="虚拟内存映射"><a href="#虚拟内存映射" class="headerlink" title="虚拟内存映射"></a><strong>虚拟内存映射</strong></h3><p>在我们日常使用的 Linux 或者 Windows 操作系统下，程序并不能直接访问物理内存。程序都是通过虚拟地址 VA（virtual address）用地址转换翻译成 PA 物理地址（physical address）才能获取到数据。也就是说 CPU 操作的实际上是一个虚拟地址 VA。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x532,svKMnNzDzI0CUD3g0eaJ3lGSQAPgZi52r-7JTFoXCt0E/https://pic2.zhimg.com/v2-cedfcb0bb9c5f6fa2fed6df1d3e4c2ad_b.jpg"></p>
+<p>如上图，CPU 访问主存的时候会将一个虚拟地址（virtual address）被内存管理单元（Memory Management Unint, MMU）进行翻译成物理地址 PA（physical address） 才能访问。</p>
+<p>想要把虚拟内存地址，映射到物理内存地址，最直观的办法，就是来建一张映射表。这个映射表在计算机中叫页表（Page Table）。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x603,sEkM0Y0_YUKSovVhueBirz5nXPimHxb4HbGEHZe1x-bA/https://pic2.zhimg.com/v2-24769cd57fd8b722d77a6af0371596b9_b.jpg"></p>
+<p>在查找页表的时候，会将虚拟地址分成页号（Directory）和偏移量（Offset）两个部分。前面的高位，表示内存地址的页号。后面的低位，表示内存地址里面的偏移量。</p>
+<p>查找方式和上面说的组相联类似，首先使用虚拟页号作为索引去页表中找到对应的物理页号，页表中还会有 1 位表示有效位，如果该位无效就不在主存中，发生一次缺页；如果有效，那么就可以拿到对应的物理页号获取到对应的物理页位置，再根据偏移量得到物理内存地址。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x617,sp7OR4tNmQPLWjf-a5vQHEP9SphSFegK_N_15aOfnku0/https://pic3.zhimg.com/v2-4464a1d6575347e21418131fe26812c2_b.jpg"></p>
+<p>如果有效位关闭，那么该页就只存在磁盘上的某个指定的磁盘地址。缺页会触发缺页异常，然后在闪存或磁盘中找到该页，将其放入到主存 DRAM 中。</p>
+<p>如果主存满了，那么会选择一个牺牲页，大多数操作系统会使用 LRU 替换策略来进行页的替换。操作系统会查找最少使用的页，被替换的页会写入磁盘的交换区（swap 分区）。swap 分区通常被称为交换分区，这是一块特殊的硬盘空间，即当实际内存不够用的时候，操作系统会从内存中取出一部分暂时不用的数据，放在交换分区中，从而为当前运行的程序腾出足够的内存空间。</p>
+<p>在下图中假设选择将存放在主存中的 VP6 进行替换，将 VP6 替换为 VP3。如果被替代的 VP6 已经被修改了，那么内核会将它复制回磁盘。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x411,sV6gx7rWnQgQrG1QWuDR7I7xFVh6fEhlFHOp0yjmwepw/https://pic3.zhimg.com/v2-68c326b9affb812a5413244be9cd8b5a_b.jpg"></p>
+<p>由于局部性（locality）的存在，程序一般而言会在一个较小的活动页面集合上工作，页的切换开销只存在于程序启动时将页面调度到内存中，接下来的程序都会页命中。但是如果代码的工作集太大，超过了物理内存大小，那么页面就会不停地换进换出，产生抖动。</p>
+<h3 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a><strong>多级页表</strong></h3><p>假设我们现在是一个 32 位的地址空间、4KB 的页面和一个 4 字节的 PTE，那么需要一个 4MB 的页表常驻在内存中，并且这个页表是每个进程都独占一份，所以会造成很大的内存浪费，我们需要一种方式来优化我们的页表空间存储。</p>
+<p>想一下虚拟内存空间结构，整个 4 GB 的空间，操作系统用了 1 GB，从地址 <code>0XC0000000</code> 到 <code>0XFFFFFFFF</code>, 剩余 3 GB 留给用户空间，其实很多程序根本用不到这么大的空间，对于 64 位系统，每个进程都会拥有 256 TiB 的内存空间，那就更加用不上了。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x560,sc9snVJjzyxB6TEvEN0fVKW6PSN0_dlxLuWMwQlXXtCU/https://pic2.zhimg.com/v2-767225273fb7f20681fefa0604288f01_b.jpg"></p>
+<p>那么对于用不上的空间，我们可以不可以不把它加载到页表里面，等到用这块空间的时候才在页表里面给它分配一个页表项，是不是就可以节省大量空间。</p>
+<p>在程序运行的时候，内存地址从顶部往下，不断分配占用的栈的空间。而堆的空间，内存地址则是从底部往上，是不断分配占用的。所以，在一个实际的程序进程里面，虚拟内存占用的地址空间，通常是两段连续的空间。而多级页表，就特别适合这样的内存地址分布。</p>
+<p>假设 32 位虚拟地址空间被划分位 4KB 每页，每个条目都是 4 字节，那么我们可以让第一级页表中的每个 PTE （页表项 page table entry）负责映射虚拟地址空间中一个 4MB 的片，这个片由 1024 个连续页面组成，表示二级页表。如果地址空间是 4GB，那么 1024 个一级页表项就可以覆盖整个空间。</p>
+<p>如下图所示，内存前 2K 个页面给代码和数据，接下来 6K 个页面未分配，在接下来 1023 个页面也未分配，接下来一个页面分配给用户栈。</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x579,sHokRi6QsIiFaRWWtln3E1t1z2ysk-wd3BcOG3tNDT34/https://pic2.zhimg.com/v2-dfd9e60ae39291eebede2f7797c6b6b9_b.jpg"></p>
+<p>这种方法从两个方面减少了内存占用。第一，如果一级页表中的一个 PTE 是空的，那么相应的二级页表就根本不会存在。由于很多程序占用内存实际远小于页表所能表示的大小，所以可以节约很大空间的页表项资源；第二，只有一级页表才需要总是在主存中，二级页表会在需要的时候创建或销毁，只有最经常使用的二级页表才需要缓存在主存中，这就减少了主存的压力。</p>
+<p>Linux 在 2.6.10 中引入了四层的页表辅助虚拟地址的转换：</p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x457,sG3BKnnd8UuUQNgiSHiHkQALlEDnFtU5DbLd5tewDUR0/https://pic4.zhimg.com/v2-9bb79845006de99782346d5cadcd3467_b.jpg"></p>
+<p>首先会找到 4 级页表里面对应的条目（Entry）。这个条目里存放的是一张 3 级页表所在的位置。4 级页面里面的每一个条目，都对应着一张 3 级页表，所以我们可能有多张 3 级页表。</p>
+<p>找到对应这张 3 级页表之后，我们用 3 级索引去找到对应的 3 级索引的条目。3 级索引的条目再会指向一个 2 级页表。依次拿到 1 级页表里面存储的物理页号，我们同样可以用“页号 + 偏移量”的方式，来获取最终的物理内存地址。</p>
+<h3 id="TLB-加速地址转换"><a href="#TLB-加速地址转换" class="headerlink" title="TLB 加速地址转换"></a><strong>TLB 加速地址转换</strong></h3><p>对于一个页命中的数据获取过程通常来说，如果没有 TLB 加速是这样的：</p>
+<ol>
+<li>CPU 生成一个虚拟地址，并把它传给 MMU；</li>
+<li>MMU 生成页表项地址 PTEA，并从高速缓存&#x2F;主存请求获取页表项 PTE；</li>
+<li>高速缓存&#x2F;主存向 MMU 返回 PTE；</li>
+<li>MMU 构造物理地址 PA，并把它传给高速缓存&#x2F;主存；</li>
+<li>高速缓存&#x2F;主存返回所请求的数据给 CPU。</li>
+</ol>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x440,sFVvjuQDf779hRWhYZWEsDMZNt9P3hGpfeSKXs1pYE_k/https://pic3.zhimg.com/v2-96da5d6a5b50ef3618beec71d776fb3a_b.jpg"></p>
+<p>一次简单的数据获取需要多次经过多次与内存的交互，如果是 4 级页表，那么就需要访问 4 次内存才能获取到对应的物理页号。如果是缺页，还需要有一个 PTE 的置换或加载过程。在开头也讲了，访问内存的性能其实很低的，实际上这严重影响了 CPU 处理性能。</p>
+<p>程序所需要使用的指令，都顺序存放在虚拟内存里面。我们执行的指令，也是一条条顺序执行下去的。也就是说，我们对于指令地址的访问，存在前面几讲所说的“空间局部性”和“时间局部性”，而需要访问的数据也是一样的。我们连续执行了 5 条指令。因为内存地址都是连续的，所以我们可以通过加缓存的方法，把之前内存转换的地址缓存下来，减少与内存的交互。</p>
+<p>加的这一层就是<strong>缓存芯片 TLB</strong> （Translation Lookaside Buffer），它里面每一行保存着一个由单个 PTE 组成的块。</p>
+<p>那么查询数据的过程就变成了：</p>
+<ol>
+<li>CPU 产生一个虚拟地址；</li>
+<li>MMU 从 TLB 中取出相应的 PTE；</li>
+<li>MMU 将这个虚拟地址翻译成一个物理地址，并且将它发送到高速缓存&#x2F;主存；</li>
+<li>高速缓存&#x2F;主存将所请求的数据字返回给 CPU；</li>
+</ol>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/1080x542,sBNigrmFCT2qwMa5-5mayFkzSTmca1CQC7jZ6ZaR8dyk/https://pic4.zhimg.com/v2-f171b7cd2889dd1cd949ea3417cc8b73_b.jpg"></p>
+<h3 id="最后来看看为什么需要虚拟内存？"><a href="#最后来看看为什么需要虚拟内存？" class="headerlink" title="最后来看看为什么需要虚拟内存？"></a><strong>最后来看看为什么需要虚拟内存？</strong></h3><p>讲完了什么是虚拟内存，我们最后讲讲虚拟内存的必要性。</p>
+<p>由于操作虚拟内存实际上就是操作页表，从上面讲解我们知道，页表的大小其实和物理内存没有关系，当物理内存不够用时可以通过页缺失来将需要的数据<strong>置换</strong>到内存中，内存中只需要存放众多程序中活跃的那部分，不需要将整个程序加载到内存里面，这可以让小内存的机器也可以运行程序。</p>
+<p>虚拟内存可以为正在运行的进程提供独立的内存空间，制造一种每个进程的内存都是独立的假象。虚拟内存空间只是操作系统中的逻辑结构，通过多层的页表结构来转换虚拟地址，可以让多个进程可以通过虚拟内存<strong>共享物理内存</strong>。</p>
+<p>并且独立的虚拟内存空间也会<strong>简化内存</strong>的分配过程，当用户程序向操作系统申请堆内存时，操作系统可以分配几个连续的虚拟页，但是这些虚拟页可以对应到物理内存中不连续的页中。</p>
+<p>再来就是提供了<strong>内存保护机制</strong>。任何现代计算机系统必须为操作系统提供手段来控制对内存系统的访问。虚拟内存中页表中页存放了读权限、写权限和执行权限。内存管理单元可以决定当前进程是否有权限访问目标的物理内存，这样我们就最终将权限管理的功能全部收敛到虚拟内存系统中，减少了可能出现风险的代码路径。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>从上面我们可以知道 CPU 的缓存结构一般由 L1、L2、L3 三层缓存结构组成，CPU 读取数据只与缓存交互，不会直接访问主存，所以 CPU 缓存和主存之间维护了一套映射关系。当被查找的数据发生缺失时，需要等待数据从主存加载到缓存中，如果缓存满了，那么还需要进行淘汰。如果被淘汰的数据是脏数据，那么还需要写回到主存中，写的策略有写直达（write-through）和写回（write-back）。</p>
+<p>由于现在计算机中的 CPU 都是多核的，并且缓存数据是由多核共享的，所以就有了类似 MESI 这样的协议来维护一个状态机保证数据在多核之间是一致的。</p>
+<p>为了访问数据安全，便捷，迅速所以加了一层虚拟内存，每个程序在启动的时候都会维护一个页表，这个页表维护了一套映射关系。CPU 操作的实际上是虚拟地址，每次需要 MMU 将虚拟地址在页表上映射成物理地址后查找数据。并且为了节省内存所以设计了多级页表，为了从页表中查找数据更快加了一个缓存芯片 TLB。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><strong>Reference</strong></h3><p>《深入理解计算机系统》</p>
+<p>《深入浅出计算机组成原理》</p>
+<p>《计算机组成与设计：硬件软件接口》</p>
+<p><a href="https://link.zhihu.com/?target=https://draveness.me/whys-the-design-os-virtual-memory/">https://draveness.me/whys-the-design-os-virtual-memory/</a></p>
+<p><a href="https://link.zhihu.com/?target=https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">https://people.freebsd.org/~lstewart&#x2F;articles&#x2F;cpumemory.pdf</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-17/CPU%20%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%8E%E5%86%85%E5%AD%98%E4%BA%A4%E4%BA%92%E7%9A%84%20-%20%E7%9F%A5%E4%B9%8E/" data-id="clvs5xbqy000uxco97j85gpr0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-17/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E7%9A%84%E5%85%A5%E9%97%A8%E7%A7%91%E6%99%AE%20-%20%E7%9F%A5%E4%B9%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-15/%E5%85%A5%E9%97%A8%20Python%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%95%99%E7%A8%8B%E6%8C%87%E5%8D%97%EF%BC%88%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF+%E8%B5%84%E6%96%99%E5%88%86%E4%BA%AB%EF%BC%89_%E7%89%9B%E5%AE%A2%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495&lt;!doctype html&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/030-%E6%A1%88%E4%BE%8B%E5%AF%86%E7%A0%81%E5%BC%BA%E5%BA%A6%E9%AA%8C%E8%AF%81/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495&lt;!doctype html&amp;g">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-04T13:48:40.574Z">
+<meta property="article:modified_time" content="2023-09-13T10:53:58.509Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/030-案例密码强度验证" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/030-%E6%A1%88%E4%BE%8B%E5%AF%86%E7%A0%81%E5%BC%BA%E5%BA%A6%E9%AA%8C%E8%AF%81/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.574Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;  </span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;  </span><br><span class="line">&lt;head&gt;  </span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;  </span><br><span class="line">&lt;meta name=&quot;viewport&quot;  </span><br><span class="line">content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;  </span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;  </span><br><span class="line">&lt;title&gt;Document&lt;/title&gt;  </span><br><span class="line">&lt;style&gt;  </span><br><span class="line">*&#123;  </span><br><span class="line">margin:0;  </span><br><span class="line">padding:0;  </span><br><span class="line">&#125;  </span><br><span class="line">.out&#123;  </span><br><span class="line">width:500px;  </span><br><span class="line">height:200px;  </span><br><span class="line">border:2px solid black;  </span><br><span class="line">margin:0 auto;  </span><br><span class="line">&#125;  </span><br><span class="line">ul&#123;  </span><br><span class="line">list-style:none;  </span><br><span class="line">&#125;  </span><br><span class="line">.top&#123;  </span><br><span class="line">width:500px;  </span><br><span class="line">height:100px;  </span><br><span class="line">/*background:orange;*/  </span><br><span class="line">&#125;  </span><br><span class="line">input&#123;  </span><br><span class="line">outline:none;  </span><br><span class="line">width:400px;  </span><br><span class="line">height:80px;  </span><br><span class="line">border:2px solid black;  </span><br><span class="line">margin-left:50px;  </span><br><span class="line">margin-top:10px;  </span><br><span class="line">&#125;  </span><br><span class="line">ul li&#123;  </span><br><span class="line">width:155px;  </span><br><span class="line">height:90px;  </span><br><span class="line">border:1px solid black;  </span><br><span class="line">margin:5px;  </span><br><span class="line">float:left;  </span><br><span class="line">color:white;  </span><br><span class="line">text-align: center;  </span><br><span class="line">line-height: 90px;  </span><br><span class="line">background:gray;  </span><br><span class="line">&#125;  </span><br><span class="line">.out &gt; ul &gt; li:nth-child(1).active &#123;  </span><br><span class="line">background:red;  </span><br><span class="line">&#125;  </span><br><span class="line">.out &gt; ul &gt; li:nth-child(2).active &#123;  </span><br><span class="line">background:yellow;  </span><br><span class="line">&#125;  </span><br><span class="line">.out &gt; ul &gt; li:nth-child(3).active &#123;  </span><br><span class="line">background:skyblue;  </span><br><span class="line">&#125;  </span><br><span class="line">&lt;/style&gt;  </span><br><span class="line">&lt;/head&gt;  </span><br><span class="line">&lt;body&gt;  </span><br><span class="line">&lt;div class=&quot;out&quot;&gt;  </span><br><span class="line">&lt;div class=&quot;top&quot;&gt;  </span><br><span class="line">&lt;input type=&quot;password&quot; id=&quot;in&quot;&gt;  </span><br><span class="line">&lt;/div&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">&lt;li id=&quot;red&quot; class=&quot;ac&quot;&gt;弱&lt;/li&gt;  </span><br><span class="line">&lt;li id=&quot;yellow&quot; class=&quot;ac&quot;&gt;中&lt;/li&gt;  </span><br><span class="line">&lt;li id=&quot;skyblue&quot; class=&quot;ac&quot;&gt;强&lt;/li&gt;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/div&gt;  </span><br><span class="line">&lt;script&gt;  </span><br><span class="line">var cin = document.getElementById(&quot;in&quot;)  </span><br><span class="line">var lli = document.getElementsByClassName(&quot;ac&quot;)  </span><br><span class="line">var reg = /\d+/  </span><br><span class="line">var reg1 = /[a-z]+/i  </span><br><span class="line">var reg2 = /[!@#$%^&amp;*()]+/  </span><br><span class="line">var level  </span><br><span class="line">cin.oninput = function()&#123;  </span><br><span class="line">// console.log(&quot;hello&quot;)  </span><br><span class="line">// if(cin.value.length &lt; 6 || cin.value.length &gt; 18)&#123;  </span><br><span class="line">// console.error(&quot;请输入6~18位密码，尽量带有大写字母，小写字母和数字&quot;)  </span><br><span class="line">// return  </span><br><span class="line">// &#125;  </span><br><span class="line">level = 0  </span><br><span class="line">if(reg.test(cin.value)) level++  </span><br><span class="line">if(reg1.test(cin.value)) level++  </span><br><span class="line">if(reg2.test(cin.value)) level++  </span><br><span class="line">for(var n = 0;n &lt; lli.length;n++)&#123;  </span><br><span class="line">lli[n].classList.remove(&quot;active&quot;)  </span><br><span class="line">if(n &lt; level)&#123;  </span><br><span class="line">lli[n].classList.add(&quot;active&quot;)  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">&lt;/body&gt;  </span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/030-%E6%A1%88%E4%BE%8B%E5%AF%86%E7%A0%81%E5%BC%BA%E5%BA%A6%E9%AA%8C%E8%AF%81/" data-id="clvs5xbw100qzxco91ehcan9y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/031-this%E6%8C%87%E5%90%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/029-%E6%AD%A3%E5%88%99%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

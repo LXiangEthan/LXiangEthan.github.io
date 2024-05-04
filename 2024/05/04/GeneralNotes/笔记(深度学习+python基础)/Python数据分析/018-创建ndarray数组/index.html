@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ndarray是NumPy中表示数组的重要数据类型 使用np.array()创建这个方法和我们的list()，tuple()等方法是一样的，我们直接把数组，在Python中应该叫列表直接放进去就可以直接转换成ndarray数组了这个地方有一个点，那就是array()方法只能得到一维数组，否则报错如果出现了不同数据类型，那么按照优先级最高的来统一  利用np.array()得到ndarray数组im">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ndarray是NumPy中表示数组的重要数据类型 使用np.array()创建这个方法和我们的list()，tuple()等方法是一样的，我们直接把数组，在Python中应该叫列表直接放进去就可以直接转换成ndarray数组了这个地方有一个点，那就是array()方法只能得到一维数组，否则报错如果出现了不同数据类型，那么按照优先级最高的来统一  利用np.array()得到ndarray数组im">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240425213814502.png">
+<meta property="og:image" content="http://example.com/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240426141536857.png">
+<meta property="og:image" content="http://example.com/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240426141640209.png">
+<meta property="article:published_time" content="2024-05-04T13:48:42.123Z">
+<meta property="article:modified_time" content="2024-04-27T01:45:54.552Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240425213814502.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(深度学习+python基础)/Python数据分析/018-创建ndarray数组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:42.123Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ndarray是NumPy中表示数组的重要数据类型</p>
+<p>使用<code>np.array()</code>创建<br>这个方法和我们的list()，tuple()等方法是一样的，我们直接把数组，在Python中应该叫列表直接放进去就可以直接转换成ndarray数组了<br><strong>这个地方有一个点，那就是array()方法只能得到一维数组，否则报错</strong><br><img src="/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240425213814502.png"><br>如果出现了不同数据类型，那么按照优先级最高的来统一</p>
+<hr>
+<h1 id="利用np-array-得到ndarray数组"><a href="#利用np-array-得到ndarray数组" class="headerlink" title="利用np.array()得到ndarray数组"></a>利用np.array()得到ndarray数组</h1><pre><code class="python">import numpy as np  
+  
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]  
+matrix = np.array(l)  
+# 得到ndarray数据类型  
+matrix.shape  
+# 这个可以获取到元组，如果只有一个数字，那么这个ndarray数组就是一维的，单纯的列表是没有这个属性的  
+</code></pre>
+<pre><code>(9,)  
+</code></pre>
+<pre><code class="python">m = np.array([1, 2, 3, 4, 5, 6, &#39;Hello&#39;])  
+m  
+</code></pre>
+<pre><code>array([&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;Hello&#39;], dtype=&#39;&lt;U11&#39;)  
+</code></pre>
+<h1 id="利用np的routine-来创建"><a href="#利用np的routine-来创建" class="headerlink" title="利用np的routine()来创建"></a>利用np的routine()来创建</h1><h3 id="利用np-ones-shape-dtype-None-order-’C’-like-None-创建"><a href="#利用np-ones-shape-dtype-None-order-’C’-like-None-创建" class="headerlink" title="利用np.ones(shape, dtype&#x3D;None, order&#x3D;’C’, *, like&#x3D;None):创建"></a>利用np.ones(shape, dtype&#x3D;None, order&#x3D;’C’, *, like&#x3D;None):创建</h3><p>shape形状,是一个元组 dtype元素类型  order[‘C’,’F’],c表示以列为主，f表示以行为主  </p>
+<pre><code class="python">s = np.ones(shape=(9, 9, 1), dtype=np.int8, order=&#39;C&#39;)  
+# 默认往数组中添加的数据就是1  
+# print(s)  
+</code></pre>
+<h3 id="借助np-zeros-shape-dtype-None-order-’C’-args-kwargs-创建"><a href="#借助np-zeros-shape-dtype-None-order-’C’-args-kwargs-创建" class="headerlink" title="借助np.zeros(shape, dtype&#x3D;None, order&#x3D;’C’, *args, **kwargs):创建"></a>借助np.zeros(shape, dtype&#x3D;None, order&#x3D;’C’, *args, **kwargs):创建</h3><pre><code class="python">ss = np.zeros(shape=(9, 9, 1), dtype=np.int8, order=&#39;C&#39;)  
+# 默认在数组中添加的数据就是0  
+# print(ss)  
+</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1eb51a64790&gt;  
+</code></pre>
+<p>  <img src="/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240426141536857.png">   </p>
+<h3 id="利用np-full-shape-fill-value-dtype-None-order-’C’-like-None-创建"><a href="#利用np-full-shape-fill-value-dtype-None-order-’C’-like-None-创建" class="headerlink" title="利用np.full(shape, fill_value, dtype&#x3D;None, order&#x3D;’C’, *, like&#x3D;None):创建"></a>利用np.full(shape, fill_value, dtype&#x3D;None, order&#x3D;’C’, *, like&#x3D;None):创建</h3><pre><code class="python">sss = np.full(shape=(9, 9), fill_value=9, order=&#39;C&#39;)  
+# fill_value标识创建数组利用的占位数字是9  
+# print(sss)  
+</code></pre>
+<h3 id="利用np-eye-N-M-None-k-0-dtype-float-order-’C’-like-None-创建"><a href="#利用np-eye-N-M-None-k-0-dtype-float-order-’C’-like-None-创建" class="headerlink" title="利用np.eye(N, M&#x3D;None, k&#x3D;0, dtype&#x3D;float, order&#x3D;’C’, *, like&#x3D;None):创建"></a>利用np.eye(N, M&#x3D;None, k&#x3D;0, dtype&#x3D;float, order&#x3D;’C’, *, like&#x3D;None):创建</h3><pre><code class="python">ssss = np.eye(10, 10, 0, dtype=np.int8)  
+# eye会创建一个二维数组，主对角线为1，其余地方都为0的数组,也就是创建一个单位矩阵，单位矩阵行列相等  
+# N表示行数，M表示列数，k表示向右偏移量  
+print(ssss)  
+# 这边k偏移量就是指的是对角线的偏移程度  
+</code></pre>
+<pre><code>[[0. 0. 1. 0. 0. 0. 0. 0. 0. 0.]     [0. 0. 0. 1. 0. 0. 0. 0. 0. 0.]     [0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]     [0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]     [0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]     [0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]     [0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]     [0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]     [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]     [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]      
+</code></pre>
+<h3 id="利用np-linspace-start-stop-num-50-endpoint-True-retstep-False-dtype-None-axis-0-创建"><a href="#利用np-linspace-start-stop-num-50-endpoint-True-retstep-False-dtype-None-axis-0-创建" class="headerlink" title="利用np.linspace(start, stop, num&#x3D;50, endpoint&#x3D;True, retstep&#x3D;False, dtype&#x3D;None,axis&#x3D;0):创建"></a>利用np.linspace(start, stop, num&#x3D;50, endpoint&#x3D;True, retstep&#x3D;False, dtype&#x3D;None,axis&#x3D;0):创建</h3><p>创建等差数列  </p>
+<ul>
+<li>start开始值  </li>
+<li>stop结束值  </li>
+<li>num等差数列个数  </li>
+<li>endpoint是否包含结束值  </li>
+<li>retstep是否返回等差值（是否返回步长）  </li>
+<li>dtype数据类型</li>
+</ul>
+<pre><code class="python">equal_list = np.linspace(1, 50, 20, True, True, np.int8)  
+print(equal_list)  
+# 会得到一个元组，这个元组中包含了等差数列的数列，数据类型，步长  
+&#39;&#39;&#39;  
+(array([ 1,  3,  6,  8, 11, 13, 16, 19, 21, 24, 26, 29, 31, 34, 37, 39, 42,  
+       44, 47, 50], dtype=int8), 2.5789473684210527)&#39;&#39;&#39;  
+</code></pre>
+<pre><code>(array([ 1,  3,  6,  8, 11, 13, 16, 19, 21, 24, 26, 29, 31, 34, 37, 39, 42,           44, 47, 50], dtype=int8), 2.5789473684210527)      
+</code></pre>
+<h3 id="利用np-arange-start-None-args-kwargs-创建"><a href="#利用np-arange-start-None-args-kwargs-创建" class="headerlink" title="利用np.arange(start&#x3D;None, *args, **kwargs):创建"></a>利用np.arange(start&#x3D;None, *args, **kwargs):创建</h3><pre><code class="python">array1 = np.arange(10)  
+# 这个arange和python中的range用法相同，都是得到一个列表，只不过它这里得到的数组是ndarray  
+array2 = np.arange(0, 20)  
+array3 = np.arange(20, 30, 2)  
+print(array1, array2, array3)  
+</code></pre>
+<pre><code>[0 1 2 3 4 5 6 7 8 9] [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19] [20 22 24 26 28]      
+</code></pre>
+<h3 id="利用np-random-randint-low-high-None-size-None-dtype-None-创建随机整数的多维数组"><a href="#利用np-random-randint-low-high-None-size-None-dtype-None-创建随机整数的多维数组" class="headerlink" title="利用np.random.randint(low, high&#x3D;None, size&#x3D;None, dtype&#x3D;None)创建随机整数的多维数组"></a>利用np.random.randint(low, high&#x3D;None, size&#x3D;None, dtype&#x3D;None)创建随机整数的多维数组</h3><pre><code class="python">n = np.random.randint(0, 256, size=(100, 200, 3))  
+# low是最低值，high是最高值,但不包括最高值，size是数组形状，默认只输出一个随机值,和前面的shape用法基本相同，不一样的是size可以创建出来更多维度的数组，dtype数据类型  
+import matplotlib.pylab as plt  
+  
+plt.imshow(n)  
+  
+lena = plt.imread(&quot;lena.png&quot;)  
+lena  
+</code></pre>
+<pre><code>array([[[0.8862745 , 0.5294118 , 0.4745098 , 1.        ],            [0.8901961 , 0.5294118 , 0.47843137, 1.        ],            [0.8901961 , 0.5294118 , 0.47843137, 1.        ],            ...,            [0.8392157 , 0.46666667, 0.46666667, 1.        ],            [0.8901961 , 0.5294118 , 0.52156866, 1.        ],            [0.8980392 , 0.5411765 , 0.5294118 , 1.        ]],               [[0.8862745 , 0.5294118 , 0.46666667, 1.        ],  
+        [0.8901961 , 0.5294118 , 0.46666667, 1.        ],            [0.8901961 , 0.5254902 , 0.47058824, 1.        ],            ...,            [0.7882353 , 0.42745098, 0.43529412, 1.        ],            [0.78431374, 0.43529412, 0.45490196, 1.        ],            [0.75686276, 0.41568628, 0.44705883, 1.        ]],               [[0.8862745 , 0.52156866, 0.4509804 , 1.        ],  
+        [0.8862745 , 0.52156866, 0.45490196, 1.        ],            [0.8862745 , 0.52156866, 0.45490196, 1.        ],            ...,            [0.6862745 , 0.3372549 , 0.36862746, 1.        ],            [0.6039216 , 0.27058825, 0.3254902 , 1.        ],            [0.5372549 , 0.21568628, 0.2901961 , 1.        ]],               ...,  
+           [[0.3647059 , 0.10980392, 0.2509804 , 1.        ],  
+        [0.38039216, 0.11372549, 0.25490198, 1.        ],            [0.38431373, 0.10980392, 0.2509804 , 1.        ],            ...,            [0.43529412, 0.11764706, 0.21960784, 1.        ],            [0.45882353, 0.12941177, 0.22745098, 1.        ],            [0.49803922, 0.16078432, 0.2509804 , 1.        ]],               [[0.36078432, 0.10980392, 0.2509804 , 1.        ],  
+        [0.3764706 , 0.11372549, 0.2509804 , 1.        ],            [0.38039216, 0.10980392, 0.24705882, 1.        ],            ...,            [0.47843137, 0.15294118, 0.24705882, 1.        ],            [0.52156866, 0.18039216, 0.26666668, 1.        ],            [0.5647059 , 0.21176471, 0.28627452, 1.        ]],               [[0.35686275, 0.10980392, 0.24313726, 1.        ],  
+        [0.36862746, 0.10980392, 0.24705882, 1.        ],            [0.3764706 , 0.10588235, 0.24313726, 1.        ],            ...,            [0.5176471 , 0.18431373, 0.27058825, 1.        ],            [0.5686275 , 0.21960784, 0.29411766, 1.        ],            [0.6039216 , 0.24313726, 0.30980393, 1.        ]]], dtype=float32)  
+</code></pre>
+<p><img src="/assets/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/image-20240426141640209.png"></p>
+<h3 id="利用np-random-randn-dn-实现标准正态分布"><a href="#利用np-random-randn-dn-实现标准正态分布" class="headerlink" title="利用np.random.randn(*dn):实现标准正态分布"></a>利用np.random.randn(*dn):实现标准正态分布</h3><pre><code class="python">n = np.random.randn(10)  
+n  
+# 得到10个数服从标准正态分布，再装入一个数组中  
+</code></pre>
+<pre><code>array([-1.51119603, -1.09552807,  0.40560246,  0.56917367,  0.13585079,            0.92269575, -0.42845809, -1.43626225, -0.04437878, -0.77294362])  
+</code></pre>
+<pre><code class="python">n = np.random.randn(3, 4)  
+n  
+# 得到三行四列，这个地方的参数和形状一样  
+</code></pre>
+<pre><code>array([[[-2.1219177 , -1.45490987,  0.81000387],            [-0.23626151,  0.0357142 , -1.26834007],            [ 1.30549567,  1.47318696, -0.88168161],            ...,            [-0.62181205,  0.83307091,  0.878801  ],            [ 0.23016407,  0.67965129,  1.71995377],            [-2.16447918,  1.9179741 ,  0.00475531]],               [[ 1.00014275,  2.47058116, -0.79804636],  
+        [-0.70329012, -0.03241358,  0.88641311],            [-0.10417703,  0.93033826, -0.41605261],            ...,            [ 0.27128158, -1.49512431, -0.89179063],            [ 0.62898744, -0.98658919,  1.01964161],            [-0.44953108, -0.09790161, -0.85900636]],               [[-0.76501919, -1.24837238, -0.52087572],  
+        [-2.50729494,  0.52795318, -0.7412903 ],            [-0.13019847,  1.06461999,  1.17673747],            ...,            [-1.83200199,  1.45678971, -0.20575044],            [-0.39063767, -0.23160855, -1.19460024],            [-0.68302172, -2.02667789,  1.58290222]],               ...,  
+           [[ 0.55467104,  1.87339433,  0.54177056],  
+        [-0.23930385, -0.97988876,  1.02429985],            [ 1.26638114, -0.93258731,  0.02974185],            ...,            [-0.2183045 ,  0.24800262,  0.22142648],            [ 1.41125301,  1.07176427,  0.55306736],            [ 2.32870308,  1.6652934 , -0.25939876]],               [[-1.17153238, -0.58214564, -0.12723388],  
+        [ 0.1987244 ,  0.79200534,  0.06701947],            [-0.36852834, -0.2875488 ,  0.30642959],            ...,            [ 1.46602299,  1.22696353, -0.98983256],            [-1.04342576,  0.61943963, -0.65760405],            [ 0.05050629,  1.99253601, -1.3740273 ]],               [[-0.11203705, -0.10612384, -1.67371257],  
+        [ 0.46177699, -1.62731961,  0.11790066],            [-0.2088409 ,  1.1419061 , -0.97082483],            ...,            [ 1.3849355 , -0.64693817, -1.53690409],            [-0.74789075, -1.74333196, -0.04612504],            [ 0.31122178,  0.39650051,  1.56235339]]])  
+</code></pre>
+<h3 id="修改正态分布的均值和方差-标准差np-random-normal-loc-0-0-scale-1-0-size-None"><a href="#修改正态分布的均值和方差-标准差np-random-normal-loc-0-0-scale-1-0-size-None" class="headerlink" title="修改正态分布的均值和方差&#x2F;标准差np.random.normal(loc&#x3D;0.0, scale&#x3D;1.0, size&#x3D;None):"></a>修改正态分布的均值和方差&#x2F;标准差np.random.normal(loc&#x3D;0.0, scale&#x3D;1.0, size&#x3D;None):</h3><pre><code class="python">n = np.random.normal(10, 9, size=(3, 4))  
+n  
+# loc是期望/均值，scale是标准差，方差越大越离散  
+</code></pre>
+<pre><code>array([[ 1.45826234e+01, -2.55622578e-03, -3.71256666e-03,             1.85320974e+01],           [ 5.20700709e+00,  1.49819397e+01,  1.81609918e+01,             9.70173893e-01],           [-4.82545711e+00, -3.29980385e+00,  5.56230825e+00,             1.28158235e+01]])  
+</code></pre>
+<h3 id="用np-random-random-size-产生随机数组，每个元素都是在0-1之间"><a href="#用np-random-random-size-产生随机数组，每个元素都是在0-1之间" class="headerlink" title="用np.random.random(size)产生随机数组，每个元素都是在0-1之间"></a>用np.random.random(size)产生随机数组，每个元素都是在0-1之间</h3><pre><code class="python">n = np.random.random(size=(3, 4))  
+n  
+</code></pre>
+<pre><code>array([[0.51149792, 0.12341278, 0.38769026, 0.57332693],           [0.71120723, 0.43387149, 0.78195535, 0.28466839],           [0.28605458, 0.25408909, 0.26969541, 0.82195537]])  
+</code></pre>
+<h3 id="用np-random-rand-dn-产生0-1之间的随机数，只是在写法上和random-random有点不同"><a href="#用np-random-rand-dn-产生0-1之间的随机数，只是在写法上和random-random有点不同" class="headerlink" title="用np.random.rand(*dn)产生0-1之间的随机数，只是在写法上和random.random有点不同"></a>用np.random.rand(*dn)产生0-1之间的随机数，只是在写法上和random.random有点不同</h3><pre><code class="python">n = np.random.rand(3, 4)  
+n  
+</code></pre>
+<pre><code>array([[0.48764874, 0.1724061 , 0.65463792, 0.74057776],           [0.57102434, 0.81309397, 0.17561473, 0.61852019],           [0.35742612, 0.05514662, 0.74916973, 0.82877634]])
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/" data-id="clvs5xbwd00tkxco9biw00jk3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/020-Numpy_ndarray%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/019-ndarray%E5%B1%9E%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

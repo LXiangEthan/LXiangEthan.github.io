@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="这里我发现一个python的和其他语言不相同的地方那就是a+&#x3D;1不能作为函数&#x2F;方法参数，很奇怪 因为python中没有自增自减运算符，我就猜想是不是python的+&#x3D;&#x2F;-&#x3D;和其他的语言不一样，还有c++的cout也是不能输出的，这个东西费解 我在探索这个问题的时候发现了一个我之前从来没有关心过的事情，那就是在编程语言中-a就可以得到a的负数，+a就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这里我发现一个python的和其他语言不相同的地方那就是a+&#x3D;1不能作为函数&#x2F;方法参数，很奇怪 因为python中没有自增自减运算符，我就猜想是不是python的+&#x3D;&#x2F;-&#x3D;和其他的语言不一样，还有c++的cout也是不能输出的，这个东西费解 我在探索这个问题的时候发现了一个我之前从来没有关心过的事情，那就是在编程语言中-a就可以得到a的负数，+a就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165828347.png">
+<meta property="og:image" content="http://example.com/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165846395.png">
+<meta property="og:image" content="http://example.com/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165944388.png">
+<meta property="og:image" content="http://example.com/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415185039403.png">
+<meta property="article:published_time" content="2024-05-04T13:48:41.103Z">
+<meta property="article:modified_time" content="2024-04-15T11:17:13.824Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165828347.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/013-数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:41.103Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165828347.png"><br><img src="/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165846395.png"><br><img src="/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415165944388.png"><br>这里我发现一个python的和其他语言不相同的地方那就是a+&#x3D;1不能作为函数&#x2F;方法参数，很奇怪</p>
+<p>因为python中没有自增自减运算符，我就猜想是不是python的+&#x3D;&#x2F;-&#x3D;和其他的语言不一样，还有c++的cout也是不能输出的，这个东西费解</p>
+<p>我在探索这个问题的时候发现了一个我之前从来没有关心过的事情，那就是在编程语言中-a就可以得到a的负数，+a就是a的正数（果然每次学习新东西都能发现些不知道的东西）</p>
+<p>经过尝试我找到了答案，那就是在python中整数是存放在一个整数常量池中的，这个常量池可以和java中的字符串常量池可见异同，这就导致了python并不能使用++&#x2F;–，因为自增和自减改变了原地址上的值，进而我们再来看看，那就是python中因为这个常量池的存在我们无法使用下面的操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">11</span> = <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>因为&#x3D;是从左往右执行的赋值运算符，11和12在常量池中的不同位置，根本不能连续赋值，这就导致了python的异常抛出，然后我们回到这个问题a+&#x3D;1是a&#x3D; a + 1，这样的赋值会给a重新申请一块内存空间，再装入a+1，然后我们发现，理论上把a这个值再传参给函数内是完全没有问题的</p>
+<p>于是我就询问了文心一言，它给到我的结果是在C++的cout中期望获取到的是一个结果值，因而，无法使用赋值操作，但是在C++中我们的函数使用表达式赋值是完全没有问题的只是cout要求比较严格，但是也不是那么严格，因为我们在重载运算符的时候，重载运算符不允许出现赋值操作，要的就是一个准确的结果数，而在java和js中参数要求就没有那么严格，因而可以随意使用赋值语，因而在C&#x2F;C++&#x2F;JAVA&#x2F;JS中我们这样使用都是没有任何问题的，但是在python中不行，python的函数要求特别严格，python的函数里面求的就是一个数值，如果我们使用赋值语句那么python就会抛出异常，这算是一个不一样的点吧</p>
+<p>&#x3D;&#x3D;最后得到的结论是，我们在使用其他编程语言的时候，函数参数是可以有赋值操作的，但是在py中这种操作被要求避免&#x3D;&#x3D;</p>
+<p><em><strong>不过虽然是这样但是我还是希望能够遵守规范，尽量少在函数参数中使用这种赋值操作，知道就好</strong></em></p>
+<p><img src="/assets/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/image-20240415185039403.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int_type = <span class="built_in">type</span>(<span class="number">111</span>)</span><br><span class="line">string_type = <span class="built_in">type</span>(<span class="string">&quot;你好&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(int_type)</span><br><span class="line"><span class="built_in">print</span>(string_type)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/013-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="clvs5xbwo00utxco998j2fp2s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/014-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/012-%E5%8F%98%E9%87%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

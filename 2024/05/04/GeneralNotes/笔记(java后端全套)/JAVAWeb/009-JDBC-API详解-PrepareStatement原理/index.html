@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="防止sql注入的方法就是转义方法预编译，会把模板编译一次，然后后面填入参数再编译参数，这样就不用每有一次sql语句就全部编译一次，模板只用编译一次，性能会高很多 开启预编译功能： 在my.ini中加入下列文档 123456log-output&#x3D;FILEgeneral-log&#x3D;1general_log_file&#x3D;&quot;D:\mysql.log&quot;slow-query-log&#x3D;1slow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVAWeb/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="防止sql注入的方法就是转义方法预编译，会把模板编译一次，然后后面填入参数再编译参数，这样就不用每有一次sql语句就全部编译一次，模板只用编译一次，性能会高很多 开启预编译功能： 在my.ini中加入下列文档 123456log-output&#x3D;FILEgeneral-log&#x3D;1general_log_file&#x3D;&quot;D:\mysql.log&quot;slow-query-log&#x3D;1slow">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/image-20240331212906447.png">
+<meta property="article:published_time" content="2024-05-04T13:48:38.877Z">
+<meta property="article:modified_time" content="2024-04-27T01:34:57.518Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/image-20240331212906447.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(java后端全套)/JAVAWeb/009-JDBC-API详解-PrepareStatement原理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVAWeb/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:38.877Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/image-20240331212906447.png"><br>防止sql注入的方法就是转义方法<br>预编译，会把模板编译一次，然后后面填入参数再编译参数，这样就不用每有一次sql语句就全部编译一次，模板只用编译一次，性能会高很多</p>
+<p>开启预编译功能：</p>
+<p>在my.ini中加入下列文档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">log-output=FILE</span><br><span class="line">general-log=1</span><br><span class="line">general_log_file=&quot;D:\mysql.log&quot;</span><br><span class="line">slow-query-log=1</span><br><span class="line">slow_query_log_file=&quot;D:\mysql_slow.log&quot;</span><br><span class="line">long_query_time=2</span><br></pre></td></tr></table></figure>
+<p>修改mysql文件中的my.ini配置mysql日志功能<br>如果和我一样按照mysql默认安装路径的就在C盘下的programdata文件夹下的mysql里面找my.ini</p>
+<p>然后重新运行后就可以了<br>修改我们的代码配置让mysql预编译：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql:///ethan?useSSL=false&amp;useServerPrepStmts=true&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们就可以在D盘根路径看一看日志了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2024-03-31T13:50:15.259408Z	    8 Query	SET character_set_results = NULL</span><br><span class="line">2024-03-31T13:50:15.259911Z	    8 Query	SET autocommit=1</span><br><span class="line">2024-03-31T13:50:15.278827Z	    8 Prepare	select * from administrator where adm_name=? and adm_password=?</span><br><span class="line">2024-03-31T13:50:15.281519Z	    8 Query	SET autocommit=0</span><br><span class="line">2024-03-31T13:50:15.284195Z	    8 Execute	select * from administrator where adm_name=&#x27;aaa&#x27; and adm_password=&#x27;\&#x27; or \&#x27;\&#x27;1\&#x27;=\&#x27;1\&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>发现我们开启预编译就会有这样一个日志<br>没有开启</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2024-03-31T13:53:07.813820Z	    9 Query	SET character_set_results = NULL</span><br><span class="line">2024-03-31T13:53:07.814246Z	    9 Query	SET autocommit=1</span><br><span class="line">2024-03-31T13:53:07.829342Z	    9 Query	SET autocommit=0</span><br><span class="line">2024-03-31T13:53:07.830355Z	    9 Query	select * from administrator where adm_name=&#x27;aaa&#x27; and adm_password=&#x27;&#x27;&#x27; or &#x27;&#x27;&#x27;&#x27;1&#x27;&#x27;=&#x27;&#x27;1&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>这边我没有预编译的日志没有转义，我猜测因为我们的JDBC的prepareStatement如果我们不开启mysql的预编译功能，那么，prepareStatement就只是在我们写入的参数再加一个引号，来防止sql注入，一旦我们开启了mysql的预编译功能，那么我们就会借助转义的方式来防止sql注入</p>
+<p>我们让主线程休眠10s，然后我们查看日志，发现预编译过程是在我们创建prepareStatement对象创建前执行的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2024-04-01T04:44:12.992831Z	   12 Query	SET character_set_results = NULL</span><br><span class="line">2024-04-01T04:44:12.993290Z	   12 Query	SET autocommit=1</span><br><span class="line">2024-04-01T04:44:13.008000Z	   12 Prepare	select * from administrator where adm_name=? and adm_password=?</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVAWeb/009-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement%E5%8E%9F%E7%90%86/" data-id="clvs5xbsy00a5xco97reag58n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVAWeb/010-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVAWeb/008-JDBC-API%E8%AF%A6%E8%A7%A3-PrepareStatement-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

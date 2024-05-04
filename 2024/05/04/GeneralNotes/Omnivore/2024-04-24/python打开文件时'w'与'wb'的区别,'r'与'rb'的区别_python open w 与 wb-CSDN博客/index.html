@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="python打开文件时’w’与’wb’的区别,’r’与’rb’的区别_python open w 与 wb-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-w-wb-r-rb-python-open-w-wb-csdn-18f0ffd49bfOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;yizhuanlu96">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-24/python%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%97%B6'w'%E4%B8%8E'wb'%E7%9A%84%E5%8C%BA%E5%88%AB,'r'%E4%B8%8E'rb'%E7%9A%84%E5%8C%BA%E5%88%AB_python%20open%20w%20%E4%B8%8E%20wb-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python打开文件时’w’与’wb’的区别,’r’与’rb’的区别_python open w 与 wb-CSDN博客#OmnivoreOmnivoreURL: https:&#x2F;&#x2F;omnivore.app&#x2F;me&#x2F;python-w-wb-r-rb-python-open-w-wb-csdn-18f0ffd49bfOriginURL: https:&#x2F;&#x2F;blog.csdn.net&#x2F;yizhuanlu96">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+<meta property="article:published_time" content="2024-05-04T13:48:36.061Z">
+<meta property="article:modified_time" content="2024-04-25T07:34:27.999Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/Omnivore/2024-04-24/python打开文件时&#39;w&#39;与&#39;wb&#39;的区别,&#39;r&#39;与&#39;rb&#39;的区别_python open w 与 wb-CSDN博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-24/python%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%97%B6'w'%E4%B8%8E'wb'%E7%9A%84%E5%8C%BA%E5%88%AB,'r'%E4%B8%8E'rb'%E7%9A%84%E5%8C%BA%E5%88%AB_python%20open%20w%20%E4%B8%8E%20wb-CSDN%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.061Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="python打开文件时’w’与’wb’的区别-’r’与’rb’的区别-python-open-w-与-wb-CSDN博客"><a href="#python打开文件时’w’与’wb’的区别-’r’与’rb’的区别-python-open-w-与-wb-CSDN博客" class="headerlink" title="python打开文件时’w’与’wb’的区别,’r’与’rb’的区别_python open w 与 wb-CSDN博客"></a>python打开文件时’w’与’wb’的区别,’r’与’rb’的区别_python open w 与 wb-CSDN博客</h1><p>#Omnivore<br>OmnivoreURL: <a target="_blank" rel="noopener" href="https://omnivore.app/me/python-w-wb-r-rb-python-open-w-wb-csdn-18f0ffd49bf">https://omnivore.app/me/python-w-wb-r-rb-python-open-w-wb-csdn-18f0ffd49bf</a><br>OriginURL: <a target="_blank" rel="noopener" href="https://blog.csdn.net/yizhuanlu9607/article/details/78084266">https://blog.csdn.net/yizhuanlu9607/article/details/78084266</a></p>
+<p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sb9FtdCb_T4b1O697eqoXY9k3NVVgRsw8SlTyVuCA3pc/https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"></p>
+<p> 版权声明：本文为博主原创文章，遵循<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在windows中的换行符是\r\n</span><br><span class="line"></span><br><span class="line">在<span class="keyword">python</span>代码中, 如果以</span><br><span class="line"></span><br><span class="line">如果以<span class="keyword">w</span>方式写入:</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span>.<span class="keyword">write</span>(<span class="string">&#x27;abc\nabcd&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span>.<span class="keyword">close</span>()</span><br><span class="line"></span><br><span class="line">文本<span class="keyword">w</span>方式写入时, 遇到\n自动替换成\r\n,</span><br><span class="line"></span><br><span class="line">以二进制文本读:</span><br><span class="line"></span><br><span class="line">&gt;&gt; &gt; <span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&gt;&gt; &gt; <span class="keyword">print</span>(<span class="keyword">f</span>.<span class="keyword">read</span>())</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line"></span><br><span class="line"><span class="keyword">b</span><span class="string">&#x27;abc\r\nabcd&#x27;</span></span><br><span class="line"></span><br><span class="line">以文本读:</span><br><span class="line"></span><br><span class="line">&gt;&gt; &gt; <span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&gt;&gt; &gt; <span class="keyword">print</span>(<span class="keyword">f</span>.<span class="keyword">read</span>())</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line"></span><br><span class="line"><span class="keyword">abc</span></span><br><span class="line"></span><br><span class="line">abcd</span><br><span class="line"></span><br><span class="line">综上可知, 只文本<span class="keyword">w</span>方式写入时, 遇到\n自动替换成\r\n,</span><br><span class="line"></span><br><span class="line">所以用二进制读取时, 显示\r\n的格式, 自然以文本读时, 会自动换行</span><br><span class="line"></span><br><span class="line">如果以wb方式写入:</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span>.<span class="keyword">write</span>(<span class="string">&#x27;abc\nabcd&#x27;</span>.encode(<span class="string">&quot;utf-8&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span>.<span class="keyword">close</span>()</span><br><span class="line"></span><br><span class="line">以二进制文本读:</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&quot;rb&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">f</span>.<span class="keyword">read</span>())</span><br><span class="line"></span><br><span class="line">结果: <span class="string">&#x27;abc\nabcd&#x27;</span></span><br><span class="line"></span><br><span class="line">以文本读:</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span> = <span class="keyword">open</span>(<span class="string">&#x27;./abcd&#x27;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">f</span>.<span class="keyword">read</span>())</span><br><span class="line"></span><br><span class="line">结果(换行): <span class="keyword">abc</span></span><br><span class="line"></span><br><span class="line">abcd</span><br><span class="line"></span><br><span class="line">因为这种情况是二进制方式写入的, 所以只写入了一个\n, 而只有一个\n在windows中</span><br><span class="line"></span><br><span class="line">并不会被识别为换行符,</span><br><span class="line"></span><br><span class="line">所以当以rb的方式读取时, 结果是</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;abc\nabcd&#x27;</span></span><br><span class="line"></span><br><span class="line">当以r的方式读取时, 又自动将\n识别成换行符, 所以结果时</span><br><span class="line"></span><br><span class="line">对于Python3环境：</span><br><span class="line"></span><br><span class="line">r：Python</span><br><span class="line"></span><br><span class="line">将会按照编码格式进行解析，<span class="keyword">read</span>()</span><br><span class="line"></span><br><span class="line">操作返回的是str</span><br><span class="line"></span><br><span class="line">rb：也即</span><br><span class="line"></span><br><span class="line">binary</span><br><span class="line"></span><br><span class="line"><span class="keyword">mode</span>，<span class="keyword">read</span>()</span><br><span class="line"></span><br><span class="line">操作返回的是bytes</span><br><span class="line"></span><br><span class="line">也就是说, 如果以文本方式写入的文件, 无需制定编码.</span><br><span class="line"></span><br><span class="line">而以二进制文本写入时, 由于写入的内容要求为bytes,所以通过str.encode(<span class="string">&#x27;charset&#x27;</span>)来返回bytes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>文章知识点与官方知识档案匹配，可进一步学习相关知识</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/Omnivore/2024-04-24/python%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%97%B6'w'%E4%B8%8E'wb'%E7%9A%84%E5%8C%BA%E5%88%AB,'r'%E4%B8%8E'rb'%E7%9A%84%E5%8C%BA%E5%88%AB_python%20open%20w%20%E4%B8%8E%20wb-CSDN%E5%8D%9A%E5%AE%A2/" data-id="clvs5xbr50010xco9gx9m2ldq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-24/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%B8%ADvideo%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%BB%A5blob-http%E5%BC%80%E5%A4%B4%E7%9A%84%E5%9C%B0%E5%9D%80%E7%9A%84%E8%B5%84%E6%BA%90_-video-%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E8%B7%AF%E5%BE%84-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/Omnivore/2024-04-24/%E5%9C%A8python%E7%9A%84List%E4%B8%AD%E4%BD%BF%E7%94%A8for%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5%E7%9A%84%E6%8A%80%E5%B7%A7%E6%B1%87%E7%BC%96_python%20list%20for-CSDN%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="使用BigDecimal的构造器，我们不要用double类型的来构造，因为在底层中，这个还是会有失去精度的风险，我们推荐使用String类型的来逐个位来实现运算，这样小数部位就不会失真 使用valueOf静态方法会自动把double转成String 在devide除法中，如果出现除不尽的数会报错出现bug，于是我们就可以使用devide的第二个方法，输入无限小数的精度位，以及使用一个枚举类 Big">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用BigDecimal的构造器，我们不要用double类型的来构造，因为在底层中，这个还是会有失去精度的风险，我们推荐使用String类型的来逐个位来实现运算，这样小数部位就不会失真 使用valueOf静态方法会自动把double转成String 在devide除法中，如果出现除不尽的数会报错出现bug，于是我们就可以使用devide的第二个方法，输入无限小数的精度位，以及使用一个枚举类 Big">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229094720935.png">
+<meta property="og:image" content="http://example.com/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229094917480.png">
+<meta property="og:image" content="http://example.com/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229124353565.png">
+<meta property="article:published_time" content="2024-05-04T13:48:37.485Z">
+<meta property="article:modified_time" content="2024-02-29T04:44:27.658Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229094720935.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/105-常用API（2）-BigDecimal" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.485Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229094720935.png"><br><img src="/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229094917480.png"><br>使用BigDecimal的构造器，我们不要用double类型的来构造，因为在底层中，这个还是会有失去精度的风险，我们推荐使用String类型的来逐个位来实现运算，这样小数部位就不会失真</p>
+<p>使用valueOf静态方法会自动把double转成String</p>
+<p>在devide除法中，如果出现除不尽的数会报错出现bug，于是我们就可以使用devide的第二个方法，输入无限小数的精度位，以及使用一个枚举类</p>
+<p>BigDecimal转double类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">c2</span> <span class="operator">=</span> c1.doubleValue();</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Ethan.l;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;  </span><br><span class="line"><span class="keyword">import</span> java.math.RoundingMode;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;  </span><br><span class="line">        <span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0.1</span>;  </span><br><span class="line">        <span class="type">double</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0.2</span>;  </span><br><span class="line">        <span class="type">double</span> <span class="variable">c</span> <span class="operator">=</span> a + b;  </span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">a1</span> <span class="operator">=</span> BigDecimal.valueOf(a);  </span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">b1</span> <span class="operator">=</span> BigDecimal.valueOf(b);  </span><br><span class="line"><span class="comment">//        BigDecimal c1 = a1.add(b1);  </span></span><br><span class="line"><span class="comment">//        BigDecimal c1 = a1.subtract(b1);  </span></span><br><span class="line"><span class="comment">//        BigDecimal c1 = a1.multiply(b1);  </span></span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">c1</span> <span class="operator">=</span> a1.divide(b1,<span class="number">2</span>, RoundingMode.HALF_UP);  </span><br><span class="line">        <span class="type">double</span> <span class="variable">c2</span> <span class="operator">=</span> c1.doubleValue();  </span><br><span class="line">        System.out.println(c2);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>#BigDecimal开发规范<br><img src="/assets/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/image-20240229124353565.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/105-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-BigDecimal/" data-id="clvs5xbth00dpxco9c13lht48" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/108-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0JDK8%E6%96%B0%E5%A2%9E%E7%9A%84%E6%97%B6%E9%97%B4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/106-%E5%B8%B8%E7%94%A8API%EF%BC%882%EF%BC%89-%E4%BC%A0%E7%BB%9F%E6%97%B6%E9%97%B4%EF%BC%9ADate%E6%97%A5%E6%9C%9F%E7%B1%BB%EF%BC%8CSimpleDateFormat%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

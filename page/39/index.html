@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/39/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/056-字符串常用方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/056-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.306Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="chartAt"><a href="#chartAt" class="headerlink" title="chartAt"></a>chartAt</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;liangxiang&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">chartAt</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br></pre></td></tr></table></figure>
+<p>chartAt传入索引返回索引对应的字符</p>
+<h2 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">charCodeAt</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br></pre></td></tr></table></figure>
+<p>charCodeAt(索引)  返回索引对应的字符对应的ASCII码值<br>字符中的ASCII码<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ttmice/article/details/50978054">https://blog.csdn.net/ttmice/article/details/50978054</a><br>65–A         97–a<br><img src="/assets/056-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/Pasted%20image%2020231012191729.png"><br>String.fromCharCode()把ASCII码转成对应的字符</p>
+<h2 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="keyword">var</span> u_str = str.<span class="title function_">toUpperCase</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(u_str)</span><br></pre></td></tr></table></figure>
+<p>toUpperCase()把所有字母都转成大写字母</p>
+<h2 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a>toLowerCase()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;HELLO&quot;</span></span><br><span class="line"><span class="keyword">var</span> l_str = str.<span class="title function_">toLowerCase</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(l_str)</span><br></pre></td></tr></table></figure>
+<p>toLowerCase()把所有字母都转成小写字母</p>
+<h2 id="截取substr"><a href="#截取substr" class="headerlink" title="截取substr"></a>截取<br>substr</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>substr(开始截取的索引，截取长度)</p>
+<h2 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">substring</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="substring-开始索引，结束索引-包前不包后只传一个参数就是从该索引截取到最后不能传负值slice"><a href="#substring-开始索引，结束索引-包前不包后只传一个参数就是从该索引截取到最后不能传负值slice" class="headerlink" title="substring(开始索引，结束索引)包前不包后只传一个参数就是从该索引截取到最后不能传负值slice"></a>substring(开始索引，结束索引)包前不包后<br>只传一个参数就是从该索引截取到最后<br>不能传负值<br>slice</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">slice</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>slice(开始索引，结束索引)包前不包后<br>只传一个参数：就是从该索引截取到最后<br>传负数：arr1.slice(2,-1)，负值就相当于从数组最后面数出来的参数，最后一个元素是-1，包前不包后</p>
+<p>实现大写开头</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">substring</span>(<span class="number">0</span>,<span class="number">1</span>).<span class="title function_">yoUpperCase</span>()+str.<span class="title function_">substring</span>(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;qwedaadf&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">replace</span>(<span class="string">&quot;a&quot;</span>,<span class="string">&quot;*&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br></pre></td></tr></table></figure>
+<p>replace(被替换的元素，替换上的元素)，这里replace只能替换一个元素，如果出现多个就替换不了，如果要替换多个就要利用正则表达式</p>
+<h2 id="split"><a href="#split" class="headerlink" title="split"></a>split</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;a|b|c|d&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">split</span>(<span class="string">&quot;|&quot;</span>))</span><br></pre></td></tr></table></figure>
+<p>split会把字符串分割为数组<br>join会把数组转换成字符串<br>split需要这种比较规则的字符串<br>如果split()阔号里面传空字符，那么就会把每一个字符都拿出来变成数组</p>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">indexOf</span>(<span class="string">&quot;a&quot;</span>))</span><br></pre></td></tr></table></figure>
+<p>indexOf()查找元素在字符串中的位置值,没找到就返回-1<br>顺序查找</p>
+<h2 id="lastindexOf"><a href="#lastindexOf" class="headerlink" title="lastindexOf"></a>lastindexOf</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;a&quot;</span>))</span><br></pre></td></tr></table></figure>
+<p>lastIndexOf()查找元素在字符串中的位置值,没找到就返回-1<br>从最后一个元素处查找</p>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;abcd&quot;</span></span><br><span class="line"><span class="keyword">var</span> str1 = str.<span class="title function_">concat</span>(<span class="string">&quot;ef&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br></pre></td></tr></table></figure>
+<p>concat连接字符串</p>
+<p>trim去掉首尾空格<br>trimStart()  trimLeft()   去掉首空格<br>trimEnd()   trimRight()  去掉尾空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;   Hello world   &quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;|&quot;</span>+str+<span class="string">&quot;|&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;|&quot;</span>+str.<span class="title function_">trimLeft</span>()+<span class="string">&quot;|&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/056-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clvs5xbvu00pexco90v4bd8g2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/055-案例-统计字符出现次数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/055-%E6%A1%88%E4%BE%8B-%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.305Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> str = <span class="string">&quot;abcabcab&quot;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/*a是3个，b是3个，c是2</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">          [a,3,b,3,c,2]</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">          &#123;a:3,b:3,c:2&#125;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">        */</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> obj = &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;str.<span class="property">length</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(str[i])</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> key = str[i]</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// if(obj[key] === undefined)&#123;</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//     obj[key] = 1</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// &#125;else&#123;</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//     obj[key]++</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(obj[key])&#123;</span></span><br><span class="line"><span class="language-javascript">                obj[key]++</span></span><br><span class="line"><span class="language-javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                obj[key] = <span class="number">1</span></span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/055-%E6%A1%88%E4%BE%8B-%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/" data-id="clvs5xbvu00pfxco9bc60dop3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/054-字符串的基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/054-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.304Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/054-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/Pasted%20image%2020231012184148.png"></p>
+<p>1、创建字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字面量方式创建</span></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br><span class="line"><span class="comment">//利用对象创建字符串</span></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2)</span><br></pre></td></tr></table></figure>
+<p>2、str1.length — 只读<br>字符串中的length是一个只读的对象方法，和数组不一样<br>3、索引&#x2F;下标  只读</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">str1[<span class="number">1</span>] = <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1)</span><br><span class="line"><span class="comment">//这里的赋值仍然无法改变str1</span></span><br></pre></td></tr></table></figure>
+<p>4、遍历</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; str1.<span class="property">length</span>;i++)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i,str1[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/054-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="clvs5xbvu00pdxco944no2ved" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/052-数组去重" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/052-%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.303Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1、-方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.<span class="property">length</span>;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(arr2.<span class="title function_">indexOf</span>(arr[i]) === -<span class="number">1</span>)&#123;</span><br><span class="line">arr2.<span class="title function_">push</span>(arr[i])</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr,arr2)</span><br></pre></td></tr></table></figure>
+
+<p>2、-方法  -利用对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = []</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.<span class="property">length</span>;i++)&#123;</span><br><span class="line">obj[arr[i]] = <span class="string">&quot;随便&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123;</span><br><span class="line">arr2.<span class="title function_">push</span>(i - <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2)</span><br></pre></td></tr></table></figure>
+
+<p>3、-方法  new Set</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> set1 = <span class="keyword">new</span> <span class="title class_">Set</span>(arr)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(set1)</span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="title class_">Array</span>.<span class="title function_">from</span>(set1)</span><br></pre></td></tr></table></figure>
+<p>Set是ES6里面和数组很像的一个新的数据类型,如果要把它转换成数组就要用到Array.from()<br>这是MDN对set的解释<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/052-%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" data-id="clvs5xbvt00paxco9gy8p9w62" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/053-数组常用方法-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/053-%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-3/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.303Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">arr.<span class="title function_">foreach</span>(<span class="keyword">function</span>(<span class="params">item,index,arr</span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(item,index,arr)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//回调函数</span></span><br></pre></td></tr></table></figure>
+<p>foreach是遍历操作<br>会自动把数组遍历一遍<br>调用的回调函数里面传的第一个参数就是数组每个的内容，第二个参数是数组里面每个的索引值，第三个参数是原数组</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line"><span class="keyword">return</span> item*item</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>map映射,map会把数组里面每一个值都映射入回调函数，每一项都会被返回值取代,回调函数第一个值就是数组的每一项</p>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2)</span><br></pre></td></tr></table></figure>
+<p>filter过滤,filter只有两个返回值，true和false，如果返回true就满足条件，映射出来，不满足条件就不映射出来,传入的第一个参数仍然是每个数组元素</p>
+<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">80</span>,<span class="number">90</span>,<span class="number">92</span>,<span class="number">93</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> item&gt;<span class="number">90</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2)</span><br></pre></td></tr></table></figure>
+<p>every每一个,返回值只有布尔值，但是every判断的是每一个数组元素，如果全部满足就返回true，只要有一个不满足就返回false</p>
+<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">80</span>,<span class="number">90</span>,<span class="number">92</span>,<span class="number">93</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">some</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> item&lt;<span class="number">90</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2)</span><br></pre></td></tr></table></figure>
+<p>some只要有一个满足条件，就是true</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> item === <span class="number">90</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>find找到满足条件的元素，find和filter是一样的满足条件就映射，但是find只能找到第一项，filter能找到所有的</p>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">prev,item</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> prev+item</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2)</span><br></pre></td></tr></table></figure>
+<p>reduce叠加,reduce有两个参数一个是回调函数，一个是就是初始值就是prev的初始值，reduce的回调函数还有两个参数，这里的两个参数一个是prev，这是在遍历数组过程中上一次的return结果，item才是当前的每个数组元素</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/053-%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-3/" data-id="clvs5xbvt00pbxco99gzn1169" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/051-数组常用方法-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/051-%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.302Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这一节所讲到的方法是不会对原数组造成影响</p>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"><span class="keyword">var</span> arr3 = arr1.<span class="title function_">concat</span>(arr2,<span class="number">7</span>,[<span class="number">9</span>,<span class="number">10</span>])</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1,arr2,arr3)</span><br></pre></td></tr></table></figure>
+<p>concat实现数组之间的拼接，返回一个拼接后的新数组，阔号里面可以写多个值，这些值中可以只传一个元素<br>concat也可以不传参数,这种方式就是实现数组的复制操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"><span class="keyword">var</span> arr3 = arr1.<span class="title function_">concat</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1,arr2,arr3)</span><br></pre></td></tr></table></figure>
+
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr = arr1.<span class="title function_">join</span>(<span class="string">&quot;-&quot;</span>)</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(arr)</span><br></pre></td></tr></table></figure>
+<p>在我们把数组打印在文档中是由逗号分隔的字符串<br>join可以实现数组转换成字符串，然后修改逗号分隔为其他符号<br>join数组转字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr = arr1.<span class="title function_">join</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(arr)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> arr = arr1.<span class="title function_">slice</span>(<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1,arr)</span><br></pre></td></tr></table></figure>
+<p>slice截取数组（包前不包后）<br>1、传两个参数：slice(开始索引，结束索引)，从开始索引截取到结束索引，包前不包后，包括开始索引不包括结束索引<br>2、传一个参数：slice(开始索引)，从开始索引一直截取到最后<br>3、不传参数：相当于复制了一份原数组（这也是一种数组赋值的方法）<br>4、传负数：arr1.slice(2,-1)，负值就相当于从数组最后面数出来的参数，最后一个元素是-1，包前不包后</p>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">&quot;liangxiang&quot;</span>]</span><br><span class="line"><span class="keyword">var</span> res = arr.<span class="title function_">indexOf</span>(<span class="string">&quot;liangxiang&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br></pre></td></tr></table></figure>
+<p>indexOf 返回查找的索引值<br>返回-1就是没有找到当前的元素，找到了会返回查找元素的索引值<br>但是这种方法只能查到遇到的第一个，如果有重名的找不到后面的元素<br><code>arr.indexOf(&quot;liangxiang&quot;,2)</code>后面的2是，从索引为2的开始查找</p>
+<h2 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf"></a>lastIndexOf</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">&quot;liangxiang&quot;</span>]</span><br><span class="line"><span class="keyword">var</span> res = arr.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;liangxiang&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br></pre></td></tr></table></figure>
+<p>lastIndexOf和indexOf的区别只有lastIndexOf是从数组最后面查找，同样找到第一个就不会往后面查找了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/051-%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-2/" data-id="clvs5xbvu00pcxco9alwvd8lr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/049-选择排序法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/049-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.301Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="keyword">var</span> arr = [<span class="number">44</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">111</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment">// var minIndex = 0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for (var i = 1; i &lt; arr.length; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     if (arr[i] &lt; arr[minIndex]) &#123;</span></span><br><span class="line">        <span class="comment">//         minIndex = i</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// console.log(minIndex)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// var temp = arr[0]</span></span><br><span class="line">        <span class="comment">// arr[0] = arr[minIndex]</span></span><br><span class="line">        <span class="comment">// arr[minIndex] = temp</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// console.log(arr)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// var minIndex = 1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for (var i = 2; i &lt; arr.length; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     if (arr[i] &lt; arr[minIndex]) &#123;</span></span><br><span class="line">        <span class="comment">//         minIndex = i</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// // console.log(minIndex)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// var temp = arr[1]</span></span><br><span class="line">        <span class="comment">// arr[1] = arr[minIndex]</span></span><br><span class="line">        <span class="comment">// arr[minIndex] = temp</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; arr.<span class="property">length</span> - <span class="number">1</span>; m++) &#123;</span><br><span class="line">            <span class="keyword">var</span> minIndex = m</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = m + <span class="number">1</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &lt; arr[minIndex]) &#123;</span><br><span class="line">                    minIndex = i</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// console.log(minIndex)</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (minIndex !== m) &#123;</span><br><span class="line">                <span class="keyword">var</span> temp = arr[m]</span><br><span class="line">                arr[m] = arr[minIndex]</span><br><span class="line">                arr[minIndex] = temp</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20200717094201692.gif">https://img-blog.csdnimg.cn/20200717094201692.gif</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/049-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E6%B3%95/" data-id="clvs5xbvt00p9xco96aq5a1nt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/048-冒泡排序法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/048-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.300Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="comment">// sort 排序 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> arr = [<span class="number">44</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>,<span class="number">11</span>,<span class="number">33</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment">// var temp = arr[0]</span></span><br><span class="line">        <span class="comment">// arr[0] = arr[1]</span></span><br><span class="line">        <span class="comment">// arr[1] = temp</span></span><br><span class="line">        <span class="comment">// console.log(arr)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for (var i = 0; i &lt; arr.length - 1; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     if (arr[i] &gt; arr[i + 1]) &#123;</span></span><br><span class="line">        <span class="comment">//         var temp = arr[i]</span></span><br><span class="line">        <span class="comment">//         arr[i] = arr[i + 1]</span></span><br><span class="line">        <span class="comment">//         arr[i + 1] = temp</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// // console.log(arr)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for (var i = 0; i &lt; arr.length - 1 - 1; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     if (arr[i] &gt; arr[i + 1]) &#123;</span></span><br><span class="line">        <span class="comment">//         var temp = arr[i]</span></span><br><span class="line">        <span class="comment">//         arr[i] = arr[i + 1]</span></span><br><span class="line">        <span class="comment">//         arr[i + 1] = temp</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for (var i = 0; i &lt; arr.length - 1 - 1 - 1; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     if (arr[i] &gt; arr[i + 1]) &#123;</span></span><br><span class="line">        <span class="comment">//         var temp = arr[i]</span></span><br><span class="line">        <span class="comment">//         arr[i] = arr[i + 1]</span></span><br><span class="line">        <span class="comment">//         arr[i + 1] = temp</span></span><br><span class="line">        <span class="comment">//     &#125;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// console.log(arr)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; arr.<span class="property">length</span> - <span class="number">1</span>; m++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span> - <span class="number">1</span> -m ; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">var</span> temp = arr[i]</span><br><span class="line">                    arr[i] = arr[i + <span class="number">1</span>]</span><br><span class="line">                    arr[i + <span class="number">1</span>] = temp</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://pic2.zhimg.com/v2-4a9ee2c7df9af723acdc0da4ea58d0b1_b.webp">https://pic2.zhimg.com/v2-4a9ee2c7df9af723acdc0da4ea58d0b1_b.webp</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/048-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/" data-id="clvs5xbvt00p7xco92hju5k7b" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/046-数组数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/046-%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.299Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/046-%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Pasted%20image%2020231011183746.png"><br><img src="/assets/046-%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Pasted%20image%2020231011184344.png"><br><img src="/assets/046-%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/Pasted%20image%2020231011184356.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字面量创建方式</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>]</span><br><span class="line"><span class="comment">//构造函数方式</span></span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr2 = <span class="title class_">Array</span>(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>使用构造函数的方式只传一个参数就是表明创建一个长度为10的数组，数组目前为空</p>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        <span class="comment">//字面量</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> ageArr = [<span class="number">12</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>]</span><br><span class="line">        <span class="keyword">var</span> nameArr = [<span class="string">&quot;kerwin&quot;</span>,<span class="string">&quot;xiaoming&quot;</span>,<span class="string">&quot;tiechui&quot;</span>]</span><br><span class="line">        <span class="keyword">var</span> studentArr = [&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&quot;kerwin&quot;</span>,</span><br><span class="line">            <span class="attr">age</span>:<span class="number">100</span></span><br><span class="line">        &#125;,&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&quot;xiaoming&quot;</span>,</span><br><span class="line">            <span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">        &#125;]</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(ageArr)</span><br><span class="line">        <span class="comment">// Array</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">12</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">10</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arr1,arr2)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/046-%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="clvs5xbvt00p6xco9g35z7rda" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（上）/047-数组基本操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/047-%E6%95%B0%E7%BB%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.299Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="数组的本质就是一个对象长度"><a href="#数组的本质就是一个对象长度" class="headerlink" title="数组的本质就是一个对象长度"></a>数组的本质就是一个对象<br>长度</h2><pre><code>length,
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">length</span>)</span><br></pre></td></tr></table></figure>
+<p>length是可读可写的可以重新赋值改变arr的长度，如果赋值小，就删除后面元素，赋值大就创建更多长度，<code>arr1.length = 0</code>但是依靠赋值的方法删除数组只能从后面删除，这种赋值方法用的比较多的是&#x3D;&#x3D;清空数组&#x3D;&#x3D;</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><pre><code>arr[索引]
+索引是从0开始的
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">arr3[<span class="number">0</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">arr3[<span class="number">6</span>] = <span class="number">6</span></span><br><span class="line"><span class="comment">//arr3[5]会被空出来</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr4.<span class="property">length</span>;i++)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(arr4[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr5 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> arr6 = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr5.<span class="property">length</span>;i++)&#123;</span><br><span class="line">	arr6[i] = arr5[i]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8A%EF%BC%89/047-%E6%95%B0%E7%BB%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="clvs5xbvt00p8xco94ttxbp0o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/38/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><a class="page-number" href="/page/41/">41</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/40/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

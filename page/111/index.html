@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/111/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/069-new操作符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.266Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/Pasted%20image%2020231006192539.png"><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/haduwi/article/details/105886988">https://blog.csdn.net/haduwi/article/details/105886988</a><br>上面博客是对C语言申请空间介绍</p>
+<hr>
+<p>但是C++中不同<br>new的基本语法：在堆区开辟一段空间<br>new int<br>int*P &#x3D; new int(11);<br>new 返回的是创建数据的指针</p>
+<hr>
+<p>释放堆区数据：堆区的数据由程序员管理释放<br>如果要释放堆区的数据利用关键字delete p;<br>释放空间后的数据再次访问就是非法访问，就会报错</p>
+<hr>
+<p>在堆区利用new开辟一个数组<br>创建10整型的数组，在堆区<br>int *arr &#x3D; new int[10];<br>这个10代表创建一个数组，数组里面有10个元素<br>接下来就可以进行赋值等操作</p>
+<hr>
+<p>释放堆区数组<br>delete[] arr;<br>释放数组的时候需要加上一个中括号</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/" data-id="clvs5xbrp003axco968py4rp9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/066-内存分区模型-内存四区-全局区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/066-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%85%A8%E5%B1%80%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.264Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>![[assets&#x2F;065-内存分区模型-内存四区-代码区&#x2F;Pasted image 20231006161836.png]]<br>代码区和全局区只有在代码运行之前才有<br><img src="/assets/066-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%85%A8%E5%B1%80%E5%8C%BA/Pasted%20image%2020231006162601.png"><br>全局变量-静态变量-常量<br>这里面的数据在程序结束后由操作系统释放<br>全局变量是不写在函数体中的变量<br>静态变量是static int a &#x3D;10;<br>常量:字符串常量，const修饰的变量<br><img src="/assets/066-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%85%A8%E5%B1%80%E5%8C%BA/Pasted%20image%2020231006163439.png"><br>const修饰的全局变量：全局常量<br>global全局<br>全局修饰的都在全局区<br>local局部<br>const修饰的局部变量：局部常量<br><font color=green>局部修饰常量的不在全局区</font><br><img src="/assets/066-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%85%A8%E5%B1%80%E5%8C%BA/Pasted%20image%2020231006164238.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/066-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%85%A8%E5%B1%80%E5%8C%BA/" data-id="clvs5xbrn0032xco92w0jh6p0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/068-内存分区模型-内存四区-堆区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/068-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%A0%86%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.264Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/068-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%A0%86%E5%8C%BA/Pasted%20image%2020231006191249.png"><br>使用new关键字就可以开辟堆区内存</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">//返回数据值为10的数据在内存中的地址</span></span><br><span class="line"><span class="keyword">return</span> p;</span><br></pre></td></tr></table></figure>
+<p>堆区不会自动释放，由程序员管理释放，可以返回堆区中变量的地址，但是堆区空间程序结束不释放还是会被操作系统释放<br><img src="/assets/068-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%A0%86%E5%8C%BA/Pasted%20image%2020231006192306.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/068-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E5%A0%86%E5%8C%BA/" data-id="clvs5xbro0034xco971zwhvr0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/067-内存分区模型-内存四区-栈区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/067-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E6%A0%88%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.264Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/067-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E6%A0%88%E5%8C%BA/Pasted%20image%2020231006184851.png"><br>存放函数的参数值，局部变量、<br>栈区的数据由编译器管理开辟和释放<br>不要返回局部变量的地址<br>局部变量存放在栈区，栈区的数据在函数执行完后自动释放<br>返回局部变量的地址，第一次编译器会给我们做一次保留，但是第二次就不会保留了<br><img src="/assets/067-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E6%A0%88%E5%8C%BA/Pasted%20image%2020231006191220.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/067-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E6%A0%88%E5%8C%BA/" data-id="clvs5xbro0036xco90pwicyue" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/064-结构体案例（1）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/064-%E7%BB%93%E6%9E%84%E4%BD%93%E6%A1%88%E4%BE%8B%EF%BC%881%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.263Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/064-%E7%BB%93%E6%9E%84%E4%BD%93%E6%A1%88%E4%BE%8B%EF%BC%881%EF%BC%89/Pasted%20image%2020231005205344.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;iostream&quot;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span>&#123;  </span><br><span class="line">string name;  </span><br><span class="line"><span class="type">int</span> score;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">teacher</span>&#123;  </span><br><span class="line">string name;  </span><br><span class="line">student stu[<span class="number">5</span>];  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)<span class="built_in">time</span>())</span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line">teacher tea[<span class="number">3</span>];  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="built_in">sizeof</span>(tea)/<span class="built_in">sizeof</span>(tea[<span class="number">0</span>]);i++)&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;输入老师姓名&quot;</span>&lt;&lt;endl;  </span><br><span class="line">cin&gt;&gt;tea[i].name;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;输入老师带学生信息&quot;</span>&lt;&lt;endl;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j &lt; <span class="built_in">sizeof</span>(tea[<span class="number">0</span>].stu)/<span class="built_in">sizeof</span>(tea[<span class="number">0</span>].stu[<span class="number">0</span>]);j++)&#123;  </span><br><span class="line">cin&gt;&gt;tea[i].stu[j].name;</span><br><span class="line">tea[i].stu[j].score = <span class="built_in">rand</span>()%<span class="number">61</span>+<span class="number">40</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="built_in">sizeof</span>(tea)/<span class="built_in">sizeof</span>(tea[<span class="number">0</span>]);i++)&#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j &lt; <span class="built_in">sizeof</span>(tea[<span class="number">0</span>].stu)/<span class="built_in">sizeof</span>(tea[<span class="number">0</span>].stu[<span class="number">0</span>]);j++)&#123;  </span><br><span class="line">cout&lt;&lt;tea[i].stu[j].name&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;tea[i].stu[j].score&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>string类型占8个字节<br>C++也可以通过+连接字符串<br>system(“cls”);清屏操作<br>system(“pause”)按任意键继续<br>srand((unsigned int)time());<br>rand()%100   0-100随机数<br>system(“chcp 65001”);  把代码页的字符集转换成UTF-8</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/064-%E7%BB%93%E6%9E%84%E4%BD%93%E6%A1%88%E4%BE%8B%EF%BC%881%EF%BC%89/" data-id="clvs5xbro0033xco9a0ws6wjl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/065-内存分区模型-内存四区-代码区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/065-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E4%BB%A3%E7%A0%81%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.263Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/065-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E4%BB%A3%E7%A0%81%E5%8C%BA/Pasted%20image%2020231006161836.png"><br><img src="/assets/065-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E4%BB%A3%E7%A0%81%E5%8C%BA/Pasted%20image%2020231006162049.png"><br>代码区–共享-只读</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/065-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B-%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA-%E4%BB%A3%E7%A0%81%E5%8C%BA/" data-id="clvs5xbro0035xco9368sccjn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/063-结构体中const的使用场景" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/063-%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%ADconst%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.262Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">const</span> student*st)</span></span>&#123;</span><br><span class="line"><span class="comment">//使用const可以防止误操作</span></span><br><span class="line">············</span><br><span class="line">st-&gt;name=<span class="string">&quot;李四&quot;</span>;<span class="comment">//这里会报错，因为是一个常量指针，指针指向的值不能改变</span></span><br><span class="line">cout&lt;&lt;st.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span> &#123;</span><br><span class="line">string name;</span><br><span class="line"><span class="type">int</span> age;</span><br><span class="line"><span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line">student stu = &#123;<span class="string">&quot;张三&quot;</span>,<span class="number">19</span>,<span class="number">98</span>&#125;;</span><br><span class="line"><span class="built_in">swap</span>(&amp;stu)</span><br></pre></td></tr></table></figure>
+<p>将函数的参数改成指针，可以减少内存空间，不会复制出新的值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/063-%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%ADconst%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" data-id="clvs5xbrn0030xco9a7vz776u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/061-结构体嵌套结构体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/061-%E7%BB%93%E6%9E%84%E4%BD%93%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.261Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/061-%E7%BB%93%E6%9E%84%E4%BD%93%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93/Pasted%20image%2020231005202749.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span>&#123;</span><br><span class="line">string name;</span><br><span class="line"><span class="type">int</span> age;</span><br><span class="line"><span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">teacher</span>&#123;</span><br><span class="line"><span class="type">int</span> id;</span><br><span class="line">string name;</span><br><span class="line"><span class="type">int</span> age;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span> stu;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/061-%E7%BB%93%E6%9E%84%E4%BD%93%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="clvs5xbrn0031xco9al4bcanq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/059-结构体数组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/059-%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.260Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/059-%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/Pasted%20image%2020231004201142.png"></p>
+<p>1、定义结构体</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>2、创建结构体数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Student stuArray[<span class="number">3</span>] = &#123;</span><br><span class="line">&#123;<span class="string">&quot;张三&quot;</span>，<span class="number">17</span>，<span class="number">90</span>&#125;</span><br><span class="line">&#123;<span class="string">&quot;李四&quot;</span>，<span class="number">18</span>，<span class="number">89</span>&#125;</span><br><span class="line">&#123;<span class="string">&quot;王五&quot;</span>，<span class="number">19</span>，<span class="number">91</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>3、给结构体数组中的元素赋值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stuArray[<span class="number">1</span>].name = <span class="string">&quot;王麻子&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>4、遍历结构体数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>;i++)&#123;</span><br><span class="line">cout&lt;&lt;stuArray[i].name&lt;&lt;endl&lt;&lt;stuArray[i].age&lt;&lt;endl&lt;&lt;stuArray[i].score&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/059-%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84/" data-id="clvs5xbrn002yxco98jqn4nl2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/060-结构体指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/060-%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.260Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/060-%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/Pasted%20image%2020231004202008.png"><br>利用操作符-&gt;可以访问结构体指针指向的结构体的成员变量</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">string name;</span><br><span class="line"><span class="type">int</span> age;</span><br><span class="line"><span class="type">int</span> score;</span><br><span class="line">&#125;s = &#123;<span class="string">&quot;周老六&quot;</span>,<span class="number">20</span>,<span class="number">87</span>&#125;;</span><br><span class="line"><span class="type">int</span>*p = &amp;s;</span><br><span class="line">cout&lt;&lt;p-&gt;name&gt;&gt;endl;</span><br><span class="line"><span class="comment">//打印s的name</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/060-%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/" data-id="clvs5xbrn002zxco971c4auu8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/110/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/109/">109</a><a class="page-number" href="/page/110/">110</a><span class="page-number current">111</span><a class="page-number" href="/page/112/">112</a><a class="page-number" href="/page/113/">113</a><span class="space">&hellip;</span><a class="page-number" href="/page/123/">123</a><a class="extend next" rel="next" href="/page/112/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/excalidraw/" rel="tag">excalidraw</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/excalidraw/" style="font-size: 10px;">excalidraw</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/008-/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/007-Dataset%E7%B1%BB%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/006-pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%88%9D%E8%AE%A4%E8%AF%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/005-pycharm%E5%92%8Cjupyter%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%AF%B9%E6%AF%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-pytorch/004-python%E4%B8%AD%E7%9A%84%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
