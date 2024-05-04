@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(Cplusplus)/蓝桥杯（程序设计算法C++）/004-既约分数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(Cplusplus)/蓝桥杯（程序设计算法C++）/005-蛇形填数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/004-%E6%97%A2%E7%BA%A6%E5%88%86%E6%95%B0/" class="article-date">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/005-%E8%9B%87%E5%BD%A2%E5%A1%AB%E6%95%B0/" class="article-date">
   <time class="dt-published" datetime="2024-05-04T13:48:37.304Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
@@ -81,17 +81,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong><br>&#x3D;&#x3D;如果一个分数的分子和分母的最大公约数是1，这个分数称为既约分数。例如，3&#x2F;4,5&#x2F;2,1&#x2F;8,7&#x2F;1都是既约分数。请问，有多少个既约分数，分子和分母都是1到2020之间的整数（包括1和2020）&#x3D;&#x3D;<br><strong>题目分析</strong><br>暴力搜索，通过最大公约数判断</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span>(a%b==<span class="number">0</span>)  </span><br><span class="line">        <span class="keyword">return</span> b;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">gcd</span>(b,a%b);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2020</span>; i++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">2020</span>; j++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">gcd</span>(i,j)==<span class="number">1</span>)  </span><br><span class="line">            &#123;  </span><br><span class="line">                ans++;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    cout &lt;&lt; ans &lt;&lt;endl;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>这边介绍一个算法求最大公约数的<br>辗转相除法<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wyh_ty/article/details/105949789">https://blog.csdn.net/wyh_ty/article/details/105949789</a></p>
-<p><img src="/assets/008-python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20240402204144351.png"><br><img src="/assets/008-python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/image-20240402204157054.png"></p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/004-%E6%97%A2%E7%BA%A6%E5%88%86%E6%95%B0/" data-id="clvs5xbsq008txco9gi09fg15" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/005-%E8%9B%87%E5%BD%A2%E5%A1%AB%E6%95%B0/" data-id="clvs63uo3008m6so9a6458qyr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -120,7 +114,36 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/003-%E9%97%A8%E7%89%8C%E5%88%B6%E4%BD%9C/" data-id="clvs5xbsp008qxco909tr7vug" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/003-%E9%97%A8%E7%89%8C%E5%88%B6%E4%BD%9C/" data-id="clvs63uo2008i6so9gdo1adzu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/蓝桥杯（程序设计算法C++）/001-蓝桥杯资料" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/001-%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%B5%84%E6%96%99/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.302Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.educoder.net/classrooms/hxi6sf2o/attachment/463799">https://www.educoder.net/classrooms/hxi6sf2o/attachment/463799</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/001-%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%B5%84%E6%96%99/" data-id="clvs63uo1008e6so97y3y7pte" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -152,36 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/002-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%97%A5%E6%9C%9F/" data-id="clvs5xbsp008nxco95fum4hri" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/蓝桥杯（程序设计算法C++）/001-蓝桥杯资料" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/001-%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%B5%84%E6%96%99/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:37.302Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://www.educoder.net/classrooms/hxi6sf2o/attachment/463799">https://www.educoder.net/classrooms/hxi6sf2o/attachment/463799</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/001-%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%B5%84%E6%96%99/" data-id="clvs5xbsp008pxco91n9y1bh2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/%E8%93%9D%E6%A1%A5%E6%9D%AF%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95C++%EF%BC%89/002-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%97%A5%E6%9C%9F/" data-id="clvs63uo2008g6so9gn4v8ijs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -209,35 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/046-/" data-id="clvs5xbsp008mxco99og9fhk7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/QT/045-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/045-/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:37.235Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/045-/" data-id="clvs5xbsp008kxco916hxchdi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/046-/" data-id="clvs63un4002s6so968rfgsec" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -265,7 +231,35 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/044-/" data-id="clvs5xbsp008lxco9296s76go" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/044-/" data-id="clvs63un2002l6so9eikh79yg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/QT/045-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/045-/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.235Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/045-/" data-id="clvs63un3002q6so92xt6g3h5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -293,7 +287,35 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/043-/" data-id="clvs5xbso008jxco90q1662rr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/043-/" data-id="clvs63un1002i6so905jnere8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/QT/042-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/042-/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.233Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/042-/" data-id="clvs63un0002g6so9g2oo6wet" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -321,35 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/041-/" data-id="clvs5xbso008exco9ah7y0zll" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/QT/040-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/040-/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:37.233Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/040-/" data-id="clvs5xbso008gxco962we81lc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/QT/041-/" data-id="clvs63un1002k6so9e9xo8on5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

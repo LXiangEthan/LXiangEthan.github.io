@@ -91,55 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/038-MongDB%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/" data-id="clvs5xbu800ipxco96rsl4gqz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/036-express-生成器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/036-express-%E7%94%9F%E6%88%90%E5%99%A8/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.833Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>直接渲染html文件不用渲染ejs文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;)  </span><br><span class="line">const app = express()  </span><br><span class="line">const ejs = require(&quot;ejs&quot;)  </span><br><span class="line">app.use(express.urlencoded(&#123;extended:false&#125;))  </span><br><span class="line">app.use(express.json())  </span><br><span class="line">app.set(&quot;views&quot;,&quot;./views&quot;)  </span><br><span class="line">app.set(&quot;view engine&quot;,&quot;html&quot;)  </span><br><span class="line">app.engine(&quot;html&quot;,ejs.renderFile)//支持直接渲染html文件  </span><br><span class="line">app.get(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.render(&quot;login&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/index&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.render(&quot;index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.post(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    console.log(req.body)  </span><br><span class="line">    res.redirect(&quot;/index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/api&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.json(&#123;a:1,b:2&#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/starter/generator.html">express生成器官网</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7142666525365764104">npx</a>介绍，就是一个集合了下载和运行的工具</p>
-<p>通过应用生成器工具 <code>express-generator</code> 可以快速创建一个应用的骨架。</p>
-<p>你可以通过 <code>npx</code> （包含在 Node.js 8.2.0 及更高版本中）命令来运行 Express 应用程序生成器。</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx express-generator</span><br></pre></td></tr></table></figure>
-
-<p>对于较老的 Node 版本，请通过 npm 将 Express 应用程序生成器安装到全局环境中并使用：</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install -g express-generator</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">express myapp</span></span><br></pre></td></tr></table></figure>
-<p>然后就会出现一个myapp文件夹</p>
-<p>默认是创建的式jade服务器渲染模板的<br>可以使用</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express myapp <span class="literal">--view</span>=ejs</span><br></pre></td></tr></table></figure>
-<p>来创建ejs模板的服务端渲染</p>
-<p>在package.json文件里面可以找到入口模块<br>在使用ejs中，res.render的第二个参数可以不传，直接挂在res.locals下面，这样就默认传参了</p>
-<p>读取前端的cookie值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(req.cookies)</span><br></pre></td></tr></table></figure>
-<p>这样就可以轻松的获取前端的cookie值</p>
-<p>给前端设置cookie</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.cookies(&quot;gender&quot;,&quot;男&quot;)</span><br><span class="line">res.send()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/036-express-%E7%94%9F%E6%88%90%E5%99%A8/" data-id="clvs5xbu700ijxco9estsblzp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/038-MongDB%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/" data-id="clvs63urd00nm6so971q76ayh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -194,7 +146,55 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/" data-id="clvs5xbu700ilxco911wv5qf1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/035-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-2-ejs/" data-id="clvs63urd00nl6so9hvbdbgar" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/036-express-生成器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/036-express-%E7%94%9F%E6%88%90%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.833Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>直接渲染html文件不用渲染ejs文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;)  </span><br><span class="line">const app = express()  </span><br><span class="line">const ejs = require(&quot;ejs&quot;)  </span><br><span class="line">app.use(express.urlencoded(&#123;extended:false&#125;))  </span><br><span class="line">app.use(express.json())  </span><br><span class="line">app.set(&quot;views&quot;,&quot;./views&quot;)  </span><br><span class="line">app.set(&quot;view engine&quot;,&quot;html&quot;)  </span><br><span class="line">app.engine(&quot;html&quot;,ejs.renderFile)//支持直接渲染html文件  </span><br><span class="line">app.get(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.render(&quot;login&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/index&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.render(&quot;index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.post(&quot;/login&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    console.log(req.body)  </span><br><span class="line">    res.redirect(&quot;/index&quot;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.get(&quot;/api&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    res.json(&#123;a:1,b:2&#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/starter/generator.html">express生成器官网</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7142666525365764104">npx</a>介绍，就是一个集合了下载和运行的工具</p>
+<p>通过应用生成器工具 <code>express-generator</code> 可以快速创建一个应用的骨架。</p>
+<p>你可以通过 <code>npx</code> （包含在 Node.js 8.2.0 及更高版本中）命令来运行 Express 应用程序生成器。</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx express-generator</span><br></pre></td></tr></table></figure>
+
+<p>对于较老的 Node 版本，请通过 npm 将 Express 应用程序生成器安装到全局环境中并使用：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install -g express-generator</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">express myapp</span></span><br></pre></td></tr></table></figure>
+<p>然后就会出现一个myapp文件夹</p>
+<p>默认是创建的式jade服务器渲染模板的<br>可以使用</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express myapp <span class="literal">--view</span>=ejs</span><br></pre></td></tr></table></figure>
+<p>来创建ejs模板的服务端渲染</p>
+<p>在package.json文件里面可以找到入口模块<br>在使用ejs中，res.render的第二个参数可以不传，直接挂在res.locals下面，这样就默认传参了</p>
+<p>读取前端的cookie值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(req.cookies)</span><br></pre></td></tr></table></figure>
+<p>这样就可以轻松的获取前端的cookie值</p>
+<p>给前端设置cookie</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.cookies(&quot;gender&quot;,&quot;男&quot;)</span><br><span class="line">res.send()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/036-express-%E7%94%9F%E6%88%90%E5%99%A8/" data-id="clvs63urd00nn6so9dujwemcw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -223,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/034-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-1/" data-id="clvs5xbu700imxco927718wzw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/034-express-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%B2%E6%9F%93-1/" data-id="clvs63urc00nj6so908h40iw7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -253,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/032-express-%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0/" data-id="clvs5xbu700ihxco9hree1gwz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/032-express-%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0/" data-id="clvs63urc00ni6so9hvp6dkjy" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -292,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/033-express-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" data-id="clvs5xbu700ikxco93kxn2c4g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/033-express-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" data-id="clvs63urc00nk6so97k83en4f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -349,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/030-express-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1/" data-id="clvs5xbu700ifxco9hgo9dvuw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/030-express-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1/" data-id="clvs63urc00ng6so9h6cpdck5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -424,7 +424,48 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/031-express-%E4%B8%AD%E9%97%B4%E4%BB%B6/" data-id="clvs5xbu700iixco9774gf11c" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/031-express-%E4%B8%AD%E9%97%B4%E4%BB%B6/" data-id="clvs63urc00nh6so9aspx1k5g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/029-express介绍与安装" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/029-express%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.829Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">https://www.expressjs.com.cn/</a></p>
+</blockquote>
+<p>基于 Node.js 平台，快速、开放、极简的 web 开发框架。</p>
+<h5 id="1-特色"><a href="#1-特色" class="headerlink" title="1.特色"></a>1.特色</h5><p>基于Node.js平台，快速，开放，极简的Web开发框架</p>
+<h5 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
+<p>express有一个项目生成器，但是我们现在不用，我们从0开始搭建express</p>
+<p>express创建服务器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()  </span><br><span class="line"><span class="comment">//这个是个很重要的实例  </span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">&quot;hello world&quot;</span>)  </span><br><span class="line">    res.<span class="title function_">end</span>();  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>get的第一个参数表示，回调函数里面响应的只能是这个路径下</p>
+<p><code>res.send(&quot;hello&quot;)</code>这个方法就是平替write()和end()，把他们统一封装<br>而且res.send()还有个很厉害的方法，它可以自动解析html片段，并且在接口中，可以自动把传入的对象转成json字符串传输，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()  </span><br><span class="line"><span class="comment">//这个是个很重要的实例  </span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">&quot;hello world&quot;</span>)  </span><br><span class="line">    res.<span class="title function_">end</span>();  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">send</span>(&#123;  </span><br><span class="line">        <span class="attr">a</span>:<span class="number">11</span>,  </span><br><span class="line">        <span class="attr">b</span>:<span class="number">2</span>  </span><br><span class="line">    &#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/029-express%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/" data-id="clvs63urc00ne6so91p2ybbxa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -466,48 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/028-%E8%B7%AF%E7%94%B1-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" data-id="clvs5xbu600icxco91kppa4vd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/029-express介绍与安装" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/029-express%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.829Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">https://www.expressjs.com.cn/</a></p>
-</blockquote>
-<p>基于 Node.js 平台，快速、开放、极简的 web 开发框架。</p>
-<h5 id="1-特色"><a href="#1-特色" class="headerlink" title="1.特色"></a>1.特色</h5><p>基于Node.js平台，快速，开放，极简的Web开发框架</p>
-<h5 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
-<p>express有一个项目生成器，但是我们现在不用，我们从0开始搭建express</p>
-<p>express创建服务器：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()  </span><br><span class="line"><span class="comment">//这个是个很重要的实例  </span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">&quot;hello world&quot;</span>)  </span><br><span class="line">    res.<span class="title function_">end</span>();  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>get的第一个参数表示，回调函数里面响应的只能是这个路径下</p>
-<p><code>res.send(&quot;hello&quot;)</code>这个方法就是平替write()和end()，把他们统一封装<br>而且res.send()还有个很厉害的方法，它可以自动解析html片段，并且在接口中，可以自动把传入的对象转成json字符串传输，</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()  </span><br><span class="line"><span class="comment">//这个是个很重要的实例  </span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">&quot;hello world&quot;</span>)  </span><br><span class="line">    res.<span class="title function_">end</span>();  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/login&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    res.<span class="title function_">send</span>(&#123;  </span><br><span class="line">        <span class="attr">a</span>:<span class="number">11</span>,  </span><br><span class="line">        <span class="attr">b</span>:<span class="number">2</span>  </span><br><span class="line">    &#125;)  </span><br><span class="line">&#125;)  </span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/029-express%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85/" data-id="clvs5xbu600iexco9epsbc0gx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/028-%E8%B7%AF%E7%94%B1-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" data-id="clvs63urc00nf6so93lxj4rhx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

@@ -86,7 +86,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/020-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" data-id="clvs5xbtx00gcxco9dj3f0pol" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/020-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" data-id="clvs63ur300lp6so9ewknbtid" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/018-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" data-id="clvs5xbtu00g9xco9gvq9dvvu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/018-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" data-id="clvs63ur300lo6so9adhrdhve" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -146,7 +146,37 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/019-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2/" data-id="clvs5xbtw00gbxco9cz3sf9u2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/019-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2/" data-id="clvs63ur300lq6so93gbdedx3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/016-基础-SQL-DQL-条件查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.231Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/image-20240307193253761.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">=</span><span class="number">20180901</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">&lt;</span><span class="number">20180907</span> <span class="keyword">AND</span> IsBorrow<span class="operator">=</span><span class="string">&#x27;否&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">&lt;=</span><span class="number">20180901</span> <span class="keyword">AND</span> IsBorrow<span class="operator">=</span><span class="string">&#x27;否&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId <span class="keyword">between</span> <span class="number">20180901</span> <span class="keyword">and</span> <span class="number">20180907</span> ;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookType<span class="operator">&lt;&gt;</span><span class="string">&#x27;青春文学&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">in</span> (<span class="string">&#x27;时间简史&#x27;</span>,<span class="string">&#x27;你坏&#x27;</span>);  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">like</span> <span class="string">&#x27;____&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">like</span> <span class="string">&#x27;%国&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" data-id="clvs63ur000ll6so97v88auyf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -178,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/017-%E5%9F%BA%E7%A1%80-SQL-DQL-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" data-id="clvs5xbtu00g8xco9h6r4dyuu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/017-%E5%9F%BA%E7%A1%80-SQL-DQL-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" data-id="clvs63ur100ln6so9gzps5ng2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -190,10 +220,10 @@
 
 
   
-    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/016-基础-SQL-DQL-条件查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/014-DML小结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:39.231Z" itemprop="datePublished">2024-05-04</time>
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/014-DML%E5%B0%8F%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.230Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
   </div>
@@ -202,13 +232,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/image-20240307193253761.png"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">=</span><span class="number">20180901</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">&lt;</span><span class="number">20180907</span> <span class="keyword">AND</span> IsBorrow<span class="operator">=</span><span class="string">&#x27;否&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId<span class="operator">&lt;=</span><span class="number">20180901</span> <span class="keyword">AND</span> IsBorrow<span class="operator">=</span><span class="string">&#x27;否&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookId <span class="keyword">between</span> <span class="number">20180901</span> <span class="keyword">and</span> <span class="number">20180907</span> ;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> BookType<span class="operator">&lt;&gt;</span><span class="string">&#x27;青春文学&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">in</span> (<span class="string">&#x27;时间简史&#x27;</span>,<span class="string">&#x27;你坏&#x27;</span>);  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">like</span> <span class="string">&#x27;____&#x27;</span>;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Book <span class="keyword">where</span> Bookname <span class="keyword">like</span> <span class="string">&#x27;%国&#x27;</span>;</span><br></pre></td></tr></table></figure>
+        <p><img src="/assets/014-DML%E5%B0%8F%E7%BB%93/image-20240229202235227.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/016-%E5%9F%BA%E7%A1%80-SQL-DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" data-id="clvs5xbtw00gaxco9h4oohnoq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/014-DML%E5%B0%8F%E7%BB%93/" data-id="clvs63ur000lk6so9chz2eh66" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -239,67 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/015-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/" data-id="clvs5xbtu00g6xco9aaym6gp1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/014-DML小结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/014-DML%E5%B0%8F%E7%BB%93/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:39.230Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/014-DML%E5%B0%8F%E7%BB%93/image-20240229202235227.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/014-DML%E5%B0%8F%E7%BB%93/" data-id="clvs5xbtu00g7xco9hos6c5fv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/012-基础-SQL-DML-插入" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:39.229Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/image-20240229185643701.png"><br>这里注意字符串和日期要用单引号<br><img src="/assets/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/image-20240229200428655.png"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(id,name,gender,age) <span class="keyword">values</span> (<span class="number">20001</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>), (<span class="number">20005</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">values</span> (<span class="number">20001</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>), (<span class="number">20005</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">user</span>;  </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">value</span>  </span><br><span class="line">    (<span class="number">1000</span>,<span class="string">&#x27;梁响&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;42098210000929091&#x27;</span>),  </span><br><span class="line">    (<span class="number">1001</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">21</span>,<span class="string">&#x27;42098210000929092&#x27;</span>),  </span><br><span class="line">    (<span class="number">1002</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="number">19</span>,<span class="string">&#x27;42098210000929093&#x27;</span>),  </span><br><span class="line">    (<span class="number">1003</span>,<span class="string">&#x27;王五&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">25</span>,<span class="string">&#x27;42098210000929094&#x27;</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/" data-id="clvs5xbtt00g3xco9br6xdd0f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/015-%E5%9F%BA%E7%A1%80-SQL-DQL-%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/" data-id="clvs63ur100lm6so9a3jmccwi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -332,7 +301,38 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/013-%E5%9F%BA%E7%A1%80-SQL-DML-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%88%A0%E9%99%A4/" data-id="clvs5xbtu00g5xco9hpn313np" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/013-%E5%9F%BA%E7%A1%80-SQL-DML-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%88%A0%E9%99%A4/" data-id="clvs63ur000li6so92lgd1tzc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/MySQL/012-基础-SQL-DML-插入" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:39.229Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/image-20240229185643701.png"><br>这里注意字符串和日期要用单引号<br><img src="/assets/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/image-20240229200428655.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(id,name,gender,age) <span class="keyword">values</span> (<span class="number">20001</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>), (<span class="number">20005</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">values</span> (<span class="number">20001</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>), (<span class="number">20005</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">30</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">user</span>;  </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> <span class="keyword">value</span>  </span><br><span class="line">    (<span class="number">1000</span>,<span class="string">&#x27;梁响&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;42098210000929091&#x27;</span>),  </span><br><span class="line">    (<span class="number">1001</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">21</span>,<span class="string">&#x27;42098210000929092&#x27;</span>),  </span><br><span class="line">    (<span class="number">1002</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="number">19</span>,<span class="string">&#x27;42098210000929093&#x27;</span>),  </span><br><span class="line">    (<span class="number">1003</span>,<span class="string">&#x27;王五&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">25</span>,<span class="string">&#x27;42098210000929094&#x27;</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/012-%E5%9F%BA%E7%A1%80-SQL-DML-%E6%8F%92%E5%85%A5/" data-id="clvs63ur000lj6so985dsd357" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -361,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/011-%E5%9F%BA%E7%A1%80-SQL-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7datagrip/" data-id="clvs5xbtt00g2xco96wrubw7r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/MySQL/011-%E5%9F%BA%E7%A1%80-SQL-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7datagrip/" data-id="clvs63ur000lh6so94dd9g8v8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

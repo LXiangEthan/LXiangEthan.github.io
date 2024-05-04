@@ -69,35 +69,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/079-函数重载-注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.273Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/Pasted%20image%2020231007193911.png"><br>1、引用作为函数重载的条件<br>    const int&amp;a和int&amp;a的引用属于类型不同，可以重载，按照传入的是变量还是常量来判断调用那个函数const int&a;作为参数可以直接传入数值，但是int&a;不能<br>2、函数重载梦到默认参数<br>    当函数重载遇到默认参数，会出现二义性，因为默认参数的参数可以不用传值，也可以传值</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="clvs5xbrp003fxco9gfg3a7kb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/078-函数重载-基本语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/078-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
@@ -117,7 +88,36 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/078-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" data-id="clvs5xbrq003hxco94maehzco" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/078-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" data-id="clvs63unf004p6so9b4lzfcim" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/079-函数重载-注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.273Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/Pasted%20image%2020231007193911.png"><br>1、引用作为函数重载的条件<br>    const int&amp;a和int&amp;a的引用属于类型不同，可以重载，按照传入的是变量还是常量来判断调用那个函数const int&a;作为参数可以直接传入数值，但是int&a;不能<br>2、函数重载梦到默认参数<br>    当函数重载遇到默认参数，会出现二义性，因为默认参数的参数可以不用传值，也可以传值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/079-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="clvs63unf004q6so96s3f9zs5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/077-%E5%87%BD%E6%95%B0%E5%8D%A0%E4%BD%8D%E5%8F%82%E6%95%B0/" data-id="clvs5xbrp003exco98lsjg620" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/077-%E5%87%BD%E6%95%B0%E5%8D%A0%E4%BD%8D%E5%8F%82%E6%95%B0/" data-id="clvs63unf004n6so93jargdgs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -181,38 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/076-%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0/" data-id="clvs5xbrq003gxco9guy90o6v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/074-引用的本质" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.269Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/Pasted%20image%2020231007174358.png"><br>引用就相当于指针常量<br>int *const ref &#x3D; &amp;a<br>如果程序内部发现该变量是引用的时候，就会把ref自动转换成*ref<br>指针变量的地址是取不到的</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C++推荐使用引用技术，因为语法方便，引用的本质是指针常量，但是所有的指针操作编译器帮我们做了</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/Pasted%20image%2020231007175418.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/" data-id="clvs5xbrp003cxco9hcg1his1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/076-%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0/" data-id="clvs63unf004o6so946p9buix" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -245,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/075-%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8/" data-id="clvs5xbrp003dxco92knp08nm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/075-%E5%B8%B8%E9%87%8F%E5%BC%95%E7%94%A8/" data-id="clvs63une004k6so90906fmhb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -257,10 +226,10 @@
 
 
   
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/072-引用做函数参数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/074-引用的本质" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.268Z" itemprop="datePublished">2024-05-04</time>
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.269Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
   </div>
@@ -269,14 +238,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/Pasted%20image%2020231007172935.png"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;a,<span class="type">int</span> &amp;b)</span></span>&#123;  </span><br><span class="line"><span class="type">int</span> temp = a;  </span><br><span class="line">a = b;  </span><br><span class="line">b = temp;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="type">int</span> num_1 = <span class="number">7</span>,num_2 = <span class="number">8</span>;  </span><br><span class="line"><span class="built_in">swap</span>(num_1,num_2);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>引用做函数参数可以实现，把实参传入函数，因为引用传入的是原数据，不是重新创建一个形参</p>
+        <p><img src="/assets/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/Pasted%20image%2020231007174358.png"><br>引用就相当于指针常量<br>int *const ref &#x3D; &amp;a<br>如果程序内部发现该变量是引用的时候，就会把ref自动转换成*ref<br>指针变量的地址是取不到的</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C++推荐使用引用技术，因为语法方便，引用的本质是指针常量，但是所有的指针操作编译器帮我们做了</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/Pasted%20image%2020231007175418.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" data-id="clvs5xbrp0039xco9hlr76m7s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/074-%E5%BC%95%E7%94%A8%E7%9A%84%E6%9C%AC%E8%B4%A8/" data-id="clvs63unf004l6so98tvr5fhi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -308,7 +277,38 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/073-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC/" data-id="clvs5xbrp003bxco9d7bn4mhf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/073-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC/" data-id="clvs63une004j6so94w737sgm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/072-引用做函数参数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.268Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/Pasted%20image%2020231007172935.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;a,<span class="type">int</span> &amp;b)</span></span>&#123;  </span><br><span class="line"><span class="type">int</span> temp = a;  </span><br><span class="line">a = b;  </span><br><span class="line">b = temp;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="type">int</span> num_1 = <span class="number">7</span>,num_2 = <span class="number">8</span>;  </span><br><span class="line"><span class="built_in">swap</span>(num_1,num_2);  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>引用做函数参数可以实现，把实参传入函数，因为引用传入的是原数据，不是重新创建一个形参</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/072-%E5%BC%95%E7%94%A8%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" data-id="clvs63unf004m6so95qbsdaws" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -340,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/071-%E5%BC%95%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="clvs5xbro0038xco9d9tuf93u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/071-%E5%BC%95%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="clvs63une004i6so906bud2ng" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -352,9 +352,9 @@
 
 
   
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/070-引用的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/069-new操作符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/070-%E5%BC%95%E7%94%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/" class="article-date">
   <time class="dt-published" datetime="2024-05-04T13:48:36.266Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
@@ -364,14 +364,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/070-%E5%BC%95%E7%94%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/Pasted%20image%2020231006193836.png"><br>基本语法：数据类型 &amp;别名 &#x3D; 原名；<br>给变量起别名</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> &amp;a = b;</span><br></pre></td></tr></table></figure>
-<p>a就是b，b就是a</p>
+        <p><img src="/assets/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/Pasted%20image%2020231006192539.png"><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/haduwi/article/details/105886988">https://blog.csdn.net/haduwi/article/details/105886988</a><br>上面博客是对C语言申请空间介绍</p>
+<hr>
+<p>但是C++中不同<br>new的基本语法：在堆区开辟一段空间<br>new int<br>int*P &#x3D; new int(11);<br>new 返回的是创建数据的指针</p>
+<hr>
+<p>释放堆区数据：堆区的数据由程序员管理释放<br>如果要释放堆区的数据利用关键字delete p;<br>释放空间后的数据再次访问就是非法访问，就会报错</p>
+<hr>
+<p>在堆区利用new开辟一个数组<br>创建10整型的数组，在堆区<br>int *arr &#x3D; new int[10];<br>这个10代表创建一个数组，数组里面有10个元素<br>接下来就可以进行赋值等操作</p>
+<hr>
+<p>释放堆区数组<br>delete[] arr;<br>释放数组的时候需要加上一个中括号</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/070-%E5%BC%95%E7%94%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="clvs5xbro0037xco95hkc5f3h" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/069-new%E6%93%8D%E4%BD%9C%E7%AC%A6/" data-id="clvs63une004f6so95k7t44ra" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

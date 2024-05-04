@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/051-数据容器（序列）的切片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/052-集合的定义与操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87/" class="article-date">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/" class="article-date">
   <time class="dt-published" datetime="2024-05-04T13:48:41.126Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
@@ -81,14 +81,26 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87/image-20240417155338215.png"><br><img src="/assets/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87/image-20240417155358511.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="string">&#x27;hello python&#x27;</span></span><br><span class="line">str1 = <span class="built_in">str</span>[::-<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(str1)<span class="comment"># nohtyp olleh</span></span><br></pre></td></tr></table></figure>
-<p><img src="/assets/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87/image-20240417155923124.png"></p>
+        <p><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417160319021.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_set = <span class="built_in">set</span>()</span><br><span class="line">my_set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(my_set1)</span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br></pre></td></tr></table></figure>
+<p>集合会自动去重，集合是无序的（其实就是set）定义空集合不能用{},因为{}被字典占用了<br><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417160657782.png"><br><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417160755003.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">my_set = <span class="built_in">set</span>()</span><br><span class="line">my_set1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(my_set1)</span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br><span class="line"></span><br><span class="line">my_set.add(<span class="number">99</span>)</span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br><span class="line">my_set.remove(<span class="number">99</span>)</span><br><span class="line"><span class="built_in">print</span>(my_set)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417161040595.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_set1.pop())</span><br><span class="line"><span class="built_in">print</span>(my_set1)</span><br><span class="line"></span><br><span class="line">my_set1.clear()</span><br><span class="line"><span class="built_in">print</span>(my_set1)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417161229658.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sets = my_set1.difference(my_set)</span><br><span class="line"><span class="built_in">print</span>(sets)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417161601589.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_set1.difference_update(my_set)</span><br><span class="line"><span class="built_in">print</span>(my_set1)</span><br></pre></td></tr></table></figure>
+<p>合并</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_set2 = my_set.union(my_set1)</span><br><span class="line"><span class="built_in">print</span>(my_set2)</span><br></pre></td></tr></table></figure>
+<p>计数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(my_set2.count())</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417161938353.png"><br><img src="/assets/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/image-20240417162008461.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/051-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%8F%E5%88%97%EF%BC%89%E7%9A%84%E5%88%87%E7%89%87/" data-id="clvs5xbwu00vyxco99n212ob3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/052-%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%93%8D%E4%BD%9C/" data-id="clvs63upl00bu6so9claj7ljw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -121,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/049-%E5%85%83%E7%BB%84%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E5%AE%9A%E4%B9%89/" data-id="clvs5xbwu00vvxco95pm93xlf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/049-%E5%85%83%E7%BB%84%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E5%AE%9A%E4%B9%89/" data-id="clvs63upk00bq6so9hg5631tj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -154,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/050-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BF%AE%E6%94%B9/" data-id="clvs5xbwu00vwxco9b72gh3s6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/050-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BF%AE%E6%94%B9/" data-id="clvs63upk00bs6so912f34l4j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -195,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/047-%E5%88%97%E8%A1%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" data-id="clvs5xbwt00vrxco9a8bx8hks" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/047-%E5%88%97%E8%A1%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" data-id="clvs63upk00bp6so99jsb6r1a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -225,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/048-%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86/" data-id="clvs5xbwt00vuxco9f38k8zw9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/048-%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86/" data-id="clvs63upk00br6so917d79mzo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -255,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/045-%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95/" data-id="clvs5xbwt00vpxco99krycmtu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/045-%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E8%AF%AD%E6%B3%95/" data-id="clvs63upk00bm6so926bvajp9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -286,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/046-%E5%88%97%E8%A1%A8%E4%B8%8B%E8%A1%A8%E7%B4%A2%E5%BC%95/" data-id="clvs5xbwt00vtxco9d32rhce0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/046-%E5%88%97%E8%A1%A8%E4%B8%8B%E8%A1%A8%E7%B4%A2%E5%BC%95/" data-id="clvs63upk00bo6so9cozg0az8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -318,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/043-%E5%8F%98%E9%87%8F%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" data-id="clvs5xbws00vnxco94o8websy" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/043-%E5%8F%98%E9%87%8F%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" data-id="clvs63upj00bl6so907pzf5dm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -347,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/044-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%E5%85%A5%E9%97%A8/" data-id="clvs5xbwt00vqxco9djavh17r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/044-%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8%E5%85%A5%E9%97%A8/" data-id="clvs63upk00bn6so98n2bbytr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -378,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/041-%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" data-id="clvs5xbws00vmxco9f991hqx3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/041-%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" data-id="clvs63upj00bj6so90qsga0n3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

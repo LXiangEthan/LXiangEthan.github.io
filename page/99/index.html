@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/202-常用遍历算法-for_each" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/203-transform算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/202-%E5%B8%B8%E7%94%A8%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-for_each/" class="article-date">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/203-transform%E7%AE%97%E6%B3%95/" class="article-date">
   <time class="dt-published" datetime="2024-05-04T13:48:36.342Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
@@ -81,72 +81,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/202-%E5%B8%B8%E7%94%A8%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-for_each/Pasted%20image%2020231110131028.png"><br><img src="/assets/202-%E5%B8%B8%E7%94%A8%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-for_each/Pasted%20image%2020231110131137.png"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">printVector</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> v)</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;v&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sprintVector</span><span class="params">(<span class="type">int</span> val)</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;val&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">bool</span>&gt;v;  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line"><span class="comment">// for(vector&lt;bool&gt;::iterator it = v.begin();it!=v.end();it++)&#123;  </span></span><br><span class="line"><span class="comment">// cout&lt;&lt;*it&lt;&lt;&quot; &quot;;  </span></span><br><span class="line"><span class="comment">// &#125;  </span></span><br><span class="line"><span class="comment">// cout&lt;&lt;endl;  </span></span><br><span class="line"><span class="comment">// for_each(v.begin(),v.end(), printVector());//普通函数传函数名  </span></span><br><span class="line">for_each(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(), sprintVector);<span class="comment">//仿函数传函数对象  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总结：普通函数传参要传函数名，仿函数传函数对象</p>
+        <p><img src="/assets/203-transform%E7%AE%97%E6%B3%95/Pasted%20image%2020231111105440.png"><br>在搬运过程中被搬运入的容器必须要有空间，提前开辟空间才能搬入</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Transform</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> val)</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> val;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myPrint</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> val)</span></span>&#123;  </span><br><span class="line">negate&lt;<span class="type">int</span>&gt; n;  </span><br><span class="line">cout&lt;&lt;<span class="built_in">n</span>(val)&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">int</span>&gt;v;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">v.<span class="built_in">push_back</span>(i);  </span><br><span class="line">&#125;  </span><br><span class="line">vector&lt;<span class="type">int</span>&gt;target;  </span><br><span class="line">target.<span class="built_in">resize</span>(<span class="number">10</span>);  </span><br><span class="line"><span class="built_in">transform</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),target.<span class="built_in">begin</span>(),<span class="built_in">Transform</span>());  </span><br><span class="line">for_each(target.<span class="built_in">begin</span>(),target.<span class="built_in">end</span>(),<span class="built_in">myPrint</span>());  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/202-%E5%B8%B8%E7%94%A8%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-for_each/" data-id="clvs5xbsb006pxco97utdetff" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/200-内建函数对象-关系仿函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.341Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/Pasted%20image%2020231109212639.png"><br>sort排序默认就是小于，而greater可以仿函数做参数修改为降序排序，所以greater用的最多</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SoRtt</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> v1&gt;v2;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">int</span>&gt;v;  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">10</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">20</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">30</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">40</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">12</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">23</span>);  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line"><span class="comment">// sort(v.begin(),v.end(),SoRtt());  </span></span><br><span class="line"><span class="built_in">sort</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),<span class="built_in">greater</span>());  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs5xbs9006gxco92r7oflik" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/201-内建函数对象-逻辑仿函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.341Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/Pasted%20image%2020231110125825.png"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">bool</span>&gt;v;  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">bool</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">vector&lt;<span class="type">bool</span>&gt;v1;  </span><br><span class="line">v1.<span class="built_in">resize</span>(v.<span class="built_in">size</span>());  </span><br><span class="line"><span class="comment">//搬运函数transform，三个参数：被搬运容器开始，被搬运容器结束，移入容器开始，逻辑修改仿函数  </span></span><br><span class="line"><span class="built_in">transform</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),v1.<span class="built_in">begin</span>(),<span class="built_in">logical_not</span>());  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">bool</span>&gt;::iterator it = v1.<span class="built_in">begin</span>();it!=v1.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs5xbs9006ixco9d2pb6y1j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/203-transform%E7%AE%97%E6%B3%95/" data-id="clvs63unx007u6so957l7eae9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -176,7 +117,65 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/199-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E7%AE%97%E6%95%B0%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs5xbsa006kxco9anjh8s0l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/199-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E7%AE%97%E6%95%B0%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs63unw007m6so9fzn21ik0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/201-内建函数对象-逻辑仿函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.341Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/Pasted%20image%2020231110125825.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">bool</span>&gt;v;  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">1</span>);  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">bool</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">vector&lt;<span class="type">bool</span>&gt;v1;  </span><br><span class="line">v1.<span class="built_in">resize</span>(v.<span class="built_in">size</span>());  </span><br><span class="line"><span class="comment">//搬运函数transform，三个参数：被搬运容器开始，被搬运容器结束，移入容器开始，逻辑修改仿函数  </span></span><br><span class="line"><span class="built_in">transform</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),v1.<span class="built_in">begin</span>(),<span class="built_in">logical_not</span>());  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">bool</span>&gt;::iterator it = v1.<span class="built_in">begin</span>();it!=v1.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/201-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E9%80%BB%E8%BE%91%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs63unx007q6so94dbu3jxi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/200-内建函数对象-关系仿函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.341Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/Pasted%20image%2020231109212639.png"><br>sort排序默认就是小于，而greater可以仿函数做参数修改为降序排序，所以greater用的最多</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SoRtt</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;  </span><br><span class="line"><span class="keyword">return</span> v1&gt;v2;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">vector&lt;<span class="type">int</span>&gt;v;  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">10</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">20</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">30</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">40</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">12</span>);  </span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">23</span>);  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line"><span class="comment">// sort(v.begin(),v.end(),SoRtt());  </span></span><br><span class="line"><span class="built_in">sort</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),<span class="built_in">greater</span>());  </span><br><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>();it!=v.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/200-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-%E5%85%B3%E7%B3%BB%E4%BB%BF%E5%87%BD%E6%95%B0/" data-id="clvs63unx007t6so95zcgcqqv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -205,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/198-%E8%B0%93%E8%AF%8D-%E4%BA%8C%E5%85%83%E8%B0%93%E8%AF%8D/" data-id="clvs5xbs9006cxco9c7u1bizr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/198-%E8%B0%93%E8%AF%8D-%E4%BA%8C%E5%85%83%E8%B0%93%E8%AF%8D/" data-id="clvs63unx007o6so9dg0qabyh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -235,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/197-%E8%B0%93%E8%AF%8D-%E4%B8%80%E5%85%83%E8%B0%93%E8%AF%8D/" data-id="clvs5xbs9006exco948yrcra5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/197-%E8%B0%93%E8%AF%8D-%E4%B8%80%E5%85%83%E8%B0%93%E8%AF%8D/" data-id="clvs63unx007p6so961v32dqf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -265,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/196-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="clvs5xbs8006axco9dra9dkj6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/196-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" data-id="clvs63unw007j6so92pc0fbvt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -295,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/195-STL%E6%A1%88%E4%BE%8B2-%E5%91%98%E5%B7%A5%E5%88%86%E7%BB%84/" data-id="clvs5xbs9006dxco9g1m4bkt3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/195-STL%E6%A1%88%E4%BE%8B2-%E5%91%98%E5%B7%A5%E5%88%86%E7%BB%84/" data-id="clvs63unw007k6so93xefe62z" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -326,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/194-map%E5%AE%B9%E5%99%A8%E6%8E%92%E5%BA%8F/" data-id="clvs5xbs80069xco99a7hh3r5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/194-map%E5%AE%B9%E5%99%A8%E6%8E%92%E5%BA%8F/" data-id="clvs63unv007g6so9c8nr2zmc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -357,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/193-map%E5%AE%B9%E5%99%A8%E6%9F%A5%E6%89%BE%E5%92%8C%E7%BB%9F%E8%AE%A1/" data-id="clvs5xbs8006bxco9daojcmrj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/193-map%E5%AE%B9%E5%99%A8%E6%9F%A5%E6%89%BE%E5%92%8C%E7%BB%9F%E8%AE%A1/" data-id="clvs63unw007n6so96th3543m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

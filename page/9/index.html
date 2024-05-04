@@ -69,9 +69,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/091-继承的基本语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/092-复写父类成员和调用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8/" class="article-date">
   <time class="dt-published" datetime="2024-05-04T13:48:41.149Z" itemprop="datePublished">2024-05-04</time>
 </a>
     
@@ -81,15 +81,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/image-20240421092338784.png"><br><img src="/assets/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/image-20240421092518640.png"><br><img src="/assets/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/image-20240421092713551.png"><br><img src="/assets/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/image-20240421092919737.png"><br><img src="/assets/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/image-20240421094031807.png"><br>pass关键字在咱们的多继承中就发挥作用了，pass作为一个占位符，如果我们的类不需要再添加其他功能，但是语法要求，我们就可以使用pass关键字来占位</p>
-<p>Python没有函数重载，并且继承过程中，会自动继承下来父类的构造方法和魔术方法</p>
-<p>并且如果多继承继承了多个同名方法，会以左边参数的类为优先</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>:</span><br><span class="line">    __a = <span class="literal">None</span></span><br><span class="line">    __b = <span class="literal">None</span></span><br><span class="line">    __c = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Test</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b,c</span>):</span><br><span class="line">        self.__a = a</span><br><span class="line">        self.__b = b</span><br><span class="line">        self.__c = c</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;a=<span class="subst">&#123;self.__a&#125;</span>,b=<span class="subst">&#123;self.__b&#125;</span>,c=<span class="subst">&#123;self.__c&#125;</span>&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a &lt; other.__a</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__le__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a &lt;= other.__a </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__eq__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a == other.__a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">my_Clock</span>(<span class="title class_ inherited__">Clock</span>):</span><br><span class="line">    my_Test = <span class="number">100</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b,c</span>):</span><br><span class="line">        self.__a = a</span><br><span class="line">        self.__b = b</span><br><span class="line">        self.__c = c</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">this_Clock</span>(my_Clock,Clock):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">c = Clock(<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>)</span><br><span class="line">a = Clock(<span class="number">99</span>,<span class="number">22</span>,<span class="number">33</span>)</span><br><span class="line"><span class="built_in">print</span>(this_Clock().my_Test)</span><br><span class="line"><span class="comment"># 这里出现报错，因为我们使用了封装把成员私有了，同样的成员方法我们也可以封装私有</span></span><br></pre></td></tr></table></figure>
+        <p><img src="/assets/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8/image-20240421094157604.png"><br>Python中继承子类会自动继承构造方法和魔术方法<br><img src="/assets/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8/image-20240421095140369.png"><br>在Python中我们可以使用父类名称或者super关键字来实现对父类方法的访问</p>
+<p>同样的父类方法重写后只能在子类中调用外部无法调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>:</span><br><span class="line">    __a = <span class="literal">None</span></span><br><span class="line">    __b = <span class="literal">None</span></span><br><span class="line">    __c = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">Test</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b,c</span>):</span><br><span class="line">        self.__a = a</span><br><span class="line">        self.__b = b</span><br><span class="line">        self.__c = c</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;a=<span class="subst">&#123;self.__a&#125;</span>,b=<span class="subst">&#123;self.__b&#125;</span>,c=<span class="subst">&#123;self.__c&#125;</span>&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a &lt; other.__a</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__le__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a &lt;= other.__a </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__eq__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="keyword">return</span> self.__a == other.__a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">my_Clock</span>(<span class="title class_ inherited__">Clock</span>):</span><br><span class="line">    my_Test = <span class="number">100</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,a,b,c</span>):</span><br><span class="line">        self.__a = a</span><br><span class="line">        self.__b = b</span><br><span class="line">        self.__c = c</span><br><span class="line">        Clock.Test(self)</span><br><span class="line">        <span class="built_in">super</span>().Test()</span><br><span class="line"></span><br><span class="line">c = my_Clock()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8/image-20240421100008697.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/091-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" data-id="clvs5xbx100x1xco9dhs6gtjc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/092-%E5%A4%8D%E5%86%99%E7%88%B6%E7%B1%BB%E6%88%90%E5%91%98%E5%92%8C%E8%B0%83%E7%94%A8/" data-id="clvs63upq00cy6so9ezh15u7i" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -120,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/089-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/" data-id="clvs5xbx000wxxco9drgn8q2a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/089-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/" data-id="clvs63upq00cu6so975hq0afj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -151,37 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/090-%E5%B0%81%E8%A3%85/" data-id="clvs5xbx000wzxco9735h4oyq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/087-类和对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:41.147Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192816677.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192848756.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192906864.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192936720.png"></p>
-<p><a href="../../Omnivore/2024-04-27/java%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6.md">面向对象的三大基本特征和五大基本原则 - 个人文章 - SegmentFault 思否</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" data-id="clvs5xbwz00wvxco99ronbl7o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/090-%E5%B0%81%E8%A3%85/" data-id="clvs63upq00cw6so99hdq8lq5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -212,7 +182,37 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/088-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" data-id="clvs5xbx000wyxco9azgk30p4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/088-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" data-id="clvs63upq00ct6so95at51pht" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(深度学习+python基础)/python基础/087-类和对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:41.147Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192816677.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192848756.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192906864.png"><br><img src="/assets/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/image-20240420192936720.png"></p>
+<p><a href="../../Omnivore/2024-04-27/java%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6.md">面向对象的三大基本特征和五大基本原则 - 个人文章 - SegmentFault 思否</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/087-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" data-id="clvs63upq00cv6so99adv2oyj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -242,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/085-%E5%88%9D%E8%AF%86%E5%AF%B9%E8%B1%A1/" data-id="clvs5xbwz00wuxco959xmbact" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/085-%E5%88%9D%E8%AF%86%E5%AF%B9%E8%B1%A1/" data-id="clvs63upp00cr6so98d4y1bv9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -272,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/086-%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8/" data-id="clvs5xbx000wwxco9erza8h7b" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/086-%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8/" data-id="clvs63upq00cs6so9aou93qis" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -303,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/084-%E5%8A%A8%E6%80%81%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6/" data-id="clvs5xbx100x2xco91cjt90nx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/084-%E5%8A%A8%E6%80%81%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6/" data-id="clvs63upp00cq6so95vkt1eym" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -337,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/083-%E5%9F%BA%E7%A1%80%E6%97%B6%E9%97%B4%E7%BA%BF%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6/" data-id="clvs5xbwy00wrxco97k30afc3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/083-%E5%9F%BA%E7%A1%80%E6%97%B6%E9%97%B4%E7%BA%BF%E6%9F%B1%E7%8A%B6%E5%9B%BE%E7%BB%98%E5%88%B6/" data-id="clvs63upp00co6so9epf43x9v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -368,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/082-%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%9E%84%E5%BB%BA/" data-id="clvs5xbwz00wsxco9bvcq34j8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/python%E5%9F%BA%E7%A1%80/082-%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%9E%84%E5%BB%BA/" data-id="clvs63upp00cp6so9dabthhgl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

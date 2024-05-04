@@ -87,7 +87,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/182-set%E5%AE%B9%E5%99%A8%E6%9E%84%E9%80%A0%E5%92%8C%E8%B5%8B%E5%80%BC/" data-id="clvs5xbs7005zxco9bphyeppb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/182-set%E5%AE%B9%E5%99%A8%E6%9E%84%E9%80%A0%E5%92%8C%E8%B5%8B%E5%80%BC/" data-id="clvs63unu00786so9cinfegc2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -118,38 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/181-list%E5%AE%B9%E5%99%A8%E6%8E%92%E5%BA%8F%E6%A1%88%E4%BE%8B/" data-id="clvs5xbs6005wxco99erc4h5u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/179-list容器-数据存取" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.330Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/Pasted%20image%2020231108152429.png"><br>list不能直接通过at和中括号访问–list本质是个链表，不是连续的线性空间存储数据</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;list&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printList</span><span class="params">(list&lt;<span class="type">int</span>&gt;l)</span></span>&#123;  </span><br><span class="line"><span class="keyword">for</span>(list&lt;<span class="type">int</span>&gt;::const_iterator it = l.<span class="built_in">begin</span>();it != l.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">list&lt;<span class="type">int</span>&gt;l;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">l.<span class="built_in">push_back</span>(i);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">printList</span>(l);  </span><br><span class="line">cout&lt;&lt;l.<span class="built_in">front</span>()&lt;&lt;endl;  </span><br><span class="line">cout&lt;&lt;l.<span class="built_in">back</span>()&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//验证迭代器随机访问  </span></span><br><span class="line">list&lt;<span class="type">int</span>&gt;::iterator it = l.<span class="built_in">begin</span>();  </span><br><span class="line">it++;  </span><br><span class="line"><span class="comment">//这里只能++/--不能+1/-1，+=1/-=1，支持双向  </span></span><br><span class="line">cout&lt;&lt;*it&lt;&lt;endl;  </span><br><span class="line">it--;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/Pasted%20image%2020231108153815.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/" data-id="clvs5xbs6005uxco9556vfqiz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/181-list%E5%AE%B9%E5%99%A8%E6%8E%92%E5%BA%8F%E6%A1%88%E4%BE%8B/" data-id="clvs63unu007a6so92ve78yq3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -182,7 +151,38 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/180-list%E5%AE%B9%E5%99%A8%E5%8F%8D%E8%BD%AC%E5%92%8C%E6%8E%92%E5%BA%8F/" data-id="clvs5xbs6005vxco9b3qq716u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/180-list%E5%AE%B9%E5%99%A8%E5%8F%8D%E8%BD%AC%E5%92%8C%E6%8E%92%E5%BA%8F/" data-id="clvs63unu00756so99onfgv3f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/179-list容器-数据存取" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.330Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/Pasted%20image%2020231108152429.png"><br>list不能直接通过at和中括号访问–list本质是个链表，不是连续的线性空间存储数据</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;list&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printList</span><span class="params">(list&lt;<span class="type">int</span>&gt;l)</span></span>&#123;  </span><br><span class="line"><span class="keyword">for</span>(list&lt;<span class="type">int</span>&gt;::const_iterator it = l.<span class="built_in">begin</span>();it != l.<span class="built_in">end</span>();it++)&#123;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">cout&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;  </span><br><span class="line">list&lt;<span class="type">int</span>&gt;l;  </span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;  </span><br><span class="line">l.<span class="built_in">push_back</span>(i);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">printList</span>(l);  </span><br><span class="line">cout&lt;&lt;l.<span class="built_in">front</span>()&lt;&lt;endl;  </span><br><span class="line">cout&lt;&lt;l.<span class="built_in">back</span>()&lt;&lt;endl;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//验证迭代器随机访问  </span></span><br><span class="line">list&lt;<span class="type">int</span>&gt;::iterator it = l.<span class="built_in">begin</span>();  </span><br><span class="line">it++;  </span><br><span class="line"><span class="comment">//这里只能++/--不能+1/-1，+=1/-=1，支持双向  </span></span><br><span class="line">cout&lt;&lt;*it&lt;&lt;endl;  </span><br><span class="line">it--;  </span><br><span class="line">cout&lt;&lt;*it&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/Pasted%20image%2020231108153815.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/179-list%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/" data-id="clvs63unu00766so9bevda41a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -213,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/178-list%E5%AE%B9%E5%99%A8-%E6%8F%92%E5%85%A5%E5%92%8C%E5%88%A0%E9%99%A4/" data-id="clvs5xbs5005sxco99nkk0hvg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/178-list%E5%AE%B9%E5%99%A8-%E6%8F%92%E5%85%A5%E5%92%8C%E5%88%A0%E9%99%A4/" data-id="clvs63unt00726so9htta8xa0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -242,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/177-list%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F%E6%93%8D%E4%BD%9C/" data-id="clvs5xbs5005pxco958715aq1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/177-list%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F%E6%93%8D%E4%BD%9C/" data-id="clvs63unt00716so956nn03jw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -272,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/176-list%E5%AE%B9%E5%99%A8%E8%B5%8B%E5%80%BC%E5%92%8C%E4%BA%A4%E6%8D%A2/" data-id="clvs5xbs70060xco97m16emm2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/176-list%E5%AE%B9%E5%99%A8%E8%B5%8B%E5%80%BC%E5%92%8C%E4%BA%A4%E6%8D%A2/" data-id="clvs63unt00746so94r5235ak" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -302,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/175-list%E5%AE%B9%E5%99%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" data-id="clvs5xbs5005qxco95dg79sfo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/175-list%E5%AE%B9%E5%99%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" data-id="clvs63unt006z6so91pd2gx9j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -331,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/174-list%E5%AE%B9%E5%99%A8/" data-id="clvs5xbs6005xxco99b1094zb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/174-list%E5%AE%B9%E5%99%A8/" data-id="clvs63unt00736so9fkxf8p8a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -360,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/172-queue%E5%AE%B9%E5%99%A8/" data-id="clvs5xbs5005oxco9cusc4wjl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/172-queue%E5%AE%B9%E5%99%A8/" data-id="clvs63uns006y6so9229xemu1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

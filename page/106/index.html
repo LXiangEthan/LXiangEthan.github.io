@@ -69,6 +69,36 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/126-二进制文件-读文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.299Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/Pasted%20image%2020231027110154.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">person</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="type">char</span> name[<span class="number">1024</span>];  </span><br><span class="line"><span class="type">int</span> age;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="function">fstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;F:\\code\\untitled7\\test.txt&quot;</span>,ios::in | ios::binary)</span></span>;  </span><br><span class="line"><span class="comment">// ifs.open(&quot;F:\\code\\untitled7\\test.txt&quot;,ios::out | ios::binary);  </span></span><br><span class="line"><span class="keyword">if</span>(ifs.<span class="built_in">is_open</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;文件打开成功&quot;</span>&lt;&lt;endl;  </span><br><span class="line">person p;  </span><br><span class="line">ifs.<span class="built_in">read</span>((<span class="type">char</span> *)&amp;p, <span class="built_in">sizeof</span>(person));  </span><br><span class="line">cout&lt;&lt;p.name&lt;&lt;p.age&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;文件打开失败&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">ifs.<span class="built_in">close</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/" data-id="clvs63unm005t6so9g5d7anu1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/125-二进制文件-写文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/125-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E5%86%99%E6%96%87%E4%BB%B6/" class="article-date">
@@ -88,37 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/125-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E5%86%99%E6%96%87%E4%BB%B6/" data-id="clvs5xbrx004kxco9f6blfbig" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/126-二进制文件-读文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.299Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/Pasted%20image%2020231027110154.png"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">person</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="type">char</span> name[<span class="number">1024</span>];  </span><br><span class="line"><span class="type">int</span> age;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="function">fstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;F:\\code\\untitled7\\test.txt&quot;</span>,ios::in | ios::binary)</span></span>;  </span><br><span class="line"><span class="comment">// ifs.open(&quot;F:\\code\\untitled7\\test.txt&quot;,ios::out | ios::binary);  </span></span><br><span class="line"><span class="keyword">if</span>(ifs.<span class="built_in">is_open</span>())&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;文件打开成功&quot;</span>&lt;&lt;endl;  </span><br><span class="line">person p;  </span><br><span class="line">ifs.<span class="built_in">read</span>((<span class="type">char</span> *)&amp;p, <span class="built_in">sizeof</span>(person));  </span><br><span class="line">cout&lt;&lt;p.name&lt;&lt;p.age&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;文件打开失败&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">ifs.<span class="built_in">close</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/126-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E8%AF%BB%E6%96%87%E4%BB%B6/" data-id="clvs5xbrx004lxco95vxvghui" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/125-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6-%E5%86%99%E6%96%87%E4%BB%B6/" data-id="clvs63unm005v6so954j01erg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/122-%E6%A1%88%E4%BE%8B-%E7%94%B5%E8%84%91%E7%BB%84%E8%A3%85/" data-id="clvs5xbrx004gxco994oo2sdn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/122-%E6%A1%88%E4%BE%8B-%E7%94%B5%E8%84%91%E7%BB%84%E8%A3%85/" data-id="clvs63unm005s6so937e7a4s9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -177,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/120-%E6%A1%88%E4%BE%8B2-%E5%88%B6%E4%BD%9C%E9%A5%AE%E5%93%81/" data-id="clvs5xbrx004jxco92sbpbmse" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/120-%E6%A1%88%E4%BE%8B2-%E5%88%B6%E4%BD%9C%E9%A5%AE%E5%93%81/" data-id="clvs63unl005r6so98pjpaeaw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -210,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/118-%E5%A4%9A%E6%80%81%E6%A1%88%E4%BE%8B/" data-id="clvs5xbrx004hxco9a3j9fewd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/118-%E5%A4%9A%E6%80%81%E6%A1%88%E4%BE%8B/" data-id="clvs63unl005o6so9gsp02of1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -242,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/119-%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" data-id="clvs5xbrx004ixco91nh23gfv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/119-%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" data-id="clvs63unl005q6so92jty0v6i" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -275,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/116-%E5%A4%9A%E6%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" data-id="clvs5xbrw004exco92yb2bhd0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/116-%E5%A4%9A%E6%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" data-id="clvs63unk005l6so94dk7ccxg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -304,7 +304,38 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/117-%E5%A4%9A%E6%80%81%E7%9A%84%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90/" data-id="clvs5xbrw004fxco9du5ras0q" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/117-%E5%A4%9A%E6%80%81%E7%9A%84%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90/" data-id="clvs63unl005p6so9hmq33mbx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/115-菱形继承问题以及解决方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/115-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:36.293Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/115-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/Pasted%20image%2020231024205735.png"><br><img src="/assets/115-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/Pasted%20image%2020231024205923.png"><br>1、继承两个同名成员产生的二义性问题<br>2、继承来自羊和驼的相同成员羊驼类继承了两次，其实继承一次就够用了</p>
+<p>第一个问题可以通过添加作用域解决，第二个问题可以通过虚继承来解决<br>虚继承：在继承之前加上关键字<code>virtual</code>，被继承的类叫虚基类，虚继承来自父类的成员只有一个了<br>vbptr:虚基类指针（virtual  base  pointer ）这个指针指向vbtable（virtual base table）虚基表，我们的羊驼继承的就是这样的一个指针,而不是羊类和驼类里面的成员，继承的两个指针，根据这两个指针和偏移量，就找到了来自动物类里面的成员</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="comment">//菱形继承  </span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>&#123;<span class="comment">//动物类  </span></span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="type">int</span> age;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Sheep</span> : <span class="keyword">public</span> <span class="keyword">virtual</span> Animal&#123;<span class="comment">//羊类  </span></span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Camel</span> : <span class="keyword">public</span> <span class="keyword">virtual</span> Animal&#123;<span class="comment">//驼类  </span></span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Alpaca</span> : <span class="keyword">public</span> Sheep,<span class="keyword">public</span> Camel&#123;<span class="comment">//羊驼类  </span></span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">Alpaca s;  </span><br><span class="line">s.Sheep::age = <span class="number">18</span>;  </span><br><span class="line">s.Camel::age = <span class="number">20</span>;  </span><br><span class="line">cout&lt;&lt;s.Sheep::age&lt;&lt;endl&lt;&lt;s.Camel::age&lt;&lt;endl;  </span><br><span class="line"><span class="comment">//这样就解决了二义性  </span></span><br><span class="line"><span class="comment">//但是这个数据我们只需要一份就够了，继承两份造成了资源浪费  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/115-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" data-id="clvs63unk005k6so980bc445y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -336,38 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/114-%E5%A4%9A%E7%BB%A7%E6%89%BF%E8%AF%AD%E6%B3%95/" data-id="clvs5xbrv0049xco9544d64o2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(Cplusplus)/C++学习/113-继承同名静态成员处理方式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/113-%E7%BB%A7%E6%89%BF%E5%90%8C%E5%90%8D%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:36.293Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/113-%E7%BB%A7%E6%89%BF%E5%90%8C%E5%90%8D%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/Pasted%20image%2020231024203104.png"><br>静态成员的处理和非静态成员基本相同<br>静态成员有两种访问方式：对象名 . 成员，类名: :成员</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="built_in">Base</span>()&#123;  </span><br><span class="line">myA = <span class="number">100</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="type">static</span> <span class="type">int</span> myA;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="type">static</span> <span class="title">func</span><span class="params">()</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Base下的成员函数调用&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="type">static</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a)</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Base下的成员函数调用&quot;</span>&lt;&lt;a&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Son</span> : <span class="keyword">public</span> Base&#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line"><span class="built_in">Son</span>()&#123;  </span><br><span class="line">myB = <span class="number">100</span>;  </span><br><span class="line">myA = <span class="number">900</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="type">static</span> <span class="title">func</span><span class="params">()</span></span>&#123;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Son下的成员函数调用&quot;</span>&lt;&lt;endl;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="type">static</span> <span class="type">int</span> myB;  </span><br><span class="line"><span class="type">static</span> <span class="type">int</span> myA;  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">Son S;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Son下的myA是&quot;</span>&lt;&lt;S.myA&lt;&lt;endl;  </span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Base下的myA是&quot;</span>&lt;&lt;S.Base::myA&lt;&lt;endl;  </span><br><span class="line">Son::<span class="built_in">func</span>();  </span><br><span class="line">Son::Base::<span class="built_in">func</span>();  </span><br><span class="line">Son::Base::<span class="built_in">func</span>(<span class="number">10</span>);  </span><br><span class="line"><span class="comment">//第一个双冒号就是通过类名访问，第二个双冒号是通过子类访问父类变量  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;chcp 65001&quot;</span>);  </span><br><span class="line"><span class="built_in">test</span>();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总结：同名静态成员处理方式和非静态处理方式一样，只不过有两种访问方式</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/113-%E7%BB%A7%E6%89%BF%E5%90%8C%E5%90%8D%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" data-id="clvs5xbrw004cxco99p4m7rgi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(Cplusplus)/C++%E5%AD%A6%E4%B9%A0/114-%E5%A4%9A%E7%BB%A7%E6%89%BF%E8%AF%AD%E6%B3%95/" data-id="clvs63unl005m6so989atb0gl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

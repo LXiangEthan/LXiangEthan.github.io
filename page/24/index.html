@@ -69,42 +69,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/016-内置模块-http模块-cors" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/016-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-cors/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.820Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>解决跨域的解决方案：<br>cors<br>jsonp<br>前端配置反向代理<br>这里我们讲cors解决方案，在响应头上加</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;application/json;charset=utf-8&quot;</span>,  </span><br><span class="line"><span class="comment">//cors头  </span></span><br><span class="line"><span class="string">&quot;access-control-allow-origin&quot;</span>:<span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
-<p>这样就配置好lcors，允许跨域</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&quot;http&quot;)  </span><br><span class="line">const returnJsonp = require(&quot;./module/returnJsonp&quot;)  </span><br><span class="line">const renderSTATUS = require(&quot;./module/renderSTATUS&quot;)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">let server = http.createServer()  </span><br><span class="line">  </span><br><span class="line">server.on(&quot;request&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    let myUrl = new URL(req.url,&quot;http://localhost:3000&quot;)  </span><br><span class="line">    console.log(myUrl)  </span><br><span class="line">    res.writeHead(renderSTATUS(myUrl.pathname),&#123;  </span><br><span class="line">        &quot;Content-Type&quot;:&quot;application/json;charset=utf-8&quot;,  </span><br><span class="line">        //cors头  </span><br><span class="line">        &quot;access-control-allow-origin&quot;:&quot;*&quot;  </span><br><span class="line">    &#125;)  </span><br><span class="line">    let callback = myUrl.searchParams.get(&#x27;callback&#x27;)  </span><br><span class="line">    res.write(returnJsonp(myUrl.pathname,callback))  </span><br><span class="line">    res.end()  </span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">server.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">fetch</span>(<span class="string">&quot;http://localhost:3000/api/hello&quot;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;  </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> res.<span class="title function_">json</span>()  </span></span><br><span class="line"><span class="language-javascript">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;  </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res)  </span></span><br><span class="line"><span class="language-javascript">    &#125;)  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>CORS模块在express再讲</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/016-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-cors/" data-id="clvs5xbu500i2xco90592duse" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/017-内置模块-http模块-get" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/017-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-get/" class="article-date">
@@ -136,7 +100,118 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/017-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-get/" data-id="clvs5xbu500i4xco944jx2wc8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/017-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-get/" data-id="clvs63ura00n06so97i3c4wyg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/016-内置模块-http模块-cors" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/016-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-cors/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.820Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>解决跨域的解决方案：<br>cors<br>jsonp<br>前端配置反向代理<br>这里我们讲cors解决方案，在响应头上加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;application/json;charset=utf-8&quot;</span>,  </span><br><span class="line"><span class="comment">//cors头  </span></span><br><span class="line"><span class="string">&quot;access-control-allow-origin&quot;</span>:<span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这样就配置好lcors，允许跨域</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&quot;http&quot;)  </span><br><span class="line">const returnJsonp = require(&quot;./module/returnJsonp&quot;)  </span><br><span class="line">const renderSTATUS = require(&quot;./module/renderSTATUS&quot;)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">let server = http.createServer()  </span><br><span class="line">  </span><br><span class="line">server.on(&quot;request&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    let myUrl = new URL(req.url,&quot;http://localhost:3000&quot;)  </span><br><span class="line">    console.log(myUrl)  </span><br><span class="line">    res.writeHead(renderSTATUS(myUrl.pathname),&#123;  </span><br><span class="line">        &quot;Content-Type&quot;:&quot;application/json;charset=utf-8&quot;,  </span><br><span class="line">        //cors头  </span><br><span class="line">        &quot;access-control-allow-origin&quot;:&quot;*&quot;  </span><br><span class="line">    &#125;)  </span><br><span class="line">    let callback = myUrl.searchParams.get(&#x27;callback&#x27;)  </span><br><span class="line">    res.write(returnJsonp(myUrl.pathname,callback))  </span><br><span class="line">    res.end()  </span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">server.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">fetch</span>(<span class="string">&quot;http://localhost:3000/api/hello&quot;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;  </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> res.<span class="title function_">json</span>()  </span></span><br><span class="line"><span class="language-javascript">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;  </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res)  </span></span><br><span class="line"><span class="language-javascript">    &#125;)  </span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>CORS模块在express再讲</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/016-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-cors/" data-id="clvs63ura00n26so93qktbswb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/014-内置模块-querystring模块" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.819Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>03.1 parse</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> qs = <span class="string">&#x27;x=3&amp;y=4&#x27;</span></span><br><span class="line"><span class="keyword">var</span> parsed = querystring.<span class="title function_">parse</span>(qs)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(parsed)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>querystring可以直接解析地址栏信息上的name&#x3D;liangxiang信息转成对象{name:”liangxiang”}</p>
+<p><strong>03.2 stringify</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> qo = &#123;</span><br><span class="line">  <span class="attr">x</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">y</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> parsed = querystring.<span class="title function_">stringify</span>(qo)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(parsed)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>stringify就是对象转换成字符串</p>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> query = querystring.<span class="title function_">parse</span>(<span class="string">&quot;name=liangxiang&amp;age=19&quot;</span>)  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(querystring.<span class="title function_">stringify</span>(query))</span><br></pre></td></tr></table></figure>
+<hr>
+<p>escape&#x2F;unescape分别是转义编码url格式，解码url格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;id=3&amp;city=北京&amp;url=https://www.baidu.com&#x27;</span></span><br><span class="line"><span class="keyword">var</span> escaped = querystring.<span class="built_in">escape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(escaped)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;id%3D3%26city%3D%E5%8C%97%E4%BA%AC%26url%3Dhttps%3A%2F%2Fwww.baidu.com&#x27;</span></span><br><span class="line"><span class="keyword">var</span> unescaped = querystring.<span class="built_in">unescape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(unescaped)</span><br></pre></td></tr></table></figure>
+<p>还可以用来转义，当我们前端传回来的一些信息类似sql语句，如果不转义，很有可能会出现危险，防止sql注入<br><img src="/assets/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/image-20231208133105064.png"></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&quot;http&quot;)  </span><br><span class="line">const renderSTATUS = require(&quot;./module/renderSTATUS&quot;)  </span><br><span class="line">const renderHTML = require(&quot;./module/renderHTML&quot;)  </span><br><span class="line">const querystring = require(&quot;querystring&quot;)  </span><br><span class="line">const url = require(&quot;url&quot;)  </span><br><span class="line">let server = http.createServer()  </span><br><span class="line">server.on(&quot;request&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    const myUrl = new URL(req.url,&quot;http://localhost:3000&quot;)  </span><br><span class="line">    let query = querystring.parse(&quot;name=liangxiang&amp;age=19&quot;)  </span><br><span class="line">    console.log(query)//[Object: null prototype] &#123; name: &#x27;liangxiang&#x27;, age: &#x27;19&#x27; &#125;  </span><br><span class="line">    console.log(querystring.stringify(query))//name=liangxiang&amp;age=19  </span><br><span class="line">    console.log(querystring.escape(myUrl.pathname))//%2Fhome  </span><br><span class="line">    console.log(querystring.unescape(myUrl.pathname))// /home  </span><br><span class="line">    res.writeHead(renderSTATUS(myUrl.pathname),&#123;&quot;Content-Type&quot;:&quot;text/html;charset=utf8&quot;&#125;)  </span><br><span class="line">    res.write(renderHTML(myUrl.pathname))  </span><br><span class="line">    res.end()  </span><br><span class="line">&#125;)  </span><br><span class="line">server.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/" data-id="clvs63ur900my6so92viha7en" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/015-内置模块-http模块-jsonp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/015-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-jsonp/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.819Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> returnJsonp = <span class="built_in">require</span>(<span class="string">&quot;./module/returnJsonp&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> renderSTATUS = <span class="built_in">require</span>(<span class="string">&quot;./module/renderSTATUS&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">let</span> server = http.<span class="title function_">createServer</span>()  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    <span class="keyword">let</span> myUrl = <span class="keyword">new</span> <span class="title function_">URL</span>(req.<span class="property">url</span>,<span class="string">&quot;http://localhost:3000&quot;</span>)  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(myUrl)  </span><br><span class="line">    res.<span class="title function_">writeHead</span>(<span class="title function_">renderSTATUS</span>(myUrl.<span class="property">pathname</span>),&#123;<span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;text/html;charset=utf8&quot;</span>&#125;)  </span><br><span class="line">    <span class="keyword">let</span> callback = myUrl.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;callback&#x27;</span>)  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="title function_">returnJsonp</span>(myUrl.<span class="property">pathname</span>,callback))  </span><br><span class="line">    res.<span class="title function_">end</span>()  </span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">returnJsonp</span>(<span class="params">url,callback</span>)&#123;  </span><br><span class="line">    <span class="keyword">switch</span>(url)&#123;  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/home&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            &lt;!DOCTYPE html&gt;  </span></span><br><span class="line"><span class="string">			&lt;html lang=&quot;en&quot;&gt;  </span></span><br><span class="line"><span class="string">			&lt;head&gt;  </span></span><br><span class="line"><span class="string">    &lt;meta charset=&quot;UTF-8&quot;&gt;  </span></span><br><span class="line"><span class="string">    &lt;title&gt;Title&lt;/title&gt;  </span></span><br><span class="line"><span class="string">			&lt;/head&gt;  </span></span><br><span class="line"><span class="string">			&lt;body&gt;  </span></span><br><span class="line"><span class="string">			&lt;script&gt;  </span></span><br><span class="line"><span class="string">			var sc = document.createElement(&quot;script&quot;)  </span></span><br><span class="line"><span class="string">			sc.src = &quot;http://localhost:3000/api/jsonp?callback=hello&quot;  </span></span><br><span class="line"><span class="string">			document.body.appendChild(sc)  </span></span><br><span class="line"><span class="string">			function hello(res)&#123;  </span></span><br><span class="line"><span class="string">			    console.log(res)  </span></span><br><span class="line"><span class="string">			&#125;  </span></span><br><span class="line"><span class="string">			&lt;/script&gt;  </span></span><br><span class="line"><span class="string">			&lt;/body&gt;  </span></span><br><span class="line"><span class="string">			&lt;/html&gt;  </span></span><br><span class="line"><span class="string">            `</span>  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/list&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&lt;h1&gt;list页面&lt;/h1&gt;&quot;</span>  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/api/list&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]`</span>        </span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;/api/home&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            &#123;&quot;a&quot;:&quot;111&quot;,&quot;b&quot;:&quot;222&quot;,&quot;c&quot;:&quot;333&quot;&#125;`</span>        </span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;/api/jsonp&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;callback&#125;</span>(<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(&#123;  </span></span></span><br><span class="line"><span class="subst"><span class="string">            <span class="string">&quot;a&quot;</span>:<span class="string">&quot;111&quot;</span>,<span class="string">&quot;b&quot;</span>:<span class="string">&quot;222&quot;</span>,<span class="string">&quot;c&quot;</span>:<span class="string">&quot;333&quot;</span>  </span></span></span><br><span class="line"><span class="subst"><span class="string">            &#125;)&#125;</span>)  </span></span><br><span class="line"><span class="string">            `</span>        <span class="attr">default</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&lt;h1&gt;404&lt;/h1&gt;&quot;</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = returnJsonp</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/015-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-jsonp/" data-id="clvs63ur900mz6so981eiaimi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -188,82 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/013-url%E6%A8%A1%E6%9D%BF%E6%96%B0%E7%89%88%E7%94%A8%E6%B3%95/" data-id="clvs5xbu400hxxco90xbbdsv5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/014-内置模块-querystring模块" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.819Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>03.1 parse</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> qs = <span class="string">&#x27;x=3&amp;y=4&#x27;</span></span><br><span class="line"><span class="keyword">var</span> parsed = querystring.<span class="title function_">parse</span>(qs)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(parsed)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>querystring可以直接解析地址栏信息上的name&#x3D;liangxiang信息转成对象{name:”liangxiang”}</p>
-<p><strong>03.2 stringify</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> qo = &#123;</span><br><span class="line">  <span class="attr">x</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">y</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> parsed = querystring.<span class="title function_">stringify</span>(qo)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(parsed)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>stringify就是对象转换成字符串</p>
-<hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> query = querystring.<span class="title function_">parse</span>(<span class="string">&quot;name=liangxiang&amp;age=19&quot;</span>)  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(querystring.<span class="title function_">stringify</span>(query))</span><br></pre></td></tr></table></figure>
-<hr>
-<p>escape&#x2F;unescape分别是转义编码url格式，解码url格式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;id=3&amp;city=北京&amp;url=https://www.baidu.com&#x27;</span></span><br><span class="line"><span class="keyword">var</span> escaped = querystring.<span class="built_in">escape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(escaped)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;id%3D3%26city%3D%E5%8C%97%E4%BA%AC%26url%3Dhttps%3A%2F%2Fwww.baidu.com&#x27;</span></span><br><span class="line"><span class="keyword">var</span> unescaped = querystring.<span class="built_in">unescape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(unescaped)</span><br></pre></td></tr></table></figure>
-<p>还可以用来转义，当我们前端传回来的一些信息类似sql语句，如果不转义，很有可能会出现危险，防止sql注入<br><img src="/assets/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/image-20231208133105064.png"></p>
-<hr>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&quot;http&quot;)  </span><br><span class="line">const renderSTATUS = require(&quot;./module/renderSTATUS&quot;)  </span><br><span class="line">const renderHTML = require(&quot;./module/renderHTML&quot;)  </span><br><span class="line">const querystring = require(&quot;querystring&quot;)  </span><br><span class="line">const url = require(&quot;url&quot;)  </span><br><span class="line">let server = http.createServer()  </span><br><span class="line">server.on(&quot;request&quot;,(req,res)=&gt;&#123;  </span><br><span class="line">    const myUrl = new URL(req.url,&quot;http://localhost:3000&quot;)  </span><br><span class="line">    let query = querystring.parse(&quot;name=liangxiang&amp;age=19&quot;)  </span><br><span class="line">    console.log(query)//[Object: null prototype] &#123; name: &#x27;liangxiang&#x27;, age: &#x27;19&#x27; &#125;  </span><br><span class="line">    console.log(querystring.stringify(query))//name=liangxiang&amp;age=19  </span><br><span class="line">    console.log(querystring.escape(myUrl.pathname))//%2Fhome  </span><br><span class="line">    console.log(querystring.unescape(myUrl.pathname))// /home  </span><br><span class="line">    res.writeHead(renderSTATUS(myUrl.pathname),&#123;&quot;Content-Type&quot;:&quot;text/html;charset=utf8&quot;&#125;)  </span><br><span class="line">    res.write(renderHTML(myUrl.pathname))  </span><br><span class="line">    res.end()  </span><br><span class="line">&#125;)  </span><br><span class="line">server.listen(3000,()=&gt;&#123;  </span><br><span class="line">    console.log(&quot;server start&quot;)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/014-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-querystring%E6%A8%A1%E5%9D%97/" data-id="clvs5xbu400hzxco9hap35w7d" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-NodeJs/015-内置模块-http模块-jsonp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/015-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-jsonp/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.819Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> returnJsonp = <span class="built_in">require</span>(<span class="string">&quot;./module/returnJsonp&quot;</span>)  </span><br><span class="line"><span class="keyword">const</span> renderSTATUS = <span class="built_in">require</span>(<span class="string">&quot;./module/renderSTATUS&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">let</span> server = http.<span class="title function_">createServer</span>()  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&quot;request&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;  </span><br><span class="line">    <span class="keyword">let</span> myUrl = <span class="keyword">new</span> <span class="title function_">URL</span>(req.<span class="property">url</span>,<span class="string">&quot;http://localhost:3000&quot;</span>)  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(myUrl)  </span><br><span class="line">    res.<span class="title function_">writeHead</span>(<span class="title function_">renderSTATUS</span>(myUrl.<span class="property">pathname</span>),&#123;<span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;text/html;charset=utf8&quot;</span>&#125;)  </span><br><span class="line">    <span class="keyword">let</span> callback = myUrl.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&#x27;callback&#x27;</span>)  </span><br><span class="line">    res.<span class="title function_">write</span>(<span class="title function_">returnJsonp</span>(myUrl.<span class="property">pathname</span>,callback))  </span><br><span class="line">    res.<span class="title function_">end</span>()  </span><br><span class="line">&#125;)  </span><br><span class="line">  </span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;  </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server start&quot;</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">returnJsonp</span>(<span class="params">url,callback</span>)&#123;  </span><br><span class="line">    <span class="keyword">switch</span>(url)&#123;  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/home&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            &lt;!DOCTYPE html&gt;  </span></span><br><span class="line"><span class="string">			&lt;html lang=&quot;en&quot;&gt;  </span></span><br><span class="line"><span class="string">			&lt;head&gt;  </span></span><br><span class="line"><span class="string">    &lt;meta charset=&quot;UTF-8&quot;&gt;  </span></span><br><span class="line"><span class="string">    &lt;title&gt;Title&lt;/title&gt;  </span></span><br><span class="line"><span class="string">			&lt;/head&gt;  </span></span><br><span class="line"><span class="string">			&lt;body&gt;  </span></span><br><span class="line"><span class="string">			&lt;script&gt;  </span></span><br><span class="line"><span class="string">			var sc = document.createElement(&quot;script&quot;)  </span></span><br><span class="line"><span class="string">			sc.src = &quot;http://localhost:3000/api/jsonp?callback=hello&quot;  </span></span><br><span class="line"><span class="string">			document.body.appendChild(sc)  </span></span><br><span class="line"><span class="string">			function hello(res)&#123;  </span></span><br><span class="line"><span class="string">			    console.log(res)  </span></span><br><span class="line"><span class="string">			&#125;  </span></span><br><span class="line"><span class="string">			&lt;/script&gt;  </span></span><br><span class="line"><span class="string">			&lt;/body&gt;  </span></span><br><span class="line"><span class="string">			&lt;/html&gt;  </span></span><br><span class="line"><span class="string">            `</span>  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/list&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&lt;h1&gt;list页面&lt;/h1&gt;&quot;</span>  </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;/api/list&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]`</span>        </span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;/api/home&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            &#123;&quot;a&quot;:&quot;111&quot;,&quot;b&quot;:&quot;222&quot;,&quot;c&quot;:&quot;333&quot;&#125;`</span>        </span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;/api/jsonp&quot;</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">`  </span></span><br><span class="line"><span class="string">            <span class="subst">$&#123;callback&#125;</span>(<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(&#123;  </span></span></span><br><span class="line"><span class="subst"><span class="string">            <span class="string">&quot;a&quot;</span>:<span class="string">&quot;111&quot;</span>,<span class="string">&quot;b&quot;</span>:<span class="string">&quot;222&quot;</span>,<span class="string">&quot;c&quot;</span>:<span class="string">&quot;333&quot;</span>  </span></span></span><br><span class="line"><span class="subst"><span class="string">            &#125;)&#125;</span>)  </span></span><br><span class="line"><span class="string">            `</span>        <span class="attr">default</span>:  </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&lt;h1&gt;404&lt;/h1&gt;&quot;</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = returnJsonp</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/015-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-jsonp/" data-id="clvs5xbu500i1xco94cuw8p04" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/013-url%E6%A8%A1%E6%9D%BF%E6%96%B0%E7%89%88%E7%94%A8%E6%B3%95/" data-id="clvs63ura00n36so9b8ch9tx8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -302,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/012-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-url%E6%A8%A1%E5%9D%97/" data-id="clvs5xbu400hyxco9do7qb2mh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/012-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-url%E6%A8%A1%E5%9D%97/" data-id="clvs63ur900mx6so9die77i0t" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -340,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/010-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-1/" data-id="clvs5xbu400htxco9haf6hi2u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/010-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-1/" data-id="clvs63ur900mt6so9hmoe3spc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -375,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/011-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-2/" data-id="clvs5xbu400huxco97tj49sk4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/011-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97-http%E6%A8%A1%E5%9D%97-2/" data-id="clvs63ura00n16so9bys696g0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -411,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/009-ES%E6%A8%A1%E5%9D%97%E5%8C%96%E5%86%99%E6%B3%95/" data-id="clvs5xbu400hvxco98bqpctaz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/009-ES%E6%A8%A1%E5%9D%97%E5%8C%96%E5%86%99%E6%B3%95/" data-id="clvs63ur800ms6so96jvufmb9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -455,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/007-nrm%E4%BD%BF%E7%94%A8/" data-id="clvs5xbu400hwxco90zzs4h3y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-NodeJs/007-nrm%E4%BD%BF%E7%94%A8/" data-id="clvs63ur800mp6so98pflfd49" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

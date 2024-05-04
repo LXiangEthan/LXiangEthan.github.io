@@ -108,7 +108,39 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/049-ajax/" data-id="clvs5xbw300rbxco9hhtde513" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/049-ajax/" data-id="clvs63us600tw6so9aiqlekzk" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/047-ES6-面向对象继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/047-ES6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.584Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="string">&quot;hello&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params">name,age,grade</span>)&#123;</span><br><span class="line">	<span class="variable language_">super</span>(name,age)</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">grade</span> = grade</span><br><span class="line">	&#125;</span><br><span class="line"><span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">say</span>()</span><br><span class="line"><span class="comment">//调用父类的say</span></span><br><span class="line"><span class="comment">//覆盖父类的say</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">grade</span>,<span class="variable language_">this</span>.<span class="property">grade</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;liangxiang&quot;</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
+<p>这边我需要解释一下js中的es6的面向对象，在es6中，class虽然和java一样是一个类，但是本质上它是从ES5使用语法糖包装而来，本质上它就是一个函数所以我们在class内部是无法定义变量的，只能借助构造函数和this关键字创建变量，class的出现只是帮助我们简化继承的步骤，但是和Java中的类的含义不同，和传统的面向对象那一套是不一样的</p>
+<p>还有就是我们在js中是没有封装和多态这种东西的</p>
+<p><a href="../../Omnivore/2024-04-27/java%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6.md">面向对象的三大基本特征和五大基本原则 - 个人文章 - SegmentFault 思否</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/047-ES6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/" data-id="clvs63us600ts6so9092z5n2y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -141,39 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/048-%E5%88%9D%E8%AF%86%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" data-id="clvs5xbw300rcxco9baq5hgsw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/047-ES6-面向对象继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/047-ES6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.584Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params">name,age</span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="string">&quot;hello&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params">name,age,grade</span>)&#123;</span><br><span class="line">	<span class="variable language_">super</span>(name,age)</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">grade</span> = grade</span><br><span class="line">	&#125;</span><br><span class="line"><span class="title function_">say</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">super</span>.<span class="title function_">say</span>()</span><br><span class="line"><span class="comment">//调用父类的say</span></span><br><span class="line"><span class="comment">//覆盖父类的say</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>,<span class="variable language_">this</span>.<span class="property">grade</span>,<span class="variable language_">this</span>.<span class="property">grade</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;liangxiang&quot;</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
-<p>这边我需要解释一下js中的es6的面向对象，在es6中，class虽然和java一样是一个类，但是本质上它是从ES5使用语法糖包装而来，本质上它就是一个函数所以我们在class内部是无法定义变量的，只能借助构造函数和this关键字创建变量，class的出现只是帮助我们简化继承的步骤，但是和Java中的类的含义不同，和传统的面向对象那一套是不一样的</p>
-<p>还有就是我们在js中是没有封装和多态这种东西的</p>
-<p><a href="../../Omnivore/2024-04-27/java%20-%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%20-%20%E4%B8%AA%E4%BA%BA%E6%96%87%E7%AB%A0%20-%20SegmentFault%20%E6%80%9D%E5%90%A6.md">面向对象的三大基本特征和五大基本原则 - 个人文章 - SegmentFault 思否</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/047-ES6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/" data-id="clvs5xbw300rdxco99u1cgoqm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/048-%E5%88%9D%E8%AF%86%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" data-id="clvs63us600tt6so9hezjf28g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -206,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/044-%E6%A1%88%E4%BE%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%80%89%E9%A1%B9%E5%8D%A1/" data-id="clvs5xbw300r9xco9a9lrf8pt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/044-%E6%A1%88%E4%BE%8B-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%80%89%E9%A1%B9%E5%8D%A1/" data-id="clvs63us600tq6so9cxiqghzl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -242,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/045-ES6-class/" data-id="clvs5xbw300raxco910ne5ohd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/045-ES6-class/" data-id="clvs63us600tr6so9cxbkdwj4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -274,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/042-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98/" data-id="clvs5xbw200r7xco920eq7hih" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/042-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98/" data-id="clvs63us600to6so92jw26i8t" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -317,7 +317,36 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/043-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E5%9E%8B/" data-id="clvs5xbw200r8xco99v6h7ghh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/043-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E5%9E%8B/" data-id="clvs63us600tp6so97au3dd3g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/040-初识面向对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:40.580Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/Pasted%20image%2020230916140854.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="clvs63us500tm6so94pjmazfz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -380,36 +409,7 @@ A_test()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/039-ES6%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AF%AD%E6%B3%95/" data-id="clvs5xbw200r5xco92o3f5w5g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(前端)/大前端-javascript（下）/040-初识面向对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:40.580Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/Pasted%20image%2020230916140854.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/040-%E5%88%9D%E8%AF%86%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="clvs5xbw200r6xco9dhhwh1ng" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/039-ES6%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AF%AD%E6%B3%95/" data-id="clvs63us500tn6so915g5d0js" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -440,7 +440,7 @@ A_test()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/038-ES6%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="clvs5xbw200r4xco9cozvd5k6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E5%89%8D%E7%AB%AF)/%E5%A4%A7%E5%89%8D%E7%AB%AF-javascript%EF%BC%88%E4%B8%8B%EF%BC%89/038-ES6%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="clvs63us500tl6so932wh4wj5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

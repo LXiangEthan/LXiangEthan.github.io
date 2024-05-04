@@ -139,7 +139,7 @@ print(m[:, [1, 3, 5]])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/020-Numpy_ndarray%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87/" data-id="clvs5xbwe00tnxco9e2hh20ee" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/020-Numpy_ndarray%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87/" data-id="clvs63uoa009j6so978ofhqg6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -287,7 +287,7 @@ n
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/" data-id="clvs5xbwd00tkxco9biw00jk3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/018-%E5%88%9B%E5%BB%BAndarray%E6%95%B0%E7%BB%84/" data-id="clvs63uoa009g6so9eg29dfcm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -317,43 +317,7 @@ n
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/019-ndarray%E5%B1%9E%E6%80%A7/" data-id="clvs5xbwd00tlxco93vy98ysq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(深度学习+python基础)/Python数据分析/017-NumPy开始" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/017-NumPy%E5%BC%80%E5%A7%8B/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:42.122Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/017-NumPy%E5%BC%80%E5%A7%8B/image-20240425194606401.png"><br><img src="/assets/017-NumPy%E5%BC%80%E5%A7%8B/image-20240425194622853.png"><br>数据分析三剑客</p>
-<ul>
-<li>numpy</li>
-<li>matplotlib</li>
-<li>pandas<br>图片其实是由数字组成，三维数组</li>
-<li>RGB 0-255</li>
-<li>RGB R-红 G-绿 B-蓝<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(np.__version__)  </span><br><span class="line"><span class="comment"># 查看当前numpy的版本  </span></span><br><span class="line">cat = plt.imread(<span class="string">&quot;lena.png&quot;</span>)  </span><br><span class="line"><span class="comment"># 读取图片或者ndarray对象  </span></span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">```python  </span><br><span class="line"><span class="comment"># print(type(cat))  </span></span><br><span class="line"><span class="comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;  </span></span><br><span class="line"><span class="built_in">print</span>(cat.shape)  </span><br><span class="line"><span class="comment"># (316, 317, 4),分别代表高度316行，宽度317列，4表示通道数量，png是四通道的，jpg是三通道的  </span></span><br><span class="line"><span class="comment"># 获取图像的形状  </span></span><br><span class="line">plt.imshow(cat)  </span><br><span class="line"><span class="comment"># 显示图片  </span></span><br><span class="line"><span class="comment"># 彩色图片一般是三维（R,G,B）  </span></span><br><span class="line"><span class="comment"># 黑白图是二维（灰度图）  </span></span><br><span class="line"><span class="comment"># 视频是四维的  </span></span><br><span class="line"><span class="comment"># 一切皆数据，一切皆矩阵  </span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/017-NumPy%E5%BC%80%E5%A7%8B/" data-id="clvs5xbwd00tixco97nzl5kl1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/019-ndarray%E5%B1%9E%E6%80%A7/" data-id="clvs63uoa009i6so9858625q6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -421,7 +385,43 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/016-Jupyter_IPython%E9%AD%94%E6%B3%95%E5%91%BD%E4%BB%A4/" data-id="clvs5xbwd00tjxco95gucgu6h" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/016-Jupyter_IPython%E9%AD%94%E6%B3%95%E5%91%BD%E4%BB%A4/" data-id="clvs63uoa009f6so9fyf61tro" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(深度学习+python基础)/Python数据分析/017-NumPy开始" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/017-NumPy%E5%BC%80%E5%A7%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:42.122Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/017-NumPy%E5%BC%80%E5%A7%8B/image-20240425194606401.png"><br><img src="/assets/017-NumPy%E5%BC%80%E5%A7%8B/image-20240425194622853.png"><br>数据分析三剑客</p>
+<ul>
+<li>numpy</li>
+<li>matplotlib</li>
+<li>pandas<br>图片其实是由数字组成，三维数组</li>
+<li>RGB 0-255</li>
+<li>RGB R-红 G-绿 B-蓝<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(np.__version__)  </span><br><span class="line"><span class="comment"># 查看当前numpy的版本  </span></span><br><span class="line">cat = plt.imread(<span class="string">&quot;lena.png&quot;</span>)  </span><br><span class="line"><span class="comment"># 读取图片或者ndarray对象  </span></span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">```python  </span><br><span class="line"><span class="comment"># print(type(cat))  </span></span><br><span class="line"><span class="comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;  </span></span><br><span class="line"><span class="built_in">print</span>(cat.shape)  </span><br><span class="line"><span class="comment"># (316, 317, 4),分别代表高度316行，宽度317列，4表示通道数量，png是四通道的，jpg是三通道的  </span></span><br><span class="line"><span class="comment"># 获取图像的形状  </span></span><br><span class="line">plt.imshow(cat)  </span><br><span class="line"><span class="comment"># 显示图片  </span></span><br><span class="line"><span class="comment"># 彩色图片一般是三维（R,G,B）  </span></span><br><span class="line"><span class="comment"># 黑白图是二维（灰度图）  </span></span><br><span class="line"><span class="comment"># 视频是四维的  </span></span><br><span class="line"><span class="comment"># 一切皆数据，一切皆矩阵  </span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/017-NumPy%E5%BC%80%E5%A7%8B/" data-id="clvs63uoa009h6so9g7vq8v0w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -463,7 +463,7 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/015-Jupyter_IPthon%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%92%8C%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/" data-id="clvs5xbwd00thxco9eefwek83" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/015-Jupyter_IPthon%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%92%8C%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/" data-id="clvs63uo9009e6so9dl6t42ro" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -501,7 +501,7 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/014-Jupyter%20notebook%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-id="clvs5xbwc00tfxco93qiu996n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/014-Jupyter%20notebook%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-id="clvs63uo6009c6so90xwhgrs9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -532,7 +532,7 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/012-Jupyter%20notebook%E4%BB%8B%E7%BB%8D/" data-id="clvs5xbwd00tmxco972sp8ad8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/012-Jupyter%20notebook%E4%BB%8B%E7%BB%8D/" data-id="clvs63uo7009d6so97flhczgr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -562,7 +562,7 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/011-IPython%E4%BB%8B%E7%BB%8D/" data-id="clvs5xbwc00texco97lco5xvb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/011-IPython%E4%BB%8B%E7%BB%8D/" data-id="clvs63uo6009b6so95bax876p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -593,7 +593,7 @@ b += 11
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/009-VIP%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/" data-id="clvs5xbwc00tcxco9754qgixe" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0+python%E5%9F%BA%E7%A1%80)/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/009-VIP%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/" data-id="clvs63uo600996so9b7jlb329" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

@@ -69,42 +69,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/145-IO流（二）-字符流-FileReader,FileWriter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:37.511Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194045074.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194058147.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194141303.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ethan.H;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.Reader;  </span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="comment">//        try(Reader r = new FileReader(&quot;src/Files/demo.txt&quot;);)&#123;  </span></span><br><span class="line"><span class="comment">//            int n ;  </span></span><br><span class="line"><span class="comment">//            while((n = r.read()) != -1)&#123;  </span></span><br><span class="line"><span class="comment">//                System.out.print((char)n);  </span></span><br><span class="line"><span class="comment">//            &#125;  </span></span><br><span class="line"><span class="comment">//        &#125;  </span></span><br><span class="line"><span class="comment">//    catch(Exception e)&#123;  </span></span><br><span class="line"><span class="comment">//            e.printStackTrace();  </span></span><br><span class="line"><span class="comment">//        &#125;  </span></span><br><span class="line">        <span class="keyword">try</span>(<span class="type">Reader</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;src/Files/demo.txt&quot;</span>);)&#123;  </span><br><span class="line">            <span class="type">char</span>[] cc = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">10</span>];  </span><br><span class="line">            <span class="type">int</span> len;  </span><br><span class="line">            <span class="keyword">while</span>((len = r.read(cc)) != -<span class="number">1</span>)&#123;  </span><br><span class="line">                System.out.print(String.valueOf(cc));  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318195429351.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318195527896.png"></p>
-<hr>
-<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318200315421.png"><br>为什么会有这个问题？<br>文件字符输出流为了防止多次调用系统操作，当我们从内存的获取到数据，不会立马把数据写到文件中去，首先它会把数据放到一个缓冲区里面，最后把缓冲区的数据全部写入文件，这样优化了性能<br>不刷新或者关闭流，数据就不会从缓冲区写入文件<br>flush()刷新流,关闭流包含了刷新操作，关闭流之后不能继续使用，刷新流之后还能继续使用，缓冲区存放溢出会自动刷新</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ethan.K;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;  </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;  </span><br><span class="line"><span class="keyword">import</span> java.io.Writer;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;  </span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">w</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;src/Files/chars.txt&quot;</span>,<span class="literal">true</span>);  </span><br><span class="line">            w.write(<span class="string">&quot;hello\r\n&quot;</span>);  </span><br><span class="line">            <span class="type">char</span>[] c = <span class="keyword">new</span> <span class="title class_">char</span>[]&#123;<span class="string">&#x27;q&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;t&#x27;</span>,<span class="string">&#x27;u&#x27;</span>&#125;;  </span><br><span class="line">            w.write(c);  </span><br><span class="line">            w.write(<span class="string">&#x27;\n&#x27;</span>);  </span><br><span class="line">            w.write(c,<span class="number">1</span>,<span class="number">2</span>);  </span><br><span class="line">            w.write(<span class="string">&#x27;\n&#x27;</span>);  </span><br><span class="line">            w.write(<span class="number">97</span>);  </span><br><span class="line">            w.flush();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318201003079.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/" data-id="clvs5xbtm00eqxco9acly6uff" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/144-IO流（一）-释放资源-try-catch-finally、try-with-resource" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/144-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90-try-catch-finally%E3%80%81try-with-resource/" class="article-date">
@@ -129,7 +93,43 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/144-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90-try-catch-finally%E3%80%81try-with-resource/" data-id="clvs5xbtm00esxco9fqtohhnf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/144-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90-try-catch-finally%E3%80%81try-with-resource/" data-id="clvs63uqp00jl6so93vepetos" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/145-IO流（二）-字符流-FileReader,FileWriter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.511Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194045074.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194058147.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318194141303.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ethan.H;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;  </span><br><span class="line"><span class="keyword">import</span> java.io.Reader;  </span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line"><span class="comment">//        try(Reader r = new FileReader(&quot;src/Files/demo.txt&quot;);)&#123;  </span></span><br><span class="line"><span class="comment">//            int n ;  </span></span><br><span class="line"><span class="comment">//            while((n = r.read()) != -1)&#123;  </span></span><br><span class="line"><span class="comment">//                System.out.print((char)n);  </span></span><br><span class="line"><span class="comment">//            &#125;  </span></span><br><span class="line"><span class="comment">//        &#125;  </span></span><br><span class="line"><span class="comment">//    catch(Exception e)&#123;  </span></span><br><span class="line"><span class="comment">//            e.printStackTrace();  </span></span><br><span class="line"><span class="comment">//        &#125;  </span></span><br><span class="line">        <span class="keyword">try</span>(<span class="type">Reader</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;src/Files/demo.txt&quot;</span>);)&#123;  </span><br><span class="line">            <span class="type">char</span>[] cc = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">10</span>];  </span><br><span class="line">            <span class="type">int</span> len;  </span><br><span class="line">            <span class="keyword">while</span>((len = r.read(cc)) != -<span class="number">1</span>)&#123;  </span><br><span class="line">                System.out.print(String.valueOf(cc));  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;  </span><br><span class="line">            e.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318195429351.png"><br><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318195527896.png"></p>
+<hr>
+<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318200315421.png"><br>为什么会有这个问题？<br>文件字符输出流为了防止多次调用系统操作，当我们从内存的获取到数据，不会立马把数据写到文件中去，首先它会把数据放到一个缓冲区里面，最后把缓冲区的数据全部写入文件，这样优化了性能<br>不刷新或者关闭流，数据就不会从缓冲区写入文件<br>flush()刷新流,关闭流包含了刷新操作，关闭流之后不能继续使用，刷新流之后还能继续使用，缓冲区存放溢出会自动刷新</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ethan.K;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;  </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;  </span><br><span class="line"><span class="keyword">import</span> java.io.Writer;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;  </span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">w</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;src/Files/chars.txt&quot;</span>,<span class="literal">true</span>);  </span><br><span class="line">            w.write(<span class="string">&quot;hello\r\n&quot;</span>);  </span><br><span class="line">            <span class="type">char</span>[] c = <span class="keyword">new</span> <span class="title class_">char</span>[]&#123;<span class="string">&#x27;q&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;t&#x27;</span>,<span class="string">&#x27;u&#x27;</span>&#125;;  </span><br><span class="line">            w.write(c);  </span><br><span class="line">            w.write(<span class="string">&#x27;\n&#x27;</span>);  </span><br><span class="line">            w.write(c,<span class="number">1</span>,<span class="number">2</span>);  </span><br><span class="line">            w.write(<span class="string">&#x27;\n&#x27;</span>);  </span><br><span class="line">            w.write(<span class="number">97</span>);  </span><br><span class="line">            w.flush();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/image-20240318201003079.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/145-IO%E6%B5%81%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%AD%97%E7%AC%A6%E6%B5%81-FileReader,FileWriter/" data-id="clvs63uqp00jo6so960ljgygu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -172,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/143-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%AD%97%E8%8A%82%E6%B5%81FileOutputStream/" data-id="clvs5xbtm00eoxco9azei5xnw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/143-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%AD%97%E8%8A%82%E6%B5%81FileOutputStream/" data-id="clvs63uqp00jk6so933mn1aoe" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -205,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/141-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-IO%E6%B5%81%E6%A6%82%E8%BF%B0-%E5%AD%97%E8%8A%82%E6%B5%81-%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90%E7%9A%84%E6%96%B9%E5%BC%8F/" data-id="clvs5xbtm00elxco92awn1kvh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/141-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-IO%E6%B5%81%E6%A6%82%E8%BF%B0-%E5%AD%97%E8%8A%82%E6%B5%81-%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90%E7%9A%84%E6%96%B9%E5%BC%8F/" data-id="clvs63uqp00jj6so9gohq54l1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -241,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/142-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%AD%97%E8%8A%82%E6%B5%81FileInputStream/" data-id="clvs5xbtm00epxco92hwi421v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/142-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%AD%97%E8%8A%82%E6%B5%81FileInputStream/" data-id="clvs63uqp00jm6so9bvi3e2k3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -281,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/139-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2-%E5%95%A4%E9%85%92%E9%97%AE%E9%A2%98/" data-id="clvs5xbtl00ekxco992x2eygl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/139-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2-%E5%95%A4%E9%85%92%E9%97%AE%E9%A2%98/" data-id="clvs63uqo00jh6so9c7gdato5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -310,7 +310,39 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/140-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E5%AD%97%E7%AC%A6%E9%9B%86/" data-id="clvs5xbtm00emxco9c8tz485j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/140-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E5%AD%97%E7%AC%A6%E9%9B%86/" data-id="clvs63uqp00ji6so91s85b8ia" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/138-IO流（一）-前置知识-方法递归" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T13:48:37.507Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>方法递归如果没有退出就会陷入死循环，就会导致方法栈溢出<br><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/image-20240314154735899.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">Jcc</span><span class="params">(<span class="type">int</span> num)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(num != <span class="number">1</span>)&#123;  </span><br><span class="line">            <span class="keyword">return</span> num * Jcc(num-<span class="number">1</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="keyword">return</span> num;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        System.out.println(Jcc(<span class="number">4</span>));  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/recording.gif"><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/image-20240314160459216.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">Jcc</span><span class="params">(<span class="type">int</span> num)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (num &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="number">2</span>*(Jcc(num-<span class="number">1</span>)+<span class="number">1</span>);  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        System.out.println(Jcc(<span class="number">10</span>));  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/" data-id="clvs63uqo00jf6so928ykeg2d" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -350,39 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/137-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clvs5xbtl00ejxco918sof6sd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GeneralNotes/笔记(java后端全套)/JAVASE/138-IO流（一）-前置知识-方法递归" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/" class="article-date">
-  <time class="dt-published" datetime="2024-05-04T13:48:37.507Z" itemprop="datePublished">2024-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>方法递归如果没有退出就会陷入死循环，就会导致方法栈溢出<br><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/image-20240314154735899.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">Jcc</span><span class="params">(<span class="type">int</span> num)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(num != <span class="number">1</span>)&#123;  </span><br><span class="line">            <span class="keyword">return</span> num * Jcc(num-<span class="number">1</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="keyword">return</span> num;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        System.out.println(Jcc(<span class="number">4</span>));  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/recording.gif"><img src="/assets/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/image-20240314160459216.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">Jcc</span><span class="params">(<span class="type">int</span> num)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (num &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="number">2</span>*(Jcc(num-<span class="number">1</span>)+<span class="number">1</span>);  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  </span><br><span class="line">        System.out.println(Jcc(<span class="number">10</span>));  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/138-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86-%E6%96%B9%E6%B3%95%E9%80%92%E5%BD%92/" data-id="clvs5xbtm00enxco9dawr8rca" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/137-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clvs63uqo00jg6so9ceekeke2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -413,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/136-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E3%80%81IO%E6%B5%81%E6%A6%82%E8%BF%B0/" data-id="clvs5xbtl00eixco90tu3b7yi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/05/04/GeneralNotes/%E7%AC%94%E8%AE%B0(java%E5%90%8E%E7%AB%AF%E5%85%A8%E5%A5%97)/JAVASE/136-IO%E6%B5%81%EF%BC%88%E4%B8%80%EF%BC%89-File%E3%80%81IO%E6%B5%81%E6%A6%82%E8%BF%B0/" data-id="clvs63uqo00je6so9b821ea0p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
