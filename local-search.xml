@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>文章测试</title>
+    <link href="/2024/09/02/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/"/>
+    <url>/2024/09/02/%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这是一个测试文章，看到这篇文章表示文章发布成功"><a href="#这是一个测试文章，看到这篇文章表示文章发布成功" class="headerlink" title="这是一个测试文章，看到这篇文章表示文章发布成功"></a>这是一个测试文章，看到这篇文章表示文章发布成功</h1>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo</title>
+    <link href="/2024/09/01/Hexo/"/>
+    <url>/2024/09/01/Hexo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello Hexo"></a>Hello Hexo</h1><p>当你看到这个页面的时候你已经成功运行了Hexo<br>对于Hexo博客如果修改请先删除前面的程序否则可能会出现一系列的bug<br>比如粘贴图片时候找不到图片的路径<br><img src="/2024/09/01/Hexo/Clip_2024-09-01_21-08-08.png" alt="alt text"><br>每次提交博客请先执行</p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo c &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p>网络问题请打开Tun模式，因为Github服务器经常抽风<br>使用vscode效果更好<br>因为需要多次修改里面的一些配置文件等等···<br>接下来就是我们的Hexo之旅，诸位道友请同行</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
